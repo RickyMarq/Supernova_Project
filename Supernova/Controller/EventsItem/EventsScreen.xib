@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventsItem" customModule="Supernova" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="JIl-Vw-Vfy"/>
+                <outlet property="youtubePlayer" destination="lIN-iI-sIL" id="6EY-21-wxd"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lIN-iI-sIL" customClass="YTPlayerView">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="250"/>
+                    <color key="backgroundColor" systemColor="linkColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="V3X-fd-0JB"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="lIN-iI-sIL" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="P9G-TG-of7"/>
+                <constraint firstItem="lIN-iI-sIL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="SyK-53-FZ5"/>
+                <constraint firstItem="lIN-iI-sIL" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="se9-2Z-W6y"/>
+            </constraints>
+            <point key="canvasLocation" x="-375" y="-41"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

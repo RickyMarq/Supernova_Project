@@ -1,0 +1,177 @@
+//
+//  NewsCell.swift
+//  Supernova
+//
+//  Created by Henrique Marques on 26/02/23.
+//
+
+import SkeletonView
+import UIKit
+import GoogleMobileAds
+
+class NewsCell: UICollectionViewCell {
+    
+    static let identifier = "NewsCell"
+    
+    override var isHighlighted: Bool {
+        didSet {
+            contentView.alpha = isHighlighted ? 0.8 : 1.0
+        }
+    }
+    
+    lazy var newsImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.isSkeletonable = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleToFill
+        imageView.layer.masksToBounds = true
+        return imageView
+    }()
+    
+    lazy var newsProviderLabel: UILabel = {
+        let label = UILabel()
+        label.isSkeletonable = true
+        label.linesCornerRadius = 7
+        label.skeletonTextNumberOfLines = 1
+        label.skeletonLineSpacing = 5
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .secondaryLabel
+        label.font = .systemFont(ofSize: 14, weight: .bold)
+        return label
+    }()
+    
+    lazy var newsNameLabel: UILabel = {
+        let label = UILabel()
+        label.isSkeletonable = true
+        label.linesCornerRadius = 7
+        label.skeletonTextNumberOfLines = 2
+        label.skeletonLineSpacing = 5
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .label
+        label.textAlignment = .left
+        label.numberOfLines = 2
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.lineBreakMode = .byWordWrapping
+        return label
+    }()
+    
+    lazy var newsDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.isSkeletonable = true
+        label.linesCornerRadius = 7
+        label.skeletonTextNumberOfLines = 2
+        label.skeletonLineSpacing = 5
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .secondaryLabel
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.lineBreakMode = .byWordWrapping
+        return label
+    }()
+    
+    lazy var newsDateLabel: UILabel = {
+        let label = UILabel()
+        label.isSkeletonable = true
+        label.linesCornerRadius = 7
+        label.skeletonTextNumberOfLines = 1
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .left
+        label.textColor = .tertiaryLabel
+        return label
+    }()
+    
+    func configCell(with data: NewsModel) {
+        self.newsImageView.sd_setImage(with: URL(string: data.imageUrl ?? "Error"))
+        self.newsProviderLabel.text = data.newsSite
+        self.newsNameLabel.text = data.title
+        self.newsDescriptionLabel.text = data.title
+        
+        let index = data.publishedAt?.replacingOccurrences(of: ".000Z", with: " ")
+        let ind = index?.replacingOccurrences(of: "T", with: " ")
+        self.newsDateLabel.text = "Pusblished at: \(ind ?? "Not founded")"
+    }
+    
+    func configCellEvents(with data: ResultedEvents) {
+        self.newsImageView.sd_setImage(with: URL(string: data.featureImage ?? "Error"))
+//        self.newsProviderLabel.text = data.newsSite
+        self.newsNameLabel.text = data.name
+        self.newsDescriptionLabel.text = data.description
+        
+        let index = data.date?.replacingOccurrences(of: ":00Z", with: " ")
+        let ind = index?.replacingOccurrences(of: "T", with: " ")
+        self.newsDateLabel.text = "Pusblished at: \(ind ?? "Not founded")"
+    }
+    
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initViewCode()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+}
+
+extension NewsCell: ViewCode {
+  
+    func configureSubViews() {
+        self.contentView.addSubview(self.newsImageView)
+        self.contentView.addSubview(self.newsProviderLabel)
+        self.contentView.addSubview(self.newsNameLabel)
+        self.contentView.addSubview(self.newsDescriptionLabel)
+        self.contentView.addSubview(self.newsDateLabel)
+//        self.contentView.addSubview(self.adsView)
+    }
+    
+    func configureConstraints() {
+        NSLayoutConstraint.activate([
+        
+            self.newsProviderLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+            self.newsProviderLabel.leftAnchor.constraint(equalTo: self.newsNameLabel.leftAnchor),
+            self.newsProviderLabel.rightAnchor.constraint(equalTo: self.newsNameLabel.rightAnchor),
+            
+            self.newsNameLabel.topAnchor.constraint(equalTo: self.newsProviderLabel.bottomAnchor, constant: 12),
+            self.newsNameLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12),
+            self.newsNameLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -12),
+            
+            self.newsImageView.topAnchor.constraint(equalTo: self.newsNameLabel.bottomAnchor, constant: 12),
+            self.newsImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.newsImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.newsImageView.heightAnchor.constraint(equalToConstant: 200),
+        
+            
+            self.newsDescriptionLabel.topAnchor.constraint(equalTo: self.newsImageView.bottomAnchor, constant: 8),
+            self.newsDescriptionLabel.leftAnchor.constraint(equalTo: self.newsNameLabel.leftAnchor),
+            self.newsDescriptionLabel.rightAnchor.constraint(equalTo: self.newsNameLabel.rightAnchor),
+            self.newsDescriptionLabel.heightAnchor.constraint(equalToConstant: 50),
+
+            self.newsDateLabel.topAnchor.constraint(equalTo: self.bottomAnchor, constant: -40),
+            self.newsDateLabel.leftAnchor.constraint(equalTo: self.newsDescriptionLabel.leftAnchor),
+            self.newsDateLabel.rightAnchor.constraint(equalTo: self.newsDescriptionLabel.rightAnchor),
+            
+//            self.adsView.topAnchor.constraint(equalTo: self.topAnchor),
+//            self.adsView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+//            self.adsView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+//            self.adsView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+        ])
+    }
+    
+    func configureAdditionalBehaviors() {
+        self.isSkeletonable = true
+        self.backgroundColor = .secondarySystemBackground
+        self.setShadow(view: self)
+//        self.layer.masksToBounds = true
+//        self.layer.cornerRadius = 12
+
+    }
+    
+    func configureAccessibility() {
+        
+    }
+    
+    
+}
+
+
