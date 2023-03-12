@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class ExploreCollectionCell: UICollectionViewCell {
     
@@ -15,6 +16,7 @@ class ExploreCollectionCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleToFill
+        imageView.isSkeletonable = true
         return imageView
     }()
     
@@ -43,12 +45,13 @@ class ExploreCollectionCell: UICollectionViewCell {
     lazy var itemLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .secondaryLabel
+        label.textColor = .label
         label.font = .systemFont(ofSize: 20, weight: .semibold)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .left
         label.text = "Teste"
+        label.isSkeletonable = true
         return label
     }()
     
@@ -93,7 +96,6 @@ extension ExploreCollectionCell: ViewCode {
             
             self.contentViewLabel.topAnchor.constraint(equalTo: self.contentImageView.topAnchor),
 //            self.contentViewLabel.bottomAnchor.constraint(equalTo: self.contentImageView.bottomAnchor),
-            
 //            self.contentViewLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
 //            self.contentViewLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
@@ -115,10 +117,8 @@ extension ExploreCollectionCell: ViewCode {
     }
     
     func configureAdditionalBehaviors() {
+        self.isSkeletonable = true
         self.backgroundColor = .secondarySystemBackground
-        DispatchQueue.main.async {
-             self.contentViewLabel.layer.insertSublayer(self.gradient, at: .min)
-        }
         self.layer.masksToBounds = true
         self.clipsToBounds = true
         self.layer.cornerRadius = 10

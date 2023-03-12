@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1D227641299AF9AF00E6E113 /* lauchscreen.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D227640299AF9AE00E6E113 /* lauchscreen.json */; };
+		1D2C1D1229B0BA8C007957AA /* TitleReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2C1D1129B0BA8C007957AA /* TitleReusable.swift */; };
 		1D2DB1CF29A17B27007E02ED /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB1CE29A17B27007E02ED /* UIColor+Extension.swift */; };
 		1D2DB1D129A1830B007E02ED /* stars.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D2DB1D029A1830A007E02ED /* stars.json */; };
+		1D30110E29B77C2C00592206 /* FutureLaunchesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D30110D29B77C2C00592206 /* FutureLaunchesHeader.swift */; };
 		1D4387E22982F51E00640AE6 /* HomeItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4387E12982F51E00640AE6 /* HomeItemsModel.swift */; };
 		1D4387E52983074400640AE6 /* SectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4387E42983074400640AE6 /* SectionController.swift */; };
 		1D4387E72983229C00640AE6 /* SectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4387E62983229C00640AE6 /* SectionScreen.swift */; };
@@ -25,11 +27,10 @@
 		1D59255429898FD000F2A0EE /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59255329898FD000F2A0EE /* NewsModel.swift */; };
 		1D5F0AEB29AAB67000AB229F /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 1D5F0AEA29AAB67000AB229F /* GoogleMobileAds */; };
 		1D5F0AED29AAC48F00AB229F /* AdsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5F0AEC29AAC48F00AB229F /* AdsCollectionCell.swift */; };
-		1D6EF607298C7C5000280061 /* SavedNewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EF606298C7C5000280061 /* SavedNewsController.swift */; };
-		1D6EF609298C7C6A00280061 /* SavedNewsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EF608298C7C6A00280061 /* SavedNewsScreen.swift */; };
 		1D71319F29A41E5E0020AC1B /* PicturesOfTheDaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D71319E29A41E5E0020AC1B /* PicturesOfTheDaysCell.swift */; };
 		1D7131A129A45FBE0020AC1B /* PageControlFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7131A029A45FBE0020AC1B /* PageControlFooter.swift */; };
 		1D7BF5C529A3B5690097B6ED /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF5C429A3B5690097B6ED /* UIButton+Extension.swift */; };
+		1D87BE7B29B7BF88000C081E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D87BE7A29B7BF88000C081E /* String+Extension.swift */; };
 		1D89F0BF2983F5AD00DF67F8 /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D89F0BE2983F5AD00DF67F8 /* NewsController.swift */; };
 		1D89F0C12983F5DF00DF67F8 /* NewsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D89F0C02983F5DF00DF67F8 /* NewsScreen.swift */; };
 		1D89F0C4298400C200DF67F8 /* WhatsNewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D89F0C3298400C200DF67F8 /* WhatsNewController.swift */; };
@@ -42,8 +43,12 @@
 		1D89F0D82984362900DF67F8 /* AboutTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D89F0D72984362900DF67F8 /* AboutTableCell.swift */; };
 		1D89F0DA298437E100DF67F8 /* AboutTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D89F0D9298437E100DF67F8 /* AboutTableHeader.swift */; };
 		1D89F0E52984831B00DF67F8 /* AboutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D89F0E42984831B00DF67F8 /* AboutModel.swift */; };
-		1D91BC552999D69400075AE8 /* LauchesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91BC542999D69400075AE8 /* LauchesController.swift */; };
-		1D91BC572999D70100075AE8 /* LauchesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91BC562999D70100075AE8 /* LauchesScreen.swift */; };
+		1D91BC552999D69400075AE8 /* LaunchesItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91BC542999D69400075AE8 /* LaunchesItemController.swift */; };
+		1D91BC572999D70100075AE8 /* LaunchesItemScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91BC562999D70100075AE8 /* LaunchesItemScreen.swift */; };
+		1DA0D09729B3724B00D5AD85 /* NasaObservatoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0D09629B3724B00D5AD85 /* NasaObservatoryController.swift */; };
+		1DA0D09929B3726D00D5AD85 /* NasaObservatoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0D09829B3726D00D5AD85 /* NasaObservatoryScreen.swift */; };
+		1DA0D09E29B3867700D5AD85 /* NasaObservatoryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0D09D29B3867700D5AD85 /* NasaObservatoryLayout.swift */; };
+		1DA0D0A229B389F200D5AD85 /* NasaObservatoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0D0A129B389F200D5AD85 /* NasaObservatoryCell.swift */; };
 		1DA245BF29ABA56E00ECB0A2 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA245BE29ABA56E00ECB0A2 /* NewsCell.swift */; };
 		1DA2A882298A97B00053B441 /* NewsFooterLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA2A881298A97B00053B441 /* NewsFooterLoading.swift */; };
 		1DA2A884298A99F90053B441 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA2A883298A99F90053B441 /* OnboardingController.swift */; };
@@ -92,7 +97,7 @@
 		1DE8FF97297F40990054026B /* PictureOfTheDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8FF96297F40990054026B /* PictureOfTheDayModel.swift */; };
 		1DE8FF99297F42050054026B /* NasaInternetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8FF98297F42050054026B /* NasaInternetService.swift */; };
 		1DE8FF9E297F46050054026B /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1DE8FF9D297F46050054026B /* SDWebImage */; };
-		1DE8FFA129808B610054026B /* LauchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8FFA029808B610054026B /* LauchController.swift */; };
+		1DE8FFA129808B610054026B /* LaunchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8FFA029808B610054026B /* LaunchController.swift */; };
 		1DE8FFA329808BB40054026B /* LauchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8FFA229808BB40054026B /* LauchScreen.swift */; };
 		1DE8FFA82980C2760054026B /* NasaPictureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8FFA72980C2750054026B /* NasaPictureController.swift */; };
 		1DE8FFAA2980C2C70054026B /* NasaPictureScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8FFA92980C2C70054026B /* NasaPictureScreen.swift */; };
@@ -101,8 +106,11 @@
 		1DF09D9F29ABBA6200BCCE5E /* NewsTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF09D9E29ABBA6200BCCE5E /* NewsTextCell.swift */; };
 		1DF09DA429AD3A1800BCCE5E /* EventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF09DA329AD3A1800BCCE5E /* EventsController.swift */; };
 		1DF09DA729AE181300BCCE5E /* EventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF09DA629AE181300BCCE5E /* EventsCell.swift */; };
-		1DF09DA929AEEB1B00BCCE5E /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF09DA829AEEB1B00BCCE5E /* UICollectionView+Extension.swift */; };
 		1DF09DAC29AF77F900BCCE5E /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF09DAB29AF77F900BCCE5E /* OnboardingViewModel.swift */; };
+		1DF09DAF29AFB1A000BCCE5E /* LauchesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF09DAE29AFB1A000BCCE5E /* LauchesController.swift */; };
+		1DF09DB129AFB25A00BCCE5E /* LaunchesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF09DB029AFB25A00BCCE5E /* LaunchesScreen.swift */; };
+		1DF09DB429AFBB1800BCCE5E /* HMSegmentedControl in Frameworks */ = {isa = PBXBuildFile; productRef = 1DF09DB329AFBB1800BCCE5E /* HMSegmentedControl */; };
+		1DF09DB729AFCDAF00BCCE5E /* LaunchesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF09DB629AFCDAF00BCCE5E /* LaunchesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -122,8 +130,10 @@
 		1D1B64EF29A2C594003BB8F1 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		1D1B64F129A2C594003BB8F1 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		1D227640299AF9AE00E6E113 /* lauchscreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lauchscreen.json; sourceTree = "<group>"; };
+		1D2C1D1129B0BA8C007957AA /* TitleReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleReusable.swift; sourceTree = "<group>"; };
 		1D2DB1CE29A17B27007E02ED /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		1D2DB1D029A1830A007E02ED /* stars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stars.json; sourceTree = "<group>"; };
+		1D30110D29B77C2C00592206 /* FutureLaunchesHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureLaunchesHeader.swift; sourceTree = "<group>"; };
 		1D4387E12982F51E00640AE6 /* HomeItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemsModel.swift; sourceTree = "<group>"; };
 		1D4387E42983074400640AE6 /* SectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionController.swift; sourceTree = "<group>"; };
 		1D4387E62983229C00640AE6 /* SectionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionScreen.swift; sourceTree = "<group>"; };
@@ -138,11 +148,10 @@
 		1D59255029894CEF00F2A0EE /* HomeCollectionCellImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionCellImage.swift; sourceTree = "<group>"; };
 		1D59255329898FD000F2A0EE /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		1D5F0AEC29AAC48F00AB229F /* AdsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsCollectionCell.swift; sourceTree = "<group>"; };
-		1D6EF606298C7C5000280061 /* SavedNewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedNewsController.swift; sourceTree = "<group>"; };
-		1D6EF608298C7C6A00280061 /* SavedNewsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedNewsScreen.swift; sourceTree = "<group>"; };
 		1D71319E29A41E5E0020AC1B /* PicturesOfTheDaysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesOfTheDaysCell.swift; sourceTree = "<group>"; };
 		1D7131A029A45FBE0020AC1B /* PageControlFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlFooter.swift; sourceTree = "<group>"; };
 		1D7BF5C429A3B5690097B6ED /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		1D87BE7A29B7BF88000C081E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		1D89F0BE2983F5AD00DF67F8 /* NewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
 		1D89F0C02983F5DF00DF67F8 /* NewsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsScreen.swift; sourceTree = "<group>"; };
 		1D89F0C3298400C200DF67F8 /* WhatsNewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewController.swift; sourceTree = "<group>"; };
@@ -155,8 +164,12 @@
 		1D89F0D72984362900DF67F8 /* AboutTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableCell.swift; sourceTree = "<group>"; };
 		1D89F0D9298437E100DF67F8 /* AboutTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableHeader.swift; sourceTree = "<group>"; };
 		1D89F0E42984831B00DF67F8 /* AboutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutModel.swift; sourceTree = "<group>"; };
-		1D91BC542999D69400075AE8 /* LauchesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauchesController.swift; sourceTree = "<group>"; };
-		1D91BC562999D70100075AE8 /* LauchesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauchesScreen.swift; sourceTree = "<group>"; };
+		1D91BC542999D69400075AE8 /* LaunchesItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesItemController.swift; sourceTree = "<group>"; };
+		1D91BC562999D70100075AE8 /* LaunchesItemScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesItemScreen.swift; sourceTree = "<group>"; };
+		1DA0D09629B3724B00D5AD85 /* NasaObservatoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaObservatoryController.swift; sourceTree = "<group>"; };
+		1DA0D09829B3726D00D5AD85 /* NasaObservatoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaObservatoryScreen.swift; sourceTree = "<group>"; };
+		1DA0D09D29B3867700D5AD85 /* NasaObservatoryLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaObservatoryLayout.swift; sourceTree = "<group>"; };
+		1DA0D0A129B389F200D5AD85 /* NasaObservatoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaObservatoryCell.swift; sourceTree = "<group>"; };
 		1DA245BE29ABA56E00ECB0A2 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		1DA2A881298A97B00053B441 /* NewsFooterLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFooterLoading.swift; sourceTree = "<group>"; };
 		1DA2A883298A99F90053B441 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
@@ -203,7 +216,7 @@
 		1DE8FF94297F3EE50054026B /* UpcomingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingModel.swift; sourceTree = "<group>"; };
 		1DE8FF96297F40990054026B /* PictureOfTheDayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOfTheDayModel.swift; sourceTree = "<group>"; };
 		1DE8FF98297F42050054026B /* NasaInternetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaInternetService.swift; sourceTree = "<group>"; };
-		1DE8FFA029808B610054026B /* LauchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauchController.swift; sourceTree = "<group>"; };
+		1DE8FFA029808B610054026B /* LaunchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchController.swift; sourceTree = "<group>"; };
 		1DE8FFA229808BB40054026B /* LauchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauchScreen.swift; sourceTree = "<group>"; };
 		1DE8FFA72980C2750054026B /* NasaPictureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaPictureController.swift; sourceTree = "<group>"; };
 		1DE8FFA92980C2C70054026B /* NasaPictureScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaPictureScreen.swift; sourceTree = "<group>"; };
@@ -212,8 +225,10 @@
 		1DF09D9E29ABBA6200BCCE5E /* NewsTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTextCell.swift; sourceTree = "<group>"; };
 		1DF09DA329AD3A1800BCCE5E /* EventsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsController.swift; sourceTree = "<group>"; };
 		1DF09DA629AE181300BCCE5E /* EventsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCell.swift; sourceTree = "<group>"; };
-		1DF09DA829AEEB1B00BCCE5E /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		1DF09DAB29AF77F900BCCE5E /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		1DF09DAE29AFB1A000BCCE5E /* LauchesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauchesController.swift; sourceTree = "<group>"; };
+		1DF09DB029AFB25A00BCCE5E /* LaunchesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesScreen.swift; sourceTree = "<group>"; };
+		1DF09DB629AFCDAF00BCCE5E /* LaunchesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +238,7 @@
 			files = (
 				1DE8FF9E297F46050054026B /* SDWebImage in Frameworks */,
 				1DD37EC429944AA700C918EC /* SkeletonView in Frameworks */,
+				1DF09DB429AFBB1800BCCE5E /* HMSegmentedControl in Frameworks */,
 				1D5F0AEB29AAB67000AB229F /* GoogleMobileAds in Frameworks */,
 				1DA2A88C298AA2300053B441 /* Lottie in Frameworks */,
 				1DE38AE3299A76B2002B5D4C /* YouTubeiOSPlayerHelper in Frameworks */,
@@ -239,6 +255,17 @@
 				1D1B64F129A2C594003BB8F1 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1D30110F29B77C8300592206 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				1D2C1D1129B0BA8C007957AA /* TitleReusable.swift */,
+				1D30110D29B77C2C00592206 /* FutureLaunchesHeader.swift */,
+				1D7131A029A45FBE0020AC1B /* PageControlFooter.swift */,
+				1DE0C261299040BA003E18AE /* TitleCollection.swift */,
+			);
+			path = ReusableViews;
 			sourceTree = "<group>";
 		};
 		1D4387E32983072800640AE6 /* Explore */ = {
@@ -288,15 +315,6 @@
 				1D59255329898FD000F2A0EE /* NewsModel.swift */,
 			);
 			path = NewsModel;
-			sourceTree = "<group>";
-		};
-		1D6EF605298C7C3600280061 /* SavedNews */ = {
-			isa = PBXGroup;
-			children = (
-				1D6EF606298C7C5000280061 /* SavedNewsController.swift */,
-				1D6EF608298C7C6A00280061 /* SavedNewsScreen.swift */,
-			);
-			path = SavedNews;
 			sourceTree = "<group>";
 		};
 		1D89F0BD2983F59700DF67F8 /* News */ = {
@@ -368,10 +386,28 @@
 		1D91BC532999D67600075AE8 /* Lauches */ = {
 			isa = PBXGroup;
 			children = (
-				1D91BC542999D69400075AE8 /* LauchesController.swift */,
-				1D91BC562999D70100075AE8 /* LauchesScreen.swift */,
+				1D91BC542999D69400075AE8 /* LaunchesItemController.swift */,
+				1D91BC562999D70100075AE8 /* LaunchesItemScreen.swift */,
 			);
 			path = Lauches;
+			sourceTree = "<group>";
+		};
+		1DA0D09529B3722500D5AD85 /* Nasa Observatory */ = {
+			isa = PBXGroup;
+			children = (
+				1DA0D0A029B389DA00D5AD85 /* Cell */,
+				1DA0D09629B3724B00D5AD85 /* NasaObservatoryController.swift */,
+				1DA0D09829B3726D00D5AD85 /* NasaObservatoryScreen.swift */,
+			);
+			path = "Nasa Observatory";
+			sourceTree = "<group>";
+		};
+		1DA0D0A029B389DA00D5AD85 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1DA0D0A129B389F200D5AD85 /* NasaObservatoryCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		1DA2A887298A9AE20053B441 /* Cell */ = {
@@ -459,6 +495,8 @@
 		1DE8FF6D297EEABE0054026B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				1D89F0D1298426D600DF67F8 /* About */,
+				1D89F0C22984009300DF67F8 /* WhatsNew */,
 				1DE8FF6E297EEACC0054026B /* SettingsModel */,
 				1DE8FF79297EEE6A0054026B /* Cells */,
 				1DE8FF73297EECA30054026B /* SettingsController.swift */,
@@ -497,7 +535,8 @@
 				1DD37EC62995FDD400C918EC /* UIViewController+Extension.swift */,
 				1D2DB1CE29A17B27007E02ED /* UIColor+Extension.swift */,
 				1D7BF5C429A3B5690097B6ED /* UIButton+Extension.swift */,
-				1DF09DA829AEEB1B00BCCE5E /* UICollectionView+Extension.swift */,
+				1DA0D09D29B3867700D5AD85 /* NasaObservatoryLayout.swift */,
+				1D87BE7A29B7BF88000C081E /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -527,11 +566,12 @@
 		1DE8FF84297EFB360054026B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1DA0D09529B3722500D5AD85 /* Nasa Observatory */,
+				1DF09DAD29AFB17800BCCE5E /* LauchesController */,
 				1DF09DA229AD33EB00BCCE5E /* EventsController */,
 				1DC400BC299C42A5006279B8 /* MainController */,
 				1DE38AE4299A776A002B5D4C /* EventsItem */,
 				1D91BC532999D67600075AE8 /* Lauches */,
-				1D6EF605298C7C3600280061 /* SavedNews */,
 				1D89F0BD2983F59700DF67F8 /* News */,
 				1D4387E32983072800640AE6 /* Explore */,
 				1DE8FFAB298167BD0054026B /* ImageViewer */,
@@ -541,8 +581,6 @@
 				1DE8FF82297EFAEB0054026B /* Home */,
 				1DE8FF9F29808AE90054026B /* LauchController */,
 				1DE8FF6D297EEABE0054026B /* Settings */,
-				1D89F0C22984009300DF67F8 /* WhatsNew */,
-				1D89F0D1298426D600DF67F8 /* About */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -558,12 +596,11 @@
 		1DE8FF8A297F11710054026B /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				1D30110F29B77C8300592206 /* ReusableViews */,
 				1D59254E2988ACC600F2A0EE /* NewsCollectionCell.swift */,
 				1D59255029894CEF00F2A0EE /* HomeCollectionCellImage.swift */,
-				1DE0C261299040BA003E18AE /* TitleCollection.swift */,
 				1DD37EBA2993D5E800C918EC /* ButtonCollectionCell.swift */,
 				1D71319E29A41E5E0020AC1B /* PicturesOfTheDaysCell.swift */,
-				1D7131A029A45FBE0020AC1B /* PageControlFooter.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -603,7 +640,7 @@
 		1DE8FF9F29808AE90054026B /* LauchController */ = {
 			isa = PBXGroup;
 			children = (
-				1DE8FFA029808B610054026B /* LauchController.swift */,
+				1DE8FFA029808B610054026B /* LaunchController.swift */,
 				1DE8FFA229808BB40054026B /* LauchScreen.swift */,
 			);
 			path = LauchController;
@@ -653,6 +690,24 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		1DF09DAD29AFB17800BCCE5E /* LauchesController */ = {
+			isa = PBXGroup;
+			children = (
+				1DF09DB529AFCD9200BCCE5E /* Cell */,
+				1DF09DAE29AFB1A000BCCE5E /* LauchesController.swift */,
+				1DF09DB029AFB25A00BCCE5E /* LaunchesScreen.swift */,
+			);
+			path = LauchesController;
+			sourceTree = "<group>";
+		};
+		1DF09DB529AFCD9200BCCE5E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1DF09DB629AFCDAF00BCCE5E /* LaunchesCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -676,6 +731,7 @@
 				1DD37EC329944AA700C918EC /* SkeletonView */,
 				1DE38AE2299A76B2002B5D4C /* YouTubeiOSPlayerHelper */,
 				1D5F0AEA29AAB67000AB229F /* GoogleMobileAds */,
+				1DF09DB329AFBB1800BCCE5E /* HMSegmentedControl */,
 			);
 			productName = Supernova;
 			productReference = 1DE8FF55297EE9710054026B /* Supernova.app */;
@@ -711,6 +767,7 @@
 				1DD37EC229944AA700C918EC /* XCRemoteSwiftPackageReference "SkeletonView" */,
 				1DE38AE1299A76B2002B5D4C /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
 				1D5F0AE929AAB67000AB229F /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				1DF09DB229AFBB1700BCCE5E /* XCRemoteSwiftPackageReference "HMSegmentedControl" */,
 			);
 			productRefGroup = 1DE8FF56297EE9710054026B /* Products */;
 			projectDirPath = "";
@@ -746,7 +803,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DF09DB129AFB25A00BCCE5E /* LaunchesScreen.swift in Sources */,
+				1DA0D09729B3724B00D5AD85 /* NasaObservatoryController.swift in Sources */,
 				1DE0C26029900CCF003E18AE /* UIView+Extension.swift in Sources */,
+				1D87BE7B29B7BF88000C081E /* String+Extension.swift in Sources */,
 				1DE8FF7D297EEEA00054026B /* StaticTableCell.swift in Sources */,
 				1DE8FF74297EECA30054026B /* SettingsController.swift in Sources */,
 				1DE8FF97297F40990054026B /* PictureOfTheDayModel.swift in Sources */,
@@ -761,14 +821,15 @@
 				1DD37EBB2993D5E900C918EC /* ButtonCollectionCell.swift in Sources */,
 				1D4387F6298389B400640AE6 /* SpaceDevsInternetServices.swift in Sources */,
 				1DE8FF8F297F3DE00054026B /* SpaceExInternetServices.swift in Sources */,
+				1DF09DAF29AFB1A000BCCE5E /* LauchesController.swift in Sources */,
 				1D89F0BF2983F5AD00DF67F8 /* NewsController.swift in Sources */,
 				1DE8FF78297EED2E0054026B /* ViewCodeManager.swift in Sources */,
-				1DF09DA929AEEB1B00BCCE5E /* UICollectionView+Extension.swift in Sources */,
 				1D59255129894CEF00F2A0EE /* HomeCollectionCellImage.swift in Sources */,
+				1DA0D0A229B389F200D5AD85 /* NasaObservatoryCell.swift in Sources */,
 				1D7131A129A45FBE0020AC1B /* PageControlFooter.swift in Sources */,
 				1DF09D9F29ABBA6200BCCE5E /* NewsTextCell.swift in Sources */,
 				1DE38AE6299A778E002B5D4C /* EventsItem.swift in Sources */,
-				1D91BC572999D70100075AE8 /* LauchesScreen.swift in Sources */,
+				1D91BC572999D70100075AE8 /* LaunchesItemScreen.swift in Sources */,
 				1D4387F02983520E00640AE6 /* CrewModel.swift in Sources */,
 				1D4387EE29833ED500640AE6 /* DragonsModel.swift in Sources */,
 				1DD37EC72995FDD400C918EC /* UIViewController+Extension.swift in Sources */,
@@ -783,17 +844,18 @@
 				1DE0C25E298F96C7003E18AE /* AppLayouts.swift in Sources */,
 				1D89F0C4298400C200DF67F8 /* WhatsNewController.swift in Sources */,
 				1D71319F29A41E5E0020AC1B /* PicturesOfTheDaysCell.swift in Sources */,
-				1D6EF609298C7C6A00280061 /* SavedNewsScreen.swift in Sources */,
 				1DE8FF7F297EF6B00054026B /* SettingsFooter.swift in Sources */,
 				1D59254F2988ACC600F2A0EE /* NewsCollectionCell.swift in Sources */,
-				1DE8FFA129808B610054026B /* LauchController.swift in Sources */,
+				1DA0D09929B3726D00D5AD85 /* NasaObservatoryScreen.swift in Sources */,
+				1DE8FFA129808B610054026B /* LaunchController.swift in Sources */,
 				1D89F0D029840B7A00DF67F8 /* WhatsNewSection.swift in Sources */,
 				1D89F0D5298426FF00DF67F8 /* AboutScreen.swift in Sources */,
 				1DA2A889298A9AF90053B441 /* OnboardingCell.swift in Sources */,
 				1DF09DA429AD3A1800BCCE5E /* EventsController.swift in Sources */,
 				1DA2A884298A99F90053B441 /* OnboardingController.swift in Sources */,
 				1DE8FFAA2980C2C70054026B /* NasaPictureScreen.swift in Sources */,
-				1D91BC552999D69400075AE8 /* LauchesController.swift in Sources */,
+				1D91BC552999D69400075AE8 /* LaunchesItemController.swift in Sources */,
+				1D30110E29B77C2C00592206 /* FutureLaunchesHeader.swift in Sources */,
 				1DE8FFA329808BB40054026B /* LauchScreen.swift in Sources */,
 				1D4387E22982F51E00640AE6 /* HomeItemsModel.swift in Sources */,
 				1DE8FF89297F0F1D0054026B /* HomeScreen.swift in Sources */,
@@ -812,9 +874,9 @@
 				1DF09DA729AE181300BCCE5E /* EventsCell.swift in Sources */,
 				1DC400BE299C42C5006279B8 /* MainScreen.swift in Sources */,
 				1D89F0C6298400DC00DF67F8 /* WhatsNewScreen.swift in Sources */,
+				1DA0D09E29B3867700D5AD85 /* NasaObservatoryLayout.swift in Sources */,
 				1DE8FF87297EFB710054026B /* TabBarController.swift in Sources */,
 				1DE8FF5B297EE9710054026B /* SceneDelegate.swift in Sources */,
-				1D6EF607298C7C5000280061 /* SavedNewsController.swift in Sources */,
 				1DD37EBF2993E63300C918EC /* HomeSectionButtonsModel.swift in Sources */,
 				1D59254B2988A04900F2A0EE /* ExploreCollectionCell.swift in Sources */,
 				1DD37EC12994093C00C918EC /* LastLauchesModel.swift in Sources */,
@@ -822,8 +884,10 @@
 				1DE8FF99297F42050054026B /* NasaInternetService.swift in Sources */,
 				1DC400C0299C42FA006279B8 /* MainController.swift in Sources */,
 				1D4387F42983895E00640AE6 /* SpaceStationsModel.swift in Sources */,
+				1D2C1D1229B0BA8C007957AA /* TitleReusable.swift in Sources */,
 				1DA2A88E298AA2670053B441 /* OnboardingModel.swift in Sources */,
 				1D89F0DA298437E100DF67F8 /* AboutTableHeader.swift in Sources */,
+				1DF09DB729AFCDAF00BCCE5E /* LaunchesCell.swift in Sources */,
 				1D2DB1CF29A17B27007E02ED /* UIColor+Extension.swift in Sources */,
 				1DE8FF70297EEADF0054026B /* SectionModel.swift in Sources */,
 				1D4387EA2983243600640AE6 /* SectionTableCell.swift in Sources */,
@@ -894,7 +958,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -948,7 +1012,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1086,6 +1150,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		1DF09DB229AFBB1700BCCE5E /* XCRemoteSwiftPackageReference "HMSegmentedControl" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/HeshamMegid/HMSegmentedControl";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1113,6 +1185,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1DE8FF9C297F46050054026B /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		1DF09DB329AFBB1800BCCE5E /* HMSegmentedControl */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DF09DB229AFBB1700BCCE5E /* XCRemoteSwiftPackageReference "HMSegmentedControl" */;
+			productName = HMSegmentedControl;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

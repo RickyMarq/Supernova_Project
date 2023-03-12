@@ -36,9 +36,9 @@ class AboutModel {
         model.append(AboutTableSection(title: "And for all of the creators of this libraries", cell: [
             
             
-            .staticCell(model: aboutTableModel(name: "SDWebImage", link: "")),
-            .staticCell(model: aboutTableModel(name: "Lottie", link: "")),
-            .staticCell(model: aboutTableModel(name: "SkeletonView", link: ""))
+            .staticCell(model: aboutTableModel(name: "SDWebImage", link: "https://google.com")),
+            .staticCell(model: aboutTableModel(name: "Lottie", link: "https://google.com")),
+            .staticCell(model: aboutTableModel(name: "SkeletonView", link: "https://google.com"))
             
             
         ]))

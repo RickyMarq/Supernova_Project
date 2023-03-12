@@ -65,7 +65,7 @@ class OnboardingCell: UICollectionViewCell {
 extension OnboardingCell: ViewCode {
  
     func configureSubViews() {
-        self.addSubview(self.onBoardingAnimationView)
+//        self.addSubview(self.onBoardingAnimationView)
         self.addSubview(self.onBoardingAnimation)
         self.addSubview(self.OnboardingPrimaryLabel)
         self.addSubview(self.OnboardingSecondaryLabel)
@@ -74,15 +74,15 @@ extension OnboardingCell: ViewCode {
     func configureConstraints() {
         NSLayoutConstraint.activate([
         
-            self.onBoardingAnimationView.topAnchor.constraint(equalTo: onBoardingAnimation.topAnchor),
-            self.onBoardingAnimation.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.onBoardingAnimationView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.onBoardingAnimationView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.onBoardingAnimationView.heightAnchor.constraint(equalToConstant: 300),
+//            self.onBoardingAnimationView.topAnchor.constraint(equalTo: onBoardingAnimation.topAnchor),
+//            self.onBoardingAnimation.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+//            self.onBoardingAnimationView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+//            self.onBoardingAnimationView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+//            self.onBoardingAnimationView.heightAnchor.constraint(equalToConstant: 300),
 
             
-            
-            self.onBoardingAnimation.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -100),
+            self.onBoardingAnimation.topAnchor.constraint(equalTo: self.topAnchor, constant: 50),
+//            self.onBoardingAnimation.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -100),
             self.onBoardingAnimation.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.onBoardingAnimation.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             self.onBoardingAnimation.heightAnchor.constraint(equalToConstant: 250),

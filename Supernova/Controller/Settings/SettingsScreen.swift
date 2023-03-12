@@ -56,7 +56,7 @@ extension SettingsScreen: ViewCode {
     }
     
     func configureAdditionalBehaviors() {
-        self.backgroundColor = .backgroundColour
+        self.backgroundColor = .secondarySystemBackground
     }
     
     func configureAccessibility() {

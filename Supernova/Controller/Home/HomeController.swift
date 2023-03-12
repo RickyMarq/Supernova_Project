@@ -21,6 +21,7 @@ class HomeController: UIViewController {
     var pictureOfTheDay: PictureOfTheDay?
     var buttonsModel = HomeSectionButtonsModel().populateModel()
     var picturesOfTheDays = [PictureOfTheDay]()
+    var lastUpdated = ""
         
     var ind: Int = 0
     
@@ -35,6 +36,36 @@ class HomeController: UIViewController {
         self.homeScreen?.homeCollectionViewProtocols(delegate: self, dataSource: self)
         self.getCompositionalLayout()
         self.showLauchscreenAnimation()
+        // DEBUG MODE: Deixando os métodos aqui para não sobrecarregar a api.
+        
+//        self.getUpcomingLaunches()
+//        self.getLastLaunches(limit: 10)
+//          self.getFutureLaunches(limit: 15, startsAt: 0)
+//        self.getLastEvents(limit: 10, startsAt: 0)
+        self.getLastPicturesOfTheDays(limit: 7)
+        self.getNews(limit: 15)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+        self.getPictureOfTheDay()
+        self.showSkeleton()
+        self.navigationController?.navigationBar.tintColor = .primaryColour
+//       self.getLastPicturesOfTheDays(limit: 5)
+//        self.getUpcomingLaunches()
+//        self.getLastLaunches(limit: 10)
+//        self.getFutureLaunches(limit: 15, startsAt: 0)
+//        self.getLastEvents(limit: 10, startsAt: 0)
+//        self.getNews(limit: 15)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    func showSkeleton() {
+        let animation = SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: .topBottom)
+        self.homeScreen?.homeCollectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .backgroundColour), animation: animation)
     }
     
     func showLauchscreenAnimation() {
@@ -49,19 +80,6 @@ class HomeController: UIViewController {
                 self.homeScreen?.LaunchingLottieAnimation.removeFromSuperview()
             })
         }
-    }
-    
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.getPictureOfTheDay()
-        self.navigationController?.navigationBar.tintColor = .primaryColour
-        self.getLastPicturesOfTheDays(limit: 5)
-//        self.getUpcomingLaunches()
-//        self.getLastLaunches(limit: 10)
-//        self.getFutureLaunches(limit: 10)
-//       self.getLastEvents(limit: 10)
-        self.getNews(limit: 15)
     }
     
     
@@ -116,7 +134,6 @@ class HomeController: UIViewController {
                 print(error.localizedDescription)
             }
         }
-        
     }
     
     func getLastLaunches(limit: Int) {
@@ -138,13 +155,19 @@ class HomeController: UIViewController {
             }
         }
     }
-    func getFutureLaunches(limit: Int) {
-        SpaceDevsInternetServices.sharedObjc.getFutureLauches(limit: limit) { [weak self] result in
+    func getFutureLaunches(limit: Int, startsAt: Int) {
+        SpaceDevsInternetServices.sharedObjc.getFutureLauches(limit: limit, startsAt: startsAt) { [weak self] result in
             
             switch result {
             case .success(let model):
                 guard let strongSelf = self else {return}
                 strongSelf.futureLauchesObjc = model ?? []
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "hh:mm a"
+                let formattedHour = formatter.string(from: Date())
+                        
+                strongSelf.lastUpdated = formattedHour
                 
                 DispatchQueue.main.async {
                     strongSelf.homeScreen?.homeCollectionView.reloadData()
@@ -175,8 +198,8 @@ class HomeController: UIViewController {
             }
         }
     }
-    func getLastEvents(limit: Int) {
-        SpaceDevsInternetServices.sharedObjc.getLastEvents(limit: limit) { [weak self] result in
+    func getLastEvents(limit: Int, startsAt: Int) {
+        SpaceDevsInternetServices.sharedObjc.getLastEvents(limit: limit, startsAt: startsAt) { [weak self] result in
             
             switch result {
                 
@@ -201,7 +224,22 @@ class HomeController: UIViewController {
 
 
 
-extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SkeletonCollectionViewDelegate {
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> SkeletonView.ReusableCellIdentifier {
+        switch indexPath.section {
+    
+        case 2:
+            return ExploreCollectionCell.identifier
+        case 3:
+            return ExploreCollectionCell.identifier
+        case 4:
+            return NewsCollectionCell.identifier
+            
+        default: return ExploreCollectionCell.identifier
+        }
+    }
+    
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 7
@@ -255,6 +293,8 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         case 4:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsCollectionCell.identifier, for: indexPath) as? NewsCollectionCell else {return UICollectionViewCell()}
             cell.configCell(with: news[indexPath.row])
+            cell.backgroundColor = .tertiarySystemBackground
+            cell.newsProviderLabel.isHidden = false
             return cell
         case 5:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PicturesOfTheDaysCell.identifier, for: indexPath) as? PicturesOfTheDaysCell else {return UICollectionViewCell()}
@@ -265,6 +305,8 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         case 6:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsCollectionCell.identifier, for: indexPath) as? NewsCollectionCell else {return UICollectionViewCell()}
             cell.configCellEvents(with: events[indexPath.row])
+            cell.newsProviderLabel.isHidden = true
+            cell.backgroundColor = .tertiarySystemBackground
             return cell
         default: break
         }
@@ -282,7 +324,7 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
             
             switch indexPath.item {
             case 0:
-                self.navigationController?.pushViewController(WhatsNewController(), animated: true)
+                self.navigationController?.pushViewController(LaunchesController(index: 0), animated: true)
             case 1:
                 let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .soft)
                 impactFeedbackgenerator.prepare()
@@ -291,15 +333,15 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
             case 2:
                 self.navigationController?.pushViewController(EventsController(), animated: true)
             case 3:
-                print("TODO: APRESENTAR VC")
+                self.navigationController?.pushViewController(NasaObservatoryController(), animated: true)
             default: break
             }
         
         case 2:
-            let vc = LauchesController(lauches: lastLauchesObjc[indexPath.item])
+            let vc = LaunchesItemController(lauches: futureLauchesObjc[indexPath.item])
             self.navigationController?.pushViewController(vc, animated: true)
         case 3:
-            let vc = LauchesController(lauches: futureLauchesObjc[indexPath.item])
+            let vc = LaunchesItemController(lauches: lastLauchesObjc[indexPath.item])
             self.navigationController?.pushViewController(vc, animated: true)
         case 4:
             self.openSafariPageWith(url: news[indexPath.row].url ?? "Error")
@@ -320,43 +362,44 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         case UICollectionView.elementKindSectionHeader:
             
             switch indexPath.section {
-            case 0:
-                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCollection.identifier, for: indexPath) as? TitleCollection
-                header?.titleCollectionLabel.text = "Explore"
-                return header ?? UICollectionReusableView()
+                
             case 1:
-                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCollection.identifier, for: indexPath) as? TitleCollection
+                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleReusable.identifier, for: indexPath) as? TitleReusable
                 header?.titleCollectionLabel.text = "Explore"
-                header?.seeAllButton.tag = 1
-                header?.delegate(delegate: self)
                 return header ?? UICollectionReusableView()
             case 2:
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCollection.identifier, for: indexPath) as? TitleCollection
                 header?.titleCollectionLabel.text = "Future Lauches"
                 header?.seeAllButton.tag = 2
+                header?.lastUpdatedLabel.isHidden = false
+                header?.lastUpdatedLabel.text = "Last Updated at \(lastUpdated)"
                 header?.delegate(delegate: self)
                 return header ?? UICollectionReusableView()
             case 3:
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCollection.identifier, for: indexPath) as? TitleCollection
                 header?.titleCollectionLabel.text = "Past Launches"
                 header?.seeAllButton.tag = 3
+                header?.lastUpdatedLabel.isHidden = true
                 header?.delegate(delegate: self)
                 return header ?? UICollectionReusableView()
             case 4:
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCollection.identifier, for: indexPath) as? TitleCollection
                 header?.titleCollectionLabel.text = "Last News"
                 header?.seeAllButton.tag = 4
+                header?.lastUpdatedLabel.isHidden = true
                 header?.delegate(delegate: self)
                 return header ?? UICollectionReusableView()
             case 5:
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCollection.identifier, for: indexPath) as? TitleCollection
                 header?.seeAllButton.tag = 5
-                header?.titleCollectionLabel.text = "Pictures Of The Day"
+                header?.lastUpdatedLabel.isHidden = true
+                header?.titleCollectionLabel.text = "Nasa Observatory"
                 return header ?? UICollectionReusableView()
             case 6:
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCollection.identifier, for: indexPath) as? TitleCollection
                 header?.seeAllButton.tag = 6
                 header?.titleCollectionLabel.text = "Last Events"
+                header?.lastUpdatedLabel.isHidden = true
                 return header ?? UICollectionReusableView()
             default: break
             }
@@ -364,7 +407,7 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
             if indexPath.section == 5 {
                 guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: PageControlFooter.identifier, for: indexPath) as? PageControlFooter else {return UICollectionReusableView()}
 //                footer.backgroundColor = .red
-                footer.homePageControl.numberOfPages = 5
+                footer.homePageControl.numberOfPages = picturesOfTheDays.count
                 footer.homePageControl.currentPage = ind
                 return footer
             }
@@ -376,34 +419,97 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     // TODO Implementar page control funcionando corretamente.
     
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let pictureCell = cell as? PicturesOfTheDaysCell else {return}
-        
-        guard let visible = collectionView.visibleCells.last else {return}
-        guard let index = collectionView.indexPath(for: visible)?.row else {return}
-        self.ind = index
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let pictureCell = cell as? PageControlFooter else {return}
-        
-        guard let visible = collectionView.visibleCells.last else {return}
-        guard let index = collectionView.indexPath(for: visible)?.row else {return}
-    }
+//    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        guard let pictureCell = cell as? PicturesOfTheDaysCell else {return}
+//
+//        guard let visible = collectionView.visibleCells.last else {return}
+//        guard let index = collectionView.indexPath(for: visible)?.row else {return}
+//        self.ind = index
+//    }
+//
+//
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        guard let pictureCell = cell as? PageControlFooter else {return}
+//
+//        guard let visible = collectionView.visibleCells.last else {return}
+//        guard let index = collectionView.indexPath(for: visible)?.row else {return}
+//    }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? NewsCollectionCell else {return}
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
-            cell.transform = .init(scaleX: 0.95, y: 0.95)
+        
+        switch indexPath.section {
+            
+        case 1:
+            guard let cell = collectionView.cellForItem(at: indexPath) as? ButtonCollectionCell else {return}
+
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
+                cell.transform = .init(scaleX: 0.95, y: 0.95)
+            }
+        case 2:
+            guard let cell = collectionView.cellForItem(at: indexPath) as? ExploreCollectionCell else {return}
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
+                cell.transform = .init(scaleX: 0.95, y: 0.95)
+            }
+        case 3:
+            guard let cell = collectionView.cellForItem(at: indexPath) as? ExploreCollectionCell else {return}
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
+                cell.transform = .init(scaleX: 0.95, y: 0.95)
+            }
+        case 4:
+            guard let cell = collectionView.cellForItem(at: indexPath) as? NewsCollectionCell else {return}
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
+                cell.transform = .init(scaleX: 0.95, y: 0.95)
+            }
+        case 5:
+            guard let cell = collectionView.cellForItem(at: indexPath) as? PicturesOfTheDaysCell else {return}
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
+                cell.transform = .init(scaleX: 0.95, y: 0.95)
+            }
+        case 6:
+            guard let cell = collectionView.cellForItem(at: indexPath) as? NewsCollectionCell else {return}
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
+                cell.transform = .init(scaleX: 0.95, y: 0.95)
+            }
+        default: break
         }
-    
     }
     
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? NewsCollectionCell else {return}
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
-            cell.transform = .identity
+
+        switch indexPath.section {
+            
+        case 1:
+            guard let cell = collectionView.cellForItem(at: indexPath) as? ButtonCollectionCell else {return}
+
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
+                cell.transform = .identity
+            }
+        case 2:
+            guard let cell = collectionView.cellForItem(at: indexPath) as? ExploreCollectionCell else {return}
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
+                cell.transform = .identity
+            }
+        case 3:
+            guard let cell = collectionView.cellForItem(at: indexPath) as? ExploreCollectionCell else {return}
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
+                cell.transform = .identity
+            }
+        case 4:
+            guard let cell = collectionView.cellForItem(at: indexPath) as? NewsCollectionCell else {return}
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
+                cell.transform = .identity
+            }
+        case 5:
+            guard let cell = collectionView.cellForItem(at: indexPath) as? PicturesOfTheDaysCell else {return}
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
+                cell.transform = .identity
+            }
+        case 6:
+            guard let cell = collectionView.cellForItem(at: indexPath) as? NewsCollectionCell else {return}
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
+                cell.transform = .identity
+            }
+        default: break
         }
     }
 
@@ -416,19 +522,15 @@ extension HomeController: TitleCollectionProtocol {
         
         switch reusable.seeAllButton.tag {
             
-        case 0:
-            print("APRESENTAR VC EXPLORE")
-        case 1:
-            print("APRESENTAR VC FUTURE LAUCHES")
         case 2:
-            print("APRESENTAR VC PASR LAUCHES")
+            self.navigationController?.pushViewController(LaunchesController(index: 0), animated: true)
         case 3:
-            print("APRESENTAR VC PASR LAUCHES")
+            self.navigationController?.pushViewController(LaunchesController(index: 1), animated: true)
         case 4:
             let vc = NewsController()
             self.navigationController?.pushViewController(vc, animated: true)
         case 5:
-            print("APRESENTAR VC PICTURE OF THE DAY")
+            self.navigationController?.pushViewController(NasaObservatoryController(), animated: true)
         case 6:
             let vc = EventsController()
             self.navigationController?.pushViewController(vc, animated: true)
@@ -436,8 +538,6 @@ extension HomeController: TitleCollectionProtocol {
             
         }
     }
-    
-
 }
 
 extension HomeController {

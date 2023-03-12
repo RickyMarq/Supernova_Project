@@ -17,5 +17,11 @@ extension UIViewController {
         self.present(vc, animated: true)
     }
     
+    func getSoftFeedbackGenerator() {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .soft)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
+    }
+    
 }
 

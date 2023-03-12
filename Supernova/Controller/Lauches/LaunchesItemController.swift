@@ -7,13 +7,13 @@
 
 import UIKit
 
-class LauchesController: UIViewController {
+class LaunchesItemController: UIViewController {
     
     var lauches: ResultedModel?
-    var lauchesScreen: LauchesScreen?
+    var lauchesScreen: LaunchesItemScreen?
     
     override func loadView() {
-        self.lauchesScreen = LauchesScreen()
+        self.lauchesScreen = LaunchesItemScreen()
         self.view = lauchesScreen
     }
     
@@ -29,6 +29,6 @@ class LauchesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = lauches?.name
-        self.lauchesScreen?.lauchNameLabel.text = lauches?.name
+        self.lauchesScreen?.launchNameLabel.text = lauches?.name
     }
 }

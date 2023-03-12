@@ -21,7 +21,16 @@ class AdsCollectionCell: UICollectionViewCell {
         ads.layer.cornerRadius = 12
         ads.translatesAutoresizingMaskIntoConstraints = false
         ads.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        ads.tag = 2
         return ads
+    }()
+    
+    lazy var adsUIView: UIView = {
+        let view = UIView()
+        view.isSkeletonable = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        return view
     }()
     
     override init(frame: CGRect) {
@@ -38,6 +47,7 @@ class AdsCollectionCell: UICollectionViewCell {
 extension AdsCollectionCell: ViewCode {
  
     func configureSubViews() {
+//        self.contentView.addSubview(self.adsUIView)
         self.contentView.addSubview(self.adsView)
     }
     

@@ -105,14 +105,12 @@ extension HomeCollectionCellImage: ViewCode {
             self.imageShadowView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.imageShadowView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.imageShadowView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
- 
-           
             
             self.pictureOfTheDayLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
             self.pictureOfTheDayLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
-            self.pictureOfTheDayLabel.topAnchor.constraint(equalTo: self.pictureOfTheDayImageView.bottomAnchor, constant: -150),
+            self.pictureOfTheDayLabel.topAnchor.constraint(equalTo: self.pictureOfTheDayImageView.bottomAnchor, constant: -100),
             
-            self.pictureOfTheDayNameLabel.topAnchor.constraint(equalTo: self.pictureOfTheDayLabel.bottomAnchor, constant: 12),
+            self.pictureOfTheDayNameLabel.topAnchor.constraint(equalTo: self.pictureOfTheDayLabel.bottomAnchor, constant: 2),
             self.pictureOfTheDayNameLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
             self.pictureOfTheDayNameLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
 

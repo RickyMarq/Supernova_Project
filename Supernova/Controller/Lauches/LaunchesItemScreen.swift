@@ -7,9 +7,9 @@
 
 import UIKit
 
-class LauchesScreen: UIView {
+class LaunchesItemScreen: UIView {
     
-    lazy var lauchNameLabel: UILabel = {
+    lazy var launchNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Loading..."
@@ -27,17 +27,17 @@ class LauchesScreen: UIView {
     }
 }
 
-extension LauchesScreen: ViewCode {
+extension LaunchesItemScreen: ViewCode {
   
     func configureSubViews() {
-        self.addSubview(self.lauchNameLabel)
+        self.addSubview(self.launchNameLabel)
     }
     
     func configureConstraints() {
         NSLayoutConstraint.activate([
         
-            self.lauchNameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            self.lauchNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.launchNameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.launchNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
         
         ])
     }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 import YouTubeiOSPlayerHelper
 
 protocol EventsScreenProtocols: AnyObject {
@@ -27,10 +28,11 @@ class EventsScreen: UIView {
         collectionView.backgroundColor = .systemBackground
         layout.scrollDirection = .vertical
         layout.collectionView?.showsVerticalScrollIndicator = false
-        layout.minimumLineSpacing = 12
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumLineSpacing = 20
+        collectionView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
         collectionView.isSkeletonable = true
-        collectionView.register(NewsCell.self, forCellWithReuseIdentifier: NewsCell.identifier)
+        collectionView.register(EventsCell.self, forCellWithReuseIdentifier: EventsCell.identifier)
+        collectionView.register(NewsCollectionCell.self, forCellWithReuseIdentifier: NewsCollectionCell.identifier)
         return collectionView
     }()
     
@@ -86,6 +88,4 @@ extension EventsScreen: ViewCode {
     func configureAccessibility() {
         
     }
-    
-    
 }

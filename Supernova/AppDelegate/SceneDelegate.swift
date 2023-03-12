@@ -13,16 +13,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        self.initApp(windowScene: windowScene)
+        self.configureIntro(windowScene: windowScene)
     }
     
-    func initApp(windowScene: UIWindowScene) {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.windowScene = windowScene
-        let vc = TabBarController()
-        let nv = UINavigationController(rootViewController: vc)
-        window?.makeKeyAndVisible()
-        window?.rootViewController = vc
+    func configureIntro(windowScene: UIWindowScene) {
+        if UserDefaults.standard.bool(forKey: "notFirstInApp") == false {
+            UserDefaults.standard.set(true, forKey: "notFirstInApp")
+            let vc = OnboardingController()
+            let nv = UINavigationController(rootViewController: vc)
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.windowScene = windowScene
+            window?.rootViewController = nv
+            window?.makeKeyAndVisible()
+        } else {
+            let vc = TabBarController()
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.windowScene = windowScene
+            window?.rootViewController = vc
+            window?.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

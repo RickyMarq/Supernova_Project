@@ -24,6 +24,8 @@ class OnboardingViewModel {
     func getData() {
         
         
+        
+        
     }
     
     var count: Int {

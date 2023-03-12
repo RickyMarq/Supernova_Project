@@ -23,7 +23,7 @@ class NewsCollectionCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.isSkeletonable = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         imageView.roundCorners([.topLeft, .topRight], radius: 12.0)
         return imageView

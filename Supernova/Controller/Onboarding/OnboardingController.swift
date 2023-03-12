@@ -61,7 +61,7 @@ extension OnboardingController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.OnboardingPrimaryLabel.text = index.firstLabel
         cell.OnboardingSecondaryLabel.text = index.secondaryLabel
         cell.onBoardingAnimation.play()
-        cell.onBoardingAnimationView.play()
+//        cell.onBoardingAnimationView.play()
         return cell
     }
     

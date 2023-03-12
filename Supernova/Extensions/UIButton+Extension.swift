@@ -17,12 +17,10 @@ extension UIButton {
     func setButtonDesign(layout: ButtonAppearance) {
         
         switch layout {
-            
             case .primary:
             translatesAutoresizingMaskIntoConstraints = false
             tintColor = .white
             backgroundColor = .primaryColour
-            setTitleColor(.label, for: .normal)
             layer.borderColor = UIColor.primaryColour.cgColor
             layer.borderWidth = 1
             layer.cornerRadius = 15
@@ -31,17 +29,18 @@ extension UIButton {
             layer.shadowRadius = 3.0
             layer.shadowOpacity = 1
             layer.masksToBounds = false
+            setTitleColor(.white, for: .normal)
         }
         
     }
     
     func setShadowOfButton() {
         self.layer.borderColor = UIColor.darkGray.cgColor
-        self.layer.borderWidth = 1
+//        self.layer.borderWidth = 1
         self.layer.cornerRadius = 15
         self.layer.shadowColor = UIColor.darkGray.cgColor
         self.layer.shadowOffset = CGSize(width: 1, height: 1)
-        self.layer.shadowRadius = 3.0
+        self.layer.shadowRadius = 1.5
         self.layer.shadowOpacity = 1
         self.layer.masksToBounds = false
     }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LauchController: UIViewController {
+class LaunchController: UIViewController {
 
     var lauch: UpcomingModel?
     var lauchScreen: LauchScreen?
@@ -41,7 +41,7 @@ class LauchController: UIViewController {
 
 }
 
-extension LauchController: LauchScreenProtocol {
+extension LaunchController: LauchScreenProtocol {
     
     func action() {
 //        let vc = ImageViewerController(data: lauch!)

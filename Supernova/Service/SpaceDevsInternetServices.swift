@@ -93,8 +93,8 @@ class SpaceDevsInternetServices {
         .resume()
     }
     
-    func getFutureLauches(limit: Int, completion: @escaping (Result<[ResultedModel]?, Errors>) -> Void) {
-        guard let url = URL(string: "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=\(limit)&offset=\(limit)") else {return}
+    func getFutureLauches(limit: Int, startsAt: Int, completion: @escaping (Result<[ResultedModel]?, Errors>) -> Void) {
+        guard let url = URL(string: "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=\(limit)&offset=\(startsAt)") else {return}
         let session = URLSession.shared
         let request = URLRequest(url: url)
         session.dataTask(with: request) { data, response, error in
@@ -113,8 +113,8 @@ class SpaceDevsInternetServices {
         .resume()
     }
     
-    func getLastEvents(limit: Int, completion: @escaping (Result<[ResultedEvents]?, Errors>) -> Void) {
-        guard let url = URL(string: "https://ll.thespacedevs.com/2.2.0/event/?limit=\(limit)&offset=\(limit)") else {return}
+    func getLastEvents(limit: Int, startsAt: Int, completion: @escaping (Result<[ResultedEvents]?, Errors>) -> Void) {
+        guard let url = URL(string: "https://ll.thespacedevs.com/2.2.0/event/upcoming/?limit=\(limit)&offset=\(startsAt)") else {return}
         let session = URLSession.shared
         let request = URLRequest(url: url)
         session.dataTask(with: request) { data, response, error in

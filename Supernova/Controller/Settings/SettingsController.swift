@@ -68,20 +68,24 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
         case .staticCell(model: let model):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: StaticTableCell.identifier, for: indexPath) as? StaticTableCell else {return UITableViewCell()}
             cell.configCell(with: model)
+            cell.backgroundColor = .tertiarySystemBackground
             return cell
         
         case .informationCell(model: let model):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: InformationTableCell.identifier, for: indexPath) as? InformationTableCell else {return UITableViewCell()}
             cell.configCell(with: model)
+            cell.backgroundColor = .tertiarySystemBackground
             return cell
             
         case .WhatsNew(model: let model):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: StaticTableCell.identifier, for: indexPath) as? StaticTableCell else {return UITableViewCell()}
             cell.configWhatsCell(with: model)
+            cell.backgroundColor = .tertiarySystemBackground
             return cell
         case .documentationCell(model: let model):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: StaticTableCell.identifier, for: indexPath) as? StaticTableCell else {return UITableViewCell()}
             cell.configDocumentationCell(with: model)
+            cell.backgroundColor = .tertiarySystemBackground
             return cell
         }
     }

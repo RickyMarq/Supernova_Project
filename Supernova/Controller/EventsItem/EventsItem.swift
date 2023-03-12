@@ -11,6 +11,10 @@ import YouTubeiOSPlayerHelper
 class EventsItem: UIViewController {
     
     @IBOutlet weak var youtubePlayer: YTPlayerView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var summaryLabel: UILabel!
+    @IBOutlet weak var eventsImageView: UIImageView!
+    @IBOutlet weak var youtubePlayerView: YTPlayerView!
     var events: ResultedEvents?
     
     init(events: ResultedEvents) {
@@ -24,17 +28,40 @@ class EventsItem: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = events?.name
+        self.navigationController?.navigationBar.prefersLargeTitles = false
         self.configYoutubePlayer()
+        self.titleLabel.text = events?.name
+        self.summaryLabel.text = events?.description
+        self.eventsImageView.sd_setImage(with: URL(string: events?.featureImage ?? ""))
         
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.configCustomNavigationController()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
     }
     
     func configYoutubePlayer() {
-        self.youtubePlayer.delegate = self
+        print(events?.videoURL)
+        self.youtubePlayerView.delegate = self
         let trimmed = events?.videoURL?.replacingOccurrences(of: "https://www.youtube.com/watch?v=", with: "")
-        self.youtubePlayer.load(withVideoId: "\(trimmed ?? "")")
+        self.youtubePlayerView.load(withVideoId: "\(trimmed ?? "")")
 //        self.youtubePlayer.loadVideo(byURL: "https://www.youtube.com/watch?v=bsM1qdGAVbU&ab_channel=iOSAcademy", startSeconds: 1.0)
+    }
+    
+    func configCustomNavigationController() {
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .backgroundColour
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.label]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.label]
+        
+        navigationController?.navigationBar.tintColor = .label
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
     
 
@@ -43,6 +70,6 @@ class EventsItem: UIViewController {
 extension EventsItem: YTPlayerViewDelegate {
     
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
-        self.youtubePlayer.playVideo()
+        self.youtubePlayerView.playVideo()
     }
 }

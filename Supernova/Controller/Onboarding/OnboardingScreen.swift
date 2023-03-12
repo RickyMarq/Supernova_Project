@@ -108,7 +108,8 @@ extension OnboardingScreen: ViewCode {
     }
     
     func configureAdditionalBehaviors() {
-        self.backgroundColor = .backgroundColour
+        self.backgroundColor = .systemBackground
+//        self.backgroundColor = .backgroundColour
     }
     
     func configureAccessibility() {

@@ -20,6 +20,16 @@ extension UIView {
         self.layer.insertSublayer(gradient, at: .min)
     }
     
+    public func setGradientButtonBackground() {
+        let gradient = CAGradientLayer()
+//        let color = UIColor(red: 132/255, green: 94/255, blue: 194/255, alpha: 1.0)
+        gradient.colors = [UIColor.black.withAlphaComponent(0.5).cgColor, UIColor.secondaryColour.withAlphaComponent(0.5).cgColor]
+        gradient.startPoint = CGPoint(x: 1, y: 1)
+        gradient.endPoint = CGPoint(x: 0, y: 0)
+        gradient.frame = self.bounds
+        self.layer.insertSublayer(gradient, at: .min)
+    }
+    
     public func setGradientImage() {
         let gradient = CAGradientLayer()
         let color = UIColor(red: 40/255, green: 28/255, blue: 63/255, alpha: 1.0)
@@ -33,7 +43,7 @@ extension UIView {
     
     public func setGradientBlackImage() {
         let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.black.withAlphaComponent(0.0).cgColor, UIColor.black .cgColor]
+        gradient.colors = [UIColor.systemBackground.withAlphaComponent(0.0).cgColor, UIColor.systemBackground.cgColor]
         gradient.locations = [0.6, 1.0]
         gradient.frame = self.bounds
         self.layer.insertSublayer(gradient, at: .min)
@@ -43,8 +53,8 @@ extension UIView {
         view.layer.cornerRadius = 12.0
         view.layer.borderWidth = 0.0
         view.layer.shadowColor = UIColor.secondaryColour.cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 0)
-        view.layer.shadowRadius = 3.0
+        view.layer.shadowOffset = CGSize(width: 1, height: 1)
+        view.layer.shadowRadius = 5.0
         view.layer.shadowOpacity = 1
         view.layer.masksToBounds = false
     }

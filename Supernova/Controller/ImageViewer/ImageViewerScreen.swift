@@ -99,12 +99,14 @@ class ImageViewerScreen: UIView {
     lazy var saveImageButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .secondaryColour
-        button.layer.cornerRadius = 20
-        button.layer.masksToBounds = true
+//        button.backgroundColor = .primaryColour
+//        button.layer.cornerRadius = 20
+//        button.layer.masksToBounds = true
         button.setTitle("Save Image", for: .normal)
-        button.clipsToBounds = true
-        button.setShadowOfButton()
+//        button.setImage(UIImage(systemName: ""), for: .normal)
+//        button.clipsToBounds = true
+//        button.setShadowOfButton()
+        button.setButtonDesign(layout: .primary)
         button.addTarget(self, action: #selector(tappedSaveImageButton), for: .touchUpInside)
         return button
     }()
@@ -165,7 +167,7 @@ extension ImageViewerScreen: ViewCode {
             self.dismissButton.widthAnchor.constraint(equalToConstant: 50),
             
             self.saveImageButton.topAnchor.constraint(equalTo: self.dismissButton.topAnchor),
-            self.saveImageButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
+            self.saveImageButton.rightAnchor.constraint(equalTo: self.dismissButton.leftAnchor, constant: -20),
             self.saveImageButton.heightAnchor.constraint(equalToConstant: 50),
             self.saveImageButton.widthAnchor.constraint(equalToConstant: 120),
             
@@ -186,7 +188,6 @@ extension ImageViewerScreen: ViewCode {
             
             self.explanationContentView.topAnchor.constraint(equalTo: self.explanationScrollView.topAnchor),
             self.explanationContentView.bottomAnchor.constraint(equalTo: self.explanationScrollView.bottomAnchor),
-            
             self.explanationContentView.widthAnchor.constraint(equalTo: self.explanationScrollView.widthAnchor),
             
             self.explanationScrollView.centerXAnchor.constraint(equalTo: self.explanationScrollView.centerXAnchor),
@@ -194,11 +195,8 @@ extension ImageViewerScreen: ViewCode {
             
             
             self.imageExplanationLabel.topAnchor.constraint(equalTo: self.explanationContentView.topAnchor, constant: 4),
-            
-            self.imageExplanationLabel.bottomAnchor.constraint(equalTo: self.explanationContentView.bottomAnchor, constant: 4),
-            
+            self.imageExplanationLabel.bottomAnchor.constraint(equalTo: self.explanationContentView.bottomAnchor, constant: -4),
             self.imageExplanationLabel.leftAnchor.constraint(equalTo: self.explanationContentView.leftAnchor, constant: 12),
-            
             self.imageExplanationLabel.rightAnchor.constraint(equalTo: self.explanationContentView.rightAnchor, constant: -12),
             
 //            self.imageExplanationLabel.topAnchor.constraint(equalTo: self.imageNameLabel.bottomAnchor, constant: 8),

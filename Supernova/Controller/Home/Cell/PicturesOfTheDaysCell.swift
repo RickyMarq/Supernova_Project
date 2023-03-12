@@ -14,9 +14,10 @@ class PicturesOfTheDaysCell: UICollectionViewCell {
     lazy var newsImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
+        imageView.roundCorners([.allCorners], radius: 10)
         imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 10
+ //       imageView.layer.cornerRadius = 10
         return imageView
     }()
     
@@ -24,10 +25,18 @@ class PicturesOfTheDaysCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         label.textColor = .label
+        label.font = .systemFont(ofSize: 20, weight: .semibold)
         label.lineBreakMode = .byWordWrapping
         return label
+    }()
+    
+    lazy var contentViewLabel: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .tertiarySystemBackground.withAlphaComponent(0.50)
+        return view
     }()
     
     override init(frame: CGRect) {
@@ -38,27 +47,35 @@ class PicturesOfTheDaysCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
 }
 
 extension PicturesOfTheDaysCell: ViewCode {
    
     func configureSubViews() {
-        self.addSubview(self.newsImageView)
-        self.addSubview(self.pictureOfTheDayLabel)
+        self.contentView.addSubview(self.newsImageView)
+        self.contentView.addSubview(self.contentViewLabel)
+        self.contentViewLabel.addSubview(self.pictureOfTheDayLabel)
     }
     
     func configureConstraints() {
         NSLayoutConstraint.activate([
         
-            self.newsImageView.topAnchor.constraint(equalTo: self.topAnchor),
-            self.newsImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.newsImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.newsImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            self.newsImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            self.newsImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            self.newsImageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            self.newsImageView.heightAnchor.constraint(equalToConstant: 200),
             
-            self.pictureOfTheDayLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 4),
-            self.pictureOfTheDayLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -4),
-            self.pictureOfTheDayLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.contentViewLabel.topAnchor.constraint(equalTo: self.newsImageView.topAnchor),
+            self.contentViewLabel.leftAnchor.constraint(equalTo: self.newsImageView.leftAnchor),
+            self.contentViewLabel.rightAnchor.constraint(equalTo: self.newsImageView.rightAnchor),
+            self.contentViewLabel.widthAnchor.constraint(equalTo: self.newsImageView.widthAnchor),
+            
+            self.pictureOfTheDayLabel.leftAnchor.constraint(equalTo: self.contentViewLabel.leftAnchor, constant: 12),
+            self.pictureOfTheDayLabel.rightAnchor.constraint(equalTo: self.contentViewLabel.rightAnchor, constant: -12),
+            self.pictureOfTheDayLabel.topAnchor.constraint(equalTo: self.contentViewLabel.topAnchor, constant: 2),
+            self.pictureOfTheDayLabel.bottomAnchor.constraint(equalTo: self.contentViewLabel.bottomAnchor),
+//            self.pictureOfTheDayLabel.bottomAnchor.constraint(equalTo: self.newsImageView.bottomAnchor, constant: -12),
+            
             
         ])
     }

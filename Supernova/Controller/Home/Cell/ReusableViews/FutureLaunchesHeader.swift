@@ -1,13 +1,15 @@
 //
-//  SavedNewsScreen.swift
+//  FutureLaunchesHeader.swift
 //  Supernova
 //
-//  Created by Henrique Marques on 02/02/23.
+//  Created by Henrique Marques on 07/03/23.
 //
 
 import UIKit
 
-class SavedNewsScreen: UIView {
+class FutureLaunchesHeader: UICollectionReusableView {
+    
+    static let identifier = "FutureLaunchesHeader"
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -17,9 +19,10 @@ class SavedNewsScreen: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+        
 }
 
-extension SavedNewsScreen: ViewCode {
+extension FutureLaunchesHeader: ViewCode {
   
     func configureSubViews() {
         
@@ -30,10 +33,7 @@ extension SavedNewsScreen: ViewCode {
     }
     
     func configureAdditionalBehaviors() {
-        self.backgroundColor = .systemBackground
-        DispatchQueue.main.async {
-            self.setGradientBackground()
-        }
+        
     }
     
     func configureAccessibility() {

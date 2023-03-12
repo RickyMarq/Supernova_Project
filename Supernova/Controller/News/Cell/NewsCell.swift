@@ -161,9 +161,9 @@ extension NewsCell: ViewCode {
     func configureAdditionalBehaviors() {
         self.isSkeletonable = true
         self.backgroundColor = .secondarySystemBackground
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 10
         self.setShadow(view: self)
-//        self.layer.masksToBounds = true
-//        self.layer.cornerRadius = 12
 
     }
     

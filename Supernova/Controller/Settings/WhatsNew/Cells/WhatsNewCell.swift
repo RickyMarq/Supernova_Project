@@ -24,7 +24,7 @@ class WhatsNewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .secondaryLabel
-        label.font = .systemFont(ofSize: 14, weight: .semibold)
+        label.font = .systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
     
@@ -69,7 +69,7 @@ extension WhatsNewCell: ViewCode {
   
     func configureSubViews() {
         self.contentView.addSubview(self.versionLabel)
-        self.contentView.addSubview(self.separator)
+//        self.contentView.addSubview(self.separator)
         self.contentView.addSubview(self.updateLabel)
         self.contentView.addSubview(self.infoTextLabel)
     }
@@ -86,20 +86,18 @@ extension WhatsNewCell: ViewCode {
 //            self.versionLabel.heightAnchor.constraint(equalToConstant: 15),
             
             
-            self.separator.topAnchor.constraint(equalTo: self.versionLabel.topAnchor),
-            self.separator.leftAnchor.constraint(equalTo: versionLabel.rightAnchor, constant: 12),
-            self.separator.heightAnchor.constraint(equalToConstant: 20),
-            self.separator.widthAnchor.constraint(equalToConstant: 15),
+//            self.separator.topAnchor.constraint(equalTo: self.versionLabel.topAnchor),
+//            self.separator.leftAnchor.constraint(equalTo: versionLabel.rightAnchor, constant: 12),
+//            self.separator.heightAnchor.constraint(equalToConstant: 20),
+//            self.separator.widthAnchor.constraint(equalToConstant: 15),
 //
 //            self.separator.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -16),
 //           self.separator.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -250),
-            
 //            self.separator.rightAnchor.constraint(equalTo: self.versionLabel.rightAnchor, constant: -10),
             
             
-            self.updateLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 20),
-//            self.updateLabel.heightAnchor.constraint(equalToConstant: 15),
-            self.updateLabel.leftAnchor.constraint(equalTo: self.separator.rightAnchor, constant: 12),
+            self.updateLabel.topAnchor.constraint(equalTo: self.versionLabel.topAnchor, constant: 2),
+            self.updateLabel.leftAnchor.constraint(equalTo: self.versionLabel.rightAnchor, constant: 12),
             
             
  //           self.infoTextLabel.widthAnchor.constraint(equalTo: self.widthAnchor),
