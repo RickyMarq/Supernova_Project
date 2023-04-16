@@ -29,19 +29,30 @@ class AboutModel {
         
         model.append(AboutTableSection(title: "A Huge thanks to all my friends", cell: [
             
-            .staticCell(model: aboutTableModel(name: "Wesley Calazans", link: "https://google.com")),
+            .staticCell(model: aboutTableModel(name: "Wesley Calazans - App", link: "https://apps.apple.com/br/app/bevegan-produtos-veganos/id1634230135?l=en")),
+            
+            .staticCell(model: aboutTableModel(name: "Felipe Miranda - iOS Development", link: "https://www.youtube.com/@BackFrontAcademy")),
+            
             
         ]))
         
         model.append(AboutTableSection(title: "And for all of the creators of this libraries", cell: [
             
             
-            .staticCell(model: aboutTableModel(name: "SDWebImage", link: "https://google.com")),
-            .staticCell(model: aboutTableModel(name: "Lottie", link: "https://google.com")),
-            .staticCell(model: aboutTableModel(name: "SkeletonView", link: "https://google.com"))
+            .staticCell(model: aboutTableModel(name: "SDWebImage", link: "https://github.com/SDWebImage/SDWebImage")),
+            .staticCell(model: aboutTableModel(name: "Lottie", link: "https://github.com/airbnb/lottie-ios")),
+            .staticCell(model: aboutTableModel(name: "SkeletonView", link: "https://github.com/Juanpe/SkeletonView"))
             
             
         ]))
+        
+//        model.append(AboutTableSection(title: "And thanks for the illustrators", cell: [
+//
+//
+//            .staticCell(model: aboutTableModel(name: "TODO: Name of illustrators of onboarding", link: "https://google.com"))
+//
+//
+//        ]))
         
         return model
         

@@ -51,7 +51,7 @@ extension AboutTableCell: ViewCode {
     }
     
     func configureAdditionalBehaviors() {
-        self.backgroundColor = .secondarySystemBackground
+        self.backgroundColor = .tertiarySystemBackground
         self.accessoryType = .disclosureIndicator
 
     }

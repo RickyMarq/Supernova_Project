@@ -25,7 +25,7 @@ class AboutTableHeader: UITableViewHeaderFooterView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .label
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.text = "Supernova"
         label.font = .systemFont(ofSize: 24, weight: .bold)
         return label
@@ -35,7 +35,7 @@ class AboutTableHeader: UITableViewHeaderFooterView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .secondaryLabel
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.text = "By: Henrique Marques"
         label.font = .systemFont(ofSize: 16, weight: .bold)
         return label
@@ -45,7 +45,7 @@ class AboutTableHeader: UITableViewHeaderFooterView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .primaryColour
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.text = String.appVersion
         label.font = .systemFont(ofSize: 14)
         return label
@@ -80,22 +80,19 @@ extension AboutTableHeader: ViewCode {
             self.logoImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 25),
             self.logoImageView.widthAnchor.constraint(equalToConstant: 100),
             self.logoImageView.heightAnchor.constraint(equalToConstant: 100),
-            self.logoImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.logoImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: -100),
             
-            self.appNameLabel.topAnchor.constraint(equalTo: self.logoImageView.bottomAnchor, constant: 10),
-            self.appNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.appNameLabel.topAnchor.constraint(equalTo: self.logoImageView.topAnchor, constant: 8),
+            self.appNameLabel.leadingAnchor.constraint(equalTo: self.logoImageView.trailingAnchor, constant: 12),
             self.appNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.appNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
-            self.madeByLabel.topAnchor.constraint(equalTo: self.appNameLabel.bottomAnchor, constant: 8),
-            self.madeByLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.madeByLabel.topAnchor.constraint(equalTo: self.appNameLabel.bottomAnchor, constant: 4),
+            self.madeByLabel.leadingAnchor.constraint(equalTo: self.appNameLabel.leadingAnchor),
             self.madeByLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.madeByLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
             self.versionLabel.topAnchor.constraint(equalTo: self.madeByLabel.bottomAnchor, constant: 4),
-            self.versionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.versionLabel.leadingAnchor.constraint(equalTo: self.madeByLabel.leadingAnchor),
             self.versionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.versionLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
         
         ])

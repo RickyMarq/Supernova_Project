@@ -13,17 +13,24 @@ import SafariServices
 class NewsController: UIViewController {
     
     var newsScreen: NewsScreen?
-    var page: Int = 10
-    var news: [NewsModel] = []
+    var page: Int = 0
+    var news: [ResultedNewsSite] = []
+//    var filterNews: [ResultedNewsSite] = []
+    
+    var newsSpaceRequested = false
     
     var arrAdUnitID: [String] = ["ca-app-pub-3940256099942544/2934735716"]
-    var currentIndexForAd = 9
+    
+    var currentIndexForAd = 5
+    
     var currentIndexForNormalRow = 2
 
     override func loadView() {
         self.newsScreen = NewsScreen()
         self.view = newsScreen
     }
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +38,14 @@ class NewsController: UIViewController {
         self.configNavigationController()
         self.newsScreen?.delegate(delegate: self)
         self.newsScreen?.newsCollectionViewProtocols(delegate: self, dataSouce: self)
+        self.showSkeleton()
         self.getFistNews(limit: 15, startAt: 0)
-
+        
+        
     }
     
     func configNavigationController() {
-        self.title = "News"
+        self.title = "Last News"
         self.navigationController?.navigationBar.topItem?.backButtonTitle = "Home"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.titleView?.tintColor = .primaryColour
@@ -67,11 +76,32 @@ class NewsController: UIViewController {
     }
     
     func configButtonContextMenu() -> UIMenu {
-        let someProvider = UIAction(title: "NewsSpace", image: nil) { (_) in
-             print("TODO: FAZER NOVA REQ")
+        let defaultProvider = UIAction(title: "All") { _ in
+            self.news = []
+            self.getFistNews(limit: 15, startAt: 0)
+            self.showSkeleton()
         }
         
-        let menu = UIMenu(title: "News Provider", image: nil, identifier: nil, options: .displayInline, children: [someProvider])
+        let ArstechnicaProvider = UIAction(title: "Arstechnica", image: nil) { (_) in
+             self.news = []
+             self.getNewsBySite(startAt: 0, NewsSite: "Arstechnica")
+             self.showSkeleton()
+        }
+        
+        let CNBCProvider = UIAction(title: "CNBC", image: nil) { (_) in
+             self.news = []
+             self.getNewsBySite(startAt: 0, NewsSite: "CNBC")
+             self.showSkeleton()
+        }
+        
+        let SpaceNewsProvider = UIAction(title: "SpaceNews", image: nil) { (_) in
+             self.news = []
+             self.getNewsBySite(startAt: 0, NewsSite: "SpaceNews")
+             self.showSkeleton()
+        }
+        
+        
+        let menu = UIMenu(title: "News Provider", image: nil, identifier: nil, options: .displayInline, children: [defaultProvider, ArstechnicaProvider, CNBCProvider, SpaceNewsProvider])
         
         return menu
     }
@@ -98,13 +128,7 @@ class NewsController: UIViewController {
                 
             case .success(let model):
                 self.news.append(contentsOf: model ?? [])
-                
-//                let hour =  Calendar.current.component(.hour, from: Date())
-//                let minute = Calendar.current.component(.minute, from: Date())
-//                let hourToPresent = "Last Updated \(hour):\(minute) AM"
-//                print(hourToPresent)
-//                self.newsScreen?.pullToRefresh.attributedTitle = NSAttributedString(string: hourToPresent)
-                
+                                
                 DispatchQueue.main.async {
                     self.newsScreen?.stopSkeletonAnimation()
                     self.newsScreen?.newsCollectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
@@ -113,6 +137,51 @@ class NewsController: UIViewController {
                 
             case .failure(let _):
                 print("Error")
+            }
+        }
+    }
+    
+    func getMoreNews(limit: Int, startAt: Int) {
+        SpaceDevsInternetServices.sharedObjc.getFirstArticles(limit: limit, startsAt: startAt) { result in
+            
+            switch result {
+                
+            case .success(let model):
+                self.news.append(contentsOf: model ?? [])
+                
+                                
+                DispatchQueue.main.async {
+//                    let contentHeight = self.newsScreen?.newsCollectionView.collectionViewLayout.collectionViewContentSize.height
+//                    self.newsScreen?.newsCollectionView.contentSize = CGSize(width: (self.newsScreen?.newsCollectionView.frame.width)!, height: contentHeight!)
+//                    print("DEBUG MODE Content Height -> \(contentHeight)")
+//                    self.newsScreen?.stopSkeletonAnimation()
+//                    self.newsScreen?.newsCollectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
+                    self.newsScreen?.newsCollectionView.reloadData()
+                }
+                
+            case .failure(let _):
+                print("Error")
+            }
+        }
+    }
+    
+    func getNewsBySite(startAt: Int, NewsSite: String) {
+        SpaceDevsInternetServices.sharedObjc.getArticlesByNewsSite(startsAt: startAt, newsSite: NewsSite) { result in
+            
+            switch result {
+                
+            case .success(let model):
+                self.news.append(contentsOf: model)
+
+                DispatchQueue.main.async {
+                    self.newsScreen?.stopSkeletonAnimation()
+                    self.newsScreen?.newsCollectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
+                    self.newsScreen?.newsCollectionView.reloadData()
+                }
+                
+            case .failure(let _):
+                print("DEBUG MODE: Error News By Site")
+
             }
         }
     }
@@ -137,26 +206,38 @@ extension NewsController: NewsScreenProtocols {
 
 extension NewsController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SkeletonCollectionViewDelegate {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return 1
+//    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch collectionView.tag {
-        case 1:
-            return news.count
-        case 2:
-            return 20
-            
-        default: return 1
-        }
+//        let adCount = news.count / currentIndexForAd
+//        return news.count + adCount
+        //       return news.count  + news.count/9 + 1
+//        let adCellCount = (news.count - 1) / 5
+//        print("DEBUG MODE News Count ->  \(news.count)")
+//        print("DEBUG MODE \(news.count + adCellCount)")
+//        return news.count + adCellCount
+        
+        
+        let contentCellsCount = news.count - (news.count / 6)
+          
+          if contentCellsCount % 5 == 0 {
+              print("DEBUG MODE: News Count -> \(news.count)")
+              return news.count
+          } else {
+              print("DEBUG MODE: News Count -> \(news.count)")
+
+              return news.count  + 1
+          }
+        
     }
     
     
-    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
-    }
-    
+//    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return 4
+//    }
+//
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> SkeletonView.ReusableCellIdentifier {
         
         return NewsCell.identifier
@@ -169,28 +250,55 @@ extension NewsController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        guard let cellAd = collectionView.cellForItem(at: indexPath) as? NewsCell else {return UICollectionViewCell()}
         
+       // ((indexPath.item - indexPath.item/9 - 1) != 0)
         
-        switch collectionView.tag {
+        // ((indexPath.item - indexPath.item/9 - 1) != 0)
+        
+        if (indexPath.item + 1) % 6 == 0 {
+        
             
-        case 1:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsCell.identifier, for: indexPath) as? NewsCell else {return UICollectionViewCell()}
-            cell.configCell(with: news[indexPath.row])
-            return cell
-        case 2:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AdsCollectionCell.identifier, for: indexPath) as? AdsCollectionCell else {return UICollectionViewCell()}
-//            cell.adsUIView.addSubview(self.newsScreen?.adsView ?? UIView())
+            cell.adsUIView.addSubview(self.newsScreen?.adsView ?? UIView())
             cell.adsView.rootViewController = self
             cell.adsView.load(GADRequest())
-            cell.backgroundColor = .green
-            DispatchQueue.main.async {
-                self.newsScreen?.adCollectionView.reloadData()
-            }
             
+//            if newsSpaceRequested == true {
+//                let indexed = filterNews[indexPath.row]
+//            } else {
+//                let indexed = news[indexPath.row]
+//            }
+            
+            
+//            let indexed = newsSpaceRequested ? filterNews : news
+//            let movies = indexed[indexPath.row]
+            
+//
+//            cell.configCell(with: news[indexPath.row])
+//            cell.backgroundColor = .secondarySystemBackground
             return cell
-        default: break
+        } else {
+            let contentCellIndexPath = IndexPath(item: indexPath.item - (indexPath.item + 1) / 6, section: indexPath.section)
+
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsCell.identifier, for: indexPath) as? NewsCell else {return UICollectionViewCell()}
+            cell.configCell(with: news[contentCellIndexPath.item])
+            cell.backgroundColor = .secondarySystemBackground
+            return cell
         }
+        
+//
+//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AdsCollectionCell.identifier, for: indexPath) as? AdsCollectionCell else {return UICollectionViewCell()}
+////            cell.adsUIView.addSubview(self.newsScreen?.adsView ?? UIView())
+//            cell.adsView.rootViewController = self
+//            cell.adsView.load(GADRequest())
+//            cell.backgroundColor = .green
+//            DispatchQueue.main.async {
+//                self.newsScreen?.adCollectionView.reloadData()
+//            }
+            
+//            return cell
+//        default: break
+        
         
         
 //        if (indexPath.item % currentIndexForAd == 0) {
@@ -206,13 +314,13 @@ extension NewsController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height - 350
         let height = scrollView.frame.size.height
-        let contentYOffset = scrollView.contentOffset.y
-        let distanceFromBottom = scrollView.contentSize.height - contentYOffset
         
-        if distanceFromBottom - 100 <= height {
-            page += 10
-            self.getFistNews(limit: 15, startAt: page)
+        if offsetY > contentHeight - height {
+            page += 11
+            self.getMoreNews(limit: 15, startAt: page)
             
         }
     }
@@ -232,7 +340,9 @@ extension NewsController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let index = news[indexPath.item]
+        let contentCellIndexPath = IndexPath(item: indexPath.item - (indexPath.item + 1) / 6, section: indexPath.section)
+        let index = news[contentCellIndexPath.item]
+        
         self.openSafariPageWith(url: index.url ?? "Error")
     }
     
@@ -240,7 +350,7 @@ extension NewsController: UICollectionViewDelegate, UICollectionViewDataSource, 
         configureContextMenu(index: indexPath.row, objc: news[indexPath.item])
         }
     
-    func configureContextMenu(index: Int, objc: NewsModel) -> UIContextMenuConfiguration {
+    func configureContextMenu(index: Int, objc: ResultedNewsSite) -> UIContextMenuConfiguration {
         let contextMenu = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
             
             let openWithSafari = UIAction(title: "Open with Safari", image: UIImage(systemName: "safari"), identifier: nil, discoverabilityTitle: nil) { _ in
@@ -252,7 +362,6 @@ extension NewsController: UICollectionViewDelegate, UICollectionViewDataSource, 
             }
             
             return UIMenu(title: "Options", image: nil, identifier: nil, options: .displayInline, children: [openWithSafari])
-            
         }
         
         return contextMenu
@@ -261,25 +370,25 @@ extension NewsController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     // TODO: RESOLVER FOOTER DEPOIS
     
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//
-//        switch collectionView.tag {
-//
-//        case 1:
-//            guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: NewsFooterLoading.identifier, for: indexPath) as? NewsFooterLoading else {return UICollectionReusableView()}
-//
-//            return footer
-//
-//        default: break
-//        }
-//
-//
-//        return UICollectionReusableView()
-//
-//    }
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+        switch collectionView.tag {
+
+        case 1:
+            guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: NewsFooterLoading.identifier, for: indexPath) as? NewsFooterLoading else {return UICollectionReusableView()}
+
+            return footer
+
+        default: break
+        }
+
+
+        return UICollectionReusableView()
+
+    }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: 100)
+        return CGSize(width: UIScreen.main.bounds.width, height: 150)
 
     }
     

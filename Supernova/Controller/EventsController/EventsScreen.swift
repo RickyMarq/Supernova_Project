@@ -27,7 +27,6 @@ class EventsScreen: UIView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .systemBackground
         layout.scrollDirection = .vertical
-        layout.collectionView?.showsVerticalScrollIndicator = false
         layout.minimumLineSpacing = 20
         collectionView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
         collectionView.isSkeletonable = true

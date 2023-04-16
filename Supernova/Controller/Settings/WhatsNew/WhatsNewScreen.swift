@@ -53,7 +53,7 @@ extension WhatsNewScreen: ViewCode {
     }
     
     func configureAdditionalBehaviors() {
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = .secondarySystemBackground
     }
     
     func configureAccessibility() {

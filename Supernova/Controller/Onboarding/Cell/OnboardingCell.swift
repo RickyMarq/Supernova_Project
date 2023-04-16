@@ -12,6 +12,13 @@ class OnboardingCell: UICollectionViewCell {
     
     static let identifier = "OnboardingCell"
     
+    lazy var backgroundViewColored: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .backgroundColour
+        return view
+    }()
+    
     lazy var onBoardingAnimationView: LottieAnimationView = {
         var animationView = LottieAnimationView()
         animationView.translatesAutoresizingMaskIntoConstraints = false
@@ -66,6 +73,7 @@ extension OnboardingCell: ViewCode {
  
     func configureSubViews() {
 //        self.addSubview(self.onBoardingAnimationView)
+        self.contentView.addSubview(self.backgroundViewColored)
         self.addSubview(self.onBoardingAnimation)
         self.addSubview(self.OnboardingPrimaryLabel)
         self.addSubview(self.OnboardingSecondaryLabel)
@@ -80,18 +88,26 @@ extension OnboardingCell: ViewCode {
 //            self.onBoardingAnimationView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
 //            self.onBoardingAnimationView.heightAnchor.constraint(equalToConstant: 300),
 
+            self.backgroundViewColored.topAnchor.constraint(equalTo: self.topAnchor),
+            self.backgroundViewColored.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.backgroundViewColored.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.backgroundViewColored.bottomAnchor.constraint(equalTo: self.OnboardingPrimaryLabel.topAnchor, constant: -12),
             
-            self.onBoardingAnimation.topAnchor.constraint(equalTo: self.topAnchor, constant: 50),
+            self.onBoardingAnimation.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 50),
 //            self.onBoardingAnimation.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -100),
             self.onBoardingAnimation.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.onBoardingAnimation.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             self.onBoardingAnimation.heightAnchor.constraint(equalToConstant: 250),
+            
+            
             
             self.OnboardingPrimaryLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
             self.OnboardingPrimaryLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
             self.OnboardingPrimaryLabel.topAnchor.constraint(equalTo: self.onBoardingAnimation.bottomAnchor, constant: 50),
         
             self.OnboardingSecondaryLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
+            
+            
             self.OnboardingSecondaryLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
             self.OnboardingSecondaryLabel.topAnchor.constraint(equalTo: self.OnboardingPrimaryLabel.bottomAnchor, constant: 12),
             

@@ -18,6 +18,7 @@ enum CellType {
     case informationCell(model: InformationCellModel)
     case documentationCell(model: DocumentationCellModel)
     case WhatsNew(model: WhatsNewModelType)
+    case notificationCell(model: NotificationModel)
 }
 
 struct StaticCellModel {
@@ -46,5 +47,13 @@ struct WhatsNewModelType {
     let title: String
     let icon: UIImage
     let iconBackgroundColor: UIColor
+    let handler: ((_ doubleHeader: String) -> Void)
+}
+
+struct NotificationModel {
+    let title: String
+    let icon: UIImage
+    let iconBackgroundColor: UIColor
+    let isOn: Bool
     let handler: ((_ doubleHeader: String) -> Void)
 }

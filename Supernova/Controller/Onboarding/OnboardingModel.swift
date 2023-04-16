@@ -20,11 +20,21 @@ class OnboardingModel {
     
     
     func populateModel() -> [Onboarding] {
-        model.append(contentsOf: [Onboarding(wavingAnimation: "stars.json", image: "hello.json", firstLabel: "Hey, Hello", secondaryLabel: "Thanks for downloading my app"),
-                                  Onboarding(wavingAnimation: "stars.json", image: "", firstLabel: "Welcome to Supernova", secondaryLabel: "Here you can find all the informations about rocket launches and everything else."),
-//                                  Onboarding(wavingAnimation: "", image: "", firstLabel: "Nasa Observatory", secondaryLabel: "Explore Nasa Observatory section that contain all the last "),
-                                 Onboarding(wavingAnimation: "stars.json", image: "rocket.json", firstLabel: "So, let's get started?", secondaryLabel: "Be always updated to all the ")])
         
+        model.append(contentsOf:
+                        
+        //[Onboarding(wavingAnimation: "stars.json", image: "hello.json", firstLabel: "Hello", secondaryLabel: "Thanks for downloading Supernova"),
+        [
+            
+        Onboarding(wavingAnimation: "stars.json", image: "rocket.json", firstLabel: "Welcome to Supernova", secondaryLabel: "Here you can find all the informations about rocket launches and spacial events."),
+
+        Onboarding(wavingAnimation: "news.json", image: "news.json", firstLabel: "Stay up to date with news", secondaryLabel: "Stay up to launches, events and all"),
+        
+        Onboarding(wavingAnimation: "", image: "notifications.json", firstLabel: "Can we send you notifications ?", secondaryLabel: "We use it to warn you when a next launch is ready to start"),
+        
+        Onboarding(wavingAnimation: "stars.json", image: "launchRocket.json", firstLabel: "Let's begin ?", secondaryLabel: "Hit the begin button to start")
+        
+        ])
         
         return model
         

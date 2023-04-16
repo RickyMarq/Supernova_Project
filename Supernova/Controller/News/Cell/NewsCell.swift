@@ -23,7 +23,7 @@ class NewsCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.isSkeletonable = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         return imageView
     }()
@@ -81,15 +81,18 @@ class NewsCell: UICollectionViewCell {
         return label
     }()
     
-    func configCell(with data: NewsModel) {
-        self.newsImageView.sd_setImage(with: URL(string: data.imageUrl ?? "Error"))
+    func configCell(with data: ResultedNewsSite) {
+        self.newsImageView.sd_setImage(with: URL(string: data.imageURL ?? "Error"))
         self.newsProviderLabel.text = data.newsSite
         self.newsNameLabel.text = data.title
         self.newsDescriptionLabel.text = data.title
         
-        let index = data.publishedAt?.replacingOccurrences(of: ".000Z", with: " ")
-        let ind = index?.replacingOccurrences(of: "T", with: " ")
-        self.newsDateLabel.text = "Pusblished at: \(ind ?? "Not founded")"
+        let hour = convertHourNewsFormatter(data.publishedAt ?? "")
+        let day = convertDayOfWeekFormatter(data.publishedAt ?? "")
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .full
+        let date = formatter.localizedString(for: hour, relativeTo: Date())
+        self.newsDateLabel.text = "\(day.capitalizedSentence), \(date) GMT"
     }
     
     func configCellEvents(with data: ResultedEvents) {
@@ -100,9 +103,9 @@ class NewsCell: UICollectionViewCell {
         
         let index = data.date?.replacingOccurrences(of: ":00Z", with: " ")
         let ind = index?.replacingOccurrences(of: "T", with: " ")
+        
         self.newsDateLabel.text = "Pusblished at: \(ind ?? "Not founded")"
     }
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)

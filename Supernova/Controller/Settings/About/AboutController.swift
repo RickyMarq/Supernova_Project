@@ -79,7 +79,7 @@ extension AboutController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
-            return 300
+            return 200
         } else {
             return 35
         }

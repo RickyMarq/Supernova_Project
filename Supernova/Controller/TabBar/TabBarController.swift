@@ -19,27 +19,21 @@ class TabBarController: UITabBarController {
         tabBar.tintColor = .primaryColour
         let home = UINavigationController(rootViewController: HomeController())
         let settings = UINavigationController(rootViewController: SettingsController())
+        self.tabBar.backgroundColor = .tabBarColor
+//        self.tabBar.isTranslucent = false
+//        let explore = UINavigationController(rootViewController: SectionController())
+//        let news = UINavigationController(rootViewController: NewsController())
+//        let onboarding = UINavigationController(rootViewController: OnboardingController())
         
-        let explore = UINavigationController(rootViewController: SectionController())
-        let news = UINavigationController(rootViewController: NewsController())
-        
-        let onboarding = UINavigationController(rootViewController: OnboardingController())
-        
-        self.setViewControllers([home, onboarding, settings], animated: true)
+        self.setViewControllers([home, settings], animated: true)
         
         guard let items = tabBar.items else {return}
         
         items[0].image = UIImage(systemName: "house")
         items[0].title = "Home"
         
-        items[1].image = UIImage(systemName: "bolt")
-        items[1].title = "Onboarding"
-        
-//        items[2].image = UIImage(systemName: "newspaper")
-//        items[2].title = "News"
-        
-        items[2].image = UIImage(systemName: "gear")
-        items[2].title = "Settings"
+        items[1].image = UIImage(systemName: "gear")
+        items[1].title = "Settings"
     }
     
 }

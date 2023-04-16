@@ -13,7 +13,7 @@ class EventsController: UIViewController {
     var alerts: Alerts?
     var eventsScreen: EventsScreen?
     var events = [ResultedEvents]()
-    var page: Int = 10
+    var page: Int = 0
     
     override func loadView() {
         self.eventsScreen = EventsScreen()
@@ -62,7 +62,7 @@ class EventsController: UIViewController {
                 
             case .success(let model):
                 guard let strongSelf = self else {return}
-                strongSelf.events = model ?? []
+                strongSelf.events.append(contentsOf: model ?? [])
                 
                 DispatchQueue.main.async {
                     strongSelf.eventsScreen?.eventsCollectionView.reloadData()
@@ -85,7 +85,7 @@ class EventsController: UIViewController {
 extension EventsController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SkeletonCollectionViewDataSource {
     
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> SkeletonView.ReusableCellIdentifier {
-        return NewsCollectionCell.identifier
+        return EventsCell.identifier
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -93,13 +93,9 @@ extension EventsController: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsCollectionCell.identifier, for: indexPath) as? NewsCollectionCell else {return UICollectionViewCell()}
-        let index = events[indexPath.row]
-        cell.newsImageView.sd_setImage(with: URL(string: index.featureImage ?? ""))
-        cell.newsNameLabel.text = index.name
-        cell.newsDescriptionLabel.text = index.description
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventsCell.identifier, for: indexPath) as? EventsCell else {return UICollectionViewCell()}
+        cell.configCell(with: events[indexPath.row])
         cell.backgroundColor = .secondarySystemBackground
-        cell.newsDateLabel.text = index.location
         return cell
     }
     
@@ -107,12 +103,24 @@ extension EventsController: UICollectionViewDelegate, UICollectionViewDataSource
         // -> Original
  //       return CGSize(width: UIScreen.main.bounds.width - 28, height: 420)
         
-        return CGSize(width: UIScreen.main.bounds.width - 28, height: 300)
+        return CGSize(width: UIScreen.main.bounds.width - 28, height: 330)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = EventsItem(events: events[indexPath.item])
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height - 350
+        let height = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height {
+            page += 16
+            self.getLastEvents(limit: 15, startsAt: page)
+            
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {

@@ -6,19 +6,11 @@
 //
 
 import UIKit
+import Lottie
 
 class NewsFooterLoading: UICollectionReusableView {
     
     static let identifier = "NewsFooterLoading"
-    
-    lazy var loadingMoreLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.textColor = .secondaryLabel
-        label.text = "Loading more News..."
-        return label
-    }()
     
     lazy var activity: UIActivityIndicatorView = {
         let activity = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
@@ -26,6 +18,16 @@ class NewsFooterLoading: UICollectionReusableView {
         activity.hidesWhenStopped = true
         activity.startAnimating()
         return activity
+    }()
+    
+    lazy var loadingAnimationView: LottieAnimationView = {
+        var animationView = LottieAnimationView(name: "loading.json")
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        animationView.loopMode = .loop
+        animationView.contentMode = .scaleAspectFit
+        animationView.tintColor = .systemPurple
+        animationView.play()
+        return animationView
     }()
     
     override init(frame: CGRect) {
@@ -42,20 +44,29 @@ class NewsFooterLoading: UICollectionReusableView {
 extension NewsFooterLoading: ViewCode {
   
     func configureSubViews() {
-        self.addSubview(self.loadingMoreLabel)
-        self.addSubview(self.activity)
+//        self.addSubview(self.loadingMoreLabel)
+//        self.addSubview(self.activity)
+        self.addSubview(self.loadingAnimationView)
     }
     
     func configureConstraints() {
         NSLayoutConstraint.activate([
-            self.activity.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            self.activity.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+//
+//
+//            self.activity.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+//            self.activity.centerXAnchor.constraint(equalTo: self.centerXAnchor),
 //            self.activity.heightAnchor.constraint(equalToConstant: 25),
 //            self.activity.widthAnchor.constraint(equalToConstant: 50),
+//
+
+            self.loadingAnimationView.topAnchor.constraint(equalTo: self.topAnchor, constant: 12),
+            self.loadingAnimationView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -12),
             
-            self.loadingMoreLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.loadingMoreLabel.topAnchor.constraint(equalTo: self.activity.bottomAnchor, constant: 4),
-        
+            
+            self.loadingAnimationView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            self.loadingAnimationView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            
         ])
     }
     

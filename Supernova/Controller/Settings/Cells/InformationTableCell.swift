@@ -97,7 +97,6 @@ extension InformationTableCell: ViewCode {
     }
     
     func configureAdditionalBehaviors() {
-        self.backgroundColor = .secondarySystemBackground
         self.accessoryType = .disclosureIndicator
     }
     

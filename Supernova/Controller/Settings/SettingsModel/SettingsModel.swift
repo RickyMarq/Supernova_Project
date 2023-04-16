@@ -22,6 +22,14 @@ class SettingsModel {
     
     func populateModel() -> [Section] {
         
+        model.append(Section(title: "Notifications", cell: [
+            
+            .notificationCell(model: NotificationModel(title: "Notification", icon: UIImage(systemName: "square.3.layers.3d.middle.filled")!, iconBackgroundColor: .systemRed, isOn: false) { doubleHeader in } ),
+                                                            
+                                                            
+        ]))
+                                                            
+                                                            
         model.append(Section(title: "Updates", cell: [
         
         

@@ -62,7 +62,7 @@ extension AdsCollectionCell: ViewCode {
     
     func configureAdditionalBehaviors() {
         self.isSkeletonable = true
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = .clear
     }
     
     func configureAccessibility() {

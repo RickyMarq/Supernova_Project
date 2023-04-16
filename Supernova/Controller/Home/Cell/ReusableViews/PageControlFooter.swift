@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class PageControlFooter: UICollectionReusableView {
     
@@ -17,12 +18,28 @@ class PageControlFooter: UICollectionReusableView {
         pageControl.currentPageIndicatorTintColor = .secondaryColour
         pageControl.pageIndicatorTintColor = .gray
         pageControl.isUserInteractionEnabled = false
-        pageControl.isAccessibilityElement = false
-        pageControl.tag = 1
+//        pageControl.isAccessibilityElement = false
         pageControl.layer.masksToBounds = true
         pageControl.layer.cornerRadius = 10
+        pageControl.tag = 100
         return pageControl
     }()
+    
+    private var pagingInfoToken: AnyCancellable?
+    
+    func numberOfItems(numberOfItems: Int) {
+        self.homePageControl.numberOfPages = numberOfItems
+    }
+    
+    
+    func subscribeTo(subject: PassthroughSubject<PagingInfo, Never>, for section: Int) {
+        pagingInfoToken = subject
+            .filter { $0.sectionIndex == section }
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] pagingInfo in
+                self?.homePageControl.currentPage = pagingInfo.currentPage
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,6 +48,13 @@ class PageControlFooter: UICollectionReusableView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        pagingInfoToken?.cancel()
+        pagingInfoToken = nil
     }
         
 }

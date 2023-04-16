@@ -16,15 +16,15 @@ class WhatsNewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.textColor = .label
-        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.font = .systemFont(ofSize: 20, weight: .bold)
         return label
     }()
     
     lazy var updateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .secondaryLabel
-        label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.textColor = .primaryColour
+        label.font = .systemFont(ofSize: 14, weight: .semibold)
         return label
     }()
     
@@ -32,7 +32,7 @@ class WhatsNewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
-        label.textColor = .tertiaryLabel
+        label.textColor = .secondaryLabel
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.font = .systemFont(ofSize: 16)
@@ -96,12 +96,12 @@ extension WhatsNewCell: ViewCode {
 //            self.separator.rightAnchor.constraint(equalTo: self.versionLabel.rightAnchor, constant: -10),
             
             
-            self.updateLabel.topAnchor.constraint(equalTo: self.versionLabel.topAnchor, constant: 2),
-            self.updateLabel.leftAnchor.constraint(equalTo: self.versionLabel.rightAnchor, constant: 12),
+            self.updateLabel.topAnchor.constraint(equalTo: self.versionLabel.bottomAnchor, constant: 12),
+            self.updateLabel.leftAnchor.constraint(equalTo: self.versionLabel.leftAnchor),
             
             
  //           self.infoTextLabel.widthAnchor.constraint(equalTo: self.widthAnchor),
-            self.infoTextLabel.topAnchor.constraint(equalTo: self.versionLabel.bottomAnchor, constant: 12),
+            self.infoTextLabel.topAnchor.constraint(equalTo: self.updateLabel.bottomAnchor, constant: 12),
             self.infoTextLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -12),
             self.infoTextLabel.leftAnchor.constraint(equalTo: self.versionLabel.leftAnchor),
             self.infoTextLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -16),
@@ -109,7 +109,7 @@ extension WhatsNewCell: ViewCode {
     }
     
     func configureAdditionalBehaviors() {
-        self.backgroundColor = .secondarySystemBackground
+        self.backgroundColor = .tertiarySystemBackground
         self.isUserInteractionEnabled = false
     }
     

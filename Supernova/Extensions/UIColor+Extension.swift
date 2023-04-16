@@ -18,6 +18,8 @@ extension UIColor {
     
     static let testBackgroundColour = UIColor(red: 24/255, green: 25/255, blue: 26/255, alpha: 1.0)
     
+    static let tabBarColor = UIColor(red: 14/255, green: 15/255, blue: 16/255, alpha: 1.0)
+    
     static let terniaryColour = UIColor(hex: "#61458F")
 }
 

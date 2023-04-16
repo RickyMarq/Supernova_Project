@@ -55,8 +55,10 @@ class SpaceDevsInternetServices {
         .resume()
     }
     
-    func getFirstArticles(limit: Int, startsAt: Int, completion: @escaping (Result<[NewsModel]?, Errors>) -> Void) {
-        guard let url = URL(string: "https://api.spaceflightnewsapi.net/v3/articles?_limit=\(limit)&_start=\(startsAt)") else {return}
+    //  "https://api.spaceflightnewsapi.net/v3/articles?_limit=\(limit)&_start=\(startsAt)")
+    
+    func getFirstArticles(limit: Int, startsAt: Int, completion: @escaping (Result<[ResultedNewsSite]?, Errors>) -> Void) {
+        guard let url = URL(string: "https://api.spaceflightnewsapi.net/v4/articles?limit=\(limit)&offset=\(startsAt)") else {return}
         let session = URLSession.shared
         let request = URLRequest(url: url)
         session.dataTask(with: request) { data, response, error in
@@ -65,14 +67,34 @@ class SpaceDevsInternetServices {
                 return}
             do {
                 let decoder = JSONDecoder()
-                let model = try decoder.decode([NewsModel].self, from: data)
-                completion(.success(model))
+                let model = try decoder.decode(NewsSiteModel.self, from: data)
+                completion(.success(model.results))
             } catch {
                 completion(.failure(Errors.badUrl))
             }
         }
         .resume()
     }
+    
+    func getArticlesByNewsSite(startsAt: Int, newsSite: String, completion: @escaping (Result<[ResultedNewsSite], Errors>) -> Void) {
+        guard let url = URL(string: "https://api.spaceflightnewsapi.net/v4/articles/?news_site=\(newsSite)&_start=\(startsAt)") else {return}
+        let session = URLSession.shared
+        let request = URLRequest(url: url)
+        session.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                completion(.failure(Errors.badUrl))
+                return}
+            do {
+                let decoder = JSONDecoder()
+                let model = try decoder.decode(NewsSiteModel.self, from: data)
+                completion(.success(model.results))
+            } catch {
+                completion(.failure(Errors.badUrl))
+            }
+        }
+        .resume()
+    }
+    
     
     func getLastLauches(limit: Int, completion: @escaping (Result<[ResultedModel]?, Errors>) -> Void) {
         guard let url = URL(string: "https://ll.thespacedevs.com/2.2.0/launch/previous/?limit=\(limit)&offset=\(limit)") else {return}
@@ -126,6 +148,26 @@ class SpaceDevsInternetServices {
                 let decoder = JSONDecoder()
                 let model = try decoder.decode(LastEventsModel.self, from: data)
                 completion(.success(model.results))
+            } catch {
+                completion(.failure(Errors.badUrl))
+            }
+        }
+        .resume()
+    }
+    
+    func getRocket(url: String, completion: @escaping (Result<RocketModel?, Errors>) -> Void) {
+        guard let url = URL(string: "\(url)") else {return}
+        let session = URLSession.shared
+        let request = URLRequest(url: url)
+        session.dataTask(with: request) { data, response, error in
+            print(response)
+            guard let data = data else {
+                completion(.failure(Errors.badUrl))
+                return}
+            do {
+                let decoder = JSONDecoder()
+                let model = try decoder.decode(RocketModel.self, from: data)
+                completion(.success(model))
             } catch {
                 completion(.failure(Errors.badUrl))
             }

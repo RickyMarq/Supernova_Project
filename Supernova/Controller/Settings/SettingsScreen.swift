@@ -18,6 +18,7 @@ class SettingsScreen: UIView {
         tableView.register(InformationTableCell.self, forCellReuseIdentifier: InformationTableCell.identifier)
         tableView.register(StaticTableCell.self, forCellReuseIdentifier: StaticTableCell.identifier)
         tableView.register(SettingsFooter.self, forHeaderFooterViewReuseIdentifier: SettingsFooter.identifier)
+        tableView.register(NotificationTableCell.self, forCellReuseIdentifier: NotificationTableCell.identifier)
         return tableView
     }()
     

@@ -18,11 +18,13 @@ class HomeCollectionCellImage: UICollectionViewCell {
         }
     }
     
+    // Por algum motivo, o scaleAspectFill fica ótimo em iPhones X >, porém n funciona em modelos 8<. Tendo q usar o
+    
     lazy var pictureOfTheDayImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.isSkeletonable = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = .clear
         return imageView
     }()
@@ -46,8 +48,8 @@ class HomeCollectionCellImage: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .secondaryLabel
         label.textAlignment = .left
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 1
+        label.lineBreakMode = .byTruncatingTail
         label.font = .systemFont(ofSize: 24, weight: .semibold)
         label.text = "Loading..."
         return label
@@ -112,7 +114,7 @@ extension HomeCollectionCellImage: ViewCode {
             
             self.pictureOfTheDayNameLabel.topAnchor.constraint(equalTo: self.pictureOfTheDayLabel.bottomAnchor, constant: 2),
             self.pictureOfTheDayNameLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
-            self.pictureOfTheDayNameLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
+            self.pictureOfTheDayNameLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -30),
 
         ])
     }

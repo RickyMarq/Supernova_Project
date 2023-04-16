@@ -77,31 +77,33 @@ class NewsCollectionCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.textColor = .tertiaryLabel
+        label.font = .systemFont(ofSize: 14)
         return label
     }()
     
-    func configCell(with data: NewsModel) {
-        self.newsImageView.sd_setImage(with: URL(string: data.imageUrl ?? "Error"))
+    func configCell(with data: ResultedNewsSite) {
+        self.newsImageView.sd_setImage(with: URL(string: data.imageURL ?? "Error"))
         self.newsProviderLabel.text = data.newsSite
         self.newsNameLabel.text = data.title
         self.newsDescriptionLabel.text = data.title
         
-        let index = data.publishedAt?.replacingOccurrences(of: ".000Z", with: " ")
-        let ind = index?.replacingOccurrences(of: "T", with: " ")
-        self.newsDateLabel.text = "Pusblished at: \(ind ?? "Not founded")"
+        
+        let hour = convertHourNewsFormatter(data.publishedAt ?? "")
+        let day = convertDayOfWeekFormatter(data.publishedAt ?? "")
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .full
+        let date = formatter.localizedString(for: hour, relativeTo: Date())
+        self.newsDateLabel.text = "\(day.capitalizedSentence), \(date) GMT"
     }
     
     func configCellEvents(with data: ResultedEvents) {
         self.newsImageView.sd_setImage(with: URL(string: data.featureImage ?? "Error"))
-//        self.newsProviderLabel.text = data.newsSite
         self.newsNameLabel.text = data.name
         self.newsDescriptionLabel.text = data.description
         
-        let index = data.date?.replacingOccurrences(of: ":00Z", with: " ")
-        let ind = index?.replacingOccurrences(of: "T", with: " ")
-        self.newsDateLabel.text = "Pusblished at: \(ind ?? "Not founded")"
+        let filterData = convertDateEventsFormatter(data.date ?? "")
+        self.newsDateLabel.text = "Published at: \(filterData) GMT"
     }
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -153,6 +155,8 @@ extension NewsCollectionCell: ViewCode {
 //            self.adsView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
 //            self.adsView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
 //            self.adsView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+    
+            
         ])
     }
     

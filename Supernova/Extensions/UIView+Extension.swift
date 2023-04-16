@@ -54,9 +54,14 @@ extension UIView {
         view.layer.borderWidth = 0.0
         view.layer.shadowColor = UIColor.secondaryColour.cgColor
         view.layer.shadowOffset = CGSize(width: 1, height: 1)
-        view.layer.shadowRadius = 5.0
+        view.layer.shadowRadius = 3.5
         view.layer.shadowOpacity = 1
         view.layer.masksToBounds = false
+    }
+    
+    public func setBorder(view: UIView) {
+        view.layer.borderWidth = 1.0
+        view.layer.borderColor = UIColor.secondaryColour.cgColor
     }
     
     public func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {

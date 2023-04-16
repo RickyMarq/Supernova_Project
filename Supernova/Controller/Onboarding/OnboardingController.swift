@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class OnboardingController: UIViewController {
     
@@ -25,10 +26,64 @@ class OnboardingController: UIViewController {
 
 
     }
-    
+   
+    func requestNotificationAuthorization() {
+        
+        let nc = UNUserNotificationCenter.current()
+        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+        
+        nc.requestAuthorization(options: options) { granted, _ in
+            
+            UNUserNotificationCenter.current().getNotificationSettings { result in
+                
+                switch result.authorizationStatus {
+                    
+                case .notDetermined:
+                    if granted {
+                        print("\(#function) Permission granted: \(granted)")
+                        DispatchQueue.main.async {
+                            UIApplication.shared.registerForRemoteNotifications()
+                        }
+                        UserDefaults.standard.set(true, forKey: "PermissionForNotification")
+                        UserDefaults.standard.synchronize()
+                    } else {
+                        print("\(#function) Permission NOT granted: \(granted)")
+                        UserDefaults.standard.set(false, forKey: "PermissionForNotification")
+                        UserDefaults.standard.synchronize()
+                    }
+                case .authorized:
+                    UserDefaults.standard.set(true, forKey: "PermissionForNotification")
+                    UserDefaults.standard.synchronize()
+                case .denied:
+                    if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
+                        if UIApplication.shared.canOpenURL(settingsUrl) {
+                            DispatchQueue.main.async {
+                                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                                    print("Settings opened: \(success)")
+                                })
+                            }
+                        }
+                    }
+                case .ephemeral:
+                    print("Ephemeral")
+                case .provisional:
+                    print("Provisional")
+                @unknown default:
+                    fatalError("Fatal Error")
+                }
+            }
+            }
+        }
 }
 
 extension OnboardingController: OnboardingScreenProtocol {
+    
+    func skipAllButtonAction() {
+        let vc = TabBarController()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+    }
+    
     
     func skipButtonAction() {
         let nextIndex = min((self.onboardingScreen?.homePageControl.currentPage)! + 1, model.count + 1)
@@ -36,10 +91,13 @@ extension OnboardingController: OnboardingScreenProtocol {
         self.onboardingScreen?.homePageControl.currentPage = nextIndex
         print(nextIndex)
 
-        if nextIndex == 3 {
+        if nextIndex == 4 {
             let vc = TabBarController()
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
+        } else if nextIndex == 3 {
+            self.requestNotificationAuthorization()
+            self.onboardingScreen?.onboardingCollection.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
         } else {
             self.onboardingScreen?.onboardingCollection.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
         }
@@ -61,15 +119,18 @@ extension OnboardingController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.OnboardingPrimaryLabel.text = index.firstLabel
         cell.OnboardingSecondaryLabel.text = index.secondaryLabel
         cell.onBoardingAnimation.play()
-//        cell.onBoardingAnimationView.play()
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        if indexPath.row == 2 {
-            self.index = -2
+        if indexPath.row == 3 {
+            self.index = -3
             self.onboardingScreen?.skipIntroButton.setTitle("Begin", for: .normal)
+        } else if indexPath.row == 2 {
+            self.index = -2
+            self.requestNotificationAuthorization()
+            self.onboardingScreen?.skipIntroButton.setTitle("Next", for: .normal)
         } else {
             self.onboardingScreen?.skipIntroButton.setTitle("Next", for: .normal)
         }

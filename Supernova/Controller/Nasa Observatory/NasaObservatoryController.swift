@@ -67,6 +67,27 @@ class NasaObservatoryController: UIViewController {
         }
     }
     
+    func getImageSize(from urlString: String, completion: @escaping (CGSize?, Error?) -> Void) {
+        guard let url = URL(string: urlString) else {
+            completion(nil, NSError(domain: "com.example.app", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL string"]))
+            return
+        }
+        let request = URLRequest(url: url)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+            guard let data = data, let image = UIImage(data: data) else {
+                completion(nil, NSError(domain: "com.example.app", code: -1, userInfo: [NSLocalizedDescriptionKey: "Unable to create image from data"]))
+                return
+            }
+            completion(image.size, nil)
+        }
+        task.resume()
+    }
+
+
     func getLastPicturesOfTheDays(limit: Int) {
         NasaInternetService.sharedObjc.getLastPicturesOfTheDays(images: limit) { [weak self] pictures in
             
@@ -138,7 +159,7 @@ extension NasaObservatoryController: UICollectionViewDelegate, UICollectionViewD
     func configureContextMenu(index: Int, indexObjc: PictureOfTheDay) -> UIContextMenuConfiguration {
         let contextMenu = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
             
-            let saveImage = UIAction(title: "Save Image", image: UIImage(systemName: "camera.aperture"), identifier: nil, discoverabilityTitle: nil, attributes: .Element(), state: .on) { _ in
+            let saveImage = UIAction(title: "Save Image", image: UIImage(systemName: "camera.aperture"), identifier: nil, discoverabilityTitle: nil) { _ in
                 self.saveImage(imageToDownload: indexObjc.url ?? "")
             }
             
@@ -187,6 +208,16 @@ extension NasaObservatoryController: PinterestLayoutDelegate {
         let index = nasaObservatory[indexPath.row]
     
         let sizeOfImage = sizeOfImageAt(url: URL(string: index.url ?? "")!)
+        
+//        let sizeOfIt = try getImageSize(from: index.url ?? "")
+        
+        getImageSize(from: "https://example.com/image.png") { (size, error) in
+            if let size = size {
+                print("Image size: \(size)")
+            } else if let error = error {
+                print("Error getting image size: \(error)")
+            }
+        }
         
         //        guard let width = image.thumbnail?.width, let height = image.thumbnail?.height else { return .zero }
         let cellWidth = self.nasaObservatoryScreen!.layoutPintrest.width

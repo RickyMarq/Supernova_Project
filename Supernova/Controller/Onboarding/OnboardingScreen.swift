@@ -9,6 +9,7 @@ import UIKit
 
 protocol OnboardingScreenProtocol: AnyObject {
     func skipButtonAction()
+    func skipAllButtonAction()
 }
 
 class OnboardingScreen: UIView {
@@ -63,8 +64,21 @@ class OnboardingScreen: UIView {
         return button
     }()
     
+    lazy var skipAllButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Skip", for: .normal)
+        button.setTitleColor(.secondaryLabel, for: .normal)
+        button.addTarget(self, action: #selector(skipAllButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     @objc func skipButtonTapped() {
         self.delegate?.skipButtonAction()
+    }
+    
+    @objc func skipAllButtonTapped() {
+        self.delegate?.skipAllButtonAction()
     }
 
     override init(frame: CGRect) {
@@ -84,6 +98,7 @@ extension OnboardingScreen: ViewCode {
         self.addSubview(self.onboardingCollection)
         self.addSubview(self.skipIntroButton)
         self.addSubview(self.homePageControl)
+        self.addSubview(self.skipAllButton)
     }
     
     func configureConstraints() {
@@ -93,6 +108,9 @@ extension OnboardingScreen: ViewCode {
             self.onboardingCollection.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.onboardingCollection.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.onboardingCollection.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            self.skipAllButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: -5),
+            self.skipAllButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20),
             
             self.skipIntroButton.topAnchor.constraint(equalTo: self.homePageControl.topAnchor, constant: -44),
             self.skipIntroButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 50),

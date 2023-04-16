@@ -11,12 +11,45 @@ import GoogleMobileAds
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+        UNUserNotificationCenter.current().delegate = self
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
         return true
+    }
+    
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        NotificationController.sharedObjc.requestTestNotification(title: "Background Fetch", body: "Performed a Background Fetch with Success")
+        
+        SpaceDevsInternetServices.sharedObjc.getFutureLauches(limit: 1, startsAt: 0) { result in
+            switch result {
+            case .success(let result):
+                
+                print("DEBUG MODE: WINDOWSSTAT STRING: \(result?[0].windowStart ?? "")")
+                
+                let fullHours = convertHoursForCountDownLaunchesFormatter(result?[0].windowStart ?? "", outPut: "HH:mm:ss")
+                print("DEBUG MODE FULLHOURS: \(fullHours)")
+                let timeInterval = fullHours.timeIntervalSince(Date())
+                print("DEBUG MODE: TIME INTERVEL (DATE ALREADY COMPARED \(timeInterval)")
+                let convertion = Int(timeInterval)
+                print("DEBUG MODE CONVERTION: \(convertion)")
+                
+                if convertion <= 600 {
+                    NotificationController.sharedObjc.requestUpcomingLaunchNotification(title: "\(result?[0].name ?? "") is almost launching", body: "Performed a Background Fetch with Success", timeInterval: 25)
+                } else {
+                    print("Not the time")
+                }
+                
+            case .failure(_):
+                print("Error")
+            }
+            
+        }
+        print("DEBUG MODE: Background Fetch")
+        
+     
     }
 
     // MARK: UISceneSession Lifecycle
@@ -36,3 +69,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+          print("DEBUG MODE: DEVICE TOKEN: \(deviceToken)")
+      }
+      
+      func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+          print("DEBUG MODE: NOTIFICATION ERROR: \(error)")
+      }
+    
+}

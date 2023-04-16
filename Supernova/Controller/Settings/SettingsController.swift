@@ -7,11 +7,13 @@
 
 import UIKit
 import SafariServices
+import UserNotifications
 
 class SettingsController: UIViewController {
     
     var settingsScreen: SettingsScreen?
     var settingsModel = SettingsModel().populateModel()
+    var isEnabled: Bool = false
     
     override func loadView() {
         self.settingsScreen = SettingsScreen()
@@ -24,11 +26,24 @@ class SettingsController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.setUpNavigationController()
+        self.title = "Settings"
+//        self.setUpNavigationController()
+        UserDefaults.standard.synchronize()
+        let isOn = UserDefaults.standard.bool(forKey: "PermissionForNotification")
+        print("DEBUG MODE IS ON -> \(isOn)")
+        print("DEBUG MODE CHECK -> \(UIApplication.shared.isRegisteredForRemoteNotifications)")
+        
+        DispatchQueue.main.async {
+            self.isEnabled = isOn
+            self.settingsScreen?.settingsTableView.reloadData()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.title = ""
     }
     
     func setUpNavigationController() {
-        self.title = "Settings"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.tintColor = .primaryColour
     }
@@ -42,8 +57,75 @@ class SettingsController: UIViewController {
         let vc = AboutController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func requestNotificationAuthorization() {
+        
+        let nc = UNUserNotificationCenter.current()
+        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+        
+        nc.requestAuthorization(options: options) { granted, _ in
+            
+            UNUserNotificationCenter.current().getNotificationSettings { result in
+                
+                switch result.authorizationStatus {
+                    
+                case .notDetermined:
+                    if granted {
+                        print("\(#function) Permission granted: \(granted)")
+                        self.isEnabled = granted
+                        DispatchQueue.main.async {
+                            UIApplication.shared.registerForRemoteNotifications()
+                        }
+                        UserDefaults.standard.set(true, forKey: "PermissionForNotification")
+                        UserDefaults.standard.synchronize()
+                    } else {
+                        print("\(#function) Permission NOT granted: \(granted)")
+                        self.isEnabled = granted
+                        UserDefaults.standard.set(false, forKey: "PermissionForNotification")
+                        UserDefaults.standard.synchronize()
+                    }
+                case .authorized:
+                    self.isEnabled = true
+                    UserDefaults.standard.set(true, forKey: "PermissionForNotification")
+                    UserDefaults.standard.synchronize()
+                case .denied:
+                    if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
+                        if UIApplication.shared.canOpenURL(settingsUrl) {
+                            DispatchQueue.main.async {
+                                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                                    print("Settings opened: \(success)")
+                                })
+                            }
+                        }
+                    }
+                case .ephemeral:
+                    print("Ephemeral")
+                case .provisional:
+                    print("Provisional")
+                @unknown default:
+                    fatalError("Fatal Error")
+                }
+            }
+            }
+        }
+    }
 
 
+
+
+extension SettingsController: NotificationTableCellProtocols {
+    
+    func switcherAction(cell: NotificationTableCell) {
+        if cell.notificationSwitcher.isOn {
+            self.requestNotificationAuthorization()
+        } else {
+            UIApplication.shared.unregisterForRemoteNotifications()
+            UserDefaults.standard.set(false, forKey: "PermissionForNotification")
+            UserDefaults.standard.synchronize()
+            cell.notificationSwitcher.isOn = false
+        }
+    }
+    
 }
 
 extension SettingsController: UITableViewDelegate, UITableViewDataSource {
@@ -87,6 +169,14 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
             cell.configDocumentationCell(with: model)
             cell.backgroundColor = .tertiarySystemBackground
             return cell
+            
+        case .notificationCell(model: let model):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: NotificationTableCell.identifier, for: indexPath) as? NotificationTableCell else {return UITableViewCell()}
+            cell.configCell(with: model)
+            cell.delegate(delegate: self)
+            cell.notificationSwitcher.isOn = isEnabled
+            cell.backgroundColor = .tertiarySystemBackground
+              return cell
         }
     }
     
@@ -105,10 +195,15 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
         case .WhatsNew(model:):
             self.presentWhatsNew()
             
+        case .notificationCell(model:):
+            print("Change State")
+            
         case .documentationCell(model: let model):
             
             self.openSafariPageWith(url: model.link)
         }
+        
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -116,7 +211,7 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if section == 3 {
+        if section == 4 {
             let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: SettingsFooter.identifier) as? SettingsFooter
             return footer
         } else {
@@ -125,7 +220,7 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == 3 {
+        if section == 4 {
             return 50
         } else {
             return 10

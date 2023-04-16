@@ -34,6 +34,7 @@ class NewsScreen: UIView {
         collectionView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
         collectionView.isSkeletonable = true
         collectionView.register(NewsCell.self, forCellWithReuseIdentifier: NewsCell.identifier)
+        collectionView.register(AdsCollectionCell.self, forCellWithReuseIdentifier: AdsCollectionCell.identifier)
         collectionView.register(NewsFooterLoading.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: NewsFooterLoading.identifier)
         return collectionView
     }()
@@ -140,6 +141,4 @@ extension NewsScreen: ViewCode {
     func configureAccessibility() {
         
     }
-    
-    
 }

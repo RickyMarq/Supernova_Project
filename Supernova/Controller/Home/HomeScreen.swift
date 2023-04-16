@@ -26,6 +26,9 @@ class HomeScreen: UIView {
         collectionView.register(TitleCollection.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCollection.identifier)
         collectionView.register(NewsCollectionCell.self, forCellWithReuseIdentifier: NewsCollectionCell.identifier)
         collectionView.register(PicturesOfTheDaysCell.self, forCellWithReuseIdentifier: PicturesOfTheDaysCell.identifier)
+        collectionView.register(EventsCell.self, forCellWithReuseIdentifier: EventsCell.identifier)
+        collectionView.register(LaunchesCell.self, forCellWithReuseIdentifier: LaunchesCell.identifier)
+        collectionView.register(UpcomingLaunchCell.self, forCellWithReuseIdentifier: UpcomingLaunchCell.identifier)
         collectionView.register(PageControlFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: PageControlFooter.identifier)
         collectionView.register(TitleReusable.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleReusable.identifier)
         return collectionView
@@ -40,7 +43,7 @@ class HomeScreen: UIView {
         let animation = LottieAnimationView(name: "lauchscreen.json")
         animation.translatesAutoresizingMaskIntoConstraints = false
         animation.backgroundColor = .black
-        animation.animationSpeed = 5.0
+        animation.animationSpeed = 2.0
         animation.loopMode = .playOnce
         animation.contentMode = .scaleAspectFill
         return animation
