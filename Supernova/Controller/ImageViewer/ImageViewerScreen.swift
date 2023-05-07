@@ -30,7 +30,7 @@ class ImageViewerScreen: UIView {
         let scroll = UIScrollView()
         scroll.showsVerticalScrollIndicator = false
         scroll.showsHorizontalScrollIndicator = false
-        scroll.maximumZoomScale = 10
+        scroll.maximumZoomScale = 6.0
         scroll.minimumZoomScale = 1.0
         scroll.translatesAutoresizingMaskIntoConstraints = false
 //        scroll.contentSize = .init(width: 2000, height: 2000)
@@ -119,6 +119,7 @@ class ImageViewerScreen: UIView {
         self.delegate?.dissmissButtonAction()
     }
     
+    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -181,7 +182,7 @@ extension ImageViewerScreen: ViewCode {
             self.imageNameLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12),
             self.imageNameLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -12),
             
-            self.explanationScrollView.topAnchor.constraint(equalTo: self.imageNameLabel.bottomAnchor, constant: 8),
+            self.explanationScrollView.topAnchor.constraint(equalTo: self.imageNameLabel.bottomAnchor, constant: 12),
             self.explanationScrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.explanationScrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.explanationScrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -12),

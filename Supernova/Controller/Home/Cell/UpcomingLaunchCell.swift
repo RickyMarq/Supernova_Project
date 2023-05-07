@@ -14,7 +14,6 @@ class UpcomingLaunchCell: UICollectionViewCell {
     var hourCountDown = 0
     var minuteCountDown = 0
     var secondCountDown = 0
-    
     var count = 0
     
     lazy var rocketImageView: UIImageView = {
@@ -31,7 +30,8 @@ class UpcomingLaunchCell: UICollectionViewCell {
         view.backgroundColor = .primaryColour
         view.layer.masksToBounds = true
         view.clipsToBounds = true
-        view.layer.cornerRadius = 5
+        view.frame = CGRect(x: 0, y: 0, width: 50, height: 5)
+        view.layer.cornerRadius = view.frame.size.height / 2
         return view
     }()
     
@@ -83,6 +83,7 @@ class UpcomingLaunchCell: UICollectionViewCell {
         label.textColor = .label
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 16, weight: .heavy)
+        label.text = "0"
         return label
     }()
     
@@ -111,6 +112,7 @@ class UpcomingLaunchCell: UICollectionViewCell {
         label.textColor = .label
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 16, weight: .heavy)
+        label.text = "0"
         return label
     }()
     
@@ -139,6 +141,7 @@ class UpcomingLaunchCell: UICollectionViewCell {
         label.textColor = .label
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 16, weight: .heavy)
+        label.text = "0"
         return label
     }()
     
@@ -162,6 +165,7 @@ class UpcomingLaunchCell: UICollectionViewCell {
         
         let formatter = RelativeDateTimeFormatter()
         let timeInterval = fullHours.timeIntervalSince(Date())
+        print("TIME INTERVAL: \(timeInterval)")
         
         let date = formatter.localizedString(for: fullHours, relativeTo: Date())
         
@@ -214,12 +218,17 @@ class UpcomingLaunchCell: UICollectionViewCell {
             let minutes = (convertion % 3600) / 60
             let seconds = (convertion % 3600) % 60
             
-            self.hourCountDown = Int(hours) ?? 0
-            self.minuteCountDown = Int(minutes) ??  0
-            self.secondCountDown = Int(seconds) ?? 0
+            self.hourCountDown = Int(hours)
+            self.minuteCountDown = Int(minutes) 
+            self.secondCountDown = Int(seconds)
 
-            self.startTimer()
-
+            if self.hourCountDown <= 0 && self.minuteCountDown <= 0 && self.secondCountDown <= 0 {
+                self.hourLabel.text = "0"
+                self.minuteLabel.text = "0"
+                self.secondLabel.text = "0"
+            } else {
+                self.startTimer()
+            }
         } else {
             print("DEBUG MODE: TIMER ALREADY STARTED")
         }
@@ -243,7 +252,6 @@ class UpcomingLaunchCell: UICollectionViewCell {
             self.hourLabel.text = "\(self.hourCountDown)"
             self.minuteLabel.text = "\(self.minuteCountDown)"
             self.secondLabel.text = "\(self.secondCountDown)"
- //           self.updateLabel()
         })
     }
     
@@ -296,7 +304,7 @@ extension UpcomingLaunchCell: ViewCode {
             
             self.separatorView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 12),
             self.separatorView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20),
-            self.separatorView.heightAnchor.constraint(equalToConstant: 5.0),
+            self.separatorView.heightAnchor.constraint(equalToConstant: 5),
             self.separatorView.widthAnchor.constraint(equalToConstant: 50),
             
             self.launchNameLabel.topAnchor.constraint(equalTo: self.separatorView.bottomAnchor, constant: 8),

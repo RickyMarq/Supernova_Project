@@ -24,15 +24,14 @@ class HomeController: UIViewController {
     var buttonsModel = HomeSectionButtonsModel().populateModel()
     var picturesOfTheDays = [PictureOfTheDay]()
     var lastUpdated = ""
-    
-    
-    typealias Datasource = UICollectionViewDiffableDataSource<Int,PagingInfo>
-    let pagingInfoSubject = PassthroughSubject<PagingInfo, Never>()
-    private var datasource: Datasource!
+    var statusbarView: UIView?
 
+    
+//    typealias Datasource = UICollectionViewDiffableDataSource<Int,PagingInfo>
+//    let pagingInfoSubject = PassthroughSubject<PagingInfo, Never>()
 //    private var datasource: Datasource!
 
-        
+    let isOn = UserDefaults.standard.bool(forKey: "PermissionForNotification")
     var ind: Int = 0
     
     override func loadView() {
@@ -56,26 +55,30 @@ class HomeController: UIViewController {
 //        self.getFutureLaunches(limit: 15, startsAt: 0)
 //        self.getLastEvents(limit: 10, startsAt: 0)
         self.getLastPicturesOfTheDays(limit: 7)
-        self.getNextLaunch(limit: 1, startsAt: 0)
-        // Bug no Backend quebrou a primeira página, depois retorne para 0.
-        
-        self.getNews(limit: 15, startsAt: 10)
+        self.getNews(limit: 15, startsAt: 0)
+//        self.getNextLaunch(limit: 1, startsAt: 0)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.title = "Home"
         self.navigationController?.isNavigationBarHidden = true
-        self.tabBarController?.delegate = self
-        self.configCustomNavigationController()
+//        self.tabBarController?.delegate = self
+//        self.configCustomNavigationController()
         self.getPictureOfTheDay()
         self.showSkeleton()
+        self.deleteNotifications()
         self.navigationController?.navigationBar.tintColor = .primaryColour
-        NotificationController.sharedObjc.requestTestNotification(title: "It's already Starting", body: "An upcoming launch it's about to start")
+    }
+    
+    func deleteNotifications() {
+        if isOn == false {
+            print("User doest allow notification anymore")
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.title = ""
         self.navigationController?.isNavigationBarHidden = false
     }
     
@@ -114,7 +117,7 @@ class HomeController: UIViewController {
                 
             case .failure(let model):
                 DispatchQueue.main.async {
-                    self.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again", buttonMessage: "Cancel")
+                    self.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
                 }
             }
         }
@@ -149,6 +152,9 @@ class HomeController: UIViewController {
                 
             case .failure(let error):
                 print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    self?.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
+                }
             }
         }
     }
@@ -169,6 +175,9 @@ class HomeController: UIViewController {
                 
             case .failure(let error):
                 print("Error \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self?.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
+                }
             }
         }
     }
@@ -181,12 +190,38 @@ class HomeController: UIViewController {
                 guard let strongSelf = self else {return}
                 strongSelf.nextLaunchObjc = model ?? []
                 
+                // TODO: NOTIFICAÇÃO
+                
+                if strongSelf.isOn == true {
+                    print("DEBUG MODE: NTF HAS SCHEDULE")
+                    let fullHours = convertHoursForCountDownLaunchesFormatter(strongSelf.nextLaunchObjc[0].windowStart ?? "", outPut: "HH:mm:ss")
+                    print("DEBUG MODE FULLHOURS: \(fullHours)")
+                    let timeInterval = fullHours.timeIntervalSince(Date())
+                    print("DEBUG MODE: TIME INTERVEL (DATE ALREADY COMPARED \(timeInterval)")
+                    let convertion = Int(timeInterval)
+                    print("DEBUG MODE CONVERTION: \(convertion)")
+                    let identifier = strongSelf.nextLaunchObjc[0].name
+                    let notificationTrigger = convertion - 3600
+                    print("DEBUG MODE: INT NTF TRIGGER \(notificationTrigger)")
+                    print("DEBUG MODE: DOUBLE NTF TRIGGER \(Double(notificationTrigger).rounded())")
+                    
+                    NotificationController.sharedObjc.requestUpcomingLaunchNotification(title: "\(strongSelf.nextLaunchObjc[0].name ?? "") is almost launching", body: "Livestream is now available to watch", timeInterval: Double(notificationTrigger).rounded(), identifier: identifier ?? "Default_Identifier")
+                    
+                } else {
+                    
+                }
+                
+       
+                
                 DispatchQueue.main.async {
                     strongSelf.homeScreen?.homeCollectionView.reloadData()
                 }
                 
             case .failure(let error):
                 print("Error \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self?.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
+                }
             }
         }
     }
@@ -211,6 +246,9 @@ class HomeController: UIViewController {
                 
             case .failure(let error):
                 print("Error \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self?.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
+                }
             }
         }
     }
@@ -232,6 +270,9 @@ class HomeController: UIViewController {
                 
             case .failure(let error):
                 print("Error \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self?.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
+                }
             }
         }
     }
@@ -252,7 +293,7 @@ class HomeController: UIViewController {
             case .failure(let error):
                 guard let strongSelf = self else {return}
                 DispatchQueue.main.async {
-                    strongSelf.alerts?.getAlert(title: "Error", message: "Error: \(error)", buttonMessage: "Cancel")
+                    self?.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
                 }
             }
         }
@@ -271,115 +312,117 @@ class HomeController: UIViewController {
     
 }
 
-extension HomeController: UITabBarControllerDelegate {
-    
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if tabBarController.selectedIndex == 0 {
-            if let index = tabBarController.viewControllers?.firstIndex(of: viewController),  let tabView = tabBarController.tabBar.subviews[index+1] as? UIControl {
-                let label = tabView.subviews.compactMap { $0 as? UILabel }.first
-                if let label = label {
-                    UIView.animate(withDuration: 0.2) {
-                        label.transform = CGAffineTransform(translationX: 0, y: -5)
-                        label.alpha = 0
-                    } completion: { _ in
-                        UIView.animate(withDuration: 0.2) {
-                            label.transform = .identity
-                            label.alpha = 1
-                        }
-                    }
-                }
-            }
-            self.getSoftFeedbackGenerator()
-            self.homeScreen?.homeCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-        } else if tabBarController.selectedIndex == 1 {
-            if let index = tabBarController.viewControllers?.firstIndex(of: viewController), let tabView = tabBarController.tabBar.subviews[index+1] as? UIControl {
-                let label = tabView.subviews.compactMap { $0 as? UILabel }.first
-                if let label = label {
-                    UIView.animate(withDuration: 0.2) {
-                        label.transform = CGAffineTransform(translationX: 0, y: -5)
-                        label.alpha = 0
-                    } completion: { _ in
-                        UIView.animate(withDuration: 0.2) {
-                            label.transform = .identity
-                            label.alpha = 1
-                        }
-                    }
-                }
-            }
-            self.getSoftFeedbackGenerator()
-        }
-    }
-}
+//extension HomeController: UITabBarControllerDelegate {
+//
+//    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+//        if tabBarController.selectedIndex == 0 {
+//            if let index = tabBarController.viewControllers?.firstIndex(of: viewController),  let tabView = tabBarController.tabBar.subviews[index+1] as? UIControl {
+//                let label = tabView.subviews.compactMap { $0 as? UILabel }.first
+//                if let label = label {
+//                    UIView.animate(withDuration: 0.2) {
+//                        label.transform = CGAffineTransform(translationX: 0, y: -5)
+//                        label.alpha = 0
+//                    } completion: { _ in
+//                        UIView.animate(withDuration: 0.2) {
+//                            label.transform = .identity
+//                            label.alpha = 1
+//                        }
+//                    }
+//                }
+            
+//            self.getSoftFeedbackGenerator()
+ //           self.homeScreen?.homeCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+//        } else if tabBarController.selectedIndex == 1 {
+//            if let index = tabBarController.viewControllers?.firstIndex(of: viewController), let tabView = tabBarController.tabBar.subviews[index+1] as? UIControl {
+//                let label = tabView.subviews.compactMap { $0 as? UILabel }.first
+//                if let label = label {
+//                    UIView.animate(withDuration: 0.2) {
+//                        label.transform = CGAffineTransform(translationX: 0, y: -5)
+//                        label.alpha = 0
+//                    } completion: { _ in
+//                        UIView.animate(withDuration: 0.2) {
+//                            label.transform = .identity
+//                            label.alpha = 1
+//                        }
+//                    }
+//                }
+//            }
+//            self.getSoftFeedbackGenerator()
+//       }
+//    }
+//}
 
 extension HomeController: UIScrollViewDelegate {
-    
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        
+
         if scrollView.contentOffset.y > -scrollView.contentInset.top + 300 {
             // user has scrolled past the top of the scroll view
             // your desired background color
-            UIView.animate(withDuration: 1.0) {
- //               print("Scrollou para baixo ")
+            UIView.animate(withDuration: 0.3) {
                 if #available(iOS 13.0, *) {
                     let app = UIApplication.shared
                     let statusBarHeight: CGFloat = app.statusBarFrame.size.height
-                    
-                    let statusbarView = UIView()
-                    statusbarView.backgroundColor = UIColor.secondarySystemBackground
-                    self.view.addSubview(statusbarView)
-                  
-                    statusbarView.translatesAutoresizingMaskIntoConstraints = false
-                    statusbarView.heightAnchor
+
+                    let newStatusBarView = UIView()
+                    newStatusBarView.backgroundColor = UIColor.secondarySystemBackground
+                    self.view.addSubview(newStatusBarView)
+
+                    newStatusBarView.translatesAutoresizingMaskIntoConstraints = false
+                    newStatusBarView.heightAnchor
                         .constraint(equalToConstant: statusBarHeight).isActive = true
-                    statusbarView.widthAnchor
+                    newStatusBarView.widthAnchor
                         .constraint(equalTo: self.view.widthAnchor, multiplier: 1.0).isActive = true
-                    statusbarView.topAnchor
+                    newStatusBarView.topAnchor
                         .constraint(equalTo: self.view.topAnchor).isActive = true
-                    statusbarView.centerXAnchor
+                    newStatusBarView.centerXAnchor
                         .constraint(equalTo: self.view.centerXAnchor).isActive = true
-                  
+                        self.statusbarView?.removeFromSuperview()
+                        self.statusbarView = newStatusBarView
+           
                 } else {
                     let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
                     statusBar?.backgroundColor = UIColor.black
                 }
-  //              UIApplication.shared.?.backgroundColor = color
             }
         } else {
             // user has scrolled back to the top of the scroll view
-            UIView.animate(withDuration: 1.0) {
+        
+            UIView.animate(withDuration: 0.3) {
                 if #available(iOS 13.0, *) {
                     let app = UIApplication.shared
                     let statusBarHeight: CGFloat = app.statusBarFrame.size.height
-            
-                    let statusbarView = UIView()
-                    statusbarView.isOpaque = false
+
+                    let newStatusBarView = UIView()
+                    newStatusBarView.isOpaque = false
                     let color = UIColor.red.withAlphaComponent(0.1)
-                    statusbarView.backgroundColor = .clear
-                    self.view.addSubview(statusbarView)
-                  
-                    statusbarView.translatesAutoresizingMaskIntoConstraints = false
-                    statusbarView.heightAnchor
+                    newStatusBarView.backgroundColor = .clear
+                    self.view.addSubview(newStatusBarView)
+
+                    newStatusBarView.translatesAutoresizingMaskIntoConstraints = false
+                    newStatusBarView.heightAnchor
                         .constraint(equalToConstant: statusBarHeight).isActive = true
-                    statusbarView.widthAnchor
+                    newStatusBarView.widthAnchor
                         .constraint(equalTo: self.view.widthAnchor, multiplier: 1.0).isActive = true
-                    statusbarView.topAnchor
+                    newStatusBarView.topAnchor
                         .constraint(equalTo: self.view.topAnchor).isActive = true
-                    statusbarView.centerXAnchor
+                    newStatusBarView.centerXAnchor
                         .constraint(equalTo: self.view.centerXAnchor).isActive = true
-                  
+
+                    self.statusbarView?.removeFromSuperview()
+                    self.statusbarView = newStatusBarView
                 } else {
                     let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
                     statusBar?.backgroundColor = UIColor.clear
                 }
-//                UIApplication.shared.statusbar.backgroundColor = .clear // reset to default color
-                
-                
-   //             print("Scrollou para cima")
             }
         }
     }
 }
+
+    
+
 
 
 
@@ -387,7 +430,7 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> SkeletonView.ReusableCellIdentifier {
         switch indexPath.section {
-    
+            
         case 2:
             return ExploreCollectionCell.identifier
         case 3:
@@ -422,9 +465,13 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         case 5:
             return news.count
         case 6:
-            return picturesOfTheDays.count
-        case 7:
             return events.count
+        case 7:
+            if picturesOfTheDays.isEmpty {
+                return 1
+            } else {
+                return picturesOfTheDays.count
+            }
         default:
             return 0
         }
@@ -452,7 +499,7 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
             return cell
         case 3:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LaunchesCell.identifier, for: indexPath) as? LaunchesCell else {return UICollectionViewCell()}
-//            cell.configCell(with: futureLauchesObjc[indexPath.row])
+            //            cell.configCell(with: futureLauchesObjc[indexPath.row])
             cell.configCell(with: futureLauchesObjc[indexPath.item])
             return cell
         case 4:
@@ -466,15 +513,15 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
             cell.newsProviderLabel.isHidden = false
             return cell
         case 6:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PicturesOfTheDaysCell.identifier, for: indexPath) as? PicturesOfTheDaysCell else {return UICollectionViewCell()}
-            cell.newsImageView.sd_setImage(with: URL(string: picturesOfTheDays[indexPath.row].url ?? ""))
-            cell.pictureOfTheDayLabel.text = picturesOfTheDays[indexPath.row].title
-            return cell
-            
-        case 7:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventsCell.identifier, for: indexPath) as? EventsCell else {return UICollectionViewCell()}
             cell.configCell(with: events[indexPath.row])
             cell.backgroundColor = .tertiarySystemBackground
+            return cell
+            
+        case 7:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PicturesOfTheDaysCell.identifier, for: indexPath) as? PicturesOfTheDaysCell else {return UICollectionViewCell()}
+            cell.newsImageView.sd_setImage(with: URL(string: picturesOfTheDays[indexPath.row].url ?? ""))
+            cell.pictureOfTheDayLabel.text = picturesOfTheDays[indexPath.row].title
             return cell
         default: break
         }
@@ -487,20 +534,20 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         case 0:
             guard let unwrapped = pictureOfTheDay else {return}
             let vc = ImageViewerController(data: unwrapped)
+            //            self.navigationController?.pushViewController(vc, animated: true)
+            vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
         case 1:
             switch indexPath.item {
             case 0:
                 self.navigationController?.pushViewController(LaunchesController(index: 0), animated: true)
             case 1:
-                let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .soft)
-                impactFeedbackgenerator.prepare()
-                impactFeedbackgenerator.impactOccurred()
                 self.navigationController?.pushViewController(NewsController(), animated: true)
             case 2:
                 self.navigationController?.pushViewController(EventsController(), animated: true)
             case 3:
-                self.navigationController?.pushViewController(NasaObservatoryController(), animated: true)
+                alerts?.getAlert(title: "Coming Soon", message: "Nasa Observatory it's under construct.", buttonMessage: "Cancel")
+                //                self.navigationController?.pushViewController(NasaObservatoryController(), animated: true)
             default: break
             }
             
@@ -516,11 +563,11 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         case 5:
             self.openSafariPageWith(url: news[indexPath.row].url ?? "Error")
         case 6:
-            let vc = ImageViewerController(data: picturesOfTheDays[indexPath.row])
-            self.present(vc, animated: true)
-        case 7:
             let vc = EventsItem(events: events[indexPath.row])
             self.navigationController?.pushViewController(vc, animated: true)
+        case 7:
+            let vc = ImageViewerController(data: picturesOfTheDays[indexPath.row])
+            self.present(vc, animated: true)
         default: break
         }
     }
@@ -566,49 +613,51 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
             case 6:
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCollection.identifier, for: indexPath) as? TitleCollection
                 header?.seeAllButton.tag = 5
+                header?.titleCollectionLabel.text = "Last Events"
                 header?.lastUpdatedLabel.isHidden = true
-                header?.titleCollectionLabel.text = "Nasa Observatory"
                 return header ?? UICollectionReusableView()
             case 7:
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCollection.identifier, for: indexPath) as? TitleCollection
                 header?.seeAllButton.tag = 6
-                header?.titleCollectionLabel.text = "Last Events"
                 header?.lastUpdatedLabel.isHidden = true
+                header?.titleCollectionLabel.text = "Nasa Observatory"
                 return header ?? UICollectionReusableView()
             default: break
             }
             
-        case UICollectionView.elementKindSectionFooter:
-            if indexPath.section == 6 {
-                guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: PageControlFooter.identifier, for: indexPath) as? PageControlFooter else {return UICollectionReusableView()}
-//                footer.backgroundColor = .red
-                
-//                let itemCount = self.datasource.snapshot().numberOfItems(inSection: indexPath.section)
-                footer.numberOfItems(numberOfItems: self.picturesOfTheDays.count)
-                footer.homePageControl.tag = 100
-                print("DEBUG MODE: CRT PAGE \(footer.homePageControl.currentPage)")
-//                footer.homePageControl.currentPage = 2
-                return footer
-            }
+            //        case UICollectionView.elementKindSectionFooter:
+            //            if indexPath.section == 6 {
+            //                guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: PageControlFooter.identifier, for: indexPath) as? PageControlFooter else {return UICollectionReusableView()}
+            ////                footer.backgroundColor = .red
+            //
+            ////                let itemCount = self.datasource.snapshot().numberOfItems(inSection: indexPath.section)
+            //                footer.numberOfItems(numberOfItems: self.picturesOfTheDays.count)
+            //                footer.homePageControl.tag = 100
+            //                print("DEBUG MODE: CRT PAGE \(footer.homePageControl.currentPage)")
+            ////                footer.homePageControl.currentPage = 2
+            //                return footer
+            //            }
         default:
             break
         }
         return UICollectionReusableView()
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print("DEBUG MODE: DID END DECELERATING")
-        let visibleRect = CGRect(origin: (self.homeScreen?.homeCollectionView.contentOffset)!, size: (self.homeScreen?.homeCollectionView.bounds.size)!)
-              let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-                guard let indexPath = self.homeScreen?.homeCollectionView.indexPathForItem(at: visiblePoint) else {
-                   return
-               }
-                  
-                  if let footerView = self.homeScreen?.homeCollectionView.supplementaryView(forElementKind: UICollectionView.elementKindSectionFooter, at: IndexPath(item: 0, section: 6)),
-                     let pageControl = footerView.viewWithTag(100) as? UIPageControl {
-                        pageControl.currentPage = indexPath.row
-                }
-            }
+}
+    
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        print("DEBUG MODE: DID END DECELERATING")
+// //       let visibleRect = CGRect(origin: (self.homeScreen?.homeCollectionView.contentOffset)!, size: (self.homeScreen?.homeCollectionView.bounds.size)!)
+////              let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+////               guard let indexPath = self.homeScreen?.homeCollectionView.indexPathForItem(at: visiblePoint) else {
+////                   return
+//               }
+//
+////                  if let footerView = self.homeScreen?.homeCollectionView.supplementaryView(forElementKind: UICollectionView.elementKindSectionFooter, at: IndexPath(item: 0, section: 6)),
+////                     let pageControl = footerView.viewWithTag(100) as? UIPageControl {
+////                        pageControl.currentPage = indexPath.row
+//                }
+
         
     
     
@@ -661,12 +710,12 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
                 cell.transform = .init(scaleX: 0.95, y: 0.95)
             }
         case 6:
-            guard let cell = collectionView.cellForItem(at: indexPath) as? PicturesOfTheDaysCell else {return}
+            guard let cell = collectionView.cellForItem(at: indexPath) as? NewsCollectionCell else {return}
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
                 cell.transform = .init(scaleX: 0.95, y: 0.95)
             }
         case 7:
-            guard let cell = collectionView.cellForItem(at: indexPath) as? NewsCollectionCell else {return}
+            guard let cell = collectionView.cellForItem(at: indexPath) as? PicturesOfTheDaysCell else {return}
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
                 cell.transform = .init(scaleX: 0.95, y: 0.95)
             }
@@ -707,12 +756,13 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
                 cell.transform = .identity
             }
         case 6:
-            guard let cell = collectionView.cellForItem(at: indexPath) as? PicturesOfTheDaysCell else {return}
+            guard let cell = collectionView.cellForItem(at: indexPath) as? NewsCollectionCell else {return}
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
                 cell.transform = .identity
+        
             }
         case 7:
-            guard let cell = collectionView.cellForItem(at: indexPath) as? NewsCollectionCell else {return}
+            guard let cell = collectionView.cellForItem(at: indexPath) as? PicturesOfTheDaysCell else {return}
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
                 cell.transform = .identity
             }
@@ -720,8 +770,6 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         }
     }
 
-    
-}
 
 extension HomeController: TitleCollectionProtocol {
     
@@ -737,10 +785,11 @@ extension HomeController: TitleCollectionProtocol {
             let vc = NewsController()
             self.navigationController?.pushViewController(vc, animated: true)
         case 5:
-            self.navigationController?.pushViewController(NasaObservatoryController(), animated: true)
-        case 6:
             let vc = EventsController()
             self.navigationController?.pushViewController(vc, animated: true)
+        case 6:
+            alerts?.getAlert(title: "Coming Soon", message: "Nasa Observatory it's under construct.", buttonMessage: "Cancel")
+//            self.navigationController?.pushViewController(NasaObservatoryController(), animated: true)
         default: break
             
         }
@@ -766,9 +815,9 @@ extension HomeController {
             case 5:
                 return LayoutType.tableLayout.getLayout()
             case 6:
-                return LayoutType.pictureOfTheDay.getLayout()
-            case 7:
                 return LayoutType.tableLayout.getLayout()
+            case 7:
+                return LayoutType.pictureOfTheDay.getLayout()
             default:
                 return LayoutType.tableLayout.getLayout()
             }

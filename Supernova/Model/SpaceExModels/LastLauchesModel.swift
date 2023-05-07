@@ -20,6 +20,8 @@ struct ResultedModel: Codable {
     let windowStart: String?
     let rocket: Rocket?
     let mission: MissionLaunchModel?
+    let pad: Pad?
+    let launchServiceProvider: LaunchServiceProvider?
     let locationLaunchAttemptCount: Int?
     let padLaunchAttemptCount: Int?
     let orbitalLaunchAttemptCount: Int?
@@ -33,9 +35,11 @@ struct ResultedModel: Codable {
         case windowStart = "window_start"
         case rocket
         case mission
+        case pad
         case locationLaunchAttemptCount = "location_launch_attempt_count"
         case padLaunchAttemptCount = "pad_launch_attempt_count"
         case orbitalLaunchAttemptCount = "orbital_launch_attempt_count"
+        case launchServiceProvider = "launch_service_provider"
     }
 }
 
@@ -52,6 +56,9 @@ struct MissionLaunchModel: Codable {
     let description: String?
 }
 
+struct LaunchServiceProvider: Codable {
+    let name: String?
+}
 
 
 
@@ -98,7 +105,7 @@ struct Pad: Codable {
     let launchCount: Int?
     let orbitalLaunchCount: Int?
     let agencyID: Int?
-
+    let location: Location
     
     enum CodingKeys: String, CodingKey {
         case name
@@ -108,6 +115,7 @@ struct Pad: Codable {
         case launchCount = "total_launch_count"
         case orbitalLaunchCount = "orbital_launch_attempt_count"
         case agencyID = "agency_id"
+        case location
     }
 }
 
@@ -122,5 +130,9 @@ struct Rocket: Codable {
 
 struct Configuration: Codable {
     let url: String?
+    let name: String?
+}
+
+struct Location: Codable {
     let name: String?
 }

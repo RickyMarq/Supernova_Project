@@ -21,10 +21,10 @@ class HomeItemsModel {
 
     func populateModel() -> [HomeItemsModel] {
 
-        model.append(contentsOf: [HomeItemsModel(image: UIImage(named: "rocket")!, text: "Lauches", viewController: UINavigationController(rootViewController: SettingsController())),
-                                  HomeItemsModel(image: UIImage(named: "loading")!, text: "Rockets", viewController: SettingsController()),
-                                  HomeItemsModel(image: UIImage(named: "loading")!, text: "Starlinik", viewController: SettingsController()),
-                                  HomeItemsModel(image: UIImage(named: "loading")!, text: "Crews", viewController: SettingsController())])
+        model.append(contentsOf: [HomeItemsModel(image: UIImage(named: "rocket") ?? UIImage(), text: "Lauches", viewController: UINavigationController(rootViewController: SettingsController())),
+                                  HomeItemsModel(image: UIImage(named: "loading") ?? UIImage(), text: "Rockets", viewController: SettingsController()),
+                                  HomeItemsModel(image: UIImage(named: "loading") ?? UIImage(), text: "Starlinik", viewController: SettingsController()),
+                                  HomeItemsModel(image: UIImage(named: "loading") ?? UIImage(), text: "Crews", viewController: SettingsController())])
         
         
         

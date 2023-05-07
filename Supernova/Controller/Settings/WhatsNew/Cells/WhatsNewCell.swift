@@ -48,10 +48,24 @@ class WhatsNewCell: UITableViewCell {
         return view
     }()
     
+    lazy var actualVersionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .right
+        label.textColor = .secondaryColour
+        label.font = .systemFont(ofSize: 12, weight: .semibold)
+        label.text = "Actual Version"
+        return label
+    }()
+    
     func configCell(with data: WhatsNewCellModel) {
         self.versionLabel.text = data.version
         self.updateLabel.text = data.updateLabel
         self.infoTextLabel.text = data.infoText
+        
+        if data.actualVersion == false {
+            self.actualVersionLabel.removeFromSuperview()
+        }
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -72,6 +86,7 @@ extension WhatsNewCell: ViewCode {
 //        self.contentView.addSubview(self.separator)
         self.contentView.addSubview(self.updateLabel)
         self.contentView.addSubview(self.infoTextLabel)
+        self.contentView.addSubview(self.actualVersionLabel)
     }
     
     func configureConstraints() {
@@ -105,6 +120,10 @@ extension WhatsNewCell: ViewCode {
             self.infoTextLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -12),
             self.infoTextLabel.leftAnchor.constraint(equalTo: self.versionLabel.leftAnchor),
             self.infoTextLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -16),
+            
+//            self.actualVersionLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 20),
+            self.actualVersionLabel.centerYAnchor.constraint(equalTo: self.versionLabel.centerYAnchor),
+            self.actualVersionLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -16),
         ])
     }
     

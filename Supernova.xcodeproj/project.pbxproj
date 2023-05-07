@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1D227641299AF9AF00E6E113 /* lauchscreen.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D227640299AF9AE00E6E113 /* lauchscreen.json */; };
 		1D29BB3629DB45D700020659 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D29BB3529DB45D700020659 /* loading.json */; };
+		1D2C00AF29ED76E800D113FD /* YoutubePlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2C00AE29ED76E800D113FD /* YoutubePlayerModel.swift */; };
+		1D2C00B129ED785700D113FD /* YoutubeInternetServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2C00B029ED785700D113FD /* YoutubeInternetServices.swift */; };
+		1D2C00B729EDDC2100D113FD /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1D2C00B629EDDC2100D113FD /* AlamofireImage */; };
 		1D2C1D1229B0BA8C007957AA /* TitleReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2C1D1129B0BA8C007957AA /* TitleReusable.swift */; };
 		1D2DB1CF29A17B27007E02ED /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB1CE29A17B27007E02ED /* UIColor+Extension.swift */; };
 		1D2DB1D129A1830B007E02ED /* stars.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D2DB1D029A1830A007E02ED /* stars.json */; };
@@ -145,6 +148,8 @@
 		1D1B64F129A2C594003BB8F1 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		1D227640299AF9AE00E6E113 /* lauchscreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lauchscreen.json; sourceTree = "<group>"; };
 		1D29BB3529DB45D700020659 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		1D2C00AE29ED76E800D113FD /* YoutubePlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePlayerModel.swift; sourceTree = "<group>"; };
+		1D2C00B029ED785700D113FD /* YoutubeInternetServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeInternetServices.swift; sourceTree = "<group>"; };
 		1D2C1D1129B0BA8C007957AA /* TitleReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleReusable.swift; sourceTree = "<group>"; };
 		1D2DB1CE29A17B27007E02ED /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		1D2DB1D029A1830A007E02ED /* stars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stars.json; sourceTree = "<group>"; };
@@ -266,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DE8FF9E297F46050054026B /* SDWebImage in Frameworks */,
+				1D2C00B729EDDC2100D113FD /* AlamofireImage in Frameworks */,
 				1DD37EC429944AA700C918EC /* SkeletonView in Frameworks */,
 				1DF09DB429AFBB1800BCCE5E /* HMSegmentedControl in Frameworks */,
 				1D5F0AEB29AAB67000AB229F /* GoogleMobileAds in Frameworks */,
@@ -657,6 +663,7 @@
 				1DE8FF8E297F3DE00054026B /* SpaceExInternetServices.swift */,
 				1DE8FF98297F42050054026B /* NasaInternetService.swift */,
 				1D4387F5298389B400640AE6 /* SpaceDevsInternetServices.swift */,
+				1D2C00B029ED785700D113FD /* YoutubeInternetServices.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -680,6 +687,7 @@
 				1D4387EF2983520E00640AE6 /* CrewModel.swift */,
 				1D4387F32983895E00640AE6 /* SpaceStationsModel.swift */,
 				1D5E1DE829D2519000178A8D /* PagingInfo.swift */,
+				1D2C00AE29ED76E800D113FD /* YoutubePlayerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -800,6 +808,7 @@
 				1DE38AE2299A76B2002B5D4C /* YouTubeiOSPlayerHelper */,
 				1D5F0AEA29AAB67000AB229F /* GoogleMobileAds */,
 				1DF09DB329AFBB1800BCCE5E /* HMSegmentedControl */,
+				1D2C00B629EDDC2100D113FD /* AlamofireImage */,
 			);
 			productName = Supernova;
 			productReference = 1DE8FF55297EE9710054026B /* Supernova.app */;
@@ -836,6 +845,7 @@
 				1DE38AE1299A76B2002B5D4C /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
 				1D5F0AE929AAB67000AB229F /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 				1DF09DB229AFBB1700BCCE5E /* XCRemoteSwiftPackageReference "HMSegmentedControl" */,
+				1D2C00B529EDDC2100D113FD /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = 1DE8FF56297EE9710054026B /* Products */;
 			projectDirPath = "";
@@ -883,6 +893,7 @@
 				1DE8FF74297EECA30054026B /* SettingsController.swift in Sources */,
 				1DEB4CF129C48F49005D6E38 /* CompanyItemScreen.swift in Sources */,
 				1DE8FF97297F40990054026B /* PictureOfTheDayModel.swift in Sources */,
+				1D2C00AF29ED76E800D113FD /* YoutubePlayerModel.swift in Sources */,
 				1DF09DAC29AF77F900BCCE5E /* OnboardingViewModel.swift in Sources */,
 				1D4387E72983229C00640AE6 /* SectionScreen.swift in Sources */,
 				1D7BF5C529A3B5690097B6ED /* UIButton+Extension.swift in Sources */,
@@ -956,6 +967,7 @@
 				1DC400BE299C42C5006279B8 /* MainScreen.swift in Sources */,
 				1D89F0C6298400DC00DF67F8 /* WhatsNewScreen.swift in Sources */,
 				1DA0D09E29B3867700D5AD85 /* NasaObservatoryLayout.swift in Sources */,
+				1D2C00B129ED785700D113FD /* YoutubeInternetServices.swift in Sources */,
 				1DE8FF87297EFB710054026B /* TabBarController.swift in Sources */,
 				1D9A5A7829DD0C08002B3A4D /* UpcomingLaunchCell.swift in Sources */,
 				1DE8FF5B297EE9710054026B /* SceneDelegate.swift in Sources */,
@@ -1112,7 +1124,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Supernova/Supernova.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = LHWFX4B5B6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Supernova/Info.plist;
@@ -1127,8 +1139,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.henriquemarques.Supernova;
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.henriquemarques.SupernovaApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1147,7 +1159,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Supernova/Supernova.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = LHWFX4B5B6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Supernova/Info.plist;
@@ -1162,8 +1174,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.henriquemarques.Supernova;
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.henriquemarques.SupernovaApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1198,6 +1210,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1D2C00B529EDDC2100D113FD /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		1D5F0AE929AAB67000AB229F /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
@@ -1249,6 +1269,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1D2C00B629EDDC2100D113FD /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D2C00B529EDDC2100D113FD /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
+		};
 		1D5F0AEA29AAB67000AB229F /* GoogleMobileAds */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1D5F0AE929AAB67000AB229F /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;

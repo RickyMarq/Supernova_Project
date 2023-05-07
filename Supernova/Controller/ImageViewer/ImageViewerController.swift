@@ -36,18 +36,28 @@ class ImageViewerController: UIViewController {
         self.imageViewerScreen?.imageNameLabel.text = data?.title
         self.imageViewerScreen?.imageExplanationLabel.text = data?.explanation
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+    }
 }
 
 extension ImageViewerController: UIScrollViewDelegate {
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return imageViewerScreen?.contentView
+        return imageViewerScreen?.pictureOfTheDayImageView
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         print("Teste")
     }
-    
+
 }
 
 extension ImageViewerController: ImageViewerScreenProtocol {
@@ -64,6 +74,7 @@ extension ImageViewerController: ImageViewerScreenProtocol {
    
     func dissmissButtonAction() {
         self.dismiss(animated: true)
+//        self.navigationController?.popViewController(animated: true)
     }
     
 }

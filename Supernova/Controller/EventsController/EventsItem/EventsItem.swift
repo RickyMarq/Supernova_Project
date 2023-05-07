@@ -32,8 +32,15 @@ class EventsItem: UIViewController {
     @IBOutlet weak var padView: UIView!
     @IBOutlet weak var padId: UILabel!
     @IBOutlet weak var padNameLabel: UILabel!
-    
+    @IBOutlet weak var padLocation: UILabel!
+    @IBOutlet weak var launchPadView: UIView!
+    @IBOutlet weak var launchCountInt: UILabel!
     @IBOutlet weak var missionDescription: UILabel!
+    @IBOutlet weak var separatorPad: UIView!
+    @IBOutlet weak var separatorMission: UIView!
+    
+    
+    
     @IBAction func rocketButton(_ sender: Any) {
         guard let rocket = events?.launches[0].rocket else {return}
         let vc = RocketItem(rocket: rocket)
@@ -67,9 +74,8 @@ class EventsItem: UIViewController {
         self.summaryLabel.text = events?.description
         self.id.text = "#\(events?.id ?? 0)"
         
-        
-        self.eventsImageView.sd_setImage(with: URL(string: events?.featureImage ?? ""))
         self.youtubeImageView.sd_setImage(with: URL(string: events?.featureImage ?? ""), placeholderImage: UIImage(named: "loading"))
+        
         
         self.locationLabel.text = "\(events?.location ?? "Not Found")"
         
@@ -83,6 +89,7 @@ class EventsItem: UIViewController {
         self.padView.layer.masksToBounds = true
         self.padView.layer.cornerRadius = 10
         self.stateView.layer.cornerRadius = 10
+        self.launchPadView.layer.cornerRadius = 10
         self.locationMap.setBorder(view: self.locationMap)
         self.locationMap.isUserInteractionEnabled = false
         self.setMapLocation()
@@ -104,6 +111,7 @@ class EventsItem: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
 //        self.configCustomNavigationController()
+        print("DEBUG MODE: LOC \(events?.location ?? "")")
 
     }
     
@@ -128,7 +136,6 @@ class EventsItem: UIViewController {
     func setMapLocation() {
         if events?.launches.isEmpty == true {
             self.locationMap.removeFromSuperview()
-            self.locationLabel.removeFromSuperview()
 //            let lat =  28.60822681
 //            let lon =  -80.60428186
 //            let center = CLLocationCoordinate2D(latitude: lat, longitude: lon)
@@ -150,12 +157,21 @@ class EventsItem: UIViewController {
             self.rocketView.removeFromSuperview()
             self.titleMissionLabel.removeFromSuperview()
             self.padView.removeFromSuperview()
+            self.launchPadView.removeFromSuperview()
+            self.missionDescription.removeFromSuperview()
+            self.separatorPad.removeFromSuperview()
+            self.separatorMission.removeFromSuperview()
+            self.eventsImageView.removeFromSuperview()
         } else {
             self.rocketLabel.text = events?.launches[0].rocket.configuration.name
             self.titleMissionLabel.text = events?.launches[0].mission?.name
             
             self.padNameLabel.text = events?.launches[0].pad.name
+            self.padLocation.text = "Location: \(events?.launches[0].pad.location.name ?? "Not Found")"
             self.padId.text = "#\(events?.launches[0].pad.agencyID ?? 0)"
+            self.launchCountInt.text = "\(events?.launches[0].pad.launchCount ?? 0)"
+            self.missionDescription.text = events?.launches[0].mission?.description
+            self.eventsImageView.sd_setImage(with: URL(string: events?.featureImage ?? ""))
              
   //          self.titleMissionLabel.text = events?.launches[0].mission?.description
         }

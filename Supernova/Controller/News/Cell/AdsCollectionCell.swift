@@ -9,6 +9,10 @@ import UIKit
 import SkeletonView
 import GoogleMobileAds
 
+// App - ca-app-pub-7460518702464601/2402708926
+
+// Teste - ca-app-pub-3940256099942544/2934735716
+
 class AdsCollectionCell: UICollectionViewCell {
     
     static let identifier = "AdsCollectionCell"
@@ -20,7 +24,7 @@ class AdsCollectionCell: UICollectionViewCell {
         ads.layer.masksToBounds = true
         ads.layer.cornerRadius = 12
         ads.translatesAutoresizingMaskIntoConstraints = false
-        ads.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        ads.adUnitID = "ca-app-pub-7460518702464601/2402708926"
         ads.tag = 2
         return ads
     }()

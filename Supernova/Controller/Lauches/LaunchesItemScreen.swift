@@ -7,8 +7,11 @@
 
 import UIKit
 import SkeletonView
+import YouTubeiOSPlayerHelper
+import MapKit
 
 protocol LaunchesItemScreenProtocols: AnyObject {
+    func playButtonAction()
     func rocketButtonAction()
 }
 
@@ -82,6 +85,49 @@ class LaunchesItemScreen: UIView {
         return label
     }()
     
+    lazy var playerView: YTPlayerView = {
+        let yt = YTPlayerView()
+        yt.translatesAutoresizingMaskIntoConstraints = false
+        yt.layer.masksToBounds = true
+        yt.layer.cornerRadius = 10
+        yt.webView?.configuration.allowsPictureInPictureMediaPlayback = true
+        return yt
+    }()
+    
+    lazy var playerViewBackgroundImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 10
+        imageView.isUserInteractionEnabled = false
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
+    lazy var playerViewPlayButton: UIImageView = {
+        let image = UIImage(named: "playbutton")
+        let imageView = UIImageView(image: image)
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    lazy var playerButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .clear
+        button.tintColor = .clear
+        button.layer.masksToBounds = true
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(playerButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc func playerButtonTapped() {
+        self.delegate?.playButtonAction()
+    }
+    
     lazy var rocketImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -90,7 +136,7 @@ class LaunchesItemScreen: UIView {
         imageView.roundCorners(.allCorners, radius: 10)
         return imageView
     }()
-    
+
     // --
     
     lazy var rocketUIView: UIView = {
@@ -201,6 +247,97 @@ class LaunchesItemScreen: UIView {
         return label
     }()
     
+    // --
+    
+    lazy var separator: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .secondarySystemBackground
+        return view
+    }()
+    
+    lazy var padNameLabel: UILabel = {
+        let label = UILabel()
+        label.isSkeletonable = true
+        label.linesCornerRadius = 7
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .label
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.textAlignment = .left
+        return label
+    }()
+    
+    lazy var mapView: MKMapView = {
+        let mapView = MKMapView()
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.layer.masksToBounds = true
+        mapView.layer.cornerRadius = 10
+        mapView.mapType = .satellite
+        mapView.showsUserLocation = false
+        if #available(iOS 11, *) {
+            
+        }
+        return mapView
+    }()
+    
+    lazy var padView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .secondarySystemBackground
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 10
+        return view
+    }()
+    
+    lazy var locationPadLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .left
+        label.textColor = .secondaryLabel
+        label.lineBreakMode = .byWordWrapping
+        label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    lazy var missionView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .secondarySystemBackground
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 10
+        return view
+    }()
+    
+    lazy var missionNameLabel: UILabel = {
+        let label = UILabel()
+        label.isSkeletonable = true
+        label.linesCornerRadius = 7
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .label
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.font = .systemFont(ofSize: 28, weight: .bold)
+        label.textAlignment = .left
+        return label
+    }()
+    
+    lazy var missionDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isSkeletonable = true
+        label.linesCornerRadius = 7
+        label.skeletonTextNumberOfLines = 4
+        label.textColor = .secondaryLabel
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.font = .systemFont(ofSize: 18, weight: .regular)
+        return label
+    }()
+    
+    
     @objc func rocketButtonTapped() {
         self.delegate?.rocketButtonAction()
     }
@@ -224,15 +361,12 @@ extension LaunchesItemScreen: ViewCode {
         self.LaunchesStackView.addArrangedSubview(self.idLabel)
         self.LaunchesStackView.addArrangedSubview(self.launchNameLabel)
         self.LaunchesStackView.addArrangedSubview(self.rocketDescriptionLabel)
-        self.LaunchesStackView.addArrangedSubview(self.rocketImageView)
-        self.LaunchesStackView.addArrangedSubview(self.rocketUIView)
-        self.rocketUIView.addSubview(self.chevronImageView)
-        self.rocketUIView.addSubview(self.labelRocketNameLabel)
-        self.rocketUIView.addSubview(self.rocketButton)
-
-        
-        // --
-        
+        // -- YT Player
+        self.LaunchesStackView.addArrangedSubview(self.playerView)
+        self.playerView.addSubview(self.playerViewBackgroundImage)
+        self.playerViewBackgroundImage.addSubview(self.playerViewPlayButton)
+        self.playerView.addSubview(self.playerButton)
+        // -- Launches Stats
         self.LaunchesStackView.addArrangedSubview(self.launchInformationsView)
         self.launchInformationsView.addSubview(self.totalLaunchesLabel)
         self.launchInformationsView.addSubview(self.totalLaunchesIntLabel)
@@ -240,6 +374,26 @@ extension LaunchesItemScreen: ViewCode {
         self.launchInformationsView.addSubview(self.successLaunchesIntLabel)
         self.launchInformationsView.addSubview(self.failedLaunchesLabel)
         self.launchInformationsView.addSubview(self.failedLaunchesIntLabel)
+        // -- Rocket Button
+        self.LaunchesStackView.addArrangedSubview(self.rocketUIView)
+        self.rocketUIView.addSubview(self.chevronImageView)
+        self.rocketUIView.addSubview(self.labelRocketNameLabel)
+        self.rocketUIView.addSubview(self.rocketButton)
+        
+        // -- Pad View
+//        self.LaunchesStackView.addArrangedSubview(self.separator)
+        self.LaunchesStackView.addArrangedSubview(self.padView)
+        self.padView.addSubview(self.padNameLabel)
+        self.padView.addSubview(self.mapView)
+        self.padView.addSubview(self.locationPadLabel)
+        
+        
+        self.LaunchesStackView.addArrangedSubview(self.missionView)
+        self.missionView.addSubview(self.missionNameLabel)
+        self.missionView.addSubview(self.missionDescriptionLabel)
+        self.missionView.addSubview(self.rocketImageView)
+
+        //--
     }
     
     func configureConstraints() {
@@ -261,9 +415,23 @@ extension LaunchesItemScreen: ViewCode {
             self.LaunchesStackView.trailingAnchor.constraint(equalTo: self.LaunchesItemContentView.trailingAnchor, constant: -20),
             self.LaunchesStackView.bottomAnchor.constraint(equalTo: self.LaunchesItemContentView.bottomAnchor, constant: -20),
             
-            self.rocketImageView.heightAnchor.constraint(equalToConstant: 200),
-            
+            self.playerView.heightAnchor.constraint(equalToConstant: 200),
             self.rocketUIView.heightAnchor.constraint(equalToConstant: 45),
+            
+            self.playerViewBackgroundImage.topAnchor.constraint(equalTo: self.playerView.topAnchor),
+            self.playerViewBackgroundImage.leadingAnchor.constraint(equalTo: self.playerView.leadingAnchor),
+            self.playerViewBackgroundImage.trailingAnchor.constraint(equalTo: self.playerView.trailingAnchor),
+            self.playerViewBackgroundImage.bottomAnchor.constraint(equalTo: self.playerView.bottomAnchor),
+            
+            self.playerViewPlayButton.centerXAnchor.constraint(equalTo: self.playerViewBackgroundImage.centerXAnchor),
+            self.playerViewPlayButton.centerYAnchor.constraint(equalTo: self.playerViewBackgroundImage.centerYAnchor),
+            self.playerViewPlayButton.heightAnchor.constraint(equalToConstant: 80),
+            self.playerViewPlayButton.widthAnchor.constraint(equalToConstant: 80),
+            
+            self.playerButton.topAnchor.constraint(equalTo: self.playerView.topAnchor),
+            self.playerButton.leadingAnchor.constraint(equalTo: self.playerView.leadingAnchor),
+            self.playerButton.trailingAnchor.constraint(equalTo: self.playerView.trailingAnchor),
+            self.playerButton.bottomAnchor.constraint(equalTo: self.playerView.bottomAnchor),
 
             self.chevronImageView.trailingAnchor.constraint(equalTo: self.rocketUIView.trailingAnchor, constant: -20),
             self.chevronImageView.centerYAnchor.constraint(equalTo: self.rocketUIView.centerYAnchor),
@@ -277,7 +445,7 @@ extension LaunchesItemScreen: ViewCode {
             self.rocketButton.trailingAnchor.constraint(equalTo: self.rocketUIView.trailingAnchor),
             self.rocketButton.bottomAnchor.constraint(equalTo: self.rocketUIView.bottomAnchor),
             
-            self.launchInformationsView.heightAnchor.constraint(equalToConstant: 110),
+//            self.launchInformationsView.heightAnchor.constraint(equalToConstant: 100),
 
             self.totalLaunchesLabel.leftAnchor.constraint(equalTo: self.launchInformationsView.leftAnchor, constant: 12),
             self.totalLaunchesLabel.topAnchor.constraint(equalTo: self.launchInformationsView.topAnchor, constant: 10),
@@ -299,11 +467,47 @@ extension LaunchesItemScreen: ViewCode {
             self.successLaunchesIntLabel.topAnchor.constraint(equalTo: self.successLaunchesLabel.topAnchor),
             self.successLaunchesIntLabel.bottomAnchor.constraint(equalTo: self.launchInformationsView.bottomAnchor, constant: -10),
 
+            // -- Separator
+            
+            self.separator.heightAnchor.constraint(equalToConstant: 3),
+            
+            self.padNameLabel.topAnchor.constraint(equalTo: self.padView.topAnchor, constant: 16),
+            self.padNameLabel.leftAnchor.constraint(equalTo: self.padView.leftAnchor, constant: 12),
+            self.padNameLabel.rightAnchor.constraint(equalTo: self.padView.rightAnchor, constant: -12),
+            
+            self.locationPadLabel.topAnchor.constraint(equalTo: self.padNameLabel.bottomAnchor, constant: 12),
+            self.locationPadLabel.leftAnchor.constraint(equalTo: self.padNameLabel.leftAnchor),
+            self.locationPadLabel.rightAnchor.constraint(equalTo: self.padNameLabel.rightAnchor),
+            
+                        
+            self.mapView.topAnchor.constraint(equalTo: self.locationPadLabel.bottomAnchor, constant: 12),
+            self.mapView.leadingAnchor.constraint(equalTo: self.padView.leadingAnchor, constant: 20),
+            self.mapView.trailingAnchor.constraint(equalTo: self.padView.trailingAnchor, constant: -20),
+            self.mapView.bottomAnchor.constraint(equalTo: self.padView.bottomAnchor, constant: -16),
+            self.mapView.heightAnchor.constraint(equalToConstant: 200),
+            
+//            self.missionView.widthAnchor.constraint(equalTo: self.widthAnchor),
+            
+            self.missionNameLabel.topAnchor.constraint(equalTo: self.missionView.topAnchor, constant: 16),
+            self.missionNameLabel.leftAnchor.constraint(equalTo: self.missionView.leftAnchor, constant: 12),
+            self.missionNameLabel.rightAnchor.constraint(equalTo: self.missionView.rightAnchor, constant: -12),
+//
+            self.missionDescriptionLabel.topAnchor.constraint(equalTo: self.missionNameLabel.bottomAnchor, constant: 12),
+            self.missionDescriptionLabel.leftAnchor.constraint(equalTo: self.missionNameLabel.leftAnchor),
+            self.missionDescriptionLabel.rightAnchor.constraint(equalTo: self.missionNameLabel.rightAnchor),
+            
+            self.rocketImageView.topAnchor.constraint(equalTo: self.missionDescriptionLabel.bottomAnchor, constant: 12),
+            self.rocketImageView.leftAnchor.constraint(equalTo: self.missionDescriptionLabel.leftAnchor),
+            self.rocketImageView.rightAnchor.constraint(equalTo: self.missionDescriptionLabel.rightAnchor),
+            self.rocketImageView.heightAnchor.constraint(equalToConstant: 200),
+            self.rocketImageView.bottomAnchor.constraint(equalTo: self.missionView.bottomAnchor, constant: -16),
             
         ])
     }
     
     func configureAdditionalBehaviors() {
+        self.playerView.setShadow(view: self.playerView)
+        self.playerView.setBorder(view: self.playerView)
         self.backgroundColor = .systemBackground
     }
     

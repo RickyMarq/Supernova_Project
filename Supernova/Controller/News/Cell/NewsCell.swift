@@ -91,8 +91,9 @@ class NewsCell: UICollectionViewCell {
         let day = convertDayOfWeekFormatter(data.publishedAt ?? "")
         let formatter = RelativeDateTimeFormatter()
         formatter.unitsStyle = .full
+        formatter.locale = Locale.current
         let date = formatter.localizedString(for: hour, relativeTo: Date())
-        self.newsDateLabel.text = "\(day.capitalizedSentence), \(date) GMT"
+        self.newsDateLabel.text = "\(day.capitalizedSentence) • \(date)"
     }
     
     func configCellEvents(with data: ResultedEvents) {

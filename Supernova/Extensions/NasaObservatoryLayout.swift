@@ -103,4 +103,5 @@ public class PinterestLayout: UICollectionViewLayout {
 
         contentSize.height = yOffsets.max()! + contentPadding.vertical - cellsPadding.vertical
     }
+    
 }

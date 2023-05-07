@@ -21,6 +21,7 @@ class NewsController: UIViewController {
     
     var arrAdUnitID: [String] = ["ca-app-pub-3940256099942544/2934735716"]
     
+    
     var currentIndexForAd = 5
     
     var currentIndexForNormalRow = 2
@@ -40,8 +41,7 @@ class NewsController: UIViewController {
         self.newsScreen?.newsCollectionViewProtocols(delegate: self, dataSouce: self)
         self.showSkeleton()
         self.getFistNews(limit: 15, startAt: 0)
-        
-        
+
     }
     
     func configNavigationController() {
@@ -194,11 +194,13 @@ extension NewsController: NewsScreenProtocols {
     }
    
     func pullToRefreshAction() {
-        let animation = SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: .topBottom)
-        self.newsScreen?.newsCollectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .backgroundColour), animation: animation)
-        self.news = []
-        self.getFistNews(limit: 15, startAt: 0)
-        self.newsScreen?.pullToRefresh.endRefreshing()
+//        let animation = SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: .topBottom)
+        DispatchQueue.main.async {
+            self.news = []
+            self.getFistNews(limit: 15, startAt: 0)
+            self.showSkeleton()
+            self.newsScreen?.pullToRefresh.endRefreshing()
+        }
     }
     
     

@@ -16,11 +16,11 @@ class TabBarController: UITabBarController {
     
     func setUpTabBar() {
         self.tabBar.isHidden = true
-        tabBar.tintColor = .primaryColour
+        self.tabBar.tintColor = .primaryColour
+
         let home = UINavigationController(rootViewController: HomeController())
         let settings = UINavigationController(rootViewController: SettingsController())
-        self.tabBar.backgroundColor = .tabBarColor
-//        self.tabBar.isTranslucent = false
+ //       self.tabBar.backgroundColor = .tabBarColor
 //        let explore = UINavigationController(rootViewController: SectionController())
 //        let news = UINavigationController(rootViewController: NewsController())
 //        let onboarding = UINavigationController(rootViewController: OnboardingController())

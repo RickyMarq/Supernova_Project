@@ -42,8 +42,14 @@ extension UIView {
     }
     
     public func setGradientBlackImage() {
+        let topGradient = CAGradientLayer()
+        topGradient.colors = [UIColor.systemBackground.cgColor, UIColor.secondarySystemBackground.withAlphaComponent(0.0).cgColor]
+        topGradient.locations = [0.0, 0.2]
+        topGradient.frame = self.bounds
+        self.layer.insertSublayer(topGradient, at: 0)
+        
         let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemBackground.withAlphaComponent(0.0).cgColor, UIColor.systemBackground.cgColor]
+        gradient.colors = [UIColor.systemBackground.withAlphaComponent(0.0).cgColor, UIColor.secondarySystemBackground.cgColor]
         gradient.locations = [0.6, 1.0]
         gradient.frame = self.bounds
         self.layer.insertSublayer(gradient, at: .min)

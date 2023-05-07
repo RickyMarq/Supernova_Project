@@ -13,17 +13,18 @@ class NasaObservatoryScreen: UIView {
     var layoutPintrest = PinterestLayout()
     
     lazy var nasaObservatoryCollectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layoutPintrest)
+        let layout = UICollectionViewFlowLayout.init()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
 //        collectionView.isSkeletonable = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .systemBackground
         collectionView.showsVerticalScrollIndicator = false
         collectionView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
-        layoutPintrest.contentPadding = PinterestLayout.Padding(horizontal: 5, vertical: 5)
-        layoutPintrest.cellsPadding = PinterestLayout.Padding(horizontal: 10, vertical: 10)
+//        layoutPintrest.contentPadding = PinterestLayout.Padding(horizontal: 5, vertical: 5)
+//        layoutPintrest.cellsPadding = PinterestLayout.Padding(horizontal: 10, vertical: 10)
  //       collectionView.setContentOffset(CGPoint.zero, animated: false)
-        layoutPintrest.columnsCount = 2
-        collectionView.reloadData()
+//        layoutPintrest.columnsCount = 2
+//        collectionView.reloadData()
         collectionView.register(NasaObservatoryCell.self, forCellWithReuseIdentifier: NasaObservatoryCell.identifier)
         return collectionView
     }()

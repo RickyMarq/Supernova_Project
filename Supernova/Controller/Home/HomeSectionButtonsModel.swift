@@ -16,12 +16,14 @@ class HomeSectionButtonsModel {
     
     var model = [HomeButtons]()
     
+    // Nasa Observatory
+    
     func populateModel() -> [HomeButtons] {
         
         model.append(contentsOf: [HomeButtons(image: "rocket", title: "Launches"),
                                  HomeButtons(image: "", title: "Last News"),
                                  HomeButtons(image: "", title: "Spacial Events"),
-                                 HomeButtons(image: "", title: "Nasa Observatory")])
+                                 HomeButtons(image: "", title: "Coming soon")])
         
         return model
         

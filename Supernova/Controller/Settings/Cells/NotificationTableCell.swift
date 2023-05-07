@@ -103,7 +103,7 @@ extension NotificationTableCell: ViewCode {
             self.textCellLabel.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
         
             self.notificationSwitcher.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
-            self.notificationSwitcher.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -12),
+            self.notificationSwitcher.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -16),
         
         ])
     }

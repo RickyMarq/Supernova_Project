@@ -93,8 +93,8 @@ extension ExploreCollectionCell: ViewCode {
         self.layer.masksToBounds = true
         self.clipsToBounds = true
         self.layer.cornerRadius = 10
-        self.layer.borderColor = UIColor.darkGray.withAlphaComponent(1.0).cgColor
-        self.layer.borderWidth = 1.0    
+//        self.layer.borderColor = UIColor.darkGray.withAlphaComponent(1.0).cgColor
+//        self.layer.borderWidth = 1.0
     }
     
     func configureAccessibility() {

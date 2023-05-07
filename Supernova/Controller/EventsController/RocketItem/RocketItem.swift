@@ -97,6 +97,7 @@ extension RocketItem: RocketScreenProtocols {
     }
     
     func wikiButtonAction() {
+        print("DEBUG MODE: ACTION")
         self.openSafariPageWith(url: self.rocketObjc?.wiki_url ?? "")
     }
     

@@ -57,6 +57,18 @@ class LaunchesCell: UICollectionViewCell {
         return label
     }()
     
+    lazy var companyNameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isSkeletonable = true
+        label.textColor = .secondaryLabel
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.lineBreakMode = .byTruncatingTail
+        return label
+    }()
+    
     lazy var calendarImageView: UIImageView = {
         let image = UIImageView(image: UIImage(systemName: "calendar"))
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -120,12 +132,13 @@ class LaunchesCell: UICollectionViewCell {
     
     func configCell(with data: ResultedModel) {
         self.launchNameLabel.text = data.name
+        self.companyNameLabel.text = "Company: \(data.launchServiceProvider?.name ?? "")"
         self.launchImageView.sd_setImage(with: URL(string: data.image ?? ""), placeholderImage: UIImage(named: "loading"))
         
-        let formatDate = convertDateLaunchesFormatter(data.lastUpdated ?? "")
-        let formatHour = convertHourLaunchesFormatter(data.lastUpdated ?? "", outPut: "HH:mm")
+        let formatDate = convertDateLaunchesFormatter(data.windowStart ?? "")
+        let formatHour = convertHourLaunchesFormatter(data.windowStart ?? "", outPut: "HH:mm zzz")
         self.dateEventLabel.text = "Live in \(formatDate.capitalizedSentence)"
-        self.dateHourLabel.text = "\(formatHour) GMT-3"
+        self.dateHourLabel.text = "\(formatHour)"
         
         if data.webcastLive == true {
             self.launchLiveLabel.text = "Live"
@@ -160,6 +173,7 @@ extension LaunchesCell: ViewCode {
     func configureSubViews() {
         self.contentView.addSubview(self.launchImageView)
         self.contentView.addSubview(self.launchNameLabel)
+        self.contentView.addSubview(self.companyNameLabel)
         self.contentView.addSubview(self.launchLiveView)
         self.launchLiveView.addSubview(self.launchLiveLabel)
         self.contentView.addSubview(self.calendarImageView)
@@ -182,6 +196,10 @@ extension LaunchesCell: ViewCode {
             self.launchNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
             self.launchNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
             
+            self.companyNameLabel.topAnchor.constraint(equalTo: self.launchNameLabel.bottomAnchor, constant: 8),
+            self.companyNameLabel.leadingAnchor.constraint(equalTo: self.launchNameLabel.leadingAnchor),
+            self.companyNameLabel.trailingAnchor.constraint(equalTo: self.launchNameLabel.trailingAnchor),
+            
             self.launchLiveView.topAnchor.constraint(equalTo: self.launchImageView.topAnchor, constant: 12),
             self.launchLiveView.rightAnchor.constraint(equalTo: self.launchImageView.rightAnchor, constant: -20),
             self.launchLiveView.heightAnchor.constraint(equalToConstant: 30),
@@ -200,19 +218,20 @@ extension LaunchesCell: ViewCode {
 //            self.launchStateImageView.heightAnchor.constraint(equalToConstant: 20),
 //            self.launchStateImageView.widthAnchor.constraint(equalToConstant: 20),
             
-            self.calendarImageView.topAnchor.constraint(equalTo: self.dateEventLabel.topAnchor),
+            self.calendarImageView.topAnchor.constraint(equalTo: self.bottomAnchor, constant: -30),
             self.calendarImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12),
             self.calendarImageView.heightAnchor.constraint(equalToConstant: 15),
 
-            self.dateEventLabel.topAnchor.constraint(equalTo: self.bottomAnchor, constant: -30),
-            self.dateEventLabel.leftAnchor.constraint(equalTo: self.calendarImageView.rightAnchor, constant: 8),            
+            self.dateEventLabel.centerYAnchor.constraint(equalTo: self.dateHourLabel.centerYAnchor),
+            self.dateEventLabel.leftAnchor.constraint(equalTo: self.calendarImageView.rightAnchor, constant: 4),
             
             self.clockImageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -12),
             self.clockImageView.heightAnchor.constraint(equalToConstant: 15),
             self.clockImageView.topAnchor.constraint(equalTo: self.calendarImageView.topAnchor),
             
-            self.dateHourLabel.topAnchor.constraint(equalTo: self.dateEventLabel.topAnchor),
-            self.dateHourLabel.rightAnchor.constraint(equalTo: self.clockImageView.leftAnchor, constant: -8),
+//            self.dateHourLabel.topAnchor.constraint(equalTo: self.dateEventLabel.topAnchor),
+            self.dateHourLabel.centerYAnchor.constraint(equalTo: self.clockImageView.centerYAnchor),
+            self.dateHourLabel.rightAnchor.constraint(equalTo: self.clockImageView.leftAnchor, constant: -4),
         
         ])
     }

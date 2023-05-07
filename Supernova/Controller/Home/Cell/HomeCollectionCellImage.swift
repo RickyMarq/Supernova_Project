@@ -26,6 +26,7 @@ class HomeCollectionCellImage: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = .clear
+        imageView.clipsToBounds = true
         return imageView
     }()
     

@@ -50,7 +50,7 @@ class LaunchesController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        self.configNavigationController()
 //        if masterArray.isEmpty {
 //            self.showSkeletonView()
 // //           self.getLastLaunches(limit: 10)
@@ -163,8 +163,10 @@ extension LaunchesController: UICollectionViewDelegate, UICollectionViewDataSour
         case 0:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LaunchesCell.identifier, for: indexPath) as? LaunchesCell else {return UICollectionViewCell()}
             let index = futureLauchesObjc[indexPath.row]
-            cell.launchImageView.sd_setImage(with: URL(string: index.image ?? ""), placeholderImage: UIImage(named: "loading"))
-            cell.launchNameLabel.text = index.name
+//            cell.launchImageView.sd_setImage(with: URL(string: index.image ?? ""), placeholderImage: UIImage(named: "loading"))
+//            cell.launchNameLabel.text = index.name
+            cell.configCell(with: index)
+
             if index.webcastLive == true {
                 cell.launchLiveLabel.text = "Live"
             } else {
@@ -175,8 +177,11 @@ extension LaunchesController: UICollectionViewDelegate, UICollectionViewDataSour
         case 1:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LaunchesCell.identifier, for: indexPath) as? LaunchesCell else {return UICollectionViewCell()}
             let index = lastLauchesObjc[indexPath.row]
-            cell.launchImageView.sd_setImage(with: URL(string: index.image ?? ""), placeholderImage: UIImage(named: "loading"))
-            cell.launchNameLabel.text = index.name
+//            cell.launchImageView.sd_setImage(with: URL(string: index.image ?? ""), placeholderImage: UIImage(named: "loading"))
+//            cell.launchNameLabel.text = index.name
+            
+            cell.configCell(with: index)
+            
             if index.webcastLive == true {
                 cell.launchLiveLabel.text = "Live"
             } else {

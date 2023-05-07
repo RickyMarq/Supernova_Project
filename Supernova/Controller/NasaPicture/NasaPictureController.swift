@@ -29,6 +29,7 @@ class NasaPictureController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.nasaPictureScreen?.pictureOfTheDayLabel.text = picture?.title
+//        guard let url = URL(string: picture?.url ?? "") else {return}
         self.nasaPictureScreen?.pictureOfTheDayImageView.sd_setImage(with: URL(string: (picture?.url)!)!)
 
     }

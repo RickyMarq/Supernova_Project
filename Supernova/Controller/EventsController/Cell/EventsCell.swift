@@ -128,7 +128,7 @@ class EventsCell: UICollectionViewCell {
         let formatDate = convertDateEventsFormatter(data.date ?? "")
         let formatHour = convertDateHourEventsFormatter(data.date ?? "")
         self.dateEventLabel.text = "Live in \(formatDate.capitalizedSentence)"
-        self.dateHourLabel.text = "\(formatHour) GMT-3"
+        self.dateHourLabel.text = "\(formatHour)"
         
         if data.webcastLive == true {
             self.eventsLiveLabel.text = "Live"
@@ -186,12 +186,13 @@ extension EventsCell: ViewCode {
             self.locationEventLabel.leftAnchor.constraint(equalTo: self.eventsDescriptionLabel.leftAnchor),
             self.locationEventLabel.rightAnchor.constraint(equalTo: self.eventsDescriptionLabel.rightAnchor),
             
-            self.calendarImageView.topAnchor.constraint(equalTo: self.dateEventLabel.topAnchor),
+            self.calendarImageView.topAnchor.constraint(equalTo: self.bottomAnchor, constant: -30),
             self.calendarImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12),
             self.calendarImageView.heightAnchor.constraint(equalToConstant: 15),
 
-            self.dateEventLabel.topAnchor.constraint(equalTo: self.bottomAnchor, constant: -30),
-            self.dateEventLabel.leftAnchor.constraint(equalTo: self.calendarImageView.rightAnchor, constant: 8),
+//            self.dateEventLabel.topAnchor.constraint(equalTo: self.bottomAnchor, constant: -30),
+            self.dateEventLabel.centerYAnchor.constraint(equalTo: self.dateHourLabel.centerYAnchor),
+            self.dateEventLabel.leftAnchor.constraint(equalTo: self.calendarImageView.rightAnchor, constant: 4),
  //           self.dateEventLabel.rightAnchor.constraint(equalTo: self.eventsDescriptionLabel.rightAnchor),
             
             
@@ -199,15 +200,15 @@ extension EventsCell: ViewCode {
             self.clockImageView.heightAnchor.constraint(equalToConstant: 15),
             self.clockImageView.topAnchor.constraint(equalTo: self.calendarImageView.topAnchor),
             
-            self.dateHourLabel.topAnchor.constraint(equalTo: self.dateEventLabel.topAnchor),
-            self.dateHourLabel.rightAnchor.constraint(equalTo: self.clockImageView.leftAnchor, constant: -8),
+//            self.dateHourLabel.topAnchor.constraint(equalTo: self.dateEventLabel.topAnchor),
+            self.dateHourLabel.centerYAnchor.constraint(equalTo: self.clockImageView.centerYAnchor),
+            self.dateHourLabel.rightAnchor.constraint(equalTo: self.clockImageView.leftAnchor, constant: -4),
             
             self.eventsLiveView.topAnchor.constraint(equalTo: self.eventsImageView.topAnchor, constant: 12),
             self.eventsLiveView.rightAnchor.constraint(equalTo: self.eventsImageView.rightAnchor, constant: -20),
             self.eventsLiveView.heightAnchor.constraint(equalToConstant: 30),
             self.eventsLiveView.widthAnchor.constraint(equalToConstant: 80),
 
-            
             self.eventsLiveLabel.centerXAnchor.constraint(equalTo: self.eventsLiveView.centerXAnchor),
             self.eventsLiveLabel.centerYAnchor.constraint(equalTo: self.eventsLiveView.centerYAnchor),
         

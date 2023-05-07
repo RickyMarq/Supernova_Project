@@ -26,7 +26,7 @@ extension UIButton {
             layer.cornerRadius = 15
             layer.shadowColor = UIColor.primaryColour.cgColor
             layer.shadowOffset = CGSize(width: 1, height: 1)
-            layer.shadowRadius = 3.0
+            layer.shadowRadius = 1.5
             layer.shadowOpacity = 1
             layer.masksToBounds = false
             setTitleColor(.white, for: .normal)

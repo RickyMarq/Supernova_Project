@@ -20,4 +20,5 @@ struct WhatsNewCellModel {
     let version: String
     let infoText: String
     let updateLabel: String
+    let actualVersion: Bool
 }

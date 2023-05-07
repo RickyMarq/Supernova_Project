@@ -26,7 +26,8 @@ class SettingsController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.title = "Settings"
+        self.setUpNavigationController()
+        
 //        self.setUpNavigationController()
         UserDefaults.standard.synchronize()
         let isOn = UserDefaults.standard.bool(forKey: "PermissionForNotification")
@@ -40,10 +41,11 @@ class SettingsController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.title = ""
+
     }
     
     func setUpNavigationController() {
+        self.title = "Settings"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.tintColor = .primaryColour
     }

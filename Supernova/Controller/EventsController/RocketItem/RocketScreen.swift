@@ -270,14 +270,12 @@ extension RocketScreen: ViewCode {
         self.rocketItemsStackView.addArrangedSubview(self.launchInformationTitle)
         self.rocketItemsStackView.addArrangedSubview(self.companyUIView)
 //        self.rocketItemsStackView.addArrangedSubview(self.companyInformationTitle)
-        self.rocketItemsStackView.addArrangedSubview(self.companyInfoUIView)
         
+        self.rocketItemsStackView.addArrangedSubview(self.companyInfoUIView)
         self.companyInfoUIView.addSubview(self.totalLaunchesLabel)
         self.companyInfoUIView.addSubview(self.totalLaunchesIntLabel)
-                
         self.companyInfoUIView.addSubview(self.failedLaunchesLabel)
         self.companyInfoUIView.addSubview(self.failedLaunchesIntLabel)
-                
         self.companyInfoUIView.addSubview(self.successLaunchesLabel)
         self.companyInfoUIView.addSubview(self.successLaunchesIntLabel)
 
@@ -354,7 +352,7 @@ extension RocketScreen: ViewCode {
 //            self.launchInformationsView.trailingAnchor.constraint(equalTo: self.companyUIView.trailingAnchor),
 //            self.launchInformationsView.bottomAnchor.constraint(equalTo: self.rocketContentView.bottomAnchor, constant: -20),
             
-            self.companyInfoUIView.heightAnchor.constraint(equalToConstant: 100),
+//            self.companyInfoUIView.heightAnchor.constraint(equalToConstant: 100),
             
             self.totalLaunchesLabel.leftAnchor.constraint(equalTo: self.companyInfoUIView.leftAnchor, constant: 12),
             self.totalLaunchesLabel.topAnchor.constraint(equalTo: self.companyInfoUIView.topAnchor, constant: 10),
@@ -382,6 +380,13 @@ extension RocketScreen: ViewCode {
             self.companyLinkLabel.leadingAnchor.constraint(equalTo: self.companyLinksUIView.leadingAnchor, constant: 15),
 //            self.companyLinkLabel.trailingAnchor.constraint(equalTo: self.chevronImageView.leadingAnchor, constant: 15),
 //
+            self.companyLinkButton.topAnchor.constraint(equalTo: self.companyLinksUIView.topAnchor),
+            
+            self.companyLinkButton.leadingAnchor.constraint(equalTo: self.companyLinksUIView.leadingAnchor),
+            
+            self.companyLinkButton.trailingAnchor.constraint(equalTo: self.companyLinksUIView.trailingAnchor),
+            
+            self.companyLinkButton.bottomAnchor.constraint(equalTo: self.companyLinksUIView.bottomAnchor),
             
             
         ])

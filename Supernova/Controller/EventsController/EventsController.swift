@@ -19,10 +19,11 @@ class EventsController: UIViewController {
         self.eventsScreen = EventsScreen()
         self.view = eventsScreen
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.alerts = Alerts(controller: self)
+        self.eventsScreen?.delegate(delegate: self)
         self.eventsScreen?.eventsCollectionViewProtocols(delegate: self, dataSource: self)
         self.getLastEvents(limit: 15, startsAt: 0)
     }
@@ -37,7 +38,7 @@ class EventsController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.configNavigationController()
         events.isEmpty ? showSkeletonView() : updateOnTheMainThread()
-
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -78,8 +79,19 @@ class EventsController: UIViewController {
             }
         }
     }
+}
+
+extension EventsController: EventsScreenProtocols {
     
-   
+    func pullToRefreshAction() {
+        DispatchQueue.main.async {
+            self.events = []
+            self.getLastEvents(limit: 15, startsAt: 0)
+            self.showSkeletonView()
+            self.eventsScreen?.pullToRefresh.endRefreshing()
+        }
+    }
+
 }
 
 extension EventsController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SkeletonCollectionViewDataSource {
