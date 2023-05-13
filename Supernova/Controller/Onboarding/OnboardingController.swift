@@ -26,6 +26,11 @@ class OnboardingController: UIViewController {
 
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        UserDefaults.standard.synchronize()
+        let isOn = UserDefaults.standard.bool(forKey: "PermissionForNotification")
+    }
    
     func requestNotificationAuthorization() {
         
@@ -55,15 +60,8 @@ class OnboardingController: UIViewController {
                     UserDefaults.standard.set(true, forKey: "PermissionForNotification")
                     UserDefaults.standard.synchronize()
                 case .denied:
-                    if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
-                        if UIApplication.shared.canOpenURL(settingsUrl) {
-                            DispatchQueue.main.async {
-                                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
-                                    print("Settings opened: \(success)")
-                                })
-                            }
-                        }
-                    }
+                    UserDefaults.standard.set(false, forKey: "PermissionForNotification")
+                    UserDefaults.standard.synchronize()
                 case .ephemeral:
                     print("Ephemeral")
                 case .provisional:

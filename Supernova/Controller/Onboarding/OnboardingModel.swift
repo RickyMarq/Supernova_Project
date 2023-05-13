@@ -32,7 +32,7 @@ class OnboardingModel {
         
         Onboarding(wavingAnimation: "", image: "notifications.json", firstLabel: "Can we send you notifications ?", secondaryLabel: "We use it to warn you when a next launch is ready to start"),
         
-        Onboarding(wavingAnimation: "stars.json", image: "launchRocket.json", firstLabel: "Let's begin ?", secondaryLabel: "Hit the begin button to start")
+        Onboarding(wavingAnimation: "stars.json", image: "79912-white-rocket.json", firstLabel: "Let's begin ?", secondaryLabel: "Hit the begin button to start")
         
         ])
         

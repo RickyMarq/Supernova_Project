@@ -8,6 +8,7 @@
 import UIKit
 import SkeletonView
 import YouTubeiOSPlayerHelper
+import GoogleMobileAds
 import MapKit
 
 protocol LaunchesItemScreenProtocols: AnyObject {
@@ -30,6 +31,17 @@ class LaunchesItemScreen: UIView {
         scrollView.alwaysBounceVertical = true
         scrollView.showsVerticalScrollIndicator = false
         return scrollView
+    }()
+    
+    lazy var adsView: GADBannerView = {
+        let ads = GADBannerView()
+        ads.contentMode = .scaleToFill
+        ads.isSkeletonable = true
+        ads.layer.masksToBounds = true
+        ads.layer.cornerRadius = 12
+        ads.translatesAutoresizingMaskIntoConstraints = false
+        ads.adUnitID = "ca-app-pub-7460518702464601/2402708926"
+        return ads
     }()
     
     lazy var LaunchesItemContentView: UIView = {
@@ -379,6 +391,9 @@ extension LaunchesItemScreen: ViewCode {
         self.rocketUIView.addSubview(self.chevronImageView)
         self.rocketUIView.addSubview(self.labelRocketNameLabel)
         self.rocketUIView.addSubview(self.rocketButton)
+        // -- Ad
+        self.LaunchesStackView.addArrangedSubview(self.adsView)
+        
         
         // -- Pad View
 //        self.LaunchesStackView.addArrangedSubview(self.separator)
@@ -470,6 +485,8 @@ extension LaunchesItemScreen: ViewCode {
             // -- Separator
             
             self.separator.heightAnchor.constraint(equalToConstant: 3),
+            
+            self.adsView.heightAnchor.constraint(equalToConstant: 100),
             
             self.padNameLabel.topAnchor.constraint(equalTo: self.padView.topAnchor, constant: 16),
             self.padNameLabel.leftAnchor.constraint(equalTo: self.padView.leftAnchor, constant: 12),

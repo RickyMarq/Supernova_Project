@@ -91,6 +91,7 @@ class SettingsController: UIViewController {
                     UserDefaults.standard.set(true, forKey: "PermissionForNotification")
                     UserDefaults.standard.synchronize()
                 case .denied:
+                    UserDefaults.standard.set(false, forKey: "PermissionForNotification")
                     if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
                         if UIApplication.shared.canOpenURL(settingsUrl) {
                             DispatchQueue.main.async {

@@ -39,6 +39,8 @@ class HomeCollectionCellImage: UICollectionViewCell {
         label.textAlignment = .left
         label.font = .systemFont(ofSize: 28, weight: .bold)
         label.text = "Nasa Picture of The Day"
+        label.adjustsFontSizeToFitWidth = true
+        label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         return label
     }()
     
@@ -53,6 +55,8 @@ class HomeCollectionCellImage: UICollectionViewCell {
         label.lineBreakMode = .byTruncatingTail
         label.font = .systemFont(ofSize: 24, weight: .semibold)
         label.text = "Loading..."
+        label.adjustsFontSizeToFitWidth = true
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
         return label
     }()
     

@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print("DEBUG MODE: INT NTF TRIGGER \(notificationTrigger)")
                     print("DEBUG MODE: DOUBLE NTF TRIGGER \(Double(notificationTrigger).rounded())")
                     
-                    NotificationController.sharedObjc.requestUpcomingLaunchNotification(title: "\(result?[0].name ?? "") is almost launching", body: "Livestream is now available to watch", timeInterval: Double(notificationTrigger).rounded(), identifier: identifier ?? "Default_Identifier")
+                    NotificationController.sharedObjc.requestUpcomingLaunchNotification(title: "\(result?[0].name ?? "") is almost launching", body: "Livestream is now available to come along and watch", timeInterval: Double(notificationTrigger).rounded(), identifier: identifier ?? "Default_Identifier")
                 
                 } else if convertion <= 0 {
                     print("Time has passed")
@@ -93,6 +93,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
       }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
-        print("User touched the notification")
+        print("DEBUG MODE: O usuário recebeu uma notificação")
     }
+    
 }

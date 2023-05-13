@@ -27,11 +27,17 @@ class AboutModel {
     
     func populateModel() -> [AboutTableSection] {
         
-        model.append(AboutTableSection(title: "A Huge thanks to all my friends", cell: [
+        model.append(AboutTableSection(title: "A Huge thanks to all my friends & Teachers", cell: [
             
             .staticCell(model: aboutTableModel(name: "Wesley Calazans - App", link: "https://apps.apple.com/br/app/bevegan-produtos-veganos/id1634230135?l=en")),
             
             .staticCell(model: aboutTableModel(name: "Felipe Miranda - iOS Development", link: "https://www.youtube.com/@BackFrontAcademy")),
+            
+            .staticCell(model: aboutTableModel(name: "Caio Fabrini - iOS Developer", link: "https://www.linkedin.com/in/caio-fabrini-0314861b6/")),
+            
+            .staticCell(model: aboutTableModel(name: "Marcelo Costa - iOS Developer", link: "https://www.linkedin.com/in/marcelo-g-costa-br/")),
+            
+            .staticCell(model: aboutTableModel(name: "Moacir Lamego - iOS Developer", link: "https://www.linkedin.com/in/moacirlamego/")),
             
             
         ]))

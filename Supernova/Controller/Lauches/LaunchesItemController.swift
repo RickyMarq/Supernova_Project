@@ -7,6 +7,7 @@
 
 import UIKit
 import YouTubeiOSPlayerHelper
+import GoogleMobileAds
 import MapKit
 import AVKit
 
@@ -58,6 +59,8 @@ class LaunchesItemController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.isOneHourApart()
+        self.lauchesScreen?.adsView.rootViewController = self
+        self.lauchesScreen?.adsView.load(GADRequest())
     }
     
     func configPadSection() {

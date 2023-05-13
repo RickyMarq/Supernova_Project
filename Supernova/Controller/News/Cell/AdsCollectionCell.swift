@@ -25,7 +25,6 @@ class AdsCollectionCell: UICollectionViewCell {
         ads.layer.cornerRadius = 12
         ads.translatesAutoresizingMaskIntoConstraints = false
         ads.adUnitID = "ca-app-pub-7460518702464601/2402708926"
-        ads.tag = 2
         return ads
     }()
     

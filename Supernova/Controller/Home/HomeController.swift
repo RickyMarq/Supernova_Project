@@ -51,12 +51,12 @@ class HomeController: UIViewController {
 //        self.getUpcomingLaunches()
         
         
-//        self.getLastLaunches(limit: 10)
-//        self.getFutureLaunches(limit: 15, startsAt: 0)
-//        self.getLastEvents(limit: 10, startsAt: 0)
+        self.getLastLaunches(limit: 10)
+        self.getFutureLaunches(limit: 15, startsAt: 0)
+        self.getLastEvents(limit: 10, startsAt: 0)
         self.getLastPicturesOfTheDays(limit: 7)
         self.getNews(limit: 15, startsAt: 0)
-//        self.getNextLaunch(limit: 1, startsAt: 0)
+        self.getNextLaunch(limit: 1, startsAt: 0)
         
     }
     
@@ -205,7 +205,7 @@ class HomeController: UIViewController {
                     print("DEBUG MODE: INT NTF TRIGGER \(notificationTrigger)")
                     print("DEBUG MODE: DOUBLE NTF TRIGGER \(Double(notificationTrigger).rounded())")
                     
-                    NotificationController.sharedObjc.requestUpcomingLaunchNotification(title: "\(strongSelf.nextLaunchObjc[0].name ?? "") is almost launching", body: "Livestream is now available to watch", timeInterval: Double(notificationTrigger).rounded(), identifier: identifier ?? "Default_Identifier")
+                    NotificationController.sharedObjc.requestUpcomingLaunchNotification(title: "\(strongSelf.nextLaunchObjc[0].name ?? "") is almost launching", body: "Livestream is now available to come along and watch", timeInterval: Double(notificationTrigger).rounded(), identifier: identifier ?? "Default_Identifier")
                     
                 } else {
                     
@@ -233,6 +233,7 @@ class HomeController: UIViewController {
             case .success(let model):
                 guard let strongSelf = self else {return}
                 strongSelf.futureLauchesObjc = model ?? []
+//                strongSelf.nextLaunchObjc.append(model?.first ?? <#default value#>)
                 
                 let formatter = DateFormatter()
                 formatter.dateFormat = "hh:mm a"
@@ -494,8 +495,8 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
             return cell
         case 2:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UpcomingLaunchCell.identifier, for: indexPath) as? UpcomingLaunchCell else {return UICollectionViewCell()}
-            cell.configCell(with: nextLaunchObjc[indexPath.row])
-            cell.startCountdown(data: nextLaunchObjc[indexPath.row])
+            cell.configCell(with: nextLaunchObjc[indexPath.item])
+            cell.startCountdown(data: nextLaunchObjc[indexPath.item])
             return cell
         case 3:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LaunchesCell.identifier, for: indexPath) as? LaunchesCell else {return UICollectionViewCell()}
