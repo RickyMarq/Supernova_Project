@@ -19,6 +19,7 @@ enum LayoutType {
     case adLayout
     case newsTextLayout
     case NextLaunchSection
+    case rocketLayout
     
     
     func getLayout(withHeader: Bool = true) -> NSCollectionLayoutSection {
@@ -53,6 +54,9 @@ enum LayoutType {
             
         case .NextLaunchSection:
             return AppLayout.sharedObjc.NextLaunchSection()
+            
+        case .rocketLayout:
+            return AppLayout.sharedObjc.rocketLayout(withHeader: true)
         }
     }
 }

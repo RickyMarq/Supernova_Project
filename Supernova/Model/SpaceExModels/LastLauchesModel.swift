@@ -19,7 +19,7 @@ struct ResultedModel: Codable {
     let lastUpdated: String?
     let windowStart: String?
     let rocket: Rocket?
-    let mission: MissionLaunchModel?
+    let mission: MissionLaunchModel?     
     let pad: Pad?
     let launchServiceProvider: LaunchServiceProvider?
     let locationLaunchAttemptCount: Int?

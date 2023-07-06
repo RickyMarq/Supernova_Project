@@ -40,8 +40,27 @@ class LaunchesItemScreen: UIView {
         ads.layer.masksToBounds = true
         ads.layer.cornerRadius = 12
         ads.translatesAutoresizingMaskIntoConstraints = false
-        ads.adUnitID = "ca-app-pub-7460518702464601/2402708926"
+//        ads.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         return ads
+    }()
+    
+    lazy var adsUIView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 10
+        view.backgroundColor = .secondarySystemBackground
+        return view
+    }()
+    
+    lazy var adLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Publicity"
+        label.textAlignment = .center
+        label.textColor = .secondaryLabel
+        label.font = .systemFont(ofSize: 12)
+        return label
     }()
     
     lazy var LaunchesItemContentView: UIView = {
@@ -392,8 +411,9 @@ extension LaunchesItemScreen: ViewCode {
         self.rocketUIView.addSubview(self.labelRocketNameLabel)
         self.rocketUIView.addSubview(self.rocketButton)
         // -- Ad
-        self.LaunchesStackView.addArrangedSubview(self.adsView)
-        
+        self.LaunchesStackView.addArrangedSubview(self.adsUIView)
+        self.adsUIView.addSubview(self.adsView)
+        self.adsUIView.addSubview(self.adLabel)
         
         // -- Pad View
 //        self.LaunchesStackView.addArrangedSubview(self.separator)
@@ -486,7 +506,17 @@ extension LaunchesItemScreen: ViewCode {
             
             self.separator.heightAnchor.constraint(equalToConstant: 3),
             
+  //          self.adsUIView.heightAnchor.constraint(equalToConstant: 150),
             self.adsView.heightAnchor.constraint(equalToConstant: 100),
+            
+            self.adsView.topAnchor.constraint(equalTo: self.adsUIView.topAnchor, constant: 10),
+            self.adsView.leadingAnchor.constraint(equalTo: self.adsUIView.leadingAnchor, constant: 10),
+            self.adsView.trailingAnchor.constraint(equalTo: self.adsUIView.trailingAnchor, constant: -10),
+//            self.adsView.bottomAnchor.constraint(equalTo: self.adsUIView.bottomAnchor, constant: -10),
+            
+            self.adLabel.centerXAnchor.constraint(equalTo: self.adsUIView.centerXAnchor),
+            self.adLabel.topAnchor.constraint(equalTo: self.adsView.bottomAnchor, constant: 5),
+            self.adLabel.bottomAnchor.constraint(equalTo: self.adsUIView.bottomAnchor, constant: -10),
             
             self.padNameLabel.topAnchor.constraint(equalTo: self.padView.topAnchor, constant: 16),
             self.padNameLabel.leftAnchor.constraint(equalTo: self.padView.leftAnchor, constant: 12),

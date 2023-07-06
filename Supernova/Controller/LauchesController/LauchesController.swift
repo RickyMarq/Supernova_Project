@@ -63,9 +63,6 @@ class LaunchesController: UIViewController {
 //        masterArray = futureLauchesObjc
         print(index)
 
-//        DispatchQueue.main.async {
-//            self.launchesScreen?.LaunchesCollectionView.reloadData()
-//        }
     }
     
     func showSkeletonView() {

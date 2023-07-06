@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D158BBB2A44D604001E32C9 /* RocketSupernovaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D158BBA2A44D604001E32C9 /* RocketSupernovaController.swift */; };
+		1D158BBD2A44D74E001E32C9 /* RocketSupernovaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D158BBC2A44D74E001E32C9 /* RocketSupernovaScreen.swift */; };
+		1D158BBF2A45C4FA001E32C9 /* RocketItemUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D158BBE2A45C4F9001E32C9 /* RocketItemUI.swift */; };
 		1D227641299AF9AF00E6E113 /* lauchscreen.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D227640299AF9AE00E6E113 /* lauchscreen.json */; };
 		1D29BB3629DB45D700020659 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D29BB3529DB45D700020659 /* loading.json */; };
 		1D2C00AF29ED76E800D113FD /* YoutubePlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2C00AE29ED76E800D113FD /* YoutubePlayerModel.swift */; };
@@ -16,6 +19,20 @@
 		1D2DB1CF29A17B27007E02ED /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2DB1CE29A17B27007E02ED /* UIColor+Extension.swift */; };
 		1D2DB1D129A1830B007E02ED /* stars.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D2DB1D029A1830A007E02ED /* stars.json */; };
 		1D30110E29B77C2C00592206 /* FutureLaunchesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D30110D29B77C2C00592206 /* FutureLaunchesHeader.swift */; };
+		1D39C9022A4BBFFC00059B1E /* SupernovaWatchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D39C9012A4BBFFC00059B1E /* SupernovaWatchOSApp.swift */; };
+		1D39C9042A4BBFFC00059B1E /* HomeUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D39C9032A4BBFFC00059B1E /* HomeUI.swift */; };
+		1D39C9062A4BBFFF00059B1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D39C9052A4BBFFF00059B1E /* Assets.xcassets */; };
+		1D39C9092A4BBFFF00059B1E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D39C9082A4BBFFF00059B1E /* Preview Assets.xcassets */; };
+		1D39C90F2A4BC08C00059B1E /* LaunchesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D39C90E2A4BC08C00059B1E /* LaunchesScreen.swift */; };
+		1D39C9132A4BC2F700059B1E /* PictureOfTheDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D39C9122A4BC2F700059B1E /* PictureOfTheDay.swift */; };
+		1D39C9162A4BC46600059B1E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D39C9152A4BC46600059B1E /* Models.swift */; };
+		1D39C9192A4BC53800059B1E /* AppleWatchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D39C9182A4BC53800059B1E /* AppleWatchService.swift */; };
+		1D39C91B2A4BC66900059B1E /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1D39C91A2A4BC66900059B1E /* SDWebImageSwiftUI */; };
+		1D39C91E2A4C57D000059B1E /* NewsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D39C91D2A4C57D000059B1E /* NewsScreen.swift */; };
+		1D39C9212A4C5B8F00059B1E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D39C9202A4C5B8F00059B1E /* String+Extension.swift */; };
+		1D39C9232A4C601B00059B1E /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D39C9222A4C601B00059B1E /* NewsItem.swift */; };
+		1D39C9272A4D06EC00059B1E /* LaunchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D39C9262A4D06EC00059B1E /* LaunchItem.swift */; };
+		1D39C9292A4E0C0F00059B1E /* LastLaunchesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D39C9282A4E0C0F00059B1E /* LastLaunchesScreen.swift */; };
 		1D4387E22982F51E00640AE6 /* HomeItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4387E12982F51E00640AE6 /* HomeItemsModel.swift */; };
 		1D4387E52983074400640AE6 /* SectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4387E42983074400640AE6 /* SectionController.swift */; };
 		1D4387E72983229C00640AE6 /* SectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4387E62983229C00640AE6 /* SectionScreen.swift */; };
@@ -32,15 +49,27 @@
 		1D59255129894CEF00F2A0EE /* HomeCollectionCellImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59255029894CEF00F2A0EE /* HomeCollectionCellImage.swift */; };
 		1D59255429898FD000F2A0EE /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59255329898FD000F2A0EE /* NewsModel.swift */; };
 		1D5E1DE929D2519000178A8D /* PagingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5E1DE829D2519000178A8D /* PagingInfo.swift */; };
+		1D5E89F82A3901C4009F7E4F /* POTDGeneratorWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5E89F72A3901C4009F7E4F /* POTDGeneratorWidget.swift */; };
+		1D5E89FA2A3904D8009F7E4F /* ButtonPOTD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5E89F92A3904D8009F7E4F /* ButtonPOTD.swift */; };
 		1D5F0AEB29AAB67000AB229F /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 1D5F0AEA29AAB67000AB229F /* GoogleMobileAds */; };
 		1D5F0AED29AAC48F00AB229F /* AdsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5F0AEC29AAC48F00AB229F /* AdsCollectionCell.swift */; };
 		1D71319F29A41E5E0020AC1B /* PicturesOfTheDaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D71319E29A41E5E0020AC1B /* PicturesOfTheDaysCell.swift */; };
 		1D7131A129A45FBE0020AC1B /* PageControlFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7131A029A45FBE0020AC1B /* PageControlFooter.swift */; };
+		1D719A932A43745C000F8D53 /* SupernovaInternetServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D719A922A43745C000F8D53 /* SupernovaInternetServices.swift */; };
+		1D719A952A4374ED000F8D53 /* SupernovaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D719A942A4374ED000F8D53 /* SupernovaModel.swift */; };
+		1D719A972A4377A4000F8D53 /* RocketCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D719A962A4377A4000F8D53 /* RocketCollectionCell.swift */; };
+		1D7453A42A45D4E700534757 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1D7453A32A45D4E700534757 /* SDWebImageSwiftUI */; };
 		1D7BF5C529A3B5690097B6ED /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF5C429A3B5690097B6ED /* UIButton+Extension.swift */; };
 		1D825F6629E6D39300863DE1 /* news.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D825F6529E6D39200863DE1 /* news.json */; };
 		1D825F6829E6D58600863DE1 /* notifications.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D825F6729E6D58600863DE1 /* notifications.json */; };
 		1D825F6A29E6DE7900863DE1 /* launchRocket.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D825F6929E6DE7800863DE1 /* launchRocket.json */; };
 		1D87BE7B29B7BF88000C081E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D87BE7A29B7BF88000C081E /* String+Extension.swift */; };
+		1D896D752A32195000C5DA28 /* SupernovaWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D896D742A32195000C5DA28 /* SupernovaWidgetsBundle.swift */; };
+		1D896D792A32195300C5DA28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D896D782A32195300C5DA28 /* Assets.xcassets */; };
+		1D896D7D2A32195300C5DA28 /* SupernovaWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1D896D702A32194F00C5DA28 /* SupernovaWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1D896D822A321B7700C5DA28 /* SupernovaWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D896D762A32195000C5DA28 /* SupernovaWidgets.swift */; };
+		1D896D842A321F2200C5DA28 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1B64F129A2C594003BB8F1 /* SwiftUI.framework */; };
+		1D896D872A321F2400C5DA28 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1B64EF29A2C594003BB8F1 /* WidgetKit.framework */; };
 		1D89F0BF2983F5AD00DF67F8 /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D89F0BE2983F5AD00DF67F8 /* NewsController.swift */; };
 		1D89F0C12983F5DF00DF67F8 /* NewsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D89F0C02983F5DF00DF67F8 /* NewsScreen.swift */; };
 		1D89F0C4298400C200DF67F8 /* WhatsNewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D89F0C3298400C200DF67F8 /* WhatsNewController.swift */; };
@@ -53,6 +82,9 @@
 		1D89F0D82984362900DF67F8 /* AboutTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D89F0D72984362900DF67F8 /* AboutTableCell.swift */; };
 		1D89F0DA298437E100DF67F8 /* AboutTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D89F0D9298437E100DF67F8 /* AboutTableHeader.swift */; };
 		1D89F0E52984831B00DF67F8 /* AboutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D89F0E42984831B00DF67F8 /* AboutModel.swift */; };
+		1D8C52742A37BFCF00660C3A /* PictureOfTheDayWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8C52722A37BE7500660C3A /* PictureOfTheDayWidget.swift */; };
+		1D8C52762A37CAAC00660C3A /* URLImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8C52752A37CAAC00660C3A /* URLImageView.swift */; };
+		1D8C52782A380C9600660C3A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8C52772A380C9600660C3A /* UIImage+Extension.swift */; };
 		1D91BC552999D69400075AE8 /* LaunchesItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91BC542999D69400075AE8 /* LaunchesItemController.swift */; };
 		1D91BC572999D70100075AE8 /* LaunchesItemScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91BC562999D70100075AE8 /* LaunchesItemScreen.swift */; };
 		1D9A5A7829DD0C08002B3A4D /* UpcomingLaunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A5A7729DD0C08002B3A4D /* UpcomingLaunchCell.swift */; };
@@ -70,6 +102,7 @@
 		1DA2A890298AA4290053B441 /* wave.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DA2A88F298AA4280053B441 /* wave.json */; };
 		1DA2A892298AA9B80053B441 /* hello.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DA2A891298AA9B80053B441 /* hello.json */; };
 		1DA2A894298AEB6F0053B441 /* rocket.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DA2A893298AEB6F0053B441 /* rocket.json */; };
+		1DB6B3C72A523A1100A15132 /* Supernova.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 1D39C8FF2A4BBFFC00059B1E /* Supernova.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1DC400BE299C42C5006279B8 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC400BD299C42C5006279B8 /* MainScreen.swift */; };
 		1DC400C0299C42FA006279B8 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC400BF299C42FA006279B8 /* MainController.swift */; };
 		1DD37EB92992F15800C918EC /* jcTjmOtEul.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DD37EB82992F15700C918EC /* jcTjmOtEul.json */; };
@@ -130,6 +163,23 @@
 		1DFF037C29C23812006E59CB /* RocketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFF037B29C23812006E59CB /* RocketModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1D896D7B2A32195300C5DA28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DE8FF4D297EE9710054026B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D896D6F2A32194F00C5DA28;
+			remoteInfo = SupernovaWidgetsExtension;
+		};
+		1DB6B3C82A523A1200A15132 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DE8FF4D297EE9710054026B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D39C8FE2A4BBFFC00059B1E;
+			remoteInfo = "SupernovaWatchOS Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		1D1B650329A2C59A003BB8F1 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -137,13 +187,38 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				1D896D7D2A32195300C5DA28 /* SupernovaWidgetsExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D4373B72A51E3FD00C1B51A /* Embed ExtensionKit Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed ExtensionKit Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DADD4692A5210CC004EFCE2 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				1DB6B3C72A523A1100A15132 /* Supernova.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1D158BBA2A44D604001E32C9 /* RocketSupernovaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketSupernovaController.swift; sourceTree = "<group>"; };
+		1D158BBC2A44D74E001E32C9 /* RocketSupernovaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketSupernovaScreen.swift; sourceTree = "<group>"; };
+		1D158BBE2A45C4F9001E32C9 /* RocketItemUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketItemUI.swift; sourceTree = "<group>"; };
 		1D1B64EF29A2C594003BB8F1 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		1D1B64F129A2C594003BB8F1 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		1D227640299AF9AE00E6E113 /* lauchscreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lauchscreen.json; sourceTree = "<group>"; };
@@ -154,6 +229,20 @@
 		1D2DB1CE29A17B27007E02ED /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		1D2DB1D029A1830A007E02ED /* stars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stars.json; sourceTree = "<group>"; };
 		1D30110D29B77C2C00592206 /* FutureLaunchesHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureLaunchesHeader.swift; sourceTree = "<group>"; };
+		1D39C8FF2A4BBFFC00059B1E /* Supernova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Supernova.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D39C9012A4BBFFC00059B1E /* SupernovaWatchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupernovaWatchOSApp.swift; sourceTree = "<group>"; };
+		1D39C9032A4BBFFC00059B1E /* HomeUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUI.swift; sourceTree = "<group>"; };
+		1D39C9052A4BBFFF00059B1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1D39C9082A4BBFFF00059B1E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1D39C90E2A4BC08C00059B1E /* LaunchesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesScreen.swift; sourceTree = "<group>"; };
+		1D39C9122A4BC2F700059B1E /* PictureOfTheDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOfTheDay.swift; sourceTree = "<group>"; };
+		1D39C9152A4BC46600059B1E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		1D39C9182A4BC53800059B1E /* AppleWatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleWatchService.swift; sourceTree = "<group>"; };
+		1D39C91D2A4C57D000059B1E /* NewsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsScreen.swift; sourceTree = "<group>"; };
+		1D39C9202A4C5B8F00059B1E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		1D39C9222A4C601B00059B1E /* NewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
+		1D39C9262A4D06EC00059B1E /* LaunchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchItem.swift; sourceTree = "<group>"; };
+		1D39C9282A4E0C0F00059B1E /* LastLaunchesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastLaunchesScreen.swift; sourceTree = "<group>"; };
 		1D4387E12982F51E00640AE6 /* HomeItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemsModel.swift; sourceTree = "<group>"; };
 		1D4387E42983074400640AE6 /* SectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionController.swift; sourceTree = "<group>"; };
 		1D4387E62983229C00640AE6 /* SectionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionScreen.swift; sourceTree = "<group>"; };
@@ -171,14 +260,24 @@
 		1D59255029894CEF00F2A0EE /* HomeCollectionCellImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionCellImage.swift; sourceTree = "<group>"; };
 		1D59255329898FD000F2A0EE /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		1D5E1DE829D2519000178A8D /* PagingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingInfo.swift; sourceTree = "<group>"; };
+		1D5E89F72A3901C4009F7E4F /* POTDGeneratorWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POTDGeneratorWidget.swift; sourceTree = "<group>"; };
+		1D5E89F92A3904D8009F7E4F /* ButtonPOTD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPOTD.swift; sourceTree = "<group>"; };
 		1D5F0AEC29AAC48F00AB229F /* AdsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsCollectionCell.swift; sourceTree = "<group>"; };
 		1D71319E29A41E5E0020AC1B /* PicturesOfTheDaysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesOfTheDaysCell.swift; sourceTree = "<group>"; };
 		1D7131A029A45FBE0020AC1B /* PageControlFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlFooter.swift; sourceTree = "<group>"; };
+		1D719A922A43745C000F8D53 /* SupernovaInternetServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupernovaInternetServices.swift; sourceTree = "<group>"; };
+		1D719A942A4374ED000F8D53 /* SupernovaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupernovaModel.swift; sourceTree = "<group>"; };
+		1D719A962A4377A4000F8D53 /* RocketCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketCollectionCell.swift; sourceTree = "<group>"; };
 		1D7BF5C429A3B5690097B6ED /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		1D825F6529E6D39200863DE1 /* news.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = news.json; sourceTree = "<group>"; };
 		1D825F6729E6D58600863DE1 /* notifications.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notifications.json; sourceTree = "<group>"; };
 		1D825F6929E6DE7800863DE1 /* launchRocket.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = launchRocket.json; sourceTree = "<group>"; };
 		1D87BE7A29B7BF88000C081E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		1D896D702A32194F00C5DA28 /* SupernovaWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SupernovaWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D896D742A32195000C5DA28 /* SupernovaWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupernovaWidgetsBundle.swift; sourceTree = "<group>"; };
+		1D896D762A32195000C5DA28 /* SupernovaWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupernovaWidgets.swift; sourceTree = "<group>"; };
+		1D896D782A32195300C5DA28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1D896D7A2A32195300C5DA28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D89F0BE2983F5AD00DF67F8 /* NewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
 		1D89F0C02983F5DF00DF67F8 /* NewsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsScreen.swift; sourceTree = "<group>"; };
 		1D89F0C3298400C200DF67F8 /* WhatsNewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewController.swift; sourceTree = "<group>"; };
@@ -191,6 +290,9 @@
 		1D89F0D72984362900DF67F8 /* AboutTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableCell.swift; sourceTree = "<group>"; };
 		1D89F0D9298437E100DF67F8 /* AboutTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableHeader.swift; sourceTree = "<group>"; };
 		1D89F0E42984831B00DF67F8 /* AboutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutModel.swift; sourceTree = "<group>"; };
+		1D8C52722A37BE7500660C3A /* PictureOfTheDayWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOfTheDayWidget.swift; sourceTree = "<group>"; };
+		1D8C52752A37CAAC00660C3A /* URLImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageView.swift; sourceTree = "<group>"; };
+		1D8C52772A380C9600660C3A /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		1D91BC542999D69400075AE8 /* LaunchesItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesItemController.swift; sourceTree = "<group>"; };
 		1D91BC562999D70100075AE8 /* LaunchesItemScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesItemScreen.swift; sourceTree = "<group>"; };
 		1D9A5A7729DD0C08002B3A4D /* UpcomingLaunchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingLaunchCell.swift; sourceTree = "<group>"; };
@@ -207,6 +309,33 @@
 		1DA2A88F298AA4280053B441 /* wave.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wave.json; sourceTree = "<group>"; };
 		1DA2A891298AA9B80053B441 /* hello.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hello.json; sourceTree = "<group>"; };
 		1DA2A893298AEB6F0053B441 /* rocket.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket.json; sourceTree = "<group>"; };
+		1DB6B3942A522ECD00A15132 /* SupernovaWatchOS-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SupernovaWatchOS-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		1DB6B3972A5235C400A15132 /* PictureOfTheDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOfTheDay.swift; sourceTree = "<group>"; };
+		1DB6B3992A5235C400A15132 /* HomeUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUI.swift; sourceTree = "<group>"; };
+		1DB6B39B2A5235C400A15132 /* LastLaunchesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastLaunchesScreen.swift; sourceTree = "<group>"; };
+		1DB6B39C2A5235C400A15132 /* LaunchesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesScreen.swift; sourceTree = "<group>"; };
+		1DB6B3A02A5235C400A15132 /* LaunchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchItem.swift; sourceTree = "<group>"; };
+		1DB6B3A12A5235C400A15132 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1DB6B3A32A5235C400A15132 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		1DB6B3A52A5235C400A15132 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1DB6B3A72A5235C400A15132 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		1DB6B3A92A5235C400A15132 /* NewsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsScreen.swift; sourceTree = "<group>"; };
+		1DB6B3AA2A5235C400A15132 /* NewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
+		1DB6B3AC2A5235C400A15132 /* AppleWatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleWatchService.swift; sourceTree = "<group>"; };
+		1DB6B3AD2A5235C400A15132 /* SupernovaWatchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupernovaWatchOSApp.swift; sourceTree = "<group>"; };
+		1DB6B3B02A52396A00A15132 /* PictureOfTheDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOfTheDay.swift; sourceTree = "<group>"; };
+		1DB6B3B22A52396A00A15132 /* HomeUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUI.swift; sourceTree = "<group>"; };
+		1DB6B3B42A52396A00A15132 /* LastLaunchesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastLaunchesScreen.swift; sourceTree = "<group>"; };
+		1DB6B3B52A52396A00A15132 /* LaunchesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesScreen.swift; sourceTree = "<group>"; };
+		1DB6B3B92A52396A00A15132 /* LaunchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchItem.swift; sourceTree = "<group>"; };
+		1DB6B3BA2A52396A00A15132 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1DB6B3BC2A52396A00A15132 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		1DB6B3BE2A52396A00A15132 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1DB6B3C02A52396A00A15132 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		1DB6B3C22A52396A00A15132 /* NewsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsScreen.swift; sourceTree = "<group>"; };
+		1DB6B3C32A52396A00A15132 /* NewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
+		1DB6B3C52A52396A00A15132 /* AppleWatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleWatchService.swift; sourceTree = "<group>"; };
+		1DB6B3C62A52396A00A15132 /* SupernovaWatchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupernovaWatchOSApp.swift; sourceTree = "<group>"; };
 		1DC400BD299C42C5006279B8 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		1DC400BF299C42FA006279B8 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		1DD37EB82992F15700C918EC /* jcTjmOtEul.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jcTjmOtEul.json; sourceTree = "<group>"; };
@@ -266,6 +395,23 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1D39C8FC2A4BBFFC00059B1E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D39C91B2A4BC66900059B1E /* SDWebImageSwiftUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D896D6D2A32194F00C5DA28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D896D842A321F2200C5DA28 /* SwiftUI.framework in Frameworks */,
+				1D896D872A321F2400C5DA28 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1DE8FF52297EE9710054026B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,6 +420,7 @@
 				1D2C00B729EDDC2100D113FD /* AlamofireImage in Frameworks */,
 				1DD37EC429944AA700C918EC /* SkeletonView in Frameworks */,
 				1DF09DB429AFBB1800BCCE5E /* HMSegmentedControl in Frameworks */,
+				1D7453A42A45D4E700534757 /* SDWebImageSwiftUI in Frameworks */,
 				1D5F0AEB29AAB67000AB229F /* GoogleMobileAds in Frameworks */,
 				1DA2A88C298AA2300053B441 /* Lottie in Frameworks */,
 				1DE38AE3299A76B2002B5D4C /* YouTubeiOSPlayerHelper in Frameworks */,
@@ -283,9 +430,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D158BB92A44D5DD001E32C9 /* RocketSupernova */ = {
+			isa = PBXGroup;
+			children = (
+				1D158BBA2A44D604001E32C9 /* RocketSupernovaController.swift */,
+				1D158BBC2A44D74E001E32C9 /* RocketSupernovaScreen.swift */,
+				1D158BBE2A45C4F9001E32C9 /* RocketItemUI.swift */,
+			);
+			path = RocketSupernova;
+			sourceTree = "<group>";
+		};
 		1D1B64EE29A2C594003BB8F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1DB6B3952A5235C400A15132 /* SupernovaWatchOS Watch App */,
+				1DB6B3AE2A52396A00A15132 /* SupernovaWatchOS Watch App */,
 				1D1B64EF29A2C594003BB8F1 /* WidgetKit.framework */,
 				1D1B64F129A2C594003BB8F1 /* SwiftUI.framework */,
 			);
@@ -301,6 +460,99 @@
 				1DE0C261299040BA003E18AE /* TitleCollection.swift */,
 			);
 			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		1D39C9002A4BBFFC00059B1E /* SupernovaWatchOS Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3942A522ECD00A15132 /* SupernovaWatchOS-Watch-App-Info.plist */,
+				1D39C91F2A4C5B7E00059B1E /* Extensions */,
+				1D39C91C2A4C57BC00059B1E /* News */,
+				1D39C9172A4BC52100059B1E /* Service */,
+				1D39C9142A4BC45700059B1E /* Models */,
+				1D39C9112A4BC2D900059B1E /* PictureOfTheDay */,
+				1D39C9102A4BC27700059B1E /* Home */,
+				1D39C90D2A4BC07300059B1E /* Launches */,
+				1D39C9012A4BBFFC00059B1E /* SupernovaWatchOSApp.swift */,
+				1D39C9052A4BBFFF00059B1E /* Assets.xcassets */,
+				1D39C9072A4BBFFF00059B1E /* Preview Content */,
+			);
+			path = "SupernovaWatchOS Watch App";
+			sourceTree = "<group>";
+		};
+		1D39C9072A4BBFFF00059B1E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1D39C9082A4BBFFF00059B1E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1D39C90D2A4BC07300059B1E /* Launches */ = {
+			isa = PBXGroup;
+			children = (
+				1D39C9252A4D06D900059B1E /* LaunchesItem */,
+				1D39C90E2A4BC08C00059B1E /* LaunchesScreen.swift */,
+				1D39C9282A4E0C0F00059B1E /* LastLaunchesScreen.swift */,
+			);
+			path = Launches;
+			sourceTree = "<group>";
+		};
+		1D39C9102A4BC27700059B1E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1D39C9032A4BBFFC00059B1E /* HomeUI.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1D39C9112A4BC2D900059B1E /* PictureOfTheDay */ = {
+			isa = PBXGroup;
+			children = (
+				1D39C9122A4BC2F700059B1E /* PictureOfTheDay.swift */,
+			);
+			path = PictureOfTheDay;
+			sourceTree = "<group>";
+		};
+		1D39C9142A4BC45700059B1E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1D39C9152A4BC46600059B1E /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1D39C9172A4BC52100059B1E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1D39C9182A4BC53800059B1E /* AppleWatchService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		1D39C91C2A4C57BC00059B1E /* News */ = {
+			isa = PBXGroup;
+			children = (
+				1D39C91D2A4C57D000059B1E /* NewsScreen.swift */,
+				1D39C9222A4C601B00059B1E /* NewsItem.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		1D39C91F2A4C5B7E00059B1E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1D39C9202A4C5B8F00059B1E /* String+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1D39C9252A4D06D900059B1E /* LaunchesItem */ = {
+			isa = PBXGroup;
+			children = (
+				1D39C9262A4D06EC00059B1E /* LaunchItem.swift */,
+			);
+			path = LaunchesItem;
 			sourceTree = "<group>";
 		};
 		1D4387E32983072800640AE6 /* Explore */ = {
@@ -358,6 +610,21 @@
 				1D59255329898FD000F2A0EE /* NewsModel.swift */,
 			);
 			path = NewsModel;
+			sourceTree = "<group>";
+		};
+		1D896D732A32195000C5DA28 /* SupernovaWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				1D896D742A32195000C5DA28 /* SupernovaWidgetsBundle.swift */,
+				1D896D762A32195000C5DA28 /* SupernovaWidgets.swift */,
+				1D896D782A32195300C5DA28 /* Assets.xcassets */,
+				1D896D7A2A32195300C5DA28 /* Info.plist */,
+				1D8C52722A37BE7500660C3A /* PictureOfTheDayWidget.swift */,
+				1D8C52752A37CAAC00660C3A /* URLImageView.swift */,
+				1D5E89F72A3901C4009F7E4F /* POTDGeneratorWidget.swift */,
+				1D5E89F92A3904D8009F7E4F /* ButtonPOTD.swift */,
+			);
+			path = SupernovaWidgets;
 			sourceTree = "<group>";
 		};
 		1D89F0BD2983F59700DF67F8 /* News */ = {
@@ -461,6 +728,222 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		1DB6B3952A5235C400A15132 /* SupernovaWatchOS Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3962A5235C400A15132 /* PictureOfTheDay */,
+				1DB6B3982A5235C400A15132 /* Home */,
+				1DB6B39A2A5235C400A15132 /* Launches */,
+				1DB6B3A12A5235C400A15132 /* Assets.xcassets */,
+				1DB6B3A22A5235C400A15132 /* Models */,
+				1DB6B3A42A5235C400A15132 /* Preview Content */,
+				1DB6B3A62A5235C400A15132 /* Extensions */,
+				1DB6B3A82A5235C400A15132 /* News */,
+				1DB6B3AB2A5235C400A15132 /* Service */,
+				1DB6B3AD2A5235C400A15132 /* SupernovaWatchOSApp.swift */,
+			);
+			path = "SupernovaWatchOS Watch App";
+			sourceTree = "<group>";
+		};
+		1DB6B3962A5235C400A15132 /* PictureOfTheDay */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3972A5235C400A15132 /* PictureOfTheDay.swift */,
+			);
+			path = PictureOfTheDay;
+			sourceTree = "<group>";
+		};
+		1DB6B3982A5235C400A15132 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3992A5235C400A15132 /* HomeUI.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1DB6B39A2A5235C400A15132 /* Launches */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B39B2A5235C400A15132 /* LastLaunchesScreen.swift */,
+				1DB6B39C2A5235C400A15132 /* LaunchesScreen.swift */,
+				1DB6B39D2A5235C400A15132 /* Supernova 2023-07-02 13-39-16 */,
+				1DB6B39F2A5235C400A15132 /* LaunchesItem */,
+			);
+			path = Launches;
+			sourceTree = "<group>";
+		};
+		1DB6B39D2A5235C400A15132 /* Supernova 2023-07-02 13-39-16 */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B39E2A5235C400A15132 /* Products */,
+			);
+			path = "Supernova 2023-07-02 13-39-16";
+			sourceTree = "<group>";
+		};
+		1DB6B39E2A5235C400A15132 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		1DB6B39F2A5235C400A15132 /* LaunchesItem */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3A02A5235C400A15132 /* LaunchItem.swift */,
+			);
+			path = LaunchesItem;
+			sourceTree = "<group>";
+		};
+		1DB6B3A22A5235C400A15132 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3A32A5235C400A15132 /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1DB6B3A42A5235C400A15132 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3A52A5235C400A15132 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1DB6B3A62A5235C400A15132 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3A72A5235C400A15132 /* String+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1DB6B3A82A5235C400A15132 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3A92A5235C400A15132 /* NewsScreen.swift */,
+				1DB6B3AA2A5235C400A15132 /* NewsItem.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		1DB6B3AB2A5235C400A15132 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3AC2A5235C400A15132 /* AppleWatchService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		1DB6B3AE2A52396A00A15132 /* SupernovaWatchOS Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3AF2A52396A00A15132 /* PictureOfTheDay */,
+				1DB6B3B12A52396A00A15132 /* Home */,
+				1DB6B3B32A52396A00A15132 /* Launches */,
+				1DB6B3BA2A52396A00A15132 /* Assets.xcassets */,
+				1DB6B3BB2A52396A00A15132 /* Models */,
+				1DB6B3BD2A52396A00A15132 /* Preview Content */,
+				1DB6B3BF2A52396A00A15132 /* Extensions */,
+				1DB6B3C12A52396A00A15132 /* News */,
+				1DB6B3C42A52396A00A15132 /* Service */,
+				1DB6B3C62A52396A00A15132 /* SupernovaWatchOSApp.swift */,
+			);
+			path = "SupernovaWatchOS Watch App";
+			sourceTree = "<group>";
+		};
+		1DB6B3AF2A52396A00A15132 /* PictureOfTheDay */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3B02A52396A00A15132 /* PictureOfTheDay.swift */,
+			);
+			path = PictureOfTheDay;
+			sourceTree = "<group>";
+		};
+		1DB6B3B12A52396A00A15132 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3B22A52396A00A15132 /* HomeUI.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1DB6B3B32A52396A00A15132 /* Launches */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3B42A52396A00A15132 /* LastLaunchesScreen.swift */,
+				1DB6B3B52A52396A00A15132 /* LaunchesScreen.swift */,
+				1DB6B3B62A52396A00A15132 /* Supernova 2023-07-02 13-39-16 */,
+				1DB6B3B82A52396A00A15132 /* LaunchesItem */,
+			);
+			path = Launches;
+			sourceTree = "<group>";
+		};
+		1DB6B3B62A52396A00A15132 /* Supernova 2023-07-02 13-39-16 */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3B72A52396A00A15132 /* Products */,
+			);
+			path = "Supernova 2023-07-02 13-39-16";
+			sourceTree = "<group>";
+		};
+		1DB6B3B72A52396A00A15132 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		1DB6B3B82A52396A00A15132 /* LaunchesItem */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3B92A52396A00A15132 /* LaunchItem.swift */,
+			);
+			path = LaunchesItem;
+			sourceTree = "<group>";
+		};
+		1DB6B3BB2A52396A00A15132 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3BC2A52396A00A15132 /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1DB6B3BD2A52396A00A15132 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3BE2A52396A00A15132 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1DB6B3BF2A52396A00A15132 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3C02A52396A00A15132 /* String+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1DB6B3C12A52396A00A15132 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3C22A52396A00A15132 /* NewsScreen.swift */,
+				1DB6B3C32A52396A00A15132 /* NewsItem.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		1DB6B3C42A52396A00A15132 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1DB6B3C52A52396A00A15132 /* AppleWatchService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		1DC400BC299C42A5006279B8 /* MainController */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,6 +984,8 @@
 			isa = PBXGroup;
 			children = (
 				1DE8FF57297EE9710054026B /* Supernova */,
+				1D896D732A32195000C5DA28 /* SupernovaWidgets */,
+				1D39C9002A4BBFFC00059B1E /* SupernovaWatchOS Watch App */,
 				1D1B64EE29A2C594003BB8F1 /* Frameworks */,
 				1DE8FF56297EE9710054026B /* Products */,
 			);
@@ -510,6 +995,8 @@
 			isa = PBXGroup;
 			children = (
 				1DE8FF55297EE9710054026B /* Supernova.app */,
+				1D896D702A32194F00C5DA28 /* SupernovaWidgetsExtension.appex */,
+				1D39C8FF2A4BBFFC00059B1E /* Supernova.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -588,6 +1075,7 @@
 				1DA0D09D29B3867700D5AD85 /* NasaObservatoryLayout.swift */,
 				1D87BE7A29B7BF88000C081E /* String+Extension.swift */,
 				1DD6B7F529C1DBEC00F8ADE2 /* Date+Extension.swift */,
+				1D8C52772A380C9600660C3A /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -617,6 +1105,7 @@
 		1DE8FF84297EFB360054026B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1D158BB92A44D5DD001E32C9 /* RocketSupernova */,
 				1DA0D09529B3722500D5AD85 /* Nasa Observatory */,
 				1DF09DAD29AFB17800BCCE5E /* LauchesController */,
 				1DF09DA229AD33EB00BCCE5E /* EventsController */,
@@ -653,6 +1142,7 @@
 				1D59254A2988A04900F2A0EE /* ExploreCollectionCell.swift */,
 				1D71319E29A41E5E0020AC1B /* PicturesOfTheDaysCell.swift */,
 				1D9A5A7729DD0C08002B3A4D /* UpcomingLaunchCell.swift */,
+				1D719A962A4377A4000F8D53 /* RocketCollectionCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -664,6 +1154,7 @@
 				1DE8FF98297F42050054026B /* NasaInternetService.swift */,
 				1D4387F5298389B400640AE6 /* SpaceDevsInternetServices.swift */,
 				1D2C00B029ED785700D113FD /* YoutubeInternetServices.swift */,
+				1D719A922A43745C000F8D53 /* SupernovaInternetServices.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -688,6 +1179,7 @@
 				1D4387F32983895E00640AE6 /* SpaceStationsModel.swift */,
 				1D5E1DE829D2519000178A8D /* PagingInfo.swift */,
 				1D2C00AE29ED76E800D113FD /* YoutubePlayerModel.swift */,
+				1D719A942A4374ED000F8D53 /* SupernovaModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -787,6 +1279,44 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1D39C8FE2A4BBFFC00059B1E /* SupernovaWatchOS Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D39C90C2A4BBFFF00059B1E /* Build configuration list for PBXNativeTarget "SupernovaWatchOS Watch App" */;
+			buildPhases = (
+				1D39C8FB2A4BBFFC00059B1E /* Sources */,
+				1D39C8FC2A4BBFFC00059B1E /* Frameworks */,
+				1D39C8FD2A4BBFFC00059B1E /* Resources */,
+				1D4373B72A51E3FD00C1B51A /* Embed ExtensionKit Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SupernovaWatchOS Watch App";
+			packageProductDependencies = (
+				1D39C91A2A4BC66900059B1E /* SDWebImageSwiftUI */,
+			);
+			productName = "SupernovaWatchOS Watch App";
+			productReference = 1D39C8FF2A4BBFFC00059B1E /* Supernova.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1D896D6F2A32194F00C5DA28 /* SupernovaWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D896D802A32195400C5DA28 /* Build configuration list for PBXNativeTarget "SupernovaWidgetsExtension" */;
+			buildPhases = (
+				1D896D6C2A32194F00C5DA28 /* Sources */,
+				1D896D6D2A32194F00C5DA28 /* Frameworks */,
+				1D896D6E2A32194F00C5DA28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SupernovaWidgetsExtension;
+			productName = SupernovaWidgetsExtension;
+			productReference = 1D896D702A32194F00C5DA28 /* SupernovaWidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		1DE8FF54297EE9710054026B /* Supernova */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DE8FF69297EE9780054026B /* Build configuration list for PBXNativeTarget "Supernova" */;
@@ -795,10 +1325,13 @@
 				1DE8FF52297EE9710054026B /* Frameworks */,
 				1DE8FF53297EE9710054026B /* Resources */,
 				1D1B650329A2C59A003BB8F1 /* Embed Foundation Extensions */,
+				1DADD4692A5210CC004EFCE2 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1D896D7C2A32195300C5DA28 /* PBXTargetDependency */,
+				1DB6B3C92A523A1200A15132 /* PBXTargetDependency */,
 			);
 			name = Supernova;
 			packageProductDependencies = (
@@ -809,6 +1342,7 @@
 				1D5F0AEA29AAB67000AB229F /* GoogleMobileAds */,
 				1DF09DB329AFBB1800BCCE5E /* HMSegmentedControl */,
 				1D2C00B629EDDC2100D113FD /* AlamofireImage */,
+				1D7453A32A45D4E700534757 /* SDWebImageSwiftUI */,
 			);
 			productName = Supernova;
 			productReference = 1DE8FF55297EE9710054026B /* Supernova.app */;
@@ -824,6 +1358,12 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					1D39C8FE2A4BBFFC00059B1E = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					1D896D6F2A32194F00C5DA28 = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					1DE8FF54297EE9710054026B = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -846,17 +1386,37 @@
 				1D5F0AE929AAB67000AB229F /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 				1DF09DB229AFBB1700BCCE5E /* XCRemoteSwiftPackageReference "HMSegmentedControl" */,
 				1D2C00B529EDDC2100D113FD /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				1D7453A22A45D4E600534757 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 1DE8FF56297EE9710054026B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				1DE8FF54297EE9710054026B /* Supernova */,
+				1D896D6F2A32194F00C5DA28 /* SupernovaWidgetsExtension */,
+				1D39C8FE2A4BBFFC00059B1E /* SupernovaWatchOS Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1D39C8FD2A4BBFFC00059B1E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D39C9092A4BBFFF00059B1E /* Preview Assets.xcassets in Resources */,
+				1D39C9062A4BBFFF00059B1E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D896D6E2A32194F00C5DA28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D896D792A32195300C5DA28 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1DE8FF53297EE9710054026B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -881,6 +1441,37 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1D39C8FB2A4BBFFC00059B1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D39C9212A4C5B8F00059B1E /* String+Extension.swift in Sources */,
+				1D39C91E2A4C57D000059B1E /* NewsScreen.swift in Sources */,
+				1D39C9132A4BC2F700059B1E /* PictureOfTheDay.swift in Sources */,
+				1D39C9042A4BBFFC00059B1E /* HomeUI.swift in Sources */,
+				1D39C9192A4BC53800059B1E /* AppleWatchService.swift in Sources */,
+				1D39C9292A4E0C0F00059B1E /* LastLaunchesScreen.swift in Sources */,
+				1D39C9272A4D06EC00059B1E /* LaunchItem.swift in Sources */,
+				1D39C9022A4BBFFC00059B1E /* SupernovaWatchOSApp.swift in Sources */,
+				1D39C90F2A4BC08C00059B1E /* LaunchesScreen.swift in Sources */,
+				1D39C9232A4C601B00059B1E /* NewsItem.swift in Sources */,
+				1D39C9162A4BC46600059B1E /* Models.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D896D6C2A32194F00C5DA28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D896D752A32195000C5DA28 /* SupernovaWidgetsBundle.swift in Sources */,
+				1D5E89F82A3901C4009F7E4F /* POTDGeneratorWidget.swift in Sources */,
+				1D8C52742A37BFCF00660C3A /* PictureOfTheDayWidget.swift in Sources */,
+				1D8C52762A37CAAC00660C3A /* URLImageView.swift in Sources */,
+				1D5E89FA2A3904D8009F7E4F /* ButtonPOTD.swift in Sources */,
+				1D896D822A321B7700C5DA28 /* SupernovaWidgets.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1DE8FF51297EE9710054026B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -894,6 +1485,7 @@
 				1DEB4CF129C48F49005D6E38 /* CompanyItemScreen.swift in Sources */,
 				1DE8FF97297F40990054026B /* PictureOfTheDayModel.swift in Sources */,
 				1D2C00AF29ED76E800D113FD /* YoutubePlayerModel.swift in Sources */,
+				1D158BBB2A44D604001E32C9 /* RocketSupernovaController.swift in Sources */,
 				1DF09DAC29AF77F900BCCE5E /* OnboardingViewModel.swift in Sources */,
 				1D4387E72983229C00640AE6 /* SectionScreen.swift in Sources */,
 				1D7BF5C529A3B5690097B6ED /* UIButton+Extension.swift in Sources */,
@@ -905,8 +1497,10 @@
 				1DE8FF92297F3E350054026B /* Alerts.swift in Sources */,
 				1DD37EBB2993D5E900C918EC /* ButtonCollectionCell.swift in Sources */,
 				1D4387F6298389B400640AE6 /* SpaceDevsInternetServices.swift in Sources */,
+				1D719A952A4374ED000F8D53 /* SupernovaModel.swift in Sources */,
 				1DE8FF8F297F3DE00054026B /* SpaceExInternetServices.swift in Sources */,
 				1DF09DAF29AFB1A000BCCE5E /* LauchesController.swift in Sources */,
+				1D8C52782A380C9600660C3A /* UIImage+Extension.swift in Sources */,
 				1D89F0BF2983F5AD00DF67F8 /* NewsController.swift in Sources */,
 				1DE8FF78297EED2E0054026B /* ViewCodeManager.swift in Sources */,
 				1D59255129894CEF00F2A0EE /* HomeCollectionCellImage.swift in Sources */,
@@ -918,6 +1512,7 @@
 				1D91BC572999D70100075AE8 /* LaunchesItemScreen.swift in Sources */,
 				1D4387F02983520E00640AE6 /* CrewModel.swift in Sources */,
 				1D4387EE29833ED500640AE6 /* DragonsModel.swift in Sources */,
+				1D158BBF2A45C4FA001E32C9 /* RocketItemUI.swift in Sources */,
 				1DD37EC72995FDD400C918EC /* UIViewController+Extension.swift in Sources */,
 				1DFF037A29C232CD006E59CB /* RocketScreen.swift in Sources */,
 				1DFF037829C2327C006E59CB /* RocketItem.swift in Sources */,
@@ -941,6 +1536,7 @@
 				1D89F0D029840B7A00DF67F8 /* WhatsNewSection.swift in Sources */,
 				1D89F0D5298426FF00DF67F8 /* AboutScreen.swift in Sources */,
 				1DA2A889298A9AF90053B441 /* OnboardingCell.swift in Sources */,
+				1D158BBD2A44D74E001E32C9 /* RocketSupernovaScreen.swift in Sources */,
 				1DF09DA429AD3A1800BCCE5E /* EventsController.swift in Sources */,
 				1DD6B7F629C1DBEC00F8ADE2 /* Date+Extension.swift in Sources */,
 				1DA2A884298A99F90053B441 /* OnboardingController.swift in Sources */,
@@ -948,6 +1544,7 @@
 				1D91BC552999D69400075AE8 /* LaunchesItemController.swift in Sources */,
 				1D30110E29B77C2C00592206 /* FutureLaunchesHeader.swift in Sources */,
 				1DE8FFA329808BB40054026B /* LauchScreen.swift in Sources */,
+				1D719A972A4377A4000F8D53 /* RocketCollectionCell.swift in Sources */,
 				1D4387E22982F51E00640AE6 /* HomeItemsModel.swift in Sources */,
 				1DE8FF89297F0F1D0054026B /* HomeScreen.swift in Sources */,
 				1D89F0CE2984041500DF67F8 /* WhatsNewModel.swift in Sources */,
@@ -962,6 +1559,7 @@
 				1D4387EC2983287D00640AE6 /* CollectionHeader.swift in Sources */,
 				1DE0C262299040BA003E18AE /* TitleCollection.swift in Sources */,
 				1DE8FF72297EEB810054026B /* SettingsModel.swift in Sources */,
+				1D719A932A43745C000F8D53 /* SupernovaInternetServices.swift in Sources */,
 				1DE8FF59297EE9710054026B /* AppDelegate.swift in Sources */,
 				1DF09DA729AE181300BCCE5E /* EventsCell.swift in Sources */,
 				1DC400BE299C42C5006279B8 /* MainScreen.swift in Sources */,
@@ -990,6 +1588,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1D896D7C2A32195300C5DA28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D896D6F2A32194F00C5DA28 /* SupernovaWidgetsExtension */;
+			targetProxy = 1D896D7B2A32195300C5DA28 /* PBXContainerItemProxy */;
+		};
+		1DB6B3C92A523A1200A15132 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D39C8FE2A4BBFFC00059B1E /* SupernovaWatchOS Watch App */;
+			targetProxy = 1DB6B3C82A523A1200A15132 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		1DE8FF63297EE9780054026B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -1002,6 +1613,138 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1D39C90A2A4BBFFF00059B1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SupernovaWatchOS Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = LHWFX4B5B6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SupernovaWatchOS-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Supernova;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.henriquemarques.SupernovaApp;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.henriquemarques.SupernovaApp.watchkitapp;
+				PRODUCT_NAME = Supernova;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Debug;
+		};
+		1D39C90B2A4BBFFF00059B1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SupernovaWatchOS Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = LHWFX4B5B6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SupernovaWatchOS-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Supernova;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.henriquemarques.SupernovaApp;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.henriquemarques.SupernovaApp.watchkitapp;
+				PRODUCT_NAME = Supernova;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Release;
+		};
+		1D896D7E2A32195400C5DA28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = LHWFX4B5B6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SupernovaWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SupernovaWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.henriquemarques.SupernovaApp.SupernovaWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		1D896D7F2A32195400C5DA28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = LHWFX4B5B6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SupernovaWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SupernovaWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.henriquemarques.SupernovaApp.SupernovaWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		1DE8FF67297EE9780054026B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1059,6 +1802,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -1113,6 +1857,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -1124,7 +1869,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Supernova/Supernova.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = LHWFX4B5B6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Supernova/Info.plist;
@@ -1139,7 +1884,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.henriquemarques.SupernovaApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1159,7 +1904,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Supernova/Supernova.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = LHWFX4B5B6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Supernova/Info.plist;
@@ -1174,7 +1919,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.henriquemarques.SupernovaApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1189,6 +1934,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1D39C90C2A4BBFFF00059B1E /* Build configuration list for PBXNativeTarget "SupernovaWatchOS Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D39C90A2A4BBFFF00059B1E /* Debug */,
+				1D39C90B2A4BBFFF00059B1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D896D802A32195400C5DA28 /* Build configuration list for PBXNativeTarget "SupernovaWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D896D7E2A32195400C5DA28 /* Debug */,
+				1D896D7F2A32195400C5DA28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1DE8FF50297EE9710054026B /* Build configuration list for PBXProject "Supernova" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1224,6 +1987,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 9.0.0;
+			};
+		};
+		1D7453A22A45D4E600534757 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
 			};
 		};
 		1DA2A88A298AA2300053B441 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
@@ -1274,10 +2045,20 @@
 			package = 1D2C00B529EDDC2100D113FD /* XCRemoteSwiftPackageReference "AlamofireImage" */;
 			productName = AlamofireImage;
 		};
+		1D39C91A2A4BC66900059B1E /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D7453A22A45D4E600534757 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
 		1D5F0AEA29AAB67000AB229F /* GoogleMobileAds */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1D5F0AE929AAB67000AB229F /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
 			productName = GoogleMobileAds;
+		};
+		1D7453A32A45D4E700534757 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D7453A22A45D4E600534757 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 		1DA2A88B298AA2300053B441 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;

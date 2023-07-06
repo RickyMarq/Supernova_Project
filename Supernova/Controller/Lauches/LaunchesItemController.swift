@@ -57,10 +57,24 @@ class LaunchesItemController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // DEBUG: Ad Text
+        // self.lauchesScreen?.adsView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.title = ""
         self.isOneHourApart()
         self.lauchesScreen?.adsView.rootViewController = self
+        self.lauchesScreen?.adsView.delegate = self
+        // ca-app-pub-7460518702464601/2402708926
+        self.lauchesScreen?.adsView.adUnitID = "ca-app-pub-7460518702464601/2402708926"
+
         self.lauchesScreen?.adsView.load(GADRequest())
+ //       GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ "432909f03960989416fd100d405a3191" ]
+        print("DEBUG MODE: GAD \(GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers)")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.title = "Launches"
     }
     
     func configPadSection() {
@@ -132,6 +146,8 @@ class LaunchesItemController: UIViewController {
        print("DEBUG MODE: TODO OPEN PIP")
     }
     
+    
+    
 }
 
 extension LaunchesItemController: LaunchesItemScreenProtocols {
@@ -150,5 +166,17 @@ extension LaunchesItemController: LaunchesItemScreenProtocols {
 
 extension LaunchesItemController: YTPlayerViewDelegate {
     
+    
+}
+
+extension LaunchesItemController: GADBannerViewDelegate {
+    
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("DEBUG MODE: Ad carregado")
+    }
+    
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+        print("DEBUG MODE: Error trying to receive ad \(error.localizedDescription)")
+    }
     
 }

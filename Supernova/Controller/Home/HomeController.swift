@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 import Combine
 import SDWebImage
 import SkeletonView
@@ -23,6 +24,8 @@ class HomeController: UIViewController {
     var pictureOfTheDay: PictureOfTheDay?
     var buttonsModel = HomeSectionButtonsModel().populateModel()
     var picturesOfTheDays = [PictureOfTheDay]()
+    var rocketsObjc = [SupernovaRocketModel]()
+
     var lastUpdated = ""
     var statusbarView: UIView?
 
@@ -40,6 +43,7 @@ class HomeController: UIViewController {
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         self.alerts = Alerts(controller: self)
@@ -51,13 +55,19 @@ class HomeController: UIViewController {
 //        self.getUpcomingLaunches()
         
         
-        self.getLastLaunches(limit: 10)
-        self.getFutureLaunches(limit: 15, startsAt: 0)
-        self.getLastEvents(limit: 10, startsAt: 0)
+//        self.getLastLaunches(limit: 10)
+//        self.getFutureLaunches(limit: 15, startsAt: 0)
+//        self.getLastEvents(limit: 10, startsAt: 0)
         self.getLastPicturesOfTheDays(limit: 7)
-        self.getNews(limit: 15, startsAt: 0)
-        self.getNextLaunch(limit: 1, startsAt: 0)
+//        self.getNews(limit: 15, startsAt: 0)
         
+        
+        self.getRockets()
+        self.getPictureOfTheDay()
+
+        // No deploy não esquece de voltar para 0 !!!
+       self.getNextLaunch(limit: 1, startsAt: 0)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,8 +75,8 @@ class HomeController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
 //        self.tabBarController?.delegate = self
 //        self.configCustomNavigationController()
-        self.getPictureOfTheDay()
-        self.showSkeleton()
+        
+  //      self.showSkeleton()
         self.deleteNotifications()
         self.navigationController?.navigationBar.tintColor = .primaryColour
     }
@@ -116,6 +126,28 @@ class HomeController: UIViewController {
                 
                 
             case .failure(let model):
+                DispatchQueue.main.async {
+                    self.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
+                }
+            }
+        }
+    }
+    
+    func getRockets() {
+        SupernovaInternetServices.sharedObjc.getRockets { result in
+            
+            switch result {
+                
+            case .success(let model):
+                print("DEBUG MODE \(model)")
+                
+                self.rocketsObjc = model ?? []
+                
+                DispatchQueue.main.async {
+                    self.homeScreen?.homeCollectionView.reloadData()
+                }
+                
+            case .failure(let error):
                 DispatchQueue.main.async {
                     self.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
                 }
@@ -192,6 +224,9 @@ class HomeController: UIViewController {
                 
                 // TODO: NOTIFICAÇÃO
                 
+                // TODO: Quando o usuário ativa as ntfs depois, ele não entrega, resolver isto na 1.0.4.
+                
+                
                 if strongSelf.isOn == true {
                     print("DEBUG MODE: NTF HAS SCHEDULE")
                     let fullHours = convertHoursForCountDownLaunchesFormatter(strongSelf.nextLaunchObjc[0].windowStart ?? "", outPut: "HH:mm:ss")
@@ -205,7 +240,12 @@ class HomeController: UIViewController {
                     print("DEBUG MODE: INT NTF TRIGGER \(notificationTrigger)")
                     print("DEBUG MODE: DOUBLE NTF TRIGGER \(Double(notificationTrigger).rounded())")
                     
-                    NotificationController.sharedObjc.requestUpcomingLaunchNotification(title: "\(strongSelf.nextLaunchObjc[0].name ?? "") is almost launching", body: "Livestream is now available to come along and watch", timeInterval: Double(notificationTrigger).rounded(), identifier: identifier ?? "Default_Identifier")
+                    if notificationTrigger <= 0 {
+                        print("Time has passed")
+                    } else {
+                        NotificationController.sharedObjc.requestUpcomingLaunchNotification(title: "\(strongSelf.nextLaunchObjc[0].name ?? "") is almost launching", body: "Livestream is now available to come along and watch", timeInterval: Double(notificationTrigger).rounded(), identifier: identifier ?? "Default_Identifier")
+                    }
+                    
                     
                 } else {
                     
@@ -466,13 +506,12 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         case 5:
             return news.count
         case 6:
-            return events.count
+            // Substituir por rockets...
+            
+            return rocketsObjc.count
+ //           return events.count
         case 7:
-            if picturesOfTheDays.isEmpty {
-                return 1
-            } else {
-                return picturesOfTheDays.count
-            }
+            return picturesOfTheDays.count
         default:
             return 0
         }
@@ -514,9 +553,14 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
             cell.newsProviderLabel.isHidden = false
             return cell
         case 6:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventsCell.identifier, for: indexPath) as? EventsCell else {return UICollectionViewCell()}
-            cell.configCell(with: events[indexPath.row])
-            cell.backgroundColor = .tertiarySystemBackground
+            // Antes:
+//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventsCell.identifier, for: indexPath) as? EventsCell else {return UICollectionViewCell()}
+//            cell.configCell(with: events[indexPath.row])
+//            cell.backgroundColor = .tertiarySystemBackground
+            // Depois:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketCollectionCell.identifier, for: indexPath) as? RocketCollectionCell else {return UICollectionViewCell()}
+            cell.backgroundColor = .clear
+            cell.configCell(with: rocketsObjc[indexPath.row])
             return cell
             
         case 7:
@@ -564,8 +608,15 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         case 5:
             self.openSafariPageWith(url: news[indexPath.row].url ?? "Error")
         case 6:
-            let vc = EventsItem(events: events[indexPath.row])
-            self.navigationController?.pushViewController(vc, animated: true)
+            //  Puxar item rocket
+//            let vc = EventsItem(events: events[indexPath.row])
+//            self.navigationController?.pushViewController(vc, animated: true)
+//            let vc = RocketSupernovaController(rocketControllerData: rocketsObjc[indexPath.row])
+//            self.navigationController?.pushViewController(vc, animated: true)
+//
+            let vc = RocketItemUI(data: rocketsObjc[indexPath.row])
+            let hostingController = UIHostingController(rootView: vc)
+            self.navigationController?.pushViewController(hostingController, animated: true)
         case 7:
             let vc = ImageViewerController(data: picturesOfTheDays[indexPath.row])
             self.present(vc, animated: true)
@@ -614,7 +665,8 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
             case 6:
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCollection.identifier, for: indexPath) as? TitleCollection
                 header?.seeAllButton.tag = 5
-                header?.titleCollectionLabel.text = "Last Events"
+//                header?.titleCollectionLabel.text = "Last Events"
+                header?.titleCollectionLabel.text = "Rockets"
                 header?.lastUpdatedLabel.isHidden = true
                 return header ?? UICollectionReusableView()
             case 7:
@@ -816,7 +868,8 @@ extension HomeController {
             case 5:
                 return LayoutType.tableLayout.getLayout()
             case 6:
-                return LayoutType.tableLayout.getLayout()
+//                return LayoutType.tableLayout.getLayout()
+                return LayoutType.rocketLayout.getLayout()
             case 7:
                 return LayoutType.pictureOfTheDay.getLayout()
             default:
@@ -825,5 +878,4 @@ extension HomeController {
         }
         self.homeScreen?.homeCollectionView.setCollectionViewLayout(layout, animated: true)
     }
-    
 }

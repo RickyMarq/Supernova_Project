@@ -213,6 +213,7 @@ class UpcomingLaunchCell: UICollectionViewCell {
             let timeInterval = fullHours.timeIntervalSince(Date())
             let convertion = Int(timeInterval)
 
+//            print("DEBUG MODE: CONVERTION CELL \(convertion)")
 
             let hours = convertion / 3600
             let minutes = (convertion % 3600) / 60

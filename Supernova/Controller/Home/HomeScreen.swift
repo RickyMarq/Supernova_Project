@@ -27,6 +27,7 @@ class HomeScreen: UIView {
         collectionView.register(NewsCollectionCell.self, forCellWithReuseIdentifier: NewsCollectionCell.identifier)
         collectionView.register(PicturesOfTheDaysCell.self, forCellWithReuseIdentifier: PicturesOfTheDaysCell.identifier)
         collectionView.register(EventsCell.self, forCellWithReuseIdentifier: EventsCell.identifier)
+        collectionView.register(RocketCollectionCell.self, forCellWithReuseIdentifier: RocketCollectionCell.identifier)
         collectionView.register(LaunchesCell.self, forCellWithReuseIdentifier: LaunchesCell.identifier)
         collectionView.register(UpcomingLaunchCell.self, forCellWithReuseIdentifier: UpcomingLaunchCell.identifier)
         collectionView.register(PageControlFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: PageControlFooter.identifier)
