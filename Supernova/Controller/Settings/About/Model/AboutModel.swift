@@ -29,6 +29,8 @@ class AboutModel {
         
         model.append(AboutTableSection(title: "A Huge thanks to all my friends & Teachers", cell: [
             
+            .staticCell(model: aboutTableModel(name: "Amanda Ferreira", link: "https://www.instagram.com/amandarocha_274/?next=%2Famanddarochaoficial%2F")),
+            
             .staticCell(model: aboutTableModel(name: "Wesley Calazans - App", link: "https://apps.apple.com/br/app/bevegan-produtos-veganos/id1634230135?l=en")),
             
             .staticCell(model: aboutTableModel(name: "Felipe Miranda - iOS Development", link: "https://www.youtube.com/@BackFrontAcademy")),

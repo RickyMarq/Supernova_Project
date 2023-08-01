@@ -10,7 +10,7 @@ import UIKit
 
 extension String {
     
-    static let appVersion = "Version 2.1.0"
+    static let appVersion = "Version 2.1.1"
        
     var capitalizedSentence: String {
             let firstLetter = self.prefix(1).capitalized

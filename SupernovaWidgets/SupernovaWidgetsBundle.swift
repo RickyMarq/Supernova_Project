@@ -20,7 +20,6 @@ struct WidgetBundleHome: WidgetBundle {
     var body: some Widget {
         SupernovaWidgets()
         PictureOfTheDayWidget()
-//        POTDGeneratorWidgetMain()
     }
 }
 

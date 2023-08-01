@@ -30,6 +30,7 @@ class HomeScreen: UIView {
         collectionView.register(RocketCollectionCell.self, forCellWithReuseIdentifier: RocketCollectionCell.identifier)
         collectionView.register(LaunchesCell.self, forCellWithReuseIdentifier: LaunchesCell.identifier)
         collectionView.register(UpcomingLaunchCell.self, forCellWithReuseIdentifier: UpcomingLaunchCell.identifier)
+        collectionView.register(HomeAdCell.self, forCellWithReuseIdentifier: HomeAdCell.identifier)
         collectionView.register(PageControlFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: PageControlFooter.identifier)
         collectionView.register(TitleReusable.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleReusable.identifier)
         return collectionView

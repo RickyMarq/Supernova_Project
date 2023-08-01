@@ -10,6 +10,7 @@ import SwiftUI
 import Combine
 import SDWebImage
 import SkeletonView
+import GoogleMobileAds
 
 class HomeController: UIViewController {
     
@@ -51,18 +52,16 @@ class HomeController: UIViewController {
         self.getCompositionalLayout()
         self.showLauchscreenAnimation()
         // DEBUG MODE: Deixando os métodos aqui para não sobrecarregar a api.
-        
 //        self.getUpcomingLaunches()
         
         
-//        self.getLastLaunches(limit: 10)
-//        self.getFutureLaunches(limit: 15, startsAt: 0)
-//        self.getLastEvents(limit: 10, startsAt: 0)
+        self.getLastLaunches(limit: 10)
+        self.getFutureLaunches(limit: 15, startsAt: 0)
+        self.getLastEvents(limit: 10, startsAt: 0)
         self.getLastPicturesOfTheDays(limit: 7)
-//        self.getNews(limit: 15, startsAt: 0)
+        self.getNews(limit: 15, startsAt: 0)
         
-        
-        self.getRockets()
+//        self.getRockets()
         self.getPictureOfTheDay()
 
         // No deploy não esquece de voltar para 0 !!!
@@ -485,8 +484,7 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 8
-        
+        return 9
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -502,15 +500,17 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         case 3:
             return futureLauchesObjc.count
         case 4:
-            return lastLauchesObjc.count
+            return 1
         case 5:
-            return news.count
+            return lastLauchesObjc.count
         case 6:
+            return news.count
+        case 7:
             // Substituir por rockets...
             
-            return rocketsObjc.count
- //           return events.count
-        case 7:
+ //           return rocketsObjc.count
+            return events.count
+        case 8:
             return picturesOfTheDays.count
         default:
             return 0
@@ -543,27 +543,35 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
             cell.configCell(with: futureLauchesObjc[indexPath.item])
             return cell
         case 4:
+            // TODO: CELL DE AD.
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeAdCell.identifier, for: indexPath) as? HomeAdCell else {return UICollectionViewCell()}
+            cell.backgroundColor = .clear
+            cell.adsView.rootViewController = self
+            cell.adsView.load(GADRequest())
+            return cell
+        case 5:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ExploreCollectionCell.identifier, for: indexPath) as? ExploreCollectionCell else {return UICollectionViewCell()}
             cell.configCell(with: lastLauchesObjc[indexPath.row])
             return cell
-        case 5:
+        case 6:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsCollectionCell.identifier, for: indexPath) as? NewsCollectionCell else {return UICollectionViewCell()}
             cell.configCell(with: news[indexPath.row])
             cell.backgroundColor = .tertiarySystemBackground
             cell.newsProviderLabel.isHidden = false
             return cell
-        case 6:
-            // Antes:
-//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventsCell.identifier, for: indexPath) as? EventsCell else {return UICollectionViewCell()}
-//            cell.configCell(with: events[indexPath.row])
-//            cell.backgroundColor = .tertiarySystemBackground
-            // Depois:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketCollectionCell.identifier, for: indexPath) as? RocketCollectionCell else {return UICollectionViewCell()}
-            cell.backgroundColor = .clear
-            cell.configCell(with: rocketsObjc[indexPath.row])
-            return cell
-            
+
         case 7:
+            // Antes:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventsCell.identifier, for: indexPath) as? EventsCell else {return UICollectionViewCell()}
+            cell.configCell(with: events[indexPath.row])
+            cell.backgroundColor = .tertiarySystemBackground
+            // Depois:
+//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketCollectionCell.identifier, for: indexPath) as? RocketCollectionCell else {return UICollectionViewCell()}
+//            cell.backgroundColor = .clear
+//            cell.configCell(with: rocketsObjc[indexPath.row])
+            return cell
+     
+        case 8:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PicturesOfTheDaysCell.identifier, for: indexPath) as? PicturesOfTheDaysCell else {return UICollectionViewCell()}
             cell.newsImageView.sd_setImage(with: URL(string: picturesOfTheDays[indexPath.row].url ?? ""))
             cell.pictureOfTheDayLabel.text = picturesOfTheDays[indexPath.row].title
@@ -602,22 +610,31 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         case 3:
             let vc = LaunchesItemController(lauches: futureLauchesObjc[indexPath.item])
             self.navigationController?.pushViewController(vc, animated: true)
+            
         case 4:
+            // ABRIR O AD...
+//            let vc = LaunchesItemController(lauches: futureLauchesObjc[indexPath.item])
+//            self.navigationController?.pushViewController(vc, animated: true)
+            print("Open ad.")
+        case 5:
             let vc = LaunchesItemController(lauches: lastLauchesObjc[indexPath.item])
             self.navigationController?.pushViewController(vc, animated: true)
-        case 5:
-            self.openSafariPageWith(url: news[indexPath.row].url ?? "Error")
+            
         case 6:
+            self.openSafariPageWith(url: news[indexPath.row].url ?? "Error")
+        case 7:
             //  Puxar item rocket
-//            let vc = EventsItem(events: events[indexPath.row])
-//            self.navigationController?.pushViewController(vc, animated: true)
+            let vc = EventsItem(events: events[indexPath.row])
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+            
 //            let vc = RocketSupernovaController(rocketControllerData: rocketsObjc[indexPath.row])
 //            self.navigationController?.pushViewController(vc, animated: true)
-//
-            let vc = RocketItemUI(data: rocketsObjc[indexPath.row])
-            let hostingController = UIHostingController(rootView: vc)
-            self.navigationController?.pushViewController(hostingController, animated: true)
-        case 7:
+//            let vc = RocketItemUI(data: rocketsObjc[indexPath.row])
+//            let hostingController = UIHostingController(rootView: vc)
+//            self.navigationController?.pushViewController(hostingController, animated: true)
+            
+        case 8:
             let vc = ImageViewerController(data: picturesOfTheDays[indexPath.row])
             self.present(vc, animated: true)
         default: break
@@ -640,6 +657,11 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleReusable.identifier, for: indexPath) as? TitleReusable
                 header?.titleCollectionLabel.text = "Next Launch"
                 return header ?? UICollectionReusableView()
+            case 4:
+                // Tirar header... (AD)
+                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleReusable.identifier, for: indexPath) as? TitleReusable
+                header?.titleCollectionLabel.text = "Ad"
+                return header ?? UICollectionReusableView()
             case 3:
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCollection.identifier, for: indexPath) as? TitleCollection
                 header?.titleCollectionLabel.text = "Future Lauches"
@@ -648,32 +670,35 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
                 header?.lastUpdatedLabel.text = "Last Updated at \(lastUpdated)"
                 header?.delegate(delegate: self)
                 return header ?? UICollectionReusableView()
-            case 4:
+            case 5:
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCollection.identifier, for: indexPath) as? TitleCollection
                 header?.titleCollectionLabel.text = "Past Launches"
                 header?.seeAllButton.tag = 3
                 header?.lastUpdatedLabel.isHidden = true
                 header?.delegate(delegate: self)
                 return header ?? UICollectionReusableView()
-            case 5:
+            case 6:
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCollection.identifier, for: indexPath) as? TitleCollection
                 header?.titleCollectionLabel.text = "Last News"
                 header?.seeAllButton.tag = 4
                 header?.lastUpdatedLabel.isHidden = true
                 header?.delegate(delegate: self)
                 return header ?? UICollectionReusableView()
-            case 6:
-                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCollection.identifier, for: indexPath) as? TitleCollection
-                header?.seeAllButton.tag = 5
-//                header?.titleCollectionLabel.text = "Last Events"
-                header?.titleCollectionLabel.text = "Rockets"
-                header?.lastUpdatedLabel.isHidden = true
-                return header ?? UICollectionReusableView()
             case 7:
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCollection.identifier, for: indexPath) as? TitleCollection
+                header?.seeAllButton.tag = 5
+                header?.titleCollectionLabel.text = "Last Events"
+ //               header?.titleCollectionLabel.text = "Rockets"
+                header?.lastUpdatedLabel.isHidden = true
+                header?.delegate(delegate: self)
+                return header ?? UICollectionReusableView()
+            case 8:
+                let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCollection.identifier, for: indexPath) as? TitleCollection
                 header?.seeAllButton.tag = 6
+                print("DEBUG MODE: TAG6? \(header?.seeAllButton.tag)")
                 header?.lastUpdatedLabel.isHidden = true
                 header?.titleCollectionLabel.text = "Nasa Observatory"
+                header?.delegate(delegate: self)
                 return header ?? UICollectionReusableView()
             default: break
             }
@@ -748,17 +773,17 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
                 cell.transform = .init(scaleX: 0.95, y: 0.95)
             }
         case 3:
-            guard let cell = collectionView.cellForItem(at: indexPath) as? ExploreCollectionCell else {return}
+            guard let cell = collectionView.cellForItem(at: indexPath) as? LaunchesCell else {return}
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
                 cell.transform = .init(scaleX: 0.95, y: 0.95)
             }
         case 4:
-            guard let cell = collectionView.cellForItem(at: indexPath) as? ExploreCollectionCell else {return}
+            guard let cell = collectionView.cellForItem(at: indexPath) as? HomeAdCell else {return}
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
                 cell.transform = .init(scaleX: 0.95, y: 0.95)
             }
         case 5:
-            guard let cell = collectionView.cellForItem(at: indexPath) as? NewsCollectionCell else {return}
+            guard let cell = collectionView.cellForItem(at: indexPath) as? ExploreCollectionCell else {return}
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
                 cell.transform = .init(scaleX: 0.95, y: 0.95)
             }
@@ -768,6 +793,12 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
                 cell.transform = .init(scaleX: 0.95, y: 0.95)
             }
         case 7:
+            guard let cell = collectionView.cellForItem(at: indexPath) as? EventsCell else {return}
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
+                cell.transform = .init(scaleX: 0.95, y: 0.95)
+            }
+            
+        case 8:
             guard let cell = collectionView.cellForItem(at: indexPath) as? PicturesOfTheDaysCell else {return}
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
                 cell.transform = .init(scaleX: 0.95, y: 0.95)
@@ -782,7 +813,6 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
             
         case 1:
             guard let cell = collectionView.cellForItem(at: indexPath) as? ButtonCollectionCell else {return}
-
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
                 cell.transform = .identity
             }
@@ -794,17 +824,17 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
                 cell.transform = .identity
             }
         case 3:
-            guard let cell = collectionView.cellForItem(at: indexPath) as? ExploreCollectionCell else {return}
+            guard let cell = collectionView.cellForItem(at: indexPath) as? LaunchesCell else {return}
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
                 cell.transform = .identity
             }
         case 4:
-            guard let cell = collectionView.cellForItem(at: indexPath) as? ExploreCollectionCell else {return}
+            guard let cell = collectionView.cellForItem(at: indexPath) as? HomeAdCell else {return}
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
                 cell.transform = .identity
             }
         case 5:
-            guard let cell = collectionView.cellForItem(at: indexPath) as? NewsCollectionCell else {return}
+            guard let cell = collectionView.cellForItem(at: indexPath) as? ExploreCollectionCell else {return}
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
                 cell.transform = .identity
             }
@@ -815,6 +845,12 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         
             }
         case 7:
+            guard let cell = collectionView.cellForItem(at: indexPath) as? EventsCell else {return}
+            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
+                cell.transform = .identity
+            }
+            
+        case 8:
             guard let cell = collectionView.cellForItem(at: indexPath) as? PicturesOfTheDaysCell else {return}
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseIn) {
                 cell.transform = .identity
@@ -838,6 +874,7 @@ extension HomeController: TitleCollectionProtocol {
             let vc = NewsController()
             self.navigationController?.pushViewController(vc, animated: true)
         case 5:
+            print("DEBUG MODE: ")
             let vc = EventsController()
             self.navigationController?.pushViewController(vc, animated: true)
         case 6:
@@ -864,13 +901,15 @@ extension HomeController {
             case 3:
                 return LayoutType.future.getLayout()
             case 4:
-                return LayoutType.LastLauchesLayout.getLayout()
+                return LayoutType.adView.getLayout()
             case 5:
-                return LayoutType.tableLayout.getLayout()
+                return LayoutType.LastLauchesLayout.getLayout()
             case 6:
-//                return LayoutType.tableLayout.getLayout()
-                return LayoutType.rocketLayout.getLayout()
+                return LayoutType.tableLayout.getLayout()
             case 7:
+                return LayoutType.tableLayout.getLayout()
+        //                return LayoutType.rocketLayout.getLayout()
+            case 8:
                 return LayoutType.pictureOfTheDay.getLayout()
             default:
                 return LayoutType.tableLayout.getLayout()

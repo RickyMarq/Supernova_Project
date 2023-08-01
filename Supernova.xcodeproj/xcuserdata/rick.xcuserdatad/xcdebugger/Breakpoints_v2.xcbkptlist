@@ -50,6 +50,38 @@
             endingLineNumber = "25"
             landmarkName = "getUpcomingLaunches(completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "43707979-2BE2-4B99-9D0D-867F05277B4C - 6298dd2314046f81"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Supernova.SpaceExInternetServices.getUpcomingLaunches(completion: (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Supernova.UpcomingModel&gt;&gt;, Supernova.SpaceExInternetServices.Errors&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Service/SpaceExInternetServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "43707979-2BE2-4B99-9D0D-867F05277B4C - 6298dd2314046f81"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Supernova.SpaceExInternetServices.getUpcomingLaunches(completion: (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Supernova.UpcomingModel&gt;&gt;, Supernova.SpaceExInternetServices.Errors&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Service/SpaceExInternetServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "124">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

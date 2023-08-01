@@ -69,7 +69,7 @@ class LaunchesItemController: UIViewController {
 
         self.lauchesScreen?.adsView.load(GADRequest())
  //       GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ "432909f03960989416fd100d405a3191" ]
-        print("DEBUG MODE: GAD \(GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers)")
+ //       print("DEBUG MODE: GAD \(GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers)")
     }
     
     override func viewWillDisappear(_ animated: Bool) {

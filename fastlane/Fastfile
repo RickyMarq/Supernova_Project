@@ -1,0 +1,49 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Build the iOS app"
+  lane :build do
+      build_app(
+        scheme: "Supernova",
+        output_directory: "./build",
+        clean: true
+      )
+      # verifica se a build for bem-sucedida e imprime uma mensagem
+
+      if $?.success? 
+        UI.success("Build succeeded")
+      else 
+        UI.important("Build failed")
+      end
+    end
+
+  desc "Push a new beta build to TestFlight"
+  lane :uploadToTestflight do
+ #   increment_build_number(xcodeproj: "Supernova.xcodeproj")
+    build
+    upload_to_testflight(
+      ipa: "./build/Supernova.ipa",
+      changelog: "Adicionando novas features",
+      distribute_external: true,
+      notify_external_testers: true,
+      groups: ["Group"],
+    )
+#    build_app(scheme: "Supernova")
+#    upload_to_testflight
+  end
+end

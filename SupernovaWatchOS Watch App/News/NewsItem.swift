@@ -13,7 +13,6 @@ struct NewsItem: View {
     var data: ResultedNewsSite
     
     var body: some View {
-//        NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
                     Text(data.title ?? "")
@@ -28,7 +27,6 @@ struct NewsItem: View {
                     
                         .cornerRadius(10)
                         .scaledToFill()
-                    //       .border(Color.accentColor)
                         .shadow(color: Color.accentColor, radius: 0.5, x: 0, y: 0.5)
                         
                     
@@ -46,7 +44,6 @@ struct NewsItem: View {
                     }
                     .padding()
                 }
-//            }
             .padding(.horizontal, 5)
             // WatchOS 8
 //            .navigationBarTitleDisplayMode(.inline)

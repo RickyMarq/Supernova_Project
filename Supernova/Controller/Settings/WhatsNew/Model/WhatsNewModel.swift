@@ -14,8 +14,12 @@ class WhatsNewModel {
     
     func populate() -> [WhatsNewSection] {
         
+        model.append(WhatsNewSection(title: "July 31, 2023", whatsNewCell: [
+            .whatsNewCell(model: WhatsNewCellModel(version: "\(String.appVersion)", infoText: "• Bug Fixes", updateLabel: "Release Notes", actualVersion: true))
+        ]))
+        
         model.append(WhatsNewSection(title: "June 27, 2023", whatsNewCell: [
-            .whatsNewCell(model: WhatsNewCellModel(version: "\(String.appVersion)", infoText: "• Supernova now have a companion app for Apple Watch", updateLabel: "Release Notes", actualVersion: true))
+            .whatsNewCell(model: WhatsNewCellModel(version: "2.1.0", infoText: "• Supernova now have a companion app for Apple Watch", updateLabel: "Release Notes", actualVersion: false))
         ]))
         
         model.append(WhatsNewSection(title: "June 27, 2023", whatsNewCell: [

@@ -35,9 +35,6 @@ struct PictureOfTheDay: View {
                             .transition(.fade(duration: 0.5))
                             .cornerRadius(10)
                             .scaledToFill()
-                        //       .border(Color.accentColor)
-                        
-                          
                             .shadow(color: Color.accentColor, radius: 0.5, x: 0, y: 0.5)
                         
                         
@@ -53,27 +50,16 @@ struct PictureOfTheDay: View {
                                 .bold()
                                 .multilineTextAlignment(.trailing)
                         }
-//                        HStack {
-//                            Spacer()
-//                            Text(data.newsSite ?? "")
-//                                .foregroundColor(Color.primary)
-//                                .bold()
-//                                .multilineTextAlignment(.trailing)
-//                        }
-//                        .padding()
                     }
                 }
             }
             .padding(.horizontal, 5)
             .navigationTitle("Picture of The Day")
-//            .background(Color.red)
- //           .cornerRadius(10)
-            
             .onAppear {
                 
             // WatchOS 8
-//            .navigationBarTitleDisplayMode(.inline)
- //           .navigationTitle("Picture of The Day")
+            // .navigationBarTitleDisplayMode(.inline)
+            // .navigationTitle("Picture of The Day")
         }
      
         .onAppear {

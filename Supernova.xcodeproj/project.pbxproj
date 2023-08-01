@@ -87,6 +87,7 @@
 		1D8C52782A380C9600660C3A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8C52772A380C9600660C3A /* UIImage+Extension.swift */; };
 		1D91BC552999D69400075AE8 /* LaunchesItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91BC542999D69400075AE8 /* LaunchesItemController.swift */; };
 		1D91BC572999D70100075AE8 /* LaunchesItemScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D91BC562999D70100075AE8 /* LaunchesItemScreen.swift */; };
+		1D93B8452A783778007F95D9 /* HomeAdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D93B8442A783778007F95D9 /* HomeAdCell.swift */; };
 		1D9A5A7829DD0C08002B3A4D /* UpcomingLaunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A5A7729DD0C08002B3A4D /* UpcomingLaunchCell.swift */; };
 		1DA0D09729B3724B00D5AD85 /* NasaObservatoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0D09629B3724B00D5AD85 /* NasaObservatoryController.swift */; };
 		1DA0D09929B3726D00D5AD85 /* NasaObservatoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0D09829B3726D00D5AD85 /* NasaObservatoryScreen.swift */; };
@@ -295,6 +296,7 @@
 		1D8C52772A380C9600660C3A /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		1D91BC542999D69400075AE8 /* LaunchesItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesItemController.swift; sourceTree = "<group>"; };
 		1D91BC562999D70100075AE8 /* LaunchesItemScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesItemScreen.swift; sourceTree = "<group>"; };
+		1D93B8442A783778007F95D9 /* HomeAdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAdCell.swift; sourceTree = "<group>"; };
 		1D9A5A7729DD0C08002B3A4D /* UpcomingLaunchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingLaunchCell.swift; sourceTree = "<group>"; };
 		1DA0D09629B3724B00D5AD85 /* NasaObservatoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaObservatoryController.swift; sourceTree = "<group>"; };
 		1DA0D09829B3726D00D5AD85 /* NasaObservatoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaObservatoryScreen.swift; sourceTree = "<group>"; };
@@ -449,6 +451,39 @@
 				1D1B64F129A2C594003BB8F1 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1D29ACEA2A58498600DD3B7E /* POTDWidget */ = {
+			isa = PBXGroup;
+			children = (
+				1D8C52722A37BE7500660C3A /* PictureOfTheDayWidget.swift */,
+			);
+			path = POTDWidget;
+			sourceTree = "<group>";
+		};
+		1D29ACEB2A5849B000DD3B7E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1D8C52752A37CAAC00660C3A /* URLImageView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1D29ACEC2A5849C300DD3B7E /* iOS17Widget */ = {
+			isa = PBXGroup;
+			children = (
+				1D5E89F92A3904D8009F7E4F /* ButtonPOTD.swift */,
+				1D5E89F72A3901C4009F7E4F /* POTDGeneratorWidget.swift */,
+			);
+			path = iOS17Widget;
+			sourceTree = "<group>";
+		};
+		1D29ACED2A584A3000DD3B7E /* LaunchCountWidget */ = {
+			isa = PBXGroup;
+			children = (
+				1D896D762A32195000C5DA28 /* SupernovaWidgets.swift */,
+			);
+			path = LaunchCountWidget;
 			sourceTree = "<group>";
 		};
 		1D30110F29B77C8300592206 /* ReusableViews */ = {
@@ -616,13 +651,12 @@
 			isa = PBXGroup;
 			children = (
 				1D896D742A32195000C5DA28 /* SupernovaWidgetsBundle.swift */,
-				1D896D762A32195000C5DA28 /* SupernovaWidgets.swift */,
+				1D29ACED2A584A3000DD3B7E /* LaunchCountWidget */,
+				1D29ACEC2A5849C300DD3B7E /* iOS17Widget */,
+				1D29ACEB2A5849B000DD3B7E /* Extensions */,
+				1D29ACEA2A58498600DD3B7E /* POTDWidget */,
 				1D896D782A32195300C5DA28 /* Assets.xcassets */,
 				1D896D7A2A32195300C5DA28 /* Info.plist */,
-				1D8C52722A37BE7500660C3A /* PictureOfTheDayWidget.swift */,
-				1D8C52752A37CAAC00660C3A /* URLImageView.swift */,
-				1D5E89F72A3901C4009F7E4F /* POTDGeneratorWidget.swift */,
-				1D5E89F92A3904D8009F7E4F /* ButtonPOTD.swift */,
 			);
 			path = SupernovaWidgets;
 			sourceTree = "<group>";
@@ -1011,7 +1045,6 @@
 				1DE8FF80297EFAA00054026B /* Extensions */,
 				1DE8FF90297F3E110054026B /* Extras */,
 				1DE8FF8D297F3DD30054026B /* Service */,
-				1DE8FF93297F3ECF0054026B /* Model */,
 				1DF09DAA29AF77E000BCCE5E /* ViewModel */,
 				1DE8FF84297EFB360054026B /* Controller */,
 				1DE8FF66297EE9780054026B /* Info.plist */,
@@ -1105,6 +1138,7 @@
 		1DE8FF84297EFB360054026B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1DE8FF93297F3ECF0054026B /* Model */,
 				1D158BB92A44D5DD001E32C9 /* RocketSupernova */,
 				1DA0D09529B3722500D5AD85 /* Nasa Observatory */,
 				1DF09DAD29AFB17800BCCE5E /* LauchesController */,
@@ -1143,6 +1177,7 @@
 				1D71319E29A41E5E0020AC1B /* PicturesOfTheDaysCell.swift */,
 				1D9A5A7729DD0C08002B3A4D /* UpcomingLaunchCell.swift */,
 				1D719A962A4377A4000F8D53 /* RocketCollectionCell.swift */,
+				1D93B8442A783778007F95D9 /* HomeAdCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1505,6 +1540,7 @@
 				1DE8FF78297EED2E0054026B /* ViewCodeManager.swift in Sources */,
 				1D59255129894CEF00F2A0EE /* HomeCollectionCellImage.swift in Sources */,
 				1DA0D0A229B389F200D5AD85 /* NasaObservatoryCell.swift in Sources */,
+				1D93B8452A783778007F95D9 /* HomeAdCell.swift in Sources */,
 				1D5E1DE929D2519000178A8D /* PagingInfo.swift in Sources */,
 				1D7131A129A45FBE0020AC1B /* PageControlFooter.swift in Sources */,
 				1DF09D9F29ABBA6200BCCE5E /* NewsTextCell.swift in Sources */,
@@ -1621,7 +1657,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"SupernovaWatchOS Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = LHWFX4B5B6;
 				ENABLE_PREVIEWS = YES;
@@ -1656,7 +1692,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"SupernovaWatchOS Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = LHWFX4B5B6;
 				ENABLE_PREVIEWS = YES;
@@ -1708,6 +1744,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1739,6 +1776,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1869,7 +1907,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Supernova/Supernova.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = LHWFX4B5B6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Supernova/Info.plist;
@@ -1884,12 +1922,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.0;
+				MARKETING_VERSION = 2.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.henriquemarques.SupernovaApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1904,7 +1943,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Supernova/Supernova.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = LHWFX4B5B6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Supernova/Info.plist;
@@ -1919,12 +1958,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.0;
+				MARKETING_VERSION = 2.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.henriquemarques.SupernovaApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

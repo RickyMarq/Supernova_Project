@@ -15,21 +15,12 @@ struct NewsScreen: View {
     @State var page = 1
     
     var body: some View {
-//        NavigationView {
             List {
                 ForEach(dataObjc) { datum in
                     NavigationLink(destination: NewsItem(data: datum)) {
-                    
-//                        ZStack {
-//                            WebImage(URL(string: datum.imageURL ?? ""))
-//                                .resizable()
-//                                .scaledToFill()
-//                        }
-                        
                         VStack(alignment: .leading) {
                             Text(datum.title ?? "")
                                 .bold()
-                            
                             
                             if let publishedAt = datum.publishedAt {
                                 Text(publishedAt.convertHourNewsFormatter(datum.publishedAt ?? ""))
@@ -41,7 +32,6 @@ struct NewsScreen: View {
                 }
                 
                 VStack(alignment: .center) {
- //                   if isLoaded {
                         ProgressView()
                             .progressViewStyle(.circular)
              
@@ -55,15 +45,6 @@ struct NewsScreen: View {
             }
 //            .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("News")
-  //      }
-    
-        
-            .onAppear {
-//                getNewsData(page: page)
-//                page += 1
-//                print("DEBUG MODE PAGE: \(page)")
-            }
-        
 
     }
     
