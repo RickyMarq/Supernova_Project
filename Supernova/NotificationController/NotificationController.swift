@@ -14,21 +14,6 @@ class NotificationController {
     
     private init() { }
     
-    func requestTestNotification(title: String, body: String) {
-        let content = UNMutableNotificationContent()
-        content.title = title
-        content.body = body
- //       content.subtitle = "Test Subtitle"
-        content.sound = .default
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
-        let identifier = UUID().uuidString + "Test Notification Identifier"
-        let request = UNNotificationRequest(identifier: "Reminder", content: content, trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request)
-    }
-    
-    
     func requestUpcomingLaunchNotification(title: String, body: String, timeInterval: Double, identifier: String) {
         let content = UNMutableNotificationContent()
         content.title = title
@@ -39,5 +24,4 @@ class NotificationController {
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
     }
-    
 }

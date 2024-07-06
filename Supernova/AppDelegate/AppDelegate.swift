@@ -24,46 +24,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        print("DEBUG MODE: \(self.notificationSend)")
         
         SpaceDevsInternetServices.sharedObjc.getFutureLauches(limit: 1, startsAt: 0) { result in
             switch result {
             case .success(let result):
-                
-                print("DEBUG MODE: WINDOWSSTAT STRING: \(result?[0].windowStart ?? "")")
-                
                 let fullHours = convertHoursForCountDownLaunchesFormatter(result?[0].windowStart ?? "", outPut: "HH:mm:ss")
-                print("DEBUG MODE FULLHOURS: \(fullHours)")
                 let timeInterval = fullHours.timeIntervalSince(Date())
-                print("DEBUG MODE: TIME INTERVEL (DATE ALREADY COMPARED \(timeInterval)")
                 let convertion = Int(timeInterval)
-                print("DEBUG MODE CONVERTION: \(convertion)")
                 
                 if convertion >= 0 {
                     self.notificationSend = true   
                     let notificationTrigger = convertion - 3600
                     let identifier = result?[0].name
-                    print("DEBUG MODE: INT NTF TRIGGER \(notificationTrigger)")
-                    print("DEBUG MODE: DOUBLE NTF TRIGGER \(Double(notificationTrigger).rounded())")
                     
                     NotificationController.sharedObjc.requestUpcomingLaunchNotification(title: "\(result?[0].name ?? "") is almost launching", body: "Livestream is now available to come along and watch", timeInterval: Double(notificationTrigger).rounded(), identifier: identifier ?? "Default_Identifier")
                 
                 } else if convertion <= 0 {
                     print("Time has passed")
- //               } else if self.notificationSend == true {
- //                   print("Notification Already Send")
-                    //                } else if convertion >= 3600 && convertion >= 0 {
-                    //                    self.notificationSend = false
-                    //                }
                 }
             case .failure(_):
                 print("Error")
             }
             
         }
-        print("DEBUG MODE: Background Fetch")
-        
-     
     }
 
     // MARK: UISceneSession Lifecycle
@@ -85,15 +68,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-          print("DEBUG MODE: DEVICE TOKEN: \(deviceToken)")
-      }
+
+    }
       
       func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-          print("DEBUG MODE: NOTIFICATION ERROR: \(error)")
+
       }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
-        print("DEBUG MODE: O usuário recebeu uma notificação")
+
     }
     
 }

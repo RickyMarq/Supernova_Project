@@ -20,7 +20,7 @@ extension String {
 
         if convertedDate == nil {
             print("Invalid date format, setting default value.")
-            return "" // Return an empty string as default value
+            return ""
         }
 
         dateFormatter.dateFormat = "HH:mm"
@@ -59,13 +59,9 @@ extension String {
             return ""
         }
         
-        /// This is what you want to convert format
         dateFormatter.dateFormat = outPut
         dateFormatter.timeZone = TimeZone.current
         let timeStamp = dateFormatter.string(from: convertedDate ?? Date())
         return timeStamp
     }
-    
 }
-
-

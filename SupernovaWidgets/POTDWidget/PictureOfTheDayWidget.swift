@@ -50,38 +50,47 @@ private struct Provider: TimelineProvider {
         getPictureOfTheDay { data, err in
             let midnight = Calendar.current.startOfDay(for: Date())
             let nextMidnight = Calendar.current.date(byAdding: .second, value: 1, to: midnight)
-            
             let entries = [ModelPicture(date: Date(), defaultImage: UIImage(), widgetDate: data ?? PictureOfTheDay(date: "", explanation: "", title: "", url: "", hdurl: ""))]
-            
             let timeline = Timeline(entries: entries, policy: .after(nextMidnight!))
             completion(timeline)
-        }
+        } 
     }
-    
 }
-
 
 private struct PictureOfTheDayWidgetView: View {
     var entry: Provider.Entry
-    
-    var body: some View {
-        ZStack {
-            Image(uiImage: entry.defaultImage)
-//                .resizable()
-//                .scaledToFill()
+        
+        var body: some View {
             
-            if let imageURL, let data = try? Data(contentsOf: imageURL) {
-                URLImageView(data: data)
-                    .aspectRatio(contentMode: .fill)
+            ZStack {
+                Image(uiImage: entry.defaultImage)
+    //                .resizable()
+    //                .scaledToFill()
+                
+                if let imageURL, let data = try? Data(contentsOf: imageURL) {
+                    URLImageView(data: data)
+                        .scaledToFill()
+                     //   .aspectRatio(contentMode: .fill)
+                }
             }
+            
+//            .containerBackground(for: .widget) {
+//                Color.clear
+//            }
+            
         }
-    }
     
     
     var imageURL: URL? {
-        // https://apod.nasa.gov/apod/image/2306/IssMoon_Yang_960.jpg
         let path = entry.widgetDate.url ?? ""
         return URL(string: path)
+    }
+}
+
+struct PictureOfTheDayWidget_Previews: PreviewProvider {
+    static var previews: some View {
+        PictureOfTheDayWidgetView(entry: ModelPicture(date: Date(), defaultImage: UIImage(named: "supernovaDefaultImage") ?? UIImage(), widgetDate: PictureOfTheDay(date: "", explanation: "", title: "", url: "", hdurl: "")))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }
 
@@ -107,20 +116,12 @@ func getPictureOfTheDay(completion: @escaping (PictureOfTheDay?, Error?) -> Void
 }
 
 extension UIImage {
-  func resized(toWidth width: CGFloat, isOpaque: Bool = true) -> UIImage? {
-    let canvas = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
-    let format = imageRendererFormat
-    format.opaque = isOpaque
-    return UIGraphicsImageRenderer(size: canvas, format: format).image {
-      _ in draw(in: CGRect(origin: .zero, size: canvas))
+    func resized(toWidth width: CGFloat, isOpaque: Bool = true) -> UIImage? {
+        let canvas = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
+        let format = imageRendererFormat
+        format.opaque = isOpaque
+        return UIGraphicsImageRenderer(size: canvas, format: format).image {
+            _ in draw(in: CGRect(origin: .zero, size: canvas))
+        }
     }
-  }
 }
-
-
-
-//struct PictureOfTheDayWidget_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PictureOfTheDayWidget()
-//    }
-//}

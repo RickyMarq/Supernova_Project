@@ -42,12 +42,12 @@ private struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> Model {
         Model(date: Date(), widgetDate: LastLauchesModel(results: [ResultedModel(name: "Falcon 9", image: "", lastUpdated: "", windowStart: "")]), lastUpdateTime: Calendar.current.date(bySettingHour: 22, minute: 39, second: 20, of: Date())!)
     }
-
+    
     func getSnapshot(in context: Context, completion: @escaping (Model) -> ()) {
         let entry = Model(date: Date(), widgetDate: LastLauchesModel(results: [ResultedModel(name: "Falcon 9", image: "", lastUpdated: "", windowStart: "")]), lastUpdateTime: Calendar.current.date(bySettingHour: 22, minute: 39, second: 20, of: Date())!)
         completion(entry)
     }
-
+    
     func getTimeline(in context: Context, completion: @escaping (Timeline<Model>) -> ()) {
         
         getFutureLauches(limit: 1, startsAt: 0) { result in
@@ -71,16 +71,16 @@ private struct Provider: TimelineProvider {
                 }
                 
                 var data = Model(date: date, widgetDate: LastLauchesModel(results: model ?? []), lastUpdateTime: dateToDisplay, launchIsClose: LaunchingIsClose)
-                  
+                
                 
                 data.hourCountDown = Int(hours)
                 data.minuteCountDown = Int(minutes)
                 data.secondCountDown = Int(seconds)
                 
                 // Start count down...
-
+                
                 let nextUpdate = Calendar.current.date(byAdding: .hour, value: 3, to: date)
-                                
+                
                 
                 let timeline = Timeline(entries: [data], policy: .after(nextUpdate!))
                 
@@ -116,13 +116,12 @@ struct SupernovaWidgetsEntryView : View {
                     .truncationMode(.middle)
                 HStack(alignment: .center) {
                     VStack(alignment: .center) {
-    
+                        
                         HStack() {
                             if data.hourCountDown <= 0 {
                                 Text("0:00:00")
                                     .bold()
                                     .multilineTextAlignment(.center)
-       //                             .foregroundColor(data.launchIsClose ? .red : .white)
                                     .padding(.all, 8)
                                     .foregroundColor(.white)
                                     .shadow(color: .purple, radius: 0.5, x: 0, y: 1)
@@ -130,14 +129,14 @@ struct SupernovaWidgetsEntryView : View {
                             } else {
                                 Text(data.lastUpdateTime, style: .timer)
                                     .font(.system(.subheadline, design: .rounded))
-    
+                                
                                     .bold()
                                     .multilineTextAlignment(.center)
                                     .foregroundColor(data.launchIsClose ? .red : .white)
                                     .padding(.all, 8)
                                     .shadow(color: .purple, radius: 0.5, x: 0, y: 1)
                                     .padding(.horizontal, 3)
-
+                                
                             }
                         }
                         .background(Color.secondary)
@@ -152,11 +151,11 @@ struct SupernovaWidgetsEntryView : View {
         .ignoresSafeArea()
         
         
-    
+        
     }
     
     
-
+    
     var imageURL: URL? {
         let path = data.widgetDate.results[0].image ?? ""
         return URL(string: path)
@@ -189,7 +188,6 @@ func getFutureLauches(limit: Int, startsAt: Int, completion: @escaping (Result<[
     let session = URLSession.shared
     let request = URLRequest(url: url)
     session.dataTask(with: request) { data, response, error in
-        print(response)
         guard let data = data else {
             completion(.failure(Errors.badUrl))
             return}
@@ -205,22 +203,22 @@ func getFutureLauches(limit: Int, startsAt: Int, completion: @escaping (Result<[
 }
 
 func convertHoursForCountDownLaunchesFormatter(_ date: String, outPut: String) -> Date {
-       let dateFormatter = DateFormatter()
-       dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-       dateFormatter.timeZone =  TimeZone.current
-       let location = Locale.current
-       dateFormatter.locale = Locale(identifier: location.identifier)
-       let convertedDate = dateFormatter.date(from: date)
-
-       guard dateFormatter.date(from: date) != nil else {
-             assert(false, "no date from string")
-           return Date()
-       }
-
-       dateFormatter.dateFormat = outPut
-       dateFormatter.timeZone = TimeZone.current
-       return convertedDate ?? Date()
-   }
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    dateFormatter.timeZone =  TimeZone.current
+    let location = Locale.current
+    dateFormatter.locale = Locale(identifier: location.identifier)
+    let convertedDate = dateFormatter.date(from: date)
+    
+    guard dateFormatter.date(from: date) != nil else {
+        assert(false, "no date from string")
+        return Date()
+    }
+    
+    dateFormatter.dateFormat = outPut
+    dateFormatter.timeZone = TimeZone.current
+    return convertedDate ?? Date()
+}
 
 
 struct SupernovaWidgets_Previews: PreviewProvider {

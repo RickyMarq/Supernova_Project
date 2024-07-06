@@ -40,7 +40,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "43707979-2BE2-4B99-9D0D-867F05277B4C"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Supernova/Service/SpaceExInternetServices.swift"
@@ -81,6 +81,36 @@
                   endingLineNumber = "25"
                   offsetFromSymbolStart = "124">
                </Location>
+               <Location
+                  uuid = "43707979-2BE2-4B99-9D0D-867F05277B4C - 6298dd2314046f81"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Supernova.SpaceExInternetServices.getUpcomingLaunches(completion: (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Supernova.UpcomingModel&gt;&gt;, Supernova.SpaceExInternetServices.Errors&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Service/SpaceExInternetServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "197">
+               </Location>
+               <Location
+                  uuid = "43707979-2BE2-4B99-9D0D-867F05277B4C - 6298dd2314046f81"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Supernova.SpaceExInternetServices.getUpcomingLaunches(completion: (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Supernova.UpcomingModel&gt;&gt;, Supernova.SpaceExInternetServices.Errors&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Service/SpaceExInternetServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "206">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -88,7 +118,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E110690A-9DB1-4CA8-9A0E-2438E7768893"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Supernova/Service/SpaceExInternetServices.swift"
@@ -98,13 +128,45 @@
             endingLineNumber = "28"
             landmarkName = "getUpcomingLaunches(completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E110690A-9DB1-4CA8-9A0E-2438E7768893 - 6298dd2314046f05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Supernova.SpaceExInternetServices.getUpcomingLaunches(completion: (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Supernova.UpcomingModel&gt;&gt;, Supernova.SpaceExInternetServices.Errors&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Service/SpaceExInternetServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "372">
+               </Location>
+               <Location
+                  uuid = "E110690A-9DB1-4CA8-9A0E-2438E7768893 - 6298dd2314046f05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Supernova.SpaceExInternetServices.getUpcomingLaunches(completion: (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Supernova.UpcomingModel&gt;&gt;, Supernova.SpaceExInternetServices.Errors&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Service/SpaceExInternetServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "236">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7A5B786F-67EC-43C0-A08B-EC850E93B42A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Supernova/Service/SpaceExInternetServices.swift"
@@ -114,13 +176,45 @@
             endingLineNumber = "30"
             landmarkName = "getUpcomingLaunches(completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7A5B786F-67EC-43C0-A08B-EC850E93B42A - 6298dd2314046f3a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Supernova.SpaceExInternetServices.getUpcomingLaunches(completion: (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Supernova.UpcomingModel&gt;&gt;, Supernova.SpaceExInternetServices.Errors&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Service/SpaceExInternetServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "402">
+               </Location>
+               <Location
+                  uuid = "7A5B786F-67EC-43C0-A08B-EC850E93B42A - 6298dd2314046f3a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Supernova.SpaceExInternetServices.getUpcomingLaunches(completion: (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Supernova.UpcomingModel&gt;&gt;, Supernova.SpaceExInternetServices.Errors&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Service/SpaceExInternetServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "272">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "DD3BAC3B-DC81-45A0-B671-C3227E032FCF"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Supernova/Service/SpaceExInternetServices.swift"
@@ -130,6 +224,464 @@
             endingLineNumber = "33"
             landmarkName = "getUpcomingLaunches(completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DD3BAC3B-DC81-45A0-B671-C3227E032FCF - 6298dd2314047099"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Supernova.SpaceExInternetServices.getUpcomingLaunches(completion: (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Supernova.UpcomingModel&gt;&gt;, Supernova.SpaceExInternetServices.Errors&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Service/SpaceExInternetServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "742">
+               </Location>
+               <Location
+                  uuid = "DD3BAC3B-DC81-45A0-B671-C3227E032FCF - 6298dd2314047099"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Supernova.SpaceExInternetServices.getUpcomingLaunches(completion: (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Supernova.UpcomingModel&gt;&gt;, Supernova.SpaceExInternetServices.Errors&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Service/SpaceExInternetServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "500">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D95D266F-E315-44FF-96F2-EA0067CA6455"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "getRocket(url:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D95D266F-E315-44FF-96F2-EA0067CA6455 - c9c271a124d7405c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Supernova.RocketItemViewModel.getRocket(url: Swift.String) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "121">
+               </Location>
+               <Location
+                  uuid = "D95D266F-E315-44FF-96F2-EA0067CA6455 - c9c271a124d7405c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Supernova.RocketItemViewModel.getRocket(url: Swift.String) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "084C1D93-0456-438F-9B3D-A0E3A5D9517B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "getRocket(url:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "084C1D93-0456-438F-9B3D-A0E3A5D9517B - c9c271a124d741bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Supernova.RocketItemViewModel.getRocket(url: Swift.String) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "491">
+               </Location>
+               <Location
+                  uuid = "084C1D93-0456-438F-9B3D-A0E3A5D9517B - 151b5408d5ec02de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Supernova.RocketModel&gt;, Swift.Error&gt;) -&gt; () in Supernova.RocketItemViewModel.getRocket(url: Swift.String) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "084C1D93-0456-438F-9B3D-A0E3A5D9517B - c9c271a124d741bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Supernova.RocketItemViewModel.getRocket(url: Swift.String) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "440">
+               </Location>
+               <Location
+                  uuid = "084C1D93-0456-438F-9B3D-A0E3A5D9517B - 151b5408d5ec02de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Supernova.RocketModel&gt;, Swift.Error&gt;) -&gt; () in Supernova.RocketItemViewModel.getRocket(url: Swift.String) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0ABF319E-3609-4FAB-8F01-C54440C26089"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "getRocket(url:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0ABF319E-3609-4FAB-8F01-C54440C26089 - c9c271a124d7405c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Supernova.RocketItemViewModel.getRocket(url: Swift.String) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "121">
+               </Location>
+               <Location
+                  uuid = "0ABF319E-3609-4FAB-8F01-C54440C26089 - c9c271a124d7405c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Supernova.RocketItemViewModel.getRocket(url: Swift.String) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "29BF2D44-348D-40D4-89FD-62025EA4050A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "getRocket(url:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "29BF2D44-348D-40D4-89FD-62025EA4050A - 151b5408d5ec0262"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Supernova.RocketModel&gt;, Swift.Error&gt;) -&gt; () in Supernova.RocketItemViewModel.getRocket(url: Swift.String) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "256">
+               </Location>
+               <Location
+                  uuid = "29BF2D44-348D-40D4-89FD-62025EA4050A - 151b5408d5ec0262"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Supernova.RocketModel&gt;, Swift.Error&gt;) -&gt; () in Supernova.RocketItemViewModel.getRocket(url: Swift.String) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "281">
+               </Location>
+               <Location
+                  uuid = "29BF2D44-348D-40D4-89FD-62025EA4050A - 151b5408d5ec0262"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Supernova.RocketModel&gt;, Swift.Error&gt;) -&gt; () in Supernova.RocketItemViewModel.getRocket(url: Swift.String) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "844">
+               </Location>
+               <Location
+                  uuid = "29BF2D44-348D-40D4-89FD-62025EA4050A - 151b5408d5ec0262"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Supernova.RocketModel&gt;, Swift.Error&gt;) -&gt; () in Supernova.RocketItemViewModel.getRocket(url: Swift.String) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "29BF2D44-348D-40D4-89FD-62025EA4050A - 151b5408d5ec0262"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Supernova.RocketModel&gt;, Swift.Error&gt;) -&gt; () in Supernova.RocketItemViewModel.getRocket(url: Swift.String) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "212">
+               </Location>
+               <Location
+                  uuid = "29BF2D44-348D-40D4-89FD-62025EA4050A - 151b5408d5ec0262"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Supernova.RocketModel&gt;, Swift.Error&gt;) -&gt; () in Supernova.RocketItemViewModel.getRocket(url: Swift.String) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "628">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6771E3EC-F2F0-44BC-AF3D-B2F14E4AA368"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "getRocket(url:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6771E3EC-F2F0-44BC-AF3D-B2F14E4AA368 - 151b5408d5ec01c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Supernova.RocketModel&gt;, Swift.Error&gt;) -&gt; () in Supernova.RocketItemViewModel.getRocket(url: Swift.String) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "858">
+               </Location>
+               <Location
+                  uuid = "6771E3EC-F2F0-44BC-AF3D-B2F14E4AA368 - 151b5408d5ec01c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Supernova.RocketModel&gt;, Swift.Error&gt;) -&gt; () in Supernova.RocketItemViewModel.getRocket(url: Swift.String) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/ViewModel/RocketItemViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "636">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2BF40974-9F92-4309-90F1-5A610B6602D6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Supernova/Feature/Events/RocketItem/Controller/RocketItem.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2BF40974-9F92-4309-90F1-5A610B6602D6 - 4458ed7c980cd007"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Supernova.RocketItem.viewDidLoad() -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/Controller/RocketItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "1103">
+               </Location>
+               <Location
+                  uuid = "2BF40974-9F92-4309-90F1-5A610B6602D6 - 4458ed7c980cd1e0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Supernova.RocketItem.viewDidLoad() -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/Controller/RocketItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "352">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0181A092-D7ED-4D50-AA7B-7C195025ADAC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Supernova/Feature/Events/RocketItem/Controller/RocketItem.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0181A092-D7ED-4D50-AA7B-7C195025ADAC - 4458ed7c980cd064"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Supernova.RocketItem.viewDidLoad() -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/Controller/RocketItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "1419">
+               </Location>
+               <Location
+                  uuid = "0181A092-D7ED-4D50-AA7B-7C195025ADAC - 4458ed7c980cd064"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Supernova.RocketItem.viewDidLoad() -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rick/Desktop/Supernova/Supernova/Feature/Events/RocketItem/Controller/RocketItem.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "1111">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

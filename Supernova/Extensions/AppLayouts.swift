@@ -123,9 +123,6 @@ class AppLayout {
     func largeButton(withHeader: Bool = true, seeAllButton: Bool = false) -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.50), heightDimension: .absolute(60)))
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10)
-//        item.contentInsets.trailing = 16
-//        item.contentInsets.bottom = 16
-        
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(500)), subitems: [item])
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
         let section = NSCollectionLayoutSection(group: group)
@@ -149,9 +146,6 @@ class AppLayout {
         
         if withHeader == true {
             section.boundarySupplementaryItems = [.init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)]
-            
-            //  REMOVED FOOTER
-            //    .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(24)), elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)
         }
         
         return section
@@ -178,11 +172,7 @@ class AppLayout {
     func newsTextLayout() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .absolute( UIScreen.main.bounds.width), heightDimension: .absolute(100)), subitems: [item])
- //       group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: -10, trailing: 0)
         let section = NSCollectionLayoutSection(group: group)
         return section
     }
-    
-    
-    
 }
