@@ -24,17 +24,11 @@ struct SupernovaVisionApp: App {
         }
         .defaultSize(width: 100, height: 500)
         .windowResizability(.contentSize)
-        //        .windowResizability(.contentSize)
         
         WindowGroup(id: "ImmersiveRocketSpace") {
             Rocket()
         }
         .windowStyle(.volumetric)
         .defaultSize(width: 1, height: 1, depth: 1, in: .meters)
-        
-        
-        //        .immersionStyle(selection: .constant(.full), in: .full)
-        // Open the most immesive style, with skybox...
-        
     }
 }

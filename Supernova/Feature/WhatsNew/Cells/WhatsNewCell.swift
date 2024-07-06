@@ -93,35 +93,16 @@ extension WhatsNewCell: ViewCode {
         NSLayoutConstraint.activate([
         
             self.versionLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 16),
-//            self.versionLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -16),
             self.versionLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 20),
-            
-//            self.versionLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -20),
-            
-//            self.versionLabel.heightAnchor.constraint(equalToConstant: 15),
-            
-            
-//            self.separator.topAnchor.constraint(equalTo: self.versionLabel.topAnchor),
-//            self.separator.leftAnchor.constraint(equalTo: versionLabel.rightAnchor, constant: 12),
-//            self.separator.heightAnchor.constraint(equalToConstant: 20),
-//            self.separator.widthAnchor.constraint(equalToConstant: 15),
-//
-//            self.separator.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -16),
-//           self.separator.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -250),
-//            self.separator.rightAnchor.constraint(equalTo: self.versionLabel.rightAnchor, constant: -10),
-            
             
             self.updateLabel.topAnchor.constraint(equalTo: self.versionLabel.bottomAnchor, constant: 12),
             self.updateLabel.leftAnchor.constraint(equalTo: self.versionLabel.leftAnchor),
             
-            
- //           self.infoTextLabel.widthAnchor.constraint(equalTo: self.widthAnchor),
             self.infoTextLabel.topAnchor.constraint(equalTo: self.updateLabel.bottomAnchor, constant: 12),
             self.infoTextLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -12),
             self.infoTextLabel.leftAnchor.constraint(equalTo: self.versionLabel.leftAnchor),
             self.infoTextLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -16),
             
-//            self.actualVersionLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 20),
             self.actualVersionLabel.centerYAnchor.constraint(equalTo: self.versionLabel.centerYAnchor),
             self.actualVersionLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -16),
         ])

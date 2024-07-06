@@ -39,9 +39,7 @@ struct GridLayout: View {
         self.spacing = spacing
         self.horizontalPadding = horizontalPadding
         self.picturesOfTheDayData = picturesOfTheDay
-        
-        print("DEBUG MODE PIC: \(picturesOfTheDay.count)")
-        
+                
         var columns = [StackColumn]()
         for _ in 0..<numberofColumns {
             columns.append(StackColumn())

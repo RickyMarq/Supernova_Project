@@ -8,20 +8,6 @@
 import SwiftUI
 import WidgetKit
 
-struct ModelPicture: TimelineEntry {
-    let date: Date
-    var defaultImage: UIImage
-    var widgetDate: PictureOfTheDay
-}
-
-struct PictureOfTheDay: Codable {
-    let date: String?
-    let explanation: String?
-    let title: String?
-    let url: String?
-    let hdurl: String?
-}
-
 struct PictureOfTheDayWidget: Widget {
     let kind: String = "PictureOfTheDayWidget"
     
@@ -32,6 +18,7 @@ struct PictureOfTheDayWidget: Widget {
         .configurationDisplayName("Nasa Picture of the Day")
         .description("Displays nasa picture of the day")
         .supportedFamilies([.systemMedium, .systemSmall])
+        .contentMarginsDisabled()
     }
 }
 
@@ -64,22 +51,12 @@ private struct PictureOfTheDayWidgetView: View {
             
             ZStack {
                 Image(uiImage: entry.defaultImage)
-    //                .resizable()
-    //                .scaledToFill()
                 
                 if let imageURL, let data = try? Data(contentsOf: imageURL) {
                     URLImageView(data: data)
-                        .scaledToFill()
-                     //   .aspectRatio(contentMode: .fill)
                 }
             }
-            
-//            .containerBackground(for: .widget) {
-//                Color.clear
-//            }
-            
         }
-    
     
     var imageURL: URL? {
         let path = entry.widgetDate.url ?? ""
@@ -113,15 +90,4 @@ func getPictureOfTheDay(completion: @escaping (PictureOfTheDay?, Error?) -> Void
         }
     }
     .resume()
-}
-
-extension UIImage {
-    func resized(toWidth width: CGFloat, isOpaque: Bool = true) -> UIImage? {
-        let canvas = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
-        let format = imageRendererFormat
-        format.opaque = isOpaque
-        return UIGraphicsImageRenderer(size: canvas, format: format).image {
-            _ in draw(in: CGRect(origin: .zero, size: canvas))
-        }
-    }
 }

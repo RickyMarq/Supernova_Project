@@ -8,7 +8,7 @@
 import Foundation
 
 struct PictureOfTheDay: Codable, Identifiable {
-    let id = UUID()
+    var id = UUID()
     let date: String?
     let explanation: String?
     let title: String?

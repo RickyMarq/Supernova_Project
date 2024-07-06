@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct URLImageView: View {
+    
     let data: Data
     
     var body: some View {
-        if let uiimage = UIImage(data: data)!.resized(toWidth: 600) {
+        if let uiimage = UIImage(data: data)?.resized(toWidth: 600) {
             Image(uiImage: uiimage)
                 .resizable()
+                .clipped()
+                .scaledToFill()
         } else {
             Image(uiImage: UIImage(named: "backgroundLaunching")?.resized(toWidth: 600) ?? UIImage())
                 .resizable()

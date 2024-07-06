@@ -123,7 +123,6 @@ class HomeController: UIViewController {
             switch result {
                 
             case .success(let model):
-                print("DEBUG MODE \(model)")
                 
                 self.rocketsObjc = model ?? []
                 
@@ -591,7 +590,6 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
             case 8:
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCollection.identifier, for: indexPath) as? TitleCollection
                 header?.seeAllButton.tag = 6
-                print("DEBUG MODE: TAG6? \(header?.seeAllButton.tag)")
                 header?.lastUpdatedLabel.isHidden = true
                 header?.titleCollectionLabel.text = "Nasa Observatory"
                 header?.delegate(delegate: self)

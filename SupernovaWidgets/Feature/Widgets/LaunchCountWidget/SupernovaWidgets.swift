@@ -8,36 +8,6 @@
 import WidgetKit
 import SwiftUI
 
-// Model que servirá de base para criar um widget com dados.
-
-struct Model: TimelineEntry {
-    var date: Date
-    var widgetDate: LastLauchesModel
-    var hourCountDown = 0
-    var minuteCountDown = 0
-    var secondCountDown = 0
-    var lastUpdateTime: Date
-    var launchIsClose = false
-}
-
-struct LastLauchesModel: Codable {
-    let results: [ResultedModel]
-}
-
-struct ResultedModel: Codable {
-    let name: String?
-    let image: String?
-    let lastUpdated: String?
-    let windowStart: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case name
-        case image
-        case lastUpdated = "last_updated"
-        case windowStart = "window_start"
-    }
-}
-
 private struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> Model {
         Model(date: Date(), widgetDate: LastLauchesModel(results: [ResultedModel(name: "Falcon 9", image: "", lastUpdated: "", windowStart: "")]), lastUpdateTime: Calendar.current.date(bySettingHour: 22, minute: 39, second: 20, of: Date())!)
@@ -50,7 +20,7 @@ private struct Provider: TimelineProvider {
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<Model>) -> ()) {
         
-        getFutureLauches(limit: 1, startsAt: 0) { result in
+        WidgetsService.sharedObjc.getFutureLauches(limit: 1, startsAt: 0) { result in
             switch result {
                 
             case .success(let model):
@@ -76,9 +46,7 @@ private struct Provider: TimelineProvider {
                 data.hourCountDown = Int(hours)
                 data.minuteCountDown = Int(minutes)
                 data.secondCountDown = Int(seconds)
-                
-                // Start count down...
-                
+                                
                 let nextUpdate = Calendar.current.date(byAdding: .hour, value: 3, to: date)
                 
                 
@@ -108,7 +76,6 @@ struct SupernovaWidgetsEntryView : View {
                 Text(data.widgetDate.results[0].name ?? "")
                     .foregroundColor(Color.white)
                     .bold()
-                // Padding .horizontal funciona como se fosse um leading -10 / trailing 10.
                     .padding(.horizontal, 50)
                     .multilineTextAlignment(.center)
                     .cornerRadius(10)
@@ -149,20 +116,12 @@ struct SupernovaWidgetsEntryView : View {
             .padding(.top)
         }
         .ignoresSafeArea()
-        
-        
-        
     }
-    
-    
     
     var imageURL: URL? {
         let path = data.widgetDate.results[0].image ?? ""
         return URL(string: path)
     }
-    
-    
-    
 }
 
 struct SupernovaWidgets: Widget {
@@ -175,51 +134,9 @@ struct SupernovaWidgets: Widget {
         .configurationDisplayName("Rocket Launching")
         .description("Shows how many time left for a launch.")
         .supportedFamilies([.systemMedium])
+        .contentMarginsDisabled()
     }
 }
-
-enum Errors: String, Error {
-    case badUrl = ""
-}
-
-func getFutureLauches(limit: Int, startsAt: Int, completion: @escaping (Result<[ResultedModel]?, Errors>) -> Void) {
-    //https://ll.thespacedevs.com/2.2.0/launch/previous/?limit=1&offset=1
-    guard let url = URL(string: "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=\(limit)&offset=\(startsAt)") else {return}
-    let session = URLSession.shared
-    let request = URLRequest(url: url)
-    session.dataTask(with: request) { data, response, error in
-        guard let data = data else {
-            completion(.failure(Errors.badUrl))
-            return}
-        do {
-            let decoder = JSONDecoder()
-            let model = try decoder.decode(LastLauchesModel.self, from: data)
-            completion(.success(model.results))
-        } catch {
-            completion(.failure(Errors.badUrl))
-        }
-    }
-    .resume()
-}
-
-func convertHoursForCountDownLaunchesFormatter(_ date: String, outPut: String) -> Date {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-    dateFormatter.timeZone =  TimeZone.current
-    let location = Locale.current
-    dateFormatter.locale = Locale(identifier: location.identifier)
-    let convertedDate = dateFormatter.date(from: date)
-    
-    guard dateFormatter.date(from: date) != nil else {
-        assert(false, "no date from string")
-        return Date()
-    }
-    
-    dateFormatter.dateFormat = outPut
-    dateFormatter.timeZone = TimeZone.current
-    return convertedDate ?? Date()
-}
-
 
 struct SupernovaWidgets_Previews: PreviewProvider {
     static var previews: some View {

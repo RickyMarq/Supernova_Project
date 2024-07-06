@@ -19,7 +19,6 @@ struct PictureDay: View {
     @State private var alertMessage = ""
     @State var pictureOfTheDayTitle = ""
     @State var fullText = "Hello, SwiftUI! This is a typing animation."
-
     
     var body: some View {
         @Bindable var model = model
