@@ -166,7 +166,6 @@ extension NewsController: UICollectionViewDelegate, UICollectionViewDataSource, 
             cell.backgroundColor = .secondarySystemBackground
             return cell
         }
-        return UICollectionViewCell()
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {

@@ -28,6 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             let vc = TabBarController()
             window = UIWindow(frame: UIScreen.main.bounds)
+            window?.overrideUserInterfaceStyle = .dark
             window?.windowScene = windowScene
             window?.rootViewController = vc
             window?.makeKeyAndVisible()

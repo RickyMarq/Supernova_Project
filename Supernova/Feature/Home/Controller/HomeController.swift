@@ -11,6 +11,7 @@ import Combine
 import SDWebImage
 import SkeletonView
 import GoogleMobileAds
+import ActivityKit
 
 class HomeController: UIViewController {
     
@@ -47,13 +48,13 @@ class HomeController: UIViewController {
         self.getCompositionalLayout()
         self.showLauchscreenAnimation()
         
-        self.getLastLaunches(limit: 10)
-        self.getFutureLaunches(limit: 15, startsAt: 0)
-        self.getLastEvents(limit: 10, startsAt: 0)
-        self.getLastPicturesOfTheDays(limit: 7)
-        self.getNews(limit: 15, startsAt: 0)
-        self.getPictureOfTheDay()
-        self.getNextLaunch(limit: 1, startsAt: 0)
+//        self.getLastLaunches(limit: 10)
+//        self.getFutureLaunches(limit: 15, startsAt: 0)
+//        self.getLastEvents(limit: 10, startsAt: 0)
+//        self.getLastPicturesOfTheDays(limit: 7)
+//        self.getNews(limit: 15, startsAt: 0)
+//        self.getPictureOfTheDay()
+//        self.getNextLaunch(limit: 1, startsAt: 0)
         
     }
     
@@ -109,7 +110,7 @@ class HomeController: UIViewController {
                 }
                 
                 
-            case .failure(let model):
+            case .failure(_):
                 DispatchQueue.main.async {
                     self.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
                 }
@@ -130,7 +131,7 @@ class HomeController: UIViewController {
                     self.homeScreen?.homeCollectionView.reloadData()
                 }
                 
-            case .failure(let error):
+            case .failure(_):
                 DispatchQueue.main.async {
                     self.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
                 }
@@ -298,10 +299,10 @@ class HomeController: UIViewController {
                 }
                 
                 
-            case .failure(let error):
-                guard let strongSelf = self else {return}
+            case .failure(_):
+                guard let self = self else {return}
                 DispatchQueue.main.async {
-                    self?.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
+                    self.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
                 }
             }
         }
@@ -318,67 +319,68 @@ class HomeController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
     
+    func startLiveActivity() {
+        let activityData = HomeLaunchActivity.ContentState()
+        
+        let widgetData = HomeLaunchActivity(minutesLeft: 150, rocketName: "SpaceFlight 10")
+        
+        do {
+            if #available(iOS 16.1, *) {
+                let activity = try Activity<HomeLaunchActivity>.request(attributes: widgetData, contentState: activityData)
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
 }
 
 extension HomeController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        
-        if scrollView.contentOffset.y > -scrollView.contentInset.top + 300 {
-            UIView.animate(withDuration: 0.3) {
-                if #available(iOS 13.0, *) {
-                    let app = UIApplication.shared
-                    let statusBarHeight: CGFloat = app.statusBarFrame.size.height
-                    
-                    let newStatusBarView = UIView()
-                    newStatusBarView.backgroundColor = UIColor.secondarySystemBackground
-                    self.view.addSubview(newStatusBarView)
-                    
-                    newStatusBarView.translatesAutoresizingMaskIntoConstraints = false
-                    newStatusBarView.heightAnchor
-                        .constraint(equalToConstant: statusBarHeight).isActive = true
-                    newStatusBarView.widthAnchor
-                        .constraint(equalTo: self.view.widthAnchor, multiplier: 1.0).isActive = true
-                    newStatusBarView.topAnchor
-                        .constraint(equalTo: self.view.topAnchor).isActive = true
-                    newStatusBarView.centerXAnchor
-                        .constraint(equalTo: self.view.centerXAnchor).isActive = true
-                    self.statusbarView?.removeFromSuperview()
-                    self.statusbarView = newStatusBarView
-                    
-                } else {
-                    let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
-                    statusBar?.backgroundColor = UIColor.black
+        if let statusBarManager = view.window?.windowScene?.statusBarManager {
+            let statusBarHeight = statusBarManager.statusBarFrame.height
+            
+            if scrollView.contentOffset.y > -scrollView.contentInset.top + 300 {
+                UIView.animate(withDuration: 0.3) {
+                    if #available(iOS 13.0, *) {
+                        let newStatusBarView = UIView()
+                        newStatusBarView.backgroundColor = UIColor.secondarySystemBackground
+                        self.view.addSubview(newStatusBarView)
+                        
+                        newStatusBarView.translatesAutoresizingMaskIntoConstraints = false
+                        newStatusBarView.heightAnchor.constraint(equalToConstant: statusBarHeight).isActive = true
+                        newStatusBarView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1.0).isActive = true
+                        newStatusBarView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+                        newStatusBarView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+                        self.statusbarView?.removeFromSuperview()
+                        self.statusbarView = newStatusBarView
+                        
+                    } else {
+                        let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+                        statusBar?.backgroundColor = UIColor.black
+                    }
                 }
-            }
-        } else {
-            UIView.animate(withDuration: 0.3) {
-                if #available(iOS 13.0, *) {
-                    let app = UIApplication.shared
-                    let statusBarHeight: CGFloat = app.statusBarFrame.size.height
-                    
-                    let newStatusBarView = UIView()
-                    newStatusBarView.isOpaque = false
-                    let color = UIColor.red.withAlphaComponent(0.1)
-                    newStatusBarView.backgroundColor = .clear
-                    self.view.addSubview(newStatusBarView)
-                    
-                    newStatusBarView.translatesAutoresizingMaskIntoConstraints = false
-                    newStatusBarView.heightAnchor
-                        .constraint(equalToConstant: statusBarHeight).isActive = true
-                    newStatusBarView.widthAnchor
-                        .constraint(equalTo: self.view.widthAnchor, multiplier: 1.0).isActive = true
-                    newStatusBarView.topAnchor
-                        .constraint(equalTo: self.view.topAnchor).isActive = true
-                    newStatusBarView.centerXAnchor
-                        .constraint(equalTo: self.view.centerXAnchor).isActive = true
-                    
-                    self.statusbarView?.removeFromSuperview()
-                    self.statusbarView = newStatusBarView
-                } else {
-                    let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
-                    statusBar?.backgroundColor = UIColor.clear
+            } else {
+                UIView.animate(withDuration: 0.3) {
+                    if #available(iOS 13.0, *) {
+                        let newStatusBarView = UIView()
+                        newStatusBarView.isOpaque = false
+                        newStatusBarView.backgroundColor = .clear
+                        self.view.addSubview(newStatusBarView)
+                        
+                        newStatusBarView.translatesAutoresizingMaskIntoConstraints = false
+                        newStatusBarView.heightAnchor.constraint(equalToConstant: statusBarHeight).isActive = true
+                        newStatusBarView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1.0).isActive = true
+                        newStatusBarView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+                        newStatusBarView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+                        
+                        self.statusbarView?.removeFromSuperview()
+                        self.statusbarView = newStatusBarView
+                    } else {
+                        let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+                        statusBar?.backgroundColor = UIColor.clear
+                    }
                 }
             }
         }

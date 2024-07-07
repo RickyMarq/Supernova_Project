@@ -16,8 +16,6 @@ class PictureOfTheDayViewModel: ObservableObject {
     
     func getPictureOfTheDay() {
         AppleWatchService.sharedObjc.getPictureOfTheDay { data, error in
-            print(data)
-print(error)
             guard let data = data else {return}
             self.dataObjc.append(data)
             self.isLoading = false

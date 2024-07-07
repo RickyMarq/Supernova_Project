@@ -29,7 +29,7 @@ class OnboardingController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         UserDefaults.standard.synchronize()
-        let isOn = UserDefaults.standard.bool(forKey: "PermissionForNotification")
+        _ = UserDefaults.standard.bool(forKey: "PermissionForNotification")
     }
     
     func requestNotificationAuthorization() {

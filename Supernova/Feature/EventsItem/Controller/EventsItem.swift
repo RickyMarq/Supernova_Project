@@ -110,7 +110,7 @@ class EventsItem: UIViewController {
         self.youtubePlayerView.setBorder(view: self.youtubePlayerView)
         
         self.youtubePlayerView.delegate = self
-        let trimmed = viewModel?.videoURL.replacingOccurrences(of: "https://www.youtube.com/watch?v=", with: "")
+        _ = viewModel?.videoURL.replacingOccurrences(of: "https://www.youtube.com/watch?v=", with: "")
     }
     
     func setMapLocation() {

@@ -167,16 +167,15 @@ class UpcomingLaunchCell: UICollectionViewCell {
         let timeInterval = fullHours.timeIntervalSince(Date())
         print("TIME INTERVAL: \(timeInterval)")
         
-        let date = formatter.localizedString(for: fullHours, relativeTo: Date())
+        _ = formatter.localizedString(for: fullHours, relativeTo: Date())
         
- //       self.launchDateOffSetReferenceLabel.text = "\(timeInterval)"
         
-        let convertion = Int(timeInterval)
+       // let convertion = Int(timeInterval)
 
 
-        let hours = convertion / 3600
-        let minutes = (convertion % 3600) / 60
-        let seconds = (convertion % 3600) % 60
+//        let hours = convertion / 3600
+//        let minutes = (convertion % 3600) / 60
+//        let seconds = (convertion % 3600) % 60
         
         // RETORNAR DEPOIS
         
@@ -212,8 +211,6 @@ class UpcomingLaunchCell: UICollectionViewCell {
             let fullHours = convertHoursForCountDownLaunchesFormatter(data.windowStart ?? "", outPut: "HH:mm:ss")
             let timeInterval = fullHours.timeIntervalSince(Date())
             let convertion = Int(timeInterval)
-
-//            print("DEBUG MODE: CONVERTION CELL \(convertion)")
 
             let hours = convertion / 3600
             let minutes = (convertion % 3600) / 60

@@ -15,9 +15,7 @@ struct HomeButtons {
 class HomeSectionButtonsModel {
     
     var model = [HomeButtons]()
-    
-    // Nasa Observatory
-    
+        
     func populateModel() -> [HomeButtons] {
         
         model.append(contentsOf: [HomeButtons(image: "rocket", title: "Launches"),
@@ -31,3 +29,4 @@ class HomeSectionButtonsModel {
     }
     
 }
+

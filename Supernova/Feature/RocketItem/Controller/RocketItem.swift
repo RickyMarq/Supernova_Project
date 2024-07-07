@@ -38,7 +38,7 @@ class RocketItem: UIViewController {
         self.viewModel?.delegate(delegate: self)
         self.rocketScreen?.delegate(delegate: self)
         self.title = rocket.configuration.name
-        guard let url = rocket.configuration.url else {return}
+        guard rocket.configuration.url != nil else {return}
         self.viewModel?.getRocket(url: self.viewModel?.rocketURL ?? "")
     }
     

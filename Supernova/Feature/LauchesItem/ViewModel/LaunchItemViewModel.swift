@@ -42,7 +42,6 @@ class LaunchingItemViewModel {
             switch result {
             case .success(let model):
                 strongSelf.youtubeModel.append(contentsOf: model ?? [])
-                print("DEBUG MODE \(model?[0].id?.videoID)")
                 strongSelf.delegate?.success()
             case .failure(let error):
                 strongSelf.delegate?.failure(error: error.localizedDescription)

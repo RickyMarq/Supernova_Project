@@ -35,7 +35,6 @@ class RocketItemViewModel {
             switch result {
                 
             case .success(let data):
-                print("DEBUG MODE: ROCKET DATA -> \(data)")
                 self.rocketObjc = data
                 self.delegate?.success()
             case .failure(let error):

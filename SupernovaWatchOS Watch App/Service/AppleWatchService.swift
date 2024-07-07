@@ -61,7 +61,6 @@ class AppleWatchService {
         let session = URLSession.shared
         let request = URLRequest(url: url)
         session.dataTask(with: request) { data, response, error in
-            print(response)
             guard let data = data else {
                 completion(.failure(Errors.badUrl))
                 return}

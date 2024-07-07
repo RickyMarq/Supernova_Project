@@ -120,7 +120,6 @@ class SpaceDevsInternetServices {
         let session = URLSession.shared
         let request = URLRequest(url: url)
         session.dataTask(with: request) { data, response, error in
-            print(response)
             guard let data = data else {
                 completion(.failure(Errors.badUrl))
                 return}
@@ -140,7 +139,6 @@ class SpaceDevsInternetServices {
         let session = URLSession.shared
         let request = URLRequest(url: url)
         session.dataTask(with: request) { data, response, error in
-            print(response)
             guard let data = data else {
                 completion(.failure(Errors.badUrl))
                 return}
@@ -160,10 +158,10 @@ class SpaceDevsInternetServices {
         let session = URLSession.shared
         let request = URLRequest(url: url)
         session.dataTask(with: request) { data, response, error in
-            print(response)
             guard let data = data else {
                 completion(.failure(Errors.badUrl))
-                return}
+                return
+            }
             do {
                 let decoder = JSONDecoder()
                 let model = try decoder.decode(RocketModel.self, from: data)

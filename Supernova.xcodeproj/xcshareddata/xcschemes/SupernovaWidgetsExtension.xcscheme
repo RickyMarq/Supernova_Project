@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1420"
+   LastUpgradeVersion = "1540"
    wasCreatedForAppExtension = "YES"
    version = "2.0">
    <BuildAction
@@ -48,7 +48,7 @@
          BundleIdentifier = "com.apple.springboard">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D1B650A29A2C929003BB8F1"
+            BlueprintIdentifier = "1D896D6F2A32194F00C5DA28"
             BuildableName = "SupernovaWidgetsExtension.appex"
             BlueprintName = "SupernovaWidgetsExtension"
             ReferencedContainer = "container:Supernova.xcodeproj">
@@ -87,6 +87,7 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES"
+      askForAppToLaunch = "Yes"
       launchAutomaticallySubstyle = "2">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
