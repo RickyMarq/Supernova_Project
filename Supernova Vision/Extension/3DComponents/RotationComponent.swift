@@ -8,7 +8,6 @@
 import SwiftUI
 import RealityKit
 
-/// Rotation information for an entity.
 struct RotationComponent: Component {
     var speed: Float
     var axis: SIMD3<Float>
@@ -19,7 +18,6 @@ struct RotationComponent: Component {
     }
 }
 
-/// A system that rotates entities with a rotation component.
 struct RotationSystem: System {
     static let query = EntityQuery(where: .has(RotationComponent.self))
 

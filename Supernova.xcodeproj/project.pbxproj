@@ -154,6 +154,8 @@
 		1DFF037C29C23812006E59CB /* RocketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFF037B29C23812006E59CB /* RocketModel.swift */; };
 		BE0679412AFAAE6C00D12CC3 /* Earth.usdz in Resources */ = {isa = PBXBuildFile; fileRef = BE0679402AFAAE6C00D12CC3 /* Earth.usdz */; };
 		BE0679442AFAB0AC00D12CC3 /* PictureDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0679432AFAB0AC00D12CC3 /* PictureDay.swift */; };
+		BE0B2D4D2C3B79E4005FCC11 /* NasaObservatory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B2D4C2C3B79E4005FCC11 /* NasaObservatory.swift */; };
+		BE0B2D512C3B7F3A005FCC11 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B2D502C3B7F3A005FCC11 /* HomeModel.swift */; };
 		BE1742632C38CDE20046A7F6 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1742622C38CDE20046A7F6 /* HomeModel.swift */; };
 		BE1742662C38CE3A0046A7F6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1742652C38CE3A0046A7F6 /* HomeViewModel.swift */; };
 		BE17426B2C38D41A0046A7F6 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17426A2C38D41A0046A7F6 /* LaunchViewModel.swift */; };
@@ -167,7 +169,6 @@
 		BE1742DA2C39C6320046A7F6 /* WidgetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1742D92C39C6320046A7F6 /* WidgetsService.swift */; };
 		BE1742DC2C39C66C0046A7F6 /* UIDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1742DB2C39C66C0046A7F6 /* UIDate+Extension.swift */; };
 		BE1742E22C39D5330046A7F6 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1742E12C39D5330046A7F6 /* Image+Extension.swift */; };
-		BE44BB072B4DB32E00BDE5FA /* NasaObservatory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44BB062B4DB32E00BDE5FA /* NasaObservatory.swift */; };
 		BE44BB092B4DBE3E00BDE5FA /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44BB082B4DBE3E00BDE5FA /* GridLayout.swift */; };
 		BE6AAEA32AF9676E008A5D1A /* LaunchesCellViewModel.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6AAEA22AF9676E008A5D1A /* LaunchesCellViewModel.swift.swift */; };
 		BE837BBD2C3B2C0300F27B3D /* LaunchAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE837BBC2C3B2C0300F27B3D /* LaunchAnimationController.swift */; };
@@ -183,17 +184,14 @@
 		BE946DF62B64020000399651 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE946DF52B6401FF00399651 /* View+Extension.swift */; };
 		BE946DF82B64036500399651 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE946DF72B64036500399651 /* ViewModel.swift */; };
 		BE946DFA2B644B3B00399651 /* PictureDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE946DF92B644B3B00399651 /* PictureDetails.swift */; };
-		BE946DFE2B647DCD00399651 /* RocketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE946DFD2B647DCD00399651 /* RocketView.swift */; };
 		BE946E002B65F3AC00399651 /* RotationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE946DFF2B65F3AC00399651 /* RotationComponent.swift */; };
 		BE946E032B688F3100399651 /* ErrorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE946E022B688F3000399651 /* ErrorEnum.swift */; };
 		BE946E052B6931E300399651 /* ErrorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE946E022B688F3000399651 /* ErrorEnum.swift */; };
 		BEA4D64F2AFA836400B596A8 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = BEA4D64E2AFA836400B596A8 /* RealityKitContent */; };
 		BEA4D6512AFA836400B596A8 /* SupernovaVisionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA4D6502AFA836400B596A8 /* SupernovaVisionApp.swift */; };
-		BEA4D6532AFA836400B596A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA4D6522AFA836400B596A8 /* ContentView.swift */; };
-		BEA4D6552AFA836400B596A8 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA4D6542AFA836400B596A8 /* ImmersiveView.swift */; };
+		BEA4D6532AFA836400B596A8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA4D6522AFA836400B596A8 /* HomeView.swift */; };
 		BEA4D6572AFA836600B596A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEA4D6562AFA836600B596A8 /* Assets.xcassets */; };
 		BEA4D65A2AFA836700B596A8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEA4D6592AFA836700B596A8 /* Preview Assets.xcassets */; };
-		BEDF23692B4DCEE8004A2E39 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44BB0B2B4DCDF700BDE5FA /* HomeView.swift */; };
 		BEDF236C2B4F8FFF004A2E39 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDF236B2B4F8FFF004A2E39 /* Launch.swift */; };
 		BEDF236F2B505163004A2E39 /* NasaObservatoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDF236E2B505163004A2E39 /* NasaObservatoryService.swift */; };
 		BEE318C52B4C499100856A73 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE318C42B4C499100856A73 /* LaunchView.swift */; };
@@ -427,6 +425,8 @@
 		1DFF037B29C23812006E59CB /* RocketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketModel.swift; sourceTree = "<group>"; };
 		BE0679402AFAAE6C00D12CC3 /* Earth.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Earth.usdz; sourceTree = "<group>"; };
 		BE0679432AFAB0AC00D12CC3 /* PictureDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDay.swift; sourceTree = "<group>"; };
+		BE0B2D4C2C3B79E4005FCC11 /* NasaObservatory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaObservatory.swift; sourceTree = "<group>"; };
+		BE0B2D502C3B7F3A005FCC11 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		BE1742622C38CDE20046A7F6 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		BE1742652C38CE3A0046A7F6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BE17426A2C38D41A0046A7F6 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
@@ -439,9 +439,7 @@
 		BE1742D92C39C6320046A7F6 /* WidgetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsService.swift; sourceTree = "<group>"; };
 		BE1742DB2C39C66C0046A7F6 /* UIDate+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDate+Extension.swift"; sourceTree = "<group>"; };
 		BE1742E12C39D5330046A7F6 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
-		BE44BB062B4DB32E00BDE5FA /* NasaObservatory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NasaObservatory.swift; path = SupernovaVision/Rocket/NasaObservatory.swift; sourceTree = SOURCE_ROOT; };
 		BE44BB082B4DBE3E00BDE5FA /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
-		BE44BB0B2B4DCDF700BDE5FA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BE6AAEA22AF9676E008A5D1A /* LaunchesCellViewModel.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesCellViewModel.swift.swift; sourceTree = "<group>"; };
 		BE837BBC2C3B2C0300F27B3D /* LaunchAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAnimationController.swift; sourceTree = "<group>"; };
 		BE837BBF2C3B2C2100F27B3D /* LaunchAnimationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAnimationScreen.swift; sourceTree = "<group>"; };
@@ -454,14 +452,12 @@
 		BE946DF52B6401FF00399651 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		BE946DF72B64036500399651 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		BE946DF92B644B3B00399651 /* PictureDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetails.swift; sourceTree = "<group>"; };
-		BE946DFD2B647DCD00399651 /* RocketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketView.swift; sourceTree = "<group>"; };
 		BE946DFF2B65F3AC00399651 /* RotationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationComponent.swift; sourceTree = "<group>"; };
 		BE946E022B688F3000399651 /* ErrorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorEnum.swift; sourceTree = "<group>"; };
 		BEA4D64A2AFA836400B596A8 /* SupernovaVision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SupernovaVision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEA4D64D2AFA836400B596A8 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		BEA4D6502AFA836400B596A8 /* SupernovaVisionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupernovaVisionApp.swift; sourceTree = "<group>"; };
-		BEA4D6522AFA836400B596A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		BEA4D6542AFA836400B596A8 /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
+		BEA4D6522AFA836400B596A8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BEA4D6562AFA836600B596A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEA4D6592AFA836700B596A8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BEA4D65B2AFA836700B596A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -966,8 +962,8 @@
 			isa = PBXGroup;
 			children = (
 				BE1742D32C39C3E70046A7F6 /* App */,
-				BE1742D82C39C61F0046A7F6 /* Service */,
 				1D29ACEB2A5849B000DD3B7E /* Extensions */,
+				BE1742D82C39C61F0046A7F6 /* Service */,
 				BE1742DD2C39C7B20046A7F6 /* Resources */,
 				BE1742DE2C39C7C10046A7F6 /* Feature */,
 				1D896D7A2A32195300C5DA28 /* Info.plist */,
@@ -1634,11 +1630,55 @@
 		BE0679422AFAB09900D12CC3 /* PictureDay */ = {
 			isa = PBXGroup;
 			children = (
-				BE946DF72B64036500399651 /* ViewModel.swift */,
 				BE0679432AFAB0AC00D12CC3 /* PictureDay.swift */,
 				BE946DF92B644B3B00399651 /* PictureDetails.swift */,
 			);
 			path = PictureDay;
+			sourceTree = "<group>";
+		};
+		BE0B2D4F2C3B7F2E005FCC11 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE0B2D502C3B7F3A005FCC11 /* HomeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BE0B2D522C3B7F8D005FCC11 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE946DF72B64036500399651 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE0B2D532C3B7F99005FCC11 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BEA4D6522AFA836400B596A8 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE0B2D572C3C28F8005FCC11 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				BE0679422AFAB09900D12CC3 /* PictureDay */,
+				BEF052B42B05B124007826DD /* Launches */,
+				BEE318C82B4C9FB500856A73 /* Rocket */,
+				BE44BB052B4DB30800BDE5FA /* NasaObservatory */,
+				BE946DE72B618B3500399651 /* Home */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		BE0B2D582C3C29D6005FCC11 /* 3DComponents */ = {
+			isa = PBXGroup;
+			children = (
+				BE946DFF2B65F3AC00399651 /* RotationComponent.swift */,
+				BE946DF22B63FD5D00399651 /* OpeningView.swift */,
+			);
+			path = 3DComponents;
 			sourceTree = "<group>";
 		};
 		BE1742602C38CCBF0046A7F6 /* ViewModel */ = {
@@ -1934,19 +1974,11 @@
 			isa = PBXGroup;
 			children = (
 				BEDF236D2B50515A004A2E39 /* Service */,
-				BE44BB062B4DB32E00BDE5FA /* NasaObservatory.swift */,
 				BE44BB082B4DBE3E00BDE5FA /* GridLayout.swift */,
 				BE946DDA2B5D863600399651 /* NasaObItem.swift */,
+				BE0B2D4C2C3B79E4005FCC11 /* NasaObservatory.swift */,
 			);
 			path = NasaObservatory;
-			sourceTree = "<group>";
-		};
-		BE44BB0A2B4DCDE400BDE5FA /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				BE44BB0B2B4DCDF700BDE5FA /* HomeView.swift */,
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		BE837BB92C3B2BD300F27B3D /* LaunchAnimation */ = {
@@ -2019,21 +2051,21 @@
 		BE946DE72B618B3500399651 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				BEA4D6522AFA836400B596A8 /* ContentView.swift */,
+				BE0B2D4F2C3B7F2E005FCC11 /* Model */,
+				BE0B2D522C3B7F8D005FCC11 /* ViewModel */,
+				BE0B2D532C3B7F99005FCC11 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		BE946DE82B618B5600399651 /* Utility */ = {
+		BE946DE82B618B5600399651 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				BE946E012B688F2300399651 /* Network */,
-				BE946DF42B6401C900399651 /* Extension */,
+				BE0B2D582C3C29D6005FCC11 /* 3DComponents */,
 				BE06793F2AFAAE5200D12CC3 /* 3DModels */,
-				BE946DF22B63FD5D00399651 /* OpeningView.swift */,
-				BE946DFF2B65F3AC00399651 /* RotationComponent.swift */,
+				BE946DF42B6401C900399651 /* Extension */,
 			);
-			path = Utility;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		BE946DF42B6401C900399651 /* Extension */ = {
@@ -2044,29 +2076,24 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		BE946E012B688F2300399651 /* Network */ = {
+		BE946E012B688F2300399651 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				BE946E022B688F3000399651 /* ErrorEnum.swift */,
 			);
-			path = Network;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		BEA4D64B2AFA836400B596A8 /* Supernova Vision */ = {
 			isa = PBXGroup;
 			children = (
 				BE1742E52C39D9DD0046A7F6 /* App */,
+				BE946E012B688F2300399651 /* Service */,
+				BE946DE82B618B5600399651 /* Extension */,
 				BE1742E42C39D9D50046A7F6 /* Resouces */,
-				BE946DE82B618B5600399651 /* Utility */,
-				BE946DE72B618B3500399651 /* Home */,
-				BE44BB0A2B4DCDE400BDE5FA /* New Group */,
-				BE44BB052B4DB30800BDE5FA /* NasaObservatory */,
-				BEE318C82B4C9FB500856A73 /* Rocket */,
-				BEF052B42B05B124007826DD /* Launches */,
-				BE0679422AFAB09900D12CC3 /* PictureDay */,
-				BEA4D6542AFA836400B596A8 /* ImmersiveView.swift */,
-				BEA4D65B2AFA836700B596A8 /* Info.plist */,
+				BE0B2D572C3C28F8005FCC11 /* Feature */,
 				BEA4D6582AFA836600B596A8 /* Preview Content */,
+				BEA4D65B2AFA836700B596A8 /* Info.plist */,
 			);
 			path = "Supernova Vision";
 			sourceTree = "<group>";
@@ -2099,7 +2126,6 @@
 			isa = PBXGroup;
 			children = (
 				BEE318C92B4C9FCC00856A73 /* Rocket.swift */,
-				BE946DFD2B647DCD00399651 /* RocketView.swift */,
 			);
 			path = Rocket;
 			sourceTree = "<group>";
@@ -2493,8 +2519,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEA4D6532AFA836400B596A8 /* ContentView.swift in Sources */,
-				BEDF23692B4DCEE8004A2E39 /* HomeView.swift in Sources */,
+				BEA4D6532AFA836400B596A8 /* HomeView.swift in Sources */,
 				BEE318C52B4C499100856A73 /* LaunchView.swift in Sources */,
 				BE946DF62B64020000399651 /* View+Extension.swift in Sources */,
 				BE0679442AFAB0AC00D12CC3 /* PictureDay.swift in Sources */,
@@ -2502,17 +2527,16 @@
 				BEA4D6512AFA836400B596A8 /* SupernovaVisionApp.swift in Sources */,
 				BEF052B62B05B138007826DD /* UpcomingLaunches.swift in Sources */,
 				BE44BB092B4DBE3E00BDE5FA /* GridLayout.swift in Sources */,
-				BE946DFE2B647DCD00399651 /* RocketView.swift in Sources */,
 				BE837BCB2C3B61DF00F27B3D /* PictureOfTheDayModel.swift in Sources */,
 				BE946DF82B64036500399651 /* ViewModel.swift in Sources */,
-				BE44BB072B4DB32E00BDE5FA /* NasaObservatory.swift in Sources */,
 				BE946DDB2B5D863600399651 /* NasaObItem.swift in Sources */,
-				BEA4D6552AFA836400B596A8 /* ImmersiveView.swift in Sources */,
 				BEF052BC2B05B294007826DD /* LaunchServices.swift in Sources */,
 				BE946E032B688F3100399651 /* ErrorEnum.swift in Sources */,
 				BEF052B92B05B271007826DD /* LaunchesModels.swift in Sources */,
 				BE946DFA2B644B3B00399651 /* PictureDetails.swift in Sources */,
+				BE0B2D4D2C3B79E4005FCC11 /* NasaObservatory.swift in Sources */,
 				BEDF236C2B4F8FFF004A2E39 /* Launch.swift in Sources */,
+				BE0B2D512C3B7F3A005FCC11 /* HomeModel.swift in Sources */,
 				BEE318CA2B4C9FCC00856A73 /* Rocket.swift in Sources */,
 				BE946DF32B63FD5D00399651 /* OpeningView.swift in Sources */,
 				BE946E002B65F3AC00399651 /* RotationComponent.swift in Sources */,
@@ -2880,13 +2904,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SupernovaVision/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = LHWFX4B5B6;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_FILE = "Supernova Vision/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Supernova;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2915,13 +2939,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SupernovaVision/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = LHWFX4B5B6;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_FILE = "Supernova Vision/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Supernova;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				LD_RUNPATH_SEARCH_PATHS = (

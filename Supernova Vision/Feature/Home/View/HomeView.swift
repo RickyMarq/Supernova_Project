@@ -9,19 +9,13 @@ import SwiftUI
 import RealityKit
 import RealityKitContent
 
-struct ContentView: View {
+struct HomeView: View {
     
     // Erase
     @Environment(\.openWindow) private var openWindow
     @Environment(\.dismissWindow) private var dismissWindow
-    //
     
     @Environment(ViewModel.self) private var model
-    @State var data = [
-        itemsModel(name: "Rocket Launches", icon: "sparkles", view: AnyView(Launch()), children: [itemsModel(name: "Upcoming Launches", icon: "fireworks", view: AnyView(UpcomingLaunches())), itemsModel(name: "Past Launches", icon: "house", view: AnyView(UpcomingLaunches()))]),
-        itemsModel(name: "Picture of the day", icon: "photo.on.rectangle", view: AnyView(PictureDay(pictureOfTheDay: PictureOfTheDay(date: "", explanation: "", title: "", url: "")))),
-    //    itemsModel(name: "Nasa Observatory", icon: "moon.haze", view: AnyView(NasaObservatory()))
-    ]
     
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @State var fullText = "Welcome to Supernova"
@@ -83,11 +77,11 @@ struct ContentView: View {
                         }
                         
                         
-//                        NavigationLink(destination: NasaObservatory()) {
-//                            Text("Nasa Observatory")
-//                                .bold()
-//                                .padding()
-//                        }
+                        NavigationLink(destination: NasaObservatory()) {
+                            Text("Nasa Observatory")
+                                .bold()
+                                .padding()
+                        }
                     }
                 }
             }
@@ -111,21 +105,6 @@ struct ContentView: View {
           }
       }
 }
-
-struct itemsModel: Identifiable {
-    var id = UUID()
-    let name: String
-    let icon: String
-    let view: AnyView?
-    var children: [itemsModel]?
-}
-
-struct ChildrenData: Identifiable {
-    let id = UUID()
-    var name: String
-    var icon: String
-}
-
 #Preview(windowStyle: .automatic) {
-    ContentView()
+    HomeView()
 }

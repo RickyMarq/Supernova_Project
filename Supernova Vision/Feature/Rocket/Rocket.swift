@@ -24,15 +24,10 @@ struct Rocket: View {
             
             do {
                 let immersiveEntity = try await Entity(named: "Falcon9")
-              //  rocketEntity.addChild(immersiveEntity)
                 immersiveEntity.position = SIMD3<Float>(x: 0, y: -0.5, z: 0)
                 
                 immersiveEntity.components.set(RotationComponent(speed: 1.0))
                 
-                
-             //   immersiveEntity.scale *= SIMD3<Float>(repeating: 1)
-             //   var transform = rocketEntity.transform
-             //   immersiveEntity.position = [0.0, 0.0, -1.5]
                 immersiveEntity.scale *= SIMD3<Float>(0.3, 0.3, 0.3)
                 content.add(immersiveEntity)
             } catch {
@@ -57,19 +52,6 @@ struct Rocket: View {
                 }
             }
         }
-        //        .onDisappear {
-        //            audioController?.stop()
-//        //        }
-//        .gesture(TapGesture().targetedToAnyEntity().onEnded({ value in
-//            var transform = value.entity.transform
-//            
-//            let radians = 90.0 * Float.pi / 100.0
-//            
-//            transform.rotation += simd_quatf(angle: radians, axis: SIMD3<Float>(1,0,0))
-//            
-//            value.entity.move(to: transform, relativeTo: nil, duration: 3, timingFunction: .easeInOut)
-//            
-//        }))
         .rotation3DEffect(.radians(rotateBy), axis: .y)
         .gesture(
             DragGesture(minimumDistance: 0.0)

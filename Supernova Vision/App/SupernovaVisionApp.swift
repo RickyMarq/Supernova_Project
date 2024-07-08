@@ -15,7 +15,7 @@ struct SupernovaVisionApp: App {
     var body: some Scene {
         
         WindowGroup {
-            ContentView()
+            HomeView()
                 .environment(model)
         }
         

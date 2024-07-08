@@ -194,36 +194,6 @@
             endingLineNumber = "18"
             landmarkName = "getNewsData(page:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A49812F2-2817-42C1-9B13-6A3A516750CF - f725a3cdb89be113"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Supernova.NewsViewModel.getNewsData(page: Swift.Int) -&gt; ()"
-                  moduleName = "Supernova"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/henrique/Developer/Supernova/SupernovaWatchOS%20Watch%20App/Feature/News/ViewModel/NewsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18">
-               </Location>
-               <Location
-                  uuid = "A49812F2-2817-42C1-9B13-6A3A516750CF - 372c269a7cf15b2c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Supernova.ResultedNewsSite&gt;&gt;, Supernova.AppleWatchService.Errors&gt;) -&gt; () in Supernova.NewsViewModel.getNewsData(page: Swift.Int) -&gt; ()"
-                  moduleName = "Supernova"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/henrique/Developer/Supernova/SupernovaWatchOS%20Watch%20App/Feature/News/ViewModel/NewsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -240,36 +210,6 @@
             endingLineNumber = "22"
             landmarkName = "getNewsData(page:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "0A464465-60DE-4822-B37F-5DF04FEB4F21 - 372c269a7cf15b2c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Supernova.ResultedNewsSite&gt;&gt;, Supernova.AppleWatchService.Errors&gt;) -&gt; () in Supernova.NewsViewModel.getNewsData(page: Swift.Int) -&gt; ()"
-                  moduleName = "Supernova"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/henrique/Developer/Supernova/SupernovaWatchOS%20Watch%20App/Feature/News/ViewModel/NewsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22">
-               </Location>
-               <Location
-                  uuid = "0A464465-60DE-4822-B37F-5DF04FEB4F21 - 372c269a7cf15b2c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Supernova.ResultedNewsSite&gt;&gt;, Supernova.AppleWatchService.Errors&gt;) -&gt; () in Supernova.NewsViewModel.getNewsData(page: Swift.Int) -&gt; ()"
-                  moduleName = "Supernova"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/henrique/Developer/Supernova/SupernovaWatchOS%20Watch%20App/Feature/News/ViewModel/NewsViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
