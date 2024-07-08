@@ -26,6 +26,14 @@ Supernova é uma solução inovadora para rastreamento de lançamentos de foguet
 
 A versão de iOS do supernova é a principal, na qual permite os usuários acompanharem os lançamentos, notícias e eventos relacionados a exploração espacial.  
 
+<p align="center">
+     <img alt="png" src="./Github/iOS1.png" height="250"/>
+     <img alt="png" src="./Github/iOS2.png" height="250"/>
+     <img alt="png" src="./Github/iOS3.png" height="250"/>
+     <img alt="png" src="./Github/iOS4.png" height="250"/>
+</p>
+
+
 ## Especificações Técnicas 🛠
 
 As seguintes tecnologias foram utilizadas neste projeto:    
@@ -45,6 +53,12 @@ As seguintes tecnologias foram utilizadas neste projeto:
 
 Porque não checar as informações dos próximos lançamentos de foguetes direto do seu pulso? A versão de Apple Watch de Supernova inclui todas as funcionalidade da versão de iOS, você pode checar a localização, ler notícias, eventos e até a foto do dia da Nasa.
 
+<p align="center">
+     <img alt="png" src="./Github/Watch1.png" height="250"/>
+     <img alt="png" src="./Github/Watch2.png" height="250"/>
+     <img alt="png" src="./Github/Watch3.png" height="250"/>
+</p>
+
 ## Especificações Técnicas 🛠
 
 As seguintes tecnologias foram utilizadas neste projeto: 
@@ -59,10 +73,9 @@ As seguintes tecnologias foram utilizadas neste projeto:
 A versão para o Vision Pro foi o último grande lançamento do Supernova, disponível para o vision pro até antes de seu lançamento para os EUA. O que traz muito orgulho a mim ter uma solução desenvolvida por um brasileiro e lançado ao Vision Pro em seu lançamento.
 
 <p align="center">
-     <img alt="png" src="./Github./iOS/iOS/1.png" height="250"/>
-     <img width="200" src="./Github/AppIcon.png">
+     <img alt="png" src="./Github/VisionRocket2.png" height="250"/>
+     <img alt="png" src="./Github/VisionPicture.png" height="250"/>
 </p>
-
 
 ## Especificações Técnicas 🛠
 
@@ -74,19 +87,13 @@ As seguintes tecnologias foram utilizadas neste projeto:
 * [x] Alamofire
 * [x] RealityKit
 
-
-### Ilustrações
-
-<p align="center">
-     <img alt="png" src="./Imagens Github/SplashScreen.png" height="250"/>
-     <img alt="png" src="./Imagens Github/EscolherModo.png" height="250"/>
-     <img alt="png" src="./Imagens Github/PcVsPlayer.png" height="250"/>
-     <img alt="png" src="./Imagens Github/Aviso.png" height="250"/>
-</p>
-
 ### 🪟 Widgets
 
 Além de tudo isso, o supernova também tem os seus próprios Widgets, não necessitando nem abrir o aplicativo para checar o próximo lançamento ou visualizar a foto do dia da Nasa. 
+
+<p align="center">
+     <img alt="png" src="./Github/Widget.png" height="250"/>
+</p>
 
 ### Widget próximo lançamento
 
