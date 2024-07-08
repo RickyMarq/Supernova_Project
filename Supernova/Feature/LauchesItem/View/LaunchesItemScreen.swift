@@ -40,7 +40,6 @@ class LaunchesItemScreen: UIView {
         ads.layer.masksToBounds = true
         ads.layer.cornerRadius = 12
         ads.translatesAutoresizingMaskIntoConstraints = false
-//        ads.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         return ads
     }()
     
@@ -435,7 +434,6 @@ extension LaunchesItemScreen: ViewCode {
         self.adsUIView.addSubview(self.adLabel)
         
         // -- Pad View
-//        self.LaunchesStackView.addArrangedSubview(self.separator)
         self.LaunchesStackView.addArrangedSubview(self.padView)
         self.padView.addSubview(self.padNameLabel)
         self.padView.addSubview(self.mapView)
@@ -499,8 +497,6 @@ extension LaunchesItemScreen: ViewCode {
             self.rocketButton.trailingAnchor.constraint(equalTo: self.rocketUIView.trailingAnchor),
             self.rocketButton.bottomAnchor.constraint(equalTo: self.rocketUIView.bottomAnchor),
             
-//            self.launchInformationsView.heightAnchor.constraint(equalToConstant: 100),
-
             self.totalLaunchesLabel.leftAnchor.constraint(equalTo: self.launchInformationsView.leftAnchor, constant: 12),
             self.totalLaunchesLabel.topAnchor.constraint(equalTo: self.launchInformationsView.topAnchor, constant: 10),
             
@@ -525,13 +521,11 @@ extension LaunchesItemScreen: ViewCode {
             
             self.separator.heightAnchor.constraint(equalToConstant: 3),
             
-  //          self.adsUIView.heightAnchor.constraint(equalToConstant: 150),
             self.adsView.heightAnchor.constraint(equalToConstant: 100),
             
             self.adsView.topAnchor.constraint(equalTo: self.adsUIView.topAnchor, constant: 10),
             self.adsView.leadingAnchor.constraint(equalTo: self.adsUIView.leadingAnchor, constant: 10),
             self.adsView.trailingAnchor.constraint(equalTo: self.adsUIView.trailingAnchor, constant: -10),
-//            self.adsView.bottomAnchor.constraint(equalTo: self.adsUIView.bottomAnchor, constant: -10),
             
             self.adLabel.centerXAnchor.constraint(equalTo: self.adsUIView.centerXAnchor),
             self.adLabel.topAnchor.constraint(equalTo: self.adsView.bottomAnchor, constant: 5),
@@ -551,13 +545,11 @@ extension LaunchesItemScreen: ViewCode {
             self.mapView.trailingAnchor.constraint(equalTo: self.padView.trailingAnchor, constant: -20),
             self.mapView.bottomAnchor.constraint(equalTo: self.padView.bottomAnchor, constant: -16),
             self.mapView.heightAnchor.constraint(equalToConstant: 200),
-            
-//            self.missionView.widthAnchor.constraint(equalTo: self.widthAnchor),
-            
+                        
             self.missionNameLabel.topAnchor.constraint(equalTo: self.missionView.topAnchor, constant: 16),
             self.missionNameLabel.leftAnchor.constraint(equalTo: self.missionView.leftAnchor, constant: 12),
             self.missionNameLabel.rightAnchor.constraint(equalTo: self.missionView.rightAnchor, constant: -12),
-//
+
             self.missionDescriptionLabel.topAnchor.constraint(equalTo: self.missionNameLabel.bottomAnchor, constant: 12),
             self.missionDescriptionLabel.leftAnchor.constraint(equalTo: self.missionNameLabel.leftAnchor),
             self.missionDescriptionLabel.rightAnchor.constraint(equalTo: self.missionNameLabel.rightAnchor),

@@ -20,9 +20,6 @@ struct NasaObItem: View {
                     HStack(spacing: 60) {
                         VStack(alignment: .leading, spacing: 0) {
                             Spacer()
-                            //                        Text("# 0")
-                            //                            .font(.callout)
-                            //                            .padding()
                             
                             Text(data.title ?? "")
                                 .font(.extraLargeTitle)

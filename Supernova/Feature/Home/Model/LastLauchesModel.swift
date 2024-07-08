@@ -43,10 +43,6 @@ struct ResultedModel: Codable {
         case launchServiceProvider = "launch_service_provider"
     }
 }
-
-//struct RocketLaunchModel: Codable {
-//    let id: Int?
-//}
     
 struct Status: Codable {
     let abbrev: String?

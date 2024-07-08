@@ -26,11 +26,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.rootViewController = nv
             window?.makeKeyAndVisible()
         } else {
-            let vc = TabBarController()
+            let vc = LaunchAnimationController()
+            let nv = UINavigationController(rootViewController: vc)
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.overrideUserInterfaceStyle = .dark
             window?.windowScene = windowScene
-            window?.rootViewController = vc
+            window?.rootViewController = nv
             window?.makeKeyAndVisible()
         }
     }

@@ -18,8 +18,6 @@ class HomeCollectionCellImage: UICollectionViewCell {
         }
     }
     
-    // Por algum motivo, o scaleAspectFill fica ótimo em iPhones X >, porém n funciona em modelos 8<. Tendo q usar o
-    
     lazy var pictureOfTheDayImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.isSkeletonable = true
@@ -97,7 +95,6 @@ extension HomeCollectionCellImage: ViewCode {
         self.contentView.addSubview(self.imageShadowView)
         self.contentView.addSubview(self.pictureOfTheDayLabel)
         self.contentView.addSubview(self.pictureOfTheDayNameLabel)
-//        self.contentView.addSubview(self.textBlurView)
     }
     
     func configureConstraints() {

@@ -38,11 +38,8 @@ class LaunchesScreen: UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         layout.scrollDirection = .vertical
-//        layout.collectionView?.showsVerticalScrollIndicator = false
         layout.minimumLineSpacing = 12
-//        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionView.isSkeletonable = true
-//        collectionView.backgroundColor = .systemBackground
         collectionView.register(LaunchesCell.self, forCellWithReuseIdentifier: LaunchesCell.identifier)
         return collectionView
     }()

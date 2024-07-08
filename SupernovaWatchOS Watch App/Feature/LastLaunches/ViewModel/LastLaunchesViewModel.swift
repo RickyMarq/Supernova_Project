@@ -10,8 +10,8 @@ import SwiftUI
 
 class LastLaunchesViewModel: ObservableObject {
     
-    @State var dataObjc: [ResultedModel] = []
-    @State var page = 0
+    @Published var dataObjc: [ResultedModel] = []
+    @Published var page = 0
     
     func getLastLaunchesData(page: Int) {
         AppleWatchService.sharedObjc.getLastLauches(limit: page) { result in
@@ -19,8 +19,10 @@ class LastLaunchesViewModel: ObservableObject {
             switch result {
                 
             case .success(let data):
-                self.dataObjc.append(contentsOf: data ?? [])
-                
+
+                DispatchQueue.main.async {
+                    self.dataObjc.append(contentsOf: data ?? [])
+                }
                 
             case .failure(let error):
                 print("Error \(error.localizedDescription)")

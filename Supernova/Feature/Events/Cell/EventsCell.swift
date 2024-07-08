@@ -126,9 +126,6 @@ class EventsCell: UICollectionViewCell {
         self.eventsNameLabel.text = viewModel?.eventsName
         self.eventsDescriptionLabel.text = viewModel?.eventsDescription
         self.locationEventLabel.text = viewModel?.eventsLocation
-        
-//        let formatDate = convertDateEventsFormatter(data.date ?? "")
-//        let formatHour = convertDateHourEventsFormatter(data.date ?? "")
         self.dateEventLabel.text = "Live in \(viewModel?.dateEvent.capitalizedSentence ?? "")"
         self.dateHourLabel.text = "\(viewModel?.dateHour ?? "")"
         
@@ -192,17 +189,13 @@ extension EventsCell: ViewCode {
             self.calendarImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12),
             self.calendarImageView.heightAnchor.constraint(equalToConstant: 15),
 
-//            self.dateEventLabel.topAnchor.constraint(equalTo: self.bottomAnchor, constant: -30),
             self.dateEventLabel.centerYAnchor.constraint(equalTo: self.dateHourLabel.centerYAnchor),
             self.dateEventLabel.leftAnchor.constraint(equalTo: self.calendarImageView.rightAnchor, constant: 4),
- //           self.dateEventLabel.rightAnchor.constraint(equalTo: self.eventsDescriptionLabel.rightAnchor),
-            
             
             self.clockImageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -12),
             self.clockImageView.heightAnchor.constraint(equalToConstant: 15),
             self.clockImageView.topAnchor.constraint(equalTo: self.calendarImageView.topAnchor),
             
-//            self.dateHourLabel.topAnchor.constraint(equalTo: self.dateEventLabel.topAnchor),
             self.dateHourLabel.centerYAnchor.constraint(equalTo: self.clockImageView.centerYAnchor),
             self.dateHourLabel.rightAnchor.constraint(equalTo: self.clockImageView.leftAnchor, constant: -4),
             

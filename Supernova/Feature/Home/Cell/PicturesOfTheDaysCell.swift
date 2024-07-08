@@ -17,7 +17,6 @@ class PicturesOfTheDaysCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.roundCorners([.allCorners], radius: 10)
         imageView.layer.masksToBounds = true
- //       imageView.layer.cornerRadius = 10
         return imageView
     }()
     
@@ -74,21 +73,15 @@ extension PicturesOfTheDaysCell: ViewCode {
             self.pictureOfTheDayLabel.rightAnchor.constraint(equalTo: self.contentViewLabel.rightAnchor, constant: -12),
             self.pictureOfTheDayLabel.topAnchor.constraint(equalTo: self.contentViewLabel.topAnchor, constant: 2),
             self.pictureOfTheDayLabel.bottomAnchor.constraint(equalTo: self.contentViewLabel.bottomAnchor),
-//            self.pictureOfTheDayLabel.bottomAnchor.constraint(equalTo: self.newsImageView.bottomAnchor, constant: -12),
-            
-            
         ])
     }
     
     func configureAdditionalBehaviors() {
         self.backgroundColor = .secondarySystemBackground
         self.setShadow(view: self)
-//        self.layer.masksToBounds = true
     }
     
     func configureAccessibility() {
         
     }
-    
-    
 }

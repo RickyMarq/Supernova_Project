@@ -29,7 +29,6 @@ class RocketItemViewModel {
     }
     
     func getRocket(url: String) {
-        print("DEBUG URL -> \(url)")
         services?.getRockets(url: url, completion: { [weak self] result in
             guard let self = self else {return}
             switch result {
@@ -38,7 +37,6 @@ class RocketItemViewModel {
                 self.rocketObjc = data
                 self.delegate?.success()
             case .failure(let error):
-                print("DEBUG MODE: ERROR OCORRURED")
                 delegate?.failure(error: error.localizedDescription)
             }
         })

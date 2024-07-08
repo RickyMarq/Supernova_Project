@@ -50,7 +50,6 @@ class AdsCollectionCell: UICollectionViewCell {
 extension AdsCollectionCell: ViewCode {
  
     func configureSubViews() {
-//        self.contentView.addSubview(self.adsUIView)
         self.contentView.addSubview(self.adsView)
     }
     

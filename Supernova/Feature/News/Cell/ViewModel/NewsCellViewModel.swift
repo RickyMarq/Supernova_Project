@@ -38,19 +38,5 @@ class NewsCellViewModel {
     var day: String {
         return convertDayOfWeekFormatter(data?.publishedAt ?? "")
     }
-    
-    
-//    self.newsImageView.sd_setImage(with: URL(string: data.imageURL ?? "Error"))
-//    self.newsProviderLabel.text = data.newsSite
-//    self.newsNameLabel.text = data.title
-//    self.newsDescriptionLabel.text = data.title
-//    
-//    let hour = convertHourNewsFormatter(data.publishedAt ?? "")
-//    let day = convertDayOfWeekFormatter(data.publishedAt ?? "")
-//    let formatter = RelativeDateTimeFormatter()
-//    formatter.unitsStyle = .full
-//    formatter.locale = Locale.current
-//    let date = formatter.localizedString(for: hour, relativeTo: Date())
-//    self.newsDateLabel.text = "\(day.capitalizedSentence) • \(date)"
-    
+
 }

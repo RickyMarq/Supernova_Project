@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LastLaunchesScreen: View {
     
-    @State var viewModel = LastLaunchesViewModel()
+    @ObservedObject var viewModel = LastLaunchesViewModel()
     
     var body: some View {
         List {

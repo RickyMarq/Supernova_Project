@@ -29,7 +29,6 @@ class EventsController: UIViewController {
         self.eventsScreen?.delegate(delegate: self)
         self.eventsScreen?.eventsCollectionViewProtocols(delegate: self, dataSource: self)
         self.viewModel?.getEventsData()
-//        self.getLastEvents(limit: 15, startsAt: 0)
     }
     
     func configNavigationController() {
@@ -59,29 +58,29 @@ class EventsController: UIViewController {
         self.eventsScreen?.eventsCollectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .backgroundColour), animation: animation)
     }
     
-    func getLastEvents(limit: Int, startsAt: Int) {
-        SpaceDevsInternetServices.sharedObjc.getLastEvents(limit: limit, startsAt: startsAt) { [weak self] result in
-            
-            switch result {
-                
-            case .success(let model):
-                guard let strongSelf = self else {return}
-                strongSelf.events.append(contentsOf: model ?? [])
-                
-                DispatchQueue.main.async {
-                    strongSelf.eventsScreen?.eventsCollectionView.reloadData()
-                    strongSelf.eventsScreen?.stopSkeletonAnimation()
-                    strongSelf.eventsScreen?.eventsCollectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
-                }
-                
-            case .failure(let error):
-                guard let strongSelf = self else {return}
-                DispatchQueue.main.async {
-                    strongSelf.alerts?.getAlert(title: "Error", message: "Error: \(error)", buttonMessage: "Cancel")
-                }
-            }
-        }
-    }
+//    func getLastEvents(limit: Int, startsAt: Int) {
+//        SpaceDevsInternetServices.sharedObjc.getLastEvents(limit: limit, startsAt: startsAt) { [weak self] result in
+//            
+//            switch result {
+//                
+//            case .success(let model):
+//                guard let strongSelf = self else {return}
+//                strongSelf.events.append(contentsOf: model ?? [])
+//                
+//                DispatchQueue.main.async {
+//                    strongSelf.eventsScreen?.eventsCollectionView.reloadData()
+//                    strongSelf.eventsScreen?.stopSkeletonAnimation()
+//                    strongSelf.eventsScreen?.eventsCollectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
+//                }
+//                
+//            case .failure(let error):
+//                guard let strongSelf = self else {return}
+//                DispatchQueue.main.async {
+//                    strongSelf.alerts?.getAlert(title: "Error", message: "Error: \(error)", buttonMessage: "Cancel")
+//                }
+//            }
+//        }
+//    }
 }
 
 extension EventsController: EventsScreenProtocols {
@@ -89,7 +88,7 @@ extension EventsController: EventsScreenProtocols {
     func pullToRefreshAction() {
         DispatchQueue.main.async {
             self.events = []
-            self.getLastEvents(limit: 15, startsAt: 0)
+            self.viewModel?.getLastEvents(limit: 15, startsAt: 0)
             self.showSkeletonView()
             self.eventsScreen?.pullToRefresh.endRefreshing()
         }
@@ -130,8 +129,6 @@ extension EventsController: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // -> Original
-        // return CGSize(width: UIScreen.main.bounds.width - 28, height: 420)
         return CGSize(width: UIScreen.main.bounds.width - 28, height: 330)
     }
     
@@ -148,8 +145,7 @@ extension EventsController: UICollectionViewDelegate, UICollectionViewDataSource
         
         if offsetY > contentHeight - height {
             page += 16
-            self.getLastEvents(limit: 15, startsAt: page)
-            
+            self.viewModel?.getLastEvents(limit: 15, startsAt: page)
         }
     }
     

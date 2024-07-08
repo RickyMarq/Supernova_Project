@@ -28,7 +28,6 @@ class NewsController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
- //       self.getCompositionalLayout()
         self.alerts = Alerts(controller: self)
         self.viewModel = NewsViewModel(services: NewsServices())
         self.viewModel?.delegate(delegate: self)
@@ -44,15 +43,10 @@ class NewsController: UIViewController {
         self.navigationController?.navigationBar.topItem?.backButtonTitle = "Home"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.titleView?.tintColor = .primaryColour
-//        let btn = UIBarButtonItem(customView: self.newsScreen?.savedNewsButton ?? UIView())
-
         let filterBarButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle"), style: .done, target: self, action: nil)
-        
         let menu = configButtonContextMenu()
         if #available(iOS 14.0, *) {
             filterBarButton.menu = menu
-        } else {
-            // Fallback on earlier versions
         }
         self.navigationItem.setRightBarButtonItems([filterBarButton], animated: true)
     }
@@ -180,7 +174,6 @@ extension NewsController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: UIScreen.main.bounds.width - 24, height: 420)
         
         switch collectionView.tag {
             
@@ -219,9 +212,6 @@ extension NewsController: UICollectionViewDelegate, UICollectionViewDataSource, 
         return contextMenu
     }
     
-    
-    // TODO: RESOLVER FOOTER DEPOIS
-    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
         switch collectionView.tag {
@@ -242,22 +232,5 @@ extension NewsController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width, height: 150)
 
-    }
-}
-
-extension NewsController {
-    
-    func getCompositionalLayout() {
-        let layout = UICollectionViewCompositionalLayout { (sectionNumber, env) in
-            switch sectionNumber {
-            case 0:
-                return LayoutType.newsLayout.getLayout()
-            case 1:
-                return LayoutType.adLayout.getLayout()
-            default:
-                return LayoutType.newsLayout.getLayout()
-            }
-        }
-        self.newsScreen?.newsCollectionView.setCollectionViewLayout(layout, animated: true)
     }
 }

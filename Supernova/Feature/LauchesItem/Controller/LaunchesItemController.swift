@@ -61,15 +61,12 @@ class LaunchesItemController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // self.lauchesScreen?.adsView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.title = ""
         self.isOneHourApart()
         self.lauchesScreen?.adsView.rootViewController = self
         self.lauchesScreen?.adsView.delegate = self
-        // ca-app-pub-7460518702464601/2402708926
         self.lauchesScreen?.adsView.adUnitID = "ca-app-pub-7460518702464601/2402708926"
-
         self.lauchesScreen?.adsView.load(GADRequest())
     }
     
@@ -99,17 +96,13 @@ class LaunchesItemController: UIViewController {
     
     func isOneHourApart() {
         let fullHours = convertHoursForCountDownLaunchesFormatter(viewModel?.windowStartLaunch ?? "", outPut: "HH:mm:ss")
-        print("DEBUG MODE FULLHOURS: \(fullHours)")
         let timeInterval = fullHours.timeIntervalSince(Date())
-        print("DEBUG MODE: TIME INTERVEL (DATE ALREADY COMPARED \(timeInterval)")
         let convertion = Int(timeInterval)
-        print("DEBUG MODE CONVERTION: \(convertion)")
         
         let formatter = RelativeDateTimeFormatter()
         formatter.unitsStyle = .full
         formatter.locale = Locale.current
-        let date = formatter.localizedString(for: fullHours, relativeTo: Date())
-        print("DEBUG MODE DATE: \(date)")
+        _ = formatter.localizedString(for: fullHours, relativeTo: Date())
         
         if convertion <= 3600 {
             self.lauchesScreen?.playerInfoLabel.removeFromSuperview()

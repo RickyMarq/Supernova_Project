@@ -18,7 +18,6 @@ class PageControlFooter: UICollectionReusableView {
         pageControl.currentPageIndicatorTintColor = .secondaryColour
         pageControl.pageIndicatorTintColor = .gray
         pageControl.isUserInteractionEnabled = false
-//        pageControl.isAccessibilityElement = false
         pageControl.layer.masksToBounds = true
         pageControl.layer.cornerRadius = 10
         pageControl.tag = 100
@@ -29,16 +28,6 @@ class PageControlFooter: UICollectionReusableView {
     
     func numberOfItems(numberOfItems: Int) {
         self.homePageControl.numberOfPages = numberOfItems
-    }
-    
-    
-    func subscribeTo(subject: PassthroughSubject<PagingInfo, Never>, for section: Int) {
-        pagingInfoToken = subject
-            .filter { $0.sectionIndex == section }
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] pagingInfo in
-                self?.homePageControl.currentPage = pagingInfo.currentPage
-        }
     }
     
     override init(frame: CGRect) {

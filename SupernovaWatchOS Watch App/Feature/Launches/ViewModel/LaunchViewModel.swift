@@ -10,8 +10,8 @@ import SwiftUI
 
 class LaunchViewModel: ObservableObject {
     
-    @State var objcData: [ResultedModel] = []
-    @State var page = 0
+    @Published var objcData: [ResultedModel] = []
+    @Published var page = 0
     
     func getLaunchData(page: Int) {
         AppleWatchService.sharedObjc.getFutureLauches(limit: 5, startsAt: page) { result in
@@ -19,8 +19,10 @@ class LaunchViewModel: ObservableObject {
             switch result {
                 
             case .success(let data):
-                self.objcData.append(contentsOf: data ?? [])
-                
+
+                DispatchQueue.main.async {
+                    self.objcData.append(contentsOf: data ?? [])
+                }
                 
             case .failure(let error):
                 print("Error \(error.localizedDescription)")

@@ -165,48 +165,12 @@ class UpcomingLaunchCell: UICollectionViewCell {
         
         let formatter = RelativeDateTimeFormatter()
         let timeInterval = fullHours.timeIntervalSince(Date())
-        print("TIME INTERVAL: \(timeInterval)")
         
         _ = formatter.localizedString(for: fullHours, relativeTo: Date())
-        
-        
-       // let convertion = Int(timeInterval)
-
-
-//        let hours = convertion / 3600
-//        let minutes = (convertion % 3600) / 60
-//        let seconds = (convertion % 3600) % 60
-        
-        // RETORNAR DEPOIS
-        
- //       self.launchDateOffSetReferenceLabel.text = "DEBUG MODE: \(hours) \(minutes) \(seconds) + \(date)"
-
-        
-//        let hour = convertHourLaunchesFormatter(data.windowStart ?? "", outPut: "HH")
-//        let convert = Double(hour) ?? 0.0
-//        print("DEBUG MODE: CONVERT STRING TO DOUBLE \(convert)")
-//        if convert > 0.0 {
-//            let hours: Double = convert / 3600.0
-//            let remainder: Double = convert - (hours * 3600)
-//            let minute = remainder / 60
-//            let second = convert - (hours * 3600) - (minute * 60)
-//            print("DEBUG MODE \(hours) \(minute) \(second) left")
-//        } else {
-//            print("DEBUG MODE: Valor Negativo")
-//        }
-        //       self.hourLabel.text = hour
-//        self.hourCountDown = Int(hours) ?? 0
-//      let minute = convertHourLaunchesFormatter(data.lastUpdated ?? "", outPut: "mm")
-        //       self.minuteLabel.text = minute
-//        self.minuteCountDown = Int(minutes) ?? 0
-//        let second = convertHourLaunchesFormatter(data.lastUpdated ?? "", outPut: "ss")
-//        self.secondCountDown = Int(seconds) ?? 0
-        //       self.secondLabel.text = second
     }
     
     func startCountdown(data: ResultedModel) {
         if count == 0 {
-            print("DEBUG MODE: HOW MUCH TIME DOES THE TIMER START ?")
             count += 1
             let fullHours = convertHoursForCountDownLaunchesFormatter(data.windowStart ?? "", outPut: "HH:mm:ss")
             let timeInterval = fullHours.timeIntervalSince(Date())
@@ -288,7 +252,6 @@ extension UpcomingLaunchCell: ViewCode {
         self.contentView.addSubview(self.secondView)
         self.secondView.addSubview(self.secondLabel)
         self.contentView.addSubview(self.secondTitleLabel)
-//        self.contentView.addSubview(self.launchDateOffSetReferenceLabel)
     }
     
     func configureConstraints() {
@@ -297,7 +260,6 @@ extension UpcomingLaunchCell: ViewCode {
             self.rocketImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
             self.rocketImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             self.rocketImageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-//            self.rocketImageView.heightAnchor.constraint(equalToConstant: 150),
             self.rocketImageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
             
             self.separatorView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 12),
@@ -344,11 +306,6 @@ extension UpcomingLaunchCell: ViewCode {
             
             self.secondTitleLabel.topAnchor.constraint(equalTo: self.secondView.bottomAnchor, constant: 8),
             self.secondTitleLabel.centerXAnchor.constraint(equalTo: self.secondView.centerXAnchor),
-
-//            self.launchDateOffSetReferenceLabel.topAnchor.constraint(equalTo: self.hoursTitleLabel.bottomAnchor, constant: 12),
-//            self.launchDateOffSetReferenceLabel.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
-        
-        
         ])
     }
     

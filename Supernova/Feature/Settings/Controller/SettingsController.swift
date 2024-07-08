@@ -38,10 +38,6 @@ class SettingsController: UIViewController {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-
-    }
-    
     func setUpNavigationController() {
         self.title = "Settings"
         self.navigationController?.navigationBar.prefersLargeTitles = true

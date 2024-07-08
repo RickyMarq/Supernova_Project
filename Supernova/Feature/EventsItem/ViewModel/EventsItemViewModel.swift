@@ -102,15 +102,4 @@ class EventsItemViewModel {
     var missionImage: String {
         return events?.featureImage ?? ""
     }
-    
-    
-//    self.titleMissionLabel.text = events?.launches[0].mission?.name
-//    self.padNameLabel.text = events?.launches[0].pad.name
-//    self.padLocation.text = "Location: \(events?.launches[0].pad.location.name ?? "Not Found")"
-//    self.padId.text = "#\(events?.launches[0].pad.agencyID ?? 0)"
-//    self.launchCountInt.text = "\(events?.launches[0].pad.launchCount ?? 0)"
-    
-    
-//    self.missionDescription.text = events?.launches[0].mission?.description
-//    self.eventsImageView.sd_setImage(with: URL(string: events?.featureImage ?? ""))
 }

@@ -11,14 +11,16 @@ import SwiftUI
 
 class PictureOfTheDayViewModel: ObservableObject {
     
-    @State var dataObjc: [PictureOfTheDayModel] = []
-    @State var isLoading = true
+    @Published var dataObjc: [PictureOfTheDayModel] = []
+    @Published var isLoading = true
     
     func getPictureOfTheDay() {
         AppleWatchService.sharedObjc.getPictureOfTheDay { data, error in
             guard let data = data else {return}
-            self.dataObjc.append(data)
-            self.isLoading = false
+            DispatchQueue.main.async {
+                self.dataObjc.append(data)
+                self.isLoading = false
+            }
         }
     }
 }

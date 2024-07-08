@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 struct PictureOfTheDay: View {
     
     var data: PictureOfTheDayModel
-    @State var viewModel = PictureOfTheDayViewModel()
+    @ObservedObject var viewModel = PictureOfTheDayViewModel()
     
     var body: some View {
                 ScrollView {

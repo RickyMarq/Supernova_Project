@@ -99,18 +99,6 @@ class NewsCell: UICollectionViewCell {
         self.newsDateLabel.text = "\(day?.capitalizedSentence ?? "") • \(date)"
     }
     
-//    func configCellEvents(with data: ResultedEvents) {
-//        self.newsImageView.sd_setImage(with: URL(string: data.featureImage ?? "Error"))
-//        self.newsProviderLabel.text = data.newsSite
-//        self.newsNameLabel.text = data.name
-//        self.newsDescriptionLabel.text = data.description
-//        
-//        let index = data.date?.replacingOccurrences(of: ":00Z", with: " ")
-//        let ind = index?.replacingOccurrences(of: "T", with: " ")
-//        
-//        self.newsDateLabel.text = "Published at: \(ind ?? "Not founded")"
-//    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initViewCode()
@@ -129,7 +117,6 @@ extension NewsCell: ViewCode {
         self.contentView.addSubview(self.newsNameLabel)
         self.contentView.addSubview(self.newsDescriptionLabel)
         self.contentView.addSubview(self.newsDateLabel)
-//        self.contentView.addSubview(self.adsView)
     }
     
     func configureConstraints() {
@@ -157,11 +144,6 @@ extension NewsCell: ViewCode {
             self.newsDateLabel.topAnchor.constraint(equalTo: self.bottomAnchor, constant: -40),
             self.newsDateLabel.leftAnchor.constraint(equalTo: self.newsDescriptionLabel.leftAnchor),
             self.newsDateLabel.rightAnchor.constraint(equalTo: self.newsDescriptionLabel.rightAnchor),
-            
-//            self.adsView.topAnchor.constraint(equalTo: self.topAnchor),
-//            self.adsView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-//            self.adsView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-//            self.adsView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
     }
     

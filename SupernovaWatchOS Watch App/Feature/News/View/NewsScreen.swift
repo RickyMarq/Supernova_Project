@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 
 struct NewsScreen: View {
     
-    var viewModel = NewsViewModel()
+    @ObservedObject var viewModel = NewsViewModel()
     
     var body: some View {
         List {

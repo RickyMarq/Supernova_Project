@@ -89,12 +89,9 @@ extension ExploreCollectionCell: ViewCode {
     
     func configureAdditionalBehaviors() {
         self.isSkeletonable = true
- //       self.backgroundColor = .secondarySystemBackground
         self.layer.masksToBounds = true
         self.clipsToBounds = true
         self.layer.cornerRadius = 10
-//        self.layer.borderColor = UIColor.darkGray.withAlphaComponent(1.0).cgColor
-//        self.layer.borderWidth = 1.0
     }
     
     func configureAccessibility() {

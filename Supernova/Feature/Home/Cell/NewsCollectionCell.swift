@@ -123,7 +123,6 @@ extension NewsCollectionCell: ViewCode {
         self.contentView.addSubview(self.newsNameLabel)
         self.contentView.addSubview(self.newsDescriptionLabel)
         self.contentView.addSubview(self.newsDateLabel)
-//        self.contentView.addSubview(self.adsView)
     }
     
     func configureConstraints() {
@@ -150,13 +149,6 @@ extension NewsCollectionCell: ViewCode {
             self.newsDateLabel.topAnchor.constraint(equalTo: self.bottomAnchor, constant: -30),
             self.newsDateLabel.leftAnchor.constraint(equalTo: self.newsDescriptionLabel.leftAnchor),
             self.newsDateLabel.rightAnchor.constraint(equalTo: self.newsDescriptionLabel.rightAnchor),
-            
-//            self.adsView.topAnchor.constraint(equalTo: self.topAnchor),
-//            self.adsView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-//            self.adsView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-//            self.adsView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-    
-            
         ])
     }
     
@@ -172,6 +164,4 @@ extension NewsCollectionCell: ViewCode {
     func configureAccessibility() {
         
     }
-    
-    
 }

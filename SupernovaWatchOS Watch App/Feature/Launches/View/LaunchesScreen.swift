@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LaunchesScreen: View {
     
-    @State var viewModel = LaunchViewModel()
+    @ObservedObject var viewModel = LaunchViewModel()
     
     var body: some View {
         List {

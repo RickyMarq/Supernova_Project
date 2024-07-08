@@ -97,7 +97,6 @@ class EventsItem: UIViewController {
         let date = formatter.localizedString(for: hour, relativeTo: Date())
         self.hours.text = "\(date.capitalizedSentence)"
      
-        print("DEBUG MODE: Month -> \(month)")
         self.monthLabel.text = formatted.uppercased()
         self.dayLabel.text = day
         self.setRocketButton()
@@ -139,11 +138,7 @@ class EventsItem: UIViewController {
         } else {
             self.rocketLabel.text = viewModel?.rocketName
             self.titleMissionLabel.text = viewModel?.missionName
-//            self.padNameLabel.text = viewModel?.padName
-//            self.padLocation.text = "Location: \(viewModel?.padLocation ?? "Not Found")"
-//           self.padId.text = "#\(viewModel?.padID ?? 0)"
             self.padView.removeFromSuperview()
-            
             self.launchCountInt.text = "\(viewModel?.padLaunchCount ?? 0)"
             self.missionDescription.text = viewModel?.missionDescription
             self.eventsImageView.sd_setImage(with: URL(string: viewModel?.missionImage ?? ""))

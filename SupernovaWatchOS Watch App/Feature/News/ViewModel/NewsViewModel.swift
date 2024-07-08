@@ -10,9 +10,9 @@ import SwiftUI
 
 class NewsViewModel: ObservableObject {
     
-    @State var dataObjc: [ResultedNewsSite] = []
-    @State var isLoaded = true
-    @State var page = 1
+    @Published var dataObjc: [ResultedNewsSite] = []
+    @Published var isLoaded = true
+    @Published var page = 1
     
     func getNewsData(page: Int) {
         AppleWatchService.sharedObjc.getFirstArticles(page: page) { result in
@@ -20,8 +20,10 @@ class NewsViewModel: ObservableObject {
             switch result {
                 
             case .success(let data):
-                self.dataObjc.append(contentsOf: data ?? [])
-                self.isLoaded = false
+                DispatchQueue.main.async {
+                    self.dataObjc.append(contentsOf: data ?? [])
+                    self.isLoaded = true
+                }
             case .failure(let error):
                 print("Error \(error.localizedDescription)")
                 

@@ -7,33 +7,17 @@
 
 import UIKit
 import SwiftUI
-import Combine
 import SDWebImage
 import SkeletonView
 import GoogleMobileAds
-import ActivityKit
 
 class HomeController: UIViewController {
     
     var homeScreen: HomeScreen?
+    var viewModel: HomeViewModel = HomeViewModel(services: HomeServices())
     var alerts: Alerts?
-    var objc = [UpcomingModel]()
-    var lastLauchesObjc = [ResultedModel]()
-    var futureLauchesObjc = [ResultedModel]()
-    var nextLaunchObjc = [ResultedModel]()
-    var news = [ResultedNewsSite]()
-    var events = [ResultedEvents]()
-    var pictureOfTheDay: PictureOfTheDay?
-    var buttonsModel = HomeSectionButtonsModel().populateModel()
-    var picturesOfTheDays = [PictureOfTheDay]()
-    var rocketsObjc = [SupernovaRocketModel]()
-    
-    var lastUpdated = ""
     var statusbarView: UIView?
-    
-    let isOn = UserDefaults.standard.bool(forKey: "PermissionForNotification")
-    var ind: Int = 0
-    
+        
     override func loadView() {
         self.homeScreen = HomeScreen()
         self.view = homeScreen
@@ -42,19 +26,24 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        viewModel = HomeViewModel(services: HomeServices())
+        viewModel.delegate(delegate: self)
         self.alerts = Alerts(controller: self)
         self.homeScreen?.homeCollectionViewProtocols(delegate: self, dataSource: self)
         self.getCompositionalLayout()
-        self.showLauchscreenAnimation()
+     
+        // N ta funcionando.
+     //   viewModel.getLastLaunches(limit: 10)
+     //   viewModel.getFutureLaunches(limit: 15, startsAt: 0)
+                
+     //   viewModel.getLastEvents(limit: 10, startsAt: 0)
+     //   viewModel.getLastPicturesOfTheDays(limit: 7)
+     //     viewModel.getPictureOfTheDay()
+
+        //
         
-//        self.getLastLaunches(limit: 10)
-//        self.getFutureLaunches(limit: 15, startsAt: 0)
-//        self.getLastEvents(limit: 10, startsAt: 0)
-//        self.getLastPicturesOfTheDays(limit: 7)
-//        self.getNews(limit: 15, startsAt: 0)
-//        self.getPictureOfTheDay()
-//        self.getNextLaunch(limit: 1, startsAt: 0)
+    //   viewModel.getNews(limit: 15, startsAt: 0)
+    //    viewModel.getNextLaunch(limit: 1, startsAt: 0)
         
     }
     
@@ -67,7 +56,7 @@ class HomeController: UIViewController {
     }
     
     func deleteNotifications() {
-        if isOn == false {
+        if viewModel.isOn == false {
             print("User doest allow notification anymore")
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         }
@@ -82,232 +71,6 @@ class HomeController: UIViewController {
         self.homeScreen?.homeCollectionView.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: .backgroundColour), animation: animation)
     }
     
-    func showLauchscreenAnimation() {
-        self.homeScreen?.LaunchingLottieAnimation.play { _ in
-            UIView.animate(withDuration: 0.5, animations: {
-                self.homeScreen?.LaunchingLottieAnimation.alpha = 0
-            }, completion: { _ in
-                self.homeScreen?.LaunchingLottieAnimation.isHidden = true
-                DispatchQueue.main.async {
-                    self.tabBarController?.tabBar.isHidden = false
-                }
-                self.homeScreen?.LaunchingLottieAnimation.removeFromSuperview()
-            })
-        }
-    }
-    
-    
-    func getUpcomingLaunches() {
-        SpaceExInternetServices.sharedObjc.getPastLaunches { result in
-            
-            switch result {
-                
-            case .success(let model):
-                self.objc = model ?? []
-                
-                DispatchQueue.main.async {
-                    self.homeScreen?.homeCollectionView.reloadData()
-                }
-                
-                
-            case .failure(_):
-                DispatchQueue.main.async {
-                    self.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
-                }
-            }
-        }
-    }
-    
-    func getRockets() {
-        SupernovaInternetServices.sharedObjc.getRockets { result in
-            
-            switch result {
-                
-            case .success(let model):
-                
-                self.rocketsObjc = model ?? []
-                
-                DispatchQueue.main.async {
-                    self.homeScreen?.homeCollectionView.reloadData()
-                }
-                
-            case .failure(_):
-                DispatchQueue.main.async {
-                    self.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
-                }
-            }
-        }
-    }
-    
-    func getPictureOfTheDay() {
-        NasaInternetService.sharedObjc.getPictureOfTheDay { [weak self] picture, error in
-            guard let strongSelf = self else {return}
-            strongSelf.pictureOfTheDay = picture
-            
-            DispatchQueue.main.async {
-                strongSelf.homeScreen?.homeCollectionView.reloadData()
-                strongSelf.homeScreen?.stopSkeletonAnimation()
-                strongSelf.homeScreen?.homeCollectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
-            }
-        }
-    }
-    
-    func getLastPicturesOfTheDays(limit: Int) {
-        NasaInternetService.sharedObjc.getLastPicturesOfTheDays(images: limit) { [weak self] pictures in
-            
-            switch pictures {
-                
-            case .success(let model):
-                guard let strongSelf = self else {return}
-                strongSelf.picturesOfTheDays = model ?? []
-                
-                DispatchQueue.main.async {
-                    strongSelf.homeScreen?.homeCollectionView.reloadData()
-                }
-                
-                
-            case .failure(let error):
-                print(error.localizedDescription)
-                DispatchQueue.main.async {
-                    self?.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
-                }
-            }
-        }
-    }
-    
-    func getLastLaunches(limit: Int) {
-        SpaceDevsInternetServices.sharedObjc.getLastLauches(limit: limit) { [weak self] result in
-            
-            switch result {
-                
-            case .success(let model):
-                guard let strongSelf = self else {return}
-                strongSelf.lastLauchesObjc = model ?? []
-                
-                DispatchQueue.main.async {
-                    strongSelf.homeScreen?.homeCollectionView.reloadData()
-                }
-                
-                
-            case .failure(let error):
-                print("Error \(error.localizedDescription)")
-                DispatchQueue.main.async {
-                    self?.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
-                }
-            }
-        }
-    }
-    
-    func getNextLaunch(limit: Int, startsAt: Int) {
-        SpaceDevsInternetServices.sharedObjc.getFutureLauches(limit: limit, startsAt: startsAt) { [weak self] result in
-            
-            switch result {
-            case .success(let model):
-                guard let strongSelf = self else {return}
-                strongSelf.nextLaunchObjc = model ?? []
-                if strongSelf.isOn == true {
-                    let fullHours = convertHoursForCountDownLaunchesFormatter(strongSelf.nextLaunchObjc[0].windowStart ?? "", outPut: "HH:mm:ss")
-                    let timeInterval = fullHours.timeIntervalSince(Date())
-                    let convertion = Int(timeInterval)
-                    let identifier = strongSelf.nextLaunchObjc[0].name
-                    let notificationTrigger = convertion - 3600
-                    
-                    if notificationTrigger <= 0 {
-                        print("Time has passed")
-                    } else {
-                        NotificationController.sharedObjc.requestUpcomingLaunchNotification(title: "\(strongSelf.nextLaunchObjc[0].name ?? "") is almost launching", body: "Livestream is now available to come along and watch", timeInterval: Double(notificationTrigger).rounded(), identifier: identifier ?? "Default_Identifier")
-                    }
-                    
-                    
-                } else {
-                    
-                }
-                
-                DispatchQueue.main.async {
-                    strongSelf.homeScreen?.homeCollectionView.reloadData()
-                }
-                
-            case .failure(let error):
-                print("Error \(error.localizedDescription)")
-                DispatchQueue.main.async {
-                    self?.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
-                }
-            }
-        }
-    }
-    
-    func getFutureLaunches(limit: Int, startsAt: Int) {
-        SpaceDevsInternetServices.sharedObjc.getFutureLauches(limit: limit, startsAt: startsAt) { [weak self] result in
-            
-            switch result {
-            case .success(let model):
-                guard let strongSelf = self else {return}
-                strongSelf.futureLauchesObjc = model ?? []
-                let formatter = DateFormatter()
-                formatter.dateFormat = "hh:mm a"
-                let formattedHour = formatter.string(from: Date())
-                
-                strongSelf.lastUpdated = formattedHour
-                
-                DispatchQueue.main.async {
-                    strongSelf.homeScreen?.homeCollectionView.reloadData()
-                }
-                
-            case .failure(let error):
-                print("Error \(error.localizedDescription)")
-                DispatchQueue.main.async {
-                    self?.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
-                }
-            }
-        }
-    }
-    
-    func getNews(limit: Int, startsAt: Int) {
-        SpaceDevsInternetServices.sharedObjc.getFirstArticles(limit: limit, startsAt: startsAt) { [weak self] result in
-            
-            switch result {
-                
-            case .success(let model):
-                guard let strongSelf = self else {return}
-                strongSelf.news = model ?? []
-                
-                DispatchQueue.main.async {
-                    strongSelf.homeScreen?.homeCollectionView.reloadData()
-                    strongSelf.homeScreen?.stopSkeletonAnimation()
-                    strongSelf.homeScreen?.homeCollectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
-                }
-                
-            case .failure(let error):
-                print("Error \(error.localizedDescription)")
-                DispatchQueue.main.async {
-                    self?.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
-                }
-            }
-        }
-    }
-    func getLastEvents(limit: Int, startsAt: Int) {
-        SpaceDevsInternetServices.sharedObjc.getLastEvents(limit: limit, startsAt: startsAt) { [weak self] result in
-            
-            switch result {
-                
-            case .success(let model):
-                guard let strongSelf = self else {return}
-                strongSelf.events = model ?? []
-                
-                DispatchQueue.main.async {
-                    self?.homeScreen?.homeCollectionView.reloadData()
-                }
-                
-                
-            case .failure(_):
-                guard let self = self else {return}
-                DispatchQueue.main.async {
-                    self.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
-                }
-            }
-        }
-    }
-    
     func configCustomNavigationController() {
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .backgroundColour
@@ -318,71 +81,21 @@ class HomeController: UIViewController {
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
+}
+
+extension HomeController: HomeViewModelProtocol {
     
-    func startLiveActivity() {
-        let activityData = HomeLaunchActivity.ContentState()
-        
-        let widgetData = HomeLaunchActivity(minutesLeft: 150, rocketName: "SpaceFlight 10")
-        
-        do {
-            if #available(iOS 16.1, *) {
-                let activity = try Activity<HomeLaunchActivity>.request(attributes: widgetData, contentState: activityData)
-            }
-        } catch {
-            print(error.localizedDescription)
+    func success() {
+        DispatchQueue.main.async {
+            self.homeScreen?.homeCollectionView.reloadData()
+            self.homeScreen?.stopSkeletonAnimation()
+            self.homeScreen?.homeCollectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
         }
     }
     
-}
-
-extension HomeController: UIScrollViewDelegate {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let statusBarManager = view.window?.windowScene?.statusBarManager {
-            let statusBarHeight = statusBarManager.statusBarFrame.height
-            
-            if scrollView.contentOffset.y > -scrollView.contentInset.top + 300 {
-                UIView.animate(withDuration: 0.3) {
-                    if #available(iOS 13.0, *) {
-                        let newStatusBarView = UIView()
-                        newStatusBarView.backgroundColor = UIColor.secondarySystemBackground
-                        self.view.addSubview(newStatusBarView)
-                        
-                        newStatusBarView.translatesAutoresizingMaskIntoConstraints = false
-                        newStatusBarView.heightAnchor.constraint(equalToConstant: statusBarHeight).isActive = true
-                        newStatusBarView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1.0).isActive = true
-                        newStatusBarView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-                        newStatusBarView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-                        self.statusbarView?.removeFromSuperview()
-                        self.statusbarView = newStatusBarView
-                        
-                    } else {
-                        let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
-                        statusBar?.backgroundColor = UIColor.black
-                    }
-                }
-            } else {
-                UIView.animate(withDuration: 0.3) {
-                    if #available(iOS 13.0, *) {
-                        let newStatusBarView = UIView()
-                        newStatusBarView.isOpaque = false
-                        newStatusBarView.backgroundColor = .clear
-                        self.view.addSubview(newStatusBarView)
-                        
-                        newStatusBarView.translatesAutoresizingMaskIntoConstraints = false
-                        newStatusBarView.heightAnchor.constraint(equalToConstant: statusBarHeight).isActive = true
-                        newStatusBarView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1.0).isActive = true
-                        newStatusBarView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-                        newStatusBarView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-                        
-                        self.statusbarView?.removeFromSuperview()
-                        self.statusbarView = newStatusBarView
-                    } else {
-                        let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
-                        statusBar?.backgroundColor = UIColor.clear
-                    }
-                }
-            }
+    func failure(error: String) {
+        DispatchQueue.main.async {
+            self.alerts?.getAlert(title: "Error", message: "Error trying to fetch data, try again later", buttonMessage: "Cancel")
         }
     }
 }
@@ -415,21 +128,21 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         case 0:
             return 1
         case 1:
-            return buttonsModel.count
+            return viewModel.buttonsCount
         case 2:
-            return nextLaunchObjc.count
+            return viewModel.nextLaunchCount
         case 3:
-            return futureLauchesObjc.count
+            return viewModel.futureLauchesCount
         case 4:
             return 1
         case 5:
-            return lastLauchesObjc.count
+            return viewModel.lastLaunchesCount
         case 6:
-            return news.count
+            return viewModel.newsCount
         case 7:
-            return events.count
+            return viewModel.eventsCount
         case 8:
-            return picturesOfTheDays.count
+            return viewModel.picturesOfTheDaysCount
         default:
             return 0
         }
@@ -441,23 +154,23 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
             
         case 0:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionCellImage.identifier, for: indexPath) as? HomeCollectionCellImage else {return UICollectionViewCell()}
-            guard let unwrapped = pictureOfTheDay else {return cell}
+            guard let unwrapped = viewModel.pictureOfTheDayImage else {return cell}
             cell.pictureOfTheDayImageView.hideSkeleton()
             cell.configCell(with: unwrapped)
             return cell
         case 1:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionCell.identifier, for: indexPath) as? ButtonCollectionCell else {return UICollectionViewCell()}
-            cell.configCell(with: buttonsModel[indexPath.row])
+            cell.configCell(with: viewModel.buttonsIndexPath(indexPath: indexPath))
             cell.backgroundColor = .primaryColour.withAlphaComponent(0.3)
             return cell
         case 2:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UpcomingLaunchCell.identifier, for: indexPath) as? UpcomingLaunchCell else {return UICollectionViewCell()}
-            cell.configCell(with: nextLaunchObjc[indexPath.item])
-            cell.startCountdown(data: nextLaunchObjc[indexPath.item])
+            cell.configCell(with: viewModel.nextLaunchIndexPath(indexPath: indexPath))
+            cell.startCountdown(data: viewModel.nextLaunchIndexPath(indexPath: indexPath))
             return cell
         case 3:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LaunchesCell.identifier, for: indexPath) as? LaunchesCell else {return UICollectionViewCell()}
-            cell.configCell(with: futureLauchesObjc[indexPath.item])
+            cell.configCell(with: viewModel.futureLauchesIndexPath(indexPath: indexPath))
             return cell
         case 4:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeAdCell.identifier, for: indexPath) as? HomeAdCell else {return UICollectionViewCell()}
@@ -467,25 +180,25 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
             return cell
         case 5:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ExploreCollectionCell.identifier, for: indexPath) as? ExploreCollectionCell else {return UICollectionViewCell()}
-            cell.configCell(with: lastLauchesObjc[indexPath.row])
+            cell.configCell(with: viewModel.lastLauchesIndexPath(indexPath: indexPath))
             return cell
         case 6:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsCollectionCell.identifier, for: indexPath) as? NewsCollectionCell else {return UICollectionViewCell()}
-            cell.configCell(with: news[indexPath.row])
+            cell.configCell(with: viewModel.newsIndexPath(indexPath: indexPath))
             cell.backgroundColor = .tertiarySystemBackground
             cell.newsProviderLabel.isHidden = false
             return cell
             
         case 7:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventsCell.identifier, for: indexPath) as? EventsCell else {return UICollectionViewCell()}
-            cell.configCell(with: events[indexPath.row])
+            cell.configCell(with: viewModel.eventsIndexPath(indexPath: indexPath))
             cell.backgroundColor = .tertiarySystemBackground
             return cell
             
         case 8:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PicturesOfTheDaysCell.identifier, for: indexPath) as? PicturesOfTheDaysCell else {return UICollectionViewCell()}
-            cell.newsImageView.sd_setImage(with: URL(string: picturesOfTheDays[indexPath.row].url ?? ""))
-            cell.pictureOfTheDayLabel.text = picturesOfTheDays[indexPath.row].title
+            cell.newsImageView.sd_setImage(with: URL(string: viewModel.picturesOfTheDays(indexPath: indexPath).url ?? ""))
+            cell.pictureOfTheDayLabel.text = viewModel.picturesOfTheDays(indexPath: indexPath).title
             return cell
         default: break
         }
@@ -496,7 +209,7 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         
         switch indexPath.section {
         case 0:
-            guard let unwrapped = pictureOfTheDay else {return}
+            guard let unwrapped = viewModel.pictureOfTheDayImage else {return}
             let vc = ImageViewerController(imageViewerViewModel: ImageViewerViewModel(data: unwrapped))
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
@@ -517,23 +230,21 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
             }
             
         case 2:
-            let vc = LaunchesItemController(viewModel: LaunchingItemViewModel(launches: nextLaunchObjc[indexPath.item]))
+            let vc = LaunchesItemController(viewModel: LaunchingItemViewModel(launches: viewModel.nextLaunchIndexPath(indexPath: indexPath)))
             self.navigationController?.pushViewController(vc, animated: true)
         case 3:
-            let vc = LaunchesItemController(viewModel: LaunchingItemViewModel(launches: futureLauchesObjc[indexPath.item]))
+            let vc = LaunchesItemController(viewModel: LaunchingItemViewModel(launches: viewModel.futureLauchesIndexPath(indexPath: indexPath)))
             self.navigationController?.pushViewController(vc, animated: true)
-            
         case 5:
-            let vc = LaunchesItemController(viewModel: LaunchingItemViewModel(launches: lastLauchesObjc[indexPath.item]))
+            let vc = LaunchesItemController(viewModel: LaunchingItemViewModel(launches: viewModel.lastLauchesIndexPath(indexPath: indexPath)))
             self.navigationController?.pushViewController(vc, animated: true)
-            
         case 6:
-            self.openSafariPageWith(url: news[indexPath.row].url ?? "Error")
+            self.openSafariPageWith(url: viewModel.newsIndexPath(indexPath: indexPath).url ?? "Error")
         case 7:
-            let vc = EventsItem(viewModel: EventsItemViewModel(events: events[indexPath.row]))
+            let vc = EventsItem(viewModel: EventsItemViewModel(events: viewModel.eventsIndexPath(indexPath: indexPath)))
             self.navigationController?.pushViewController(vc, animated: true)
         case 8:
-            let vc = ImageViewerController(imageViewerViewModel: ImageViewerViewModel(data: picturesOfTheDays[indexPath.row]))
+            let vc = ImageViewerController(imageViewerViewModel: ImageViewerViewModel(data: viewModel.picturesOfTheDays(indexPath: indexPath)))
             self.present(vc, animated: true)
         default: break
         }
@@ -556,7 +267,6 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
                 header?.titleCollectionLabel.text = "Next Launch"
                 return header ?? UICollectionReusableView()
             case 4:
-                // Tirar header... (AD)
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleReusable.identifier, for: indexPath) as? TitleReusable
                 header?.titleCollectionLabel.text = "Ad"
                 return header ?? UICollectionReusableView()
@@ -565,7 +275,7 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
                 header?.titleCollectionLabel.text = "Future Lauches"
                 header?.seeAllButton.tag = 2
                 header?.lastUpdatedLabel.isHidden = false
-                header?.lastUpdatedLabel.text = "Last Updated at \(lastUpdated)"
+                header?.lastUpdatedLabel.text = "Last Updated at \(viewModel.lastUpdated)"
                 header?.delegate(delegate: self)
                 return header ?? UICollectionReusableView()
             case 5:
@@ -731,37 +441,5 @@ extension HomeController: TitleCollectionProtocol {
             self.navigationController?.pushViewController(host, animated: true)
         default: break
         }
-    }
-}
-
-extension HomeController {
-    
-    func getCompositionalLayout() {
-        let layout = UICollectionViewCompositionalLayout { (sectionNumber, env) in
-            
-            switch sectionNumber {
-            case 0:
-                return LayoutType.ImageViewer.getLayout()
-            case 1:
-                return LayoutType.largeButtonsLayout.getLayout()
-            case 2:
-                return LayoutType.NextLaunchSection.getLayout()
-            case 3:
-                return LayoutType.future.getLayout()
-            case 4:
-                return LayoutType.adView.getLayout()
-            case 5:
-                return LayoutType.LastLauchesLayout.getLayout()
-            case 6:
-                return LayoutType.tableLayout.getLayout()
-            case 7:
-                return LayoutType.tableLayout.getLayout()
-            case 8:
-                return LayoutType.pictureOfTheDay.getLayout()
-            default:
-                return LayoutType.tableLayout.getLayout()
-            }
-        }
-        self.homeScreen?.homeCollectionView.setCollectionViewLayout(layout, animated: true)
     }
 }

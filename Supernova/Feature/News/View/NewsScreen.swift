@@ -28,7 +28,6 @@ class NewsScreen: UIView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
         layout.scrollDirection = .vertical
-//        layout.collectionView?.showsVerticalScrollIndicator = false
         layout.minimumLineSpacing = 12
         collectionView.tag = 1
         collectionView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
@@ -45,7 +44,6 @@ class NewsScreen: UIView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .red
         layout.scrollDirection = .vertical
-//        layout.collectionView?.showsVerticalScrollIndicator = false
         layout.minimumLineSpacing = 12
         collectionView.tag = 2
         collectionView.isSkeletonable = true
@@ -79,11 +77,8 @@ class NewsScreen: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .systemPurple
         button.setImage(UIImage(systemName: "line.3.horizontal.decrease.circle"), for: .normal)
-//        button.addTarget(self, action: #selector(savedButtonTriggered), for: .touchUpInside)
         if #available(iOS 14.0, *) {
             button.showsMenuAsPrimaryAction = true
-        } else {
-            // Fallback on earlier versions
         }
         return button
     }()
@@ -121,15 +116,11 @@ extension NewsScreen: ViewCode {
     
     func configureConstraints() {
         NSLayoutConstraint.activate([
-        
-//            self.activity.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//            self.activity.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-                    
+            
             self.newsCollectionView.topAnchor.constraint(equalTo: self.topAnchor),
             self.newsCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.newsCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.newsCollectionView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-        
         
         ])
     }

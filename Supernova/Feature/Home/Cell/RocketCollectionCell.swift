@@ -29,9 +29,9 @@ class RocketCollectionCell: UICollectionViewCell {
     }
     
     
-    func configCell(with data: SupernovaRocketModel) {
-        self.rocketImageView.sd_setImage(with: URL(string: data.image ?? "Error"))
-    }
+//    func configCell(with data: SupernovaRocketModel) {
+//        self.rocketImageView.sd_setImage(with: URL(string: data.image ?? "Error"))
+//    }
     
 }
 

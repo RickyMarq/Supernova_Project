@@ -307,52 +307,22 @@ extension RocketScreen: ViewCode {
             self.rocketItemsStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             self.rocketItemsStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             self.rocketItemsStackView.bottomAnchor.constraint(equalTo: self.rocketContentView.bottomAnchor, constant: -20),
-            
-        
-//            self.rocketNameLabel.topAnchor.constraint(equalTo: self.rocketContentView.topAnchor, constant: 16),
-//
-//            self.rocketNameLabel.leadingAnchor.constraint(equalTo: self.rocketContentView.leadingAnchor, constant: 20),
-//            self.rocketNameLabel.trailingAnchor.constraint(equalTo: self.rocketContentView.trailingAnchor, constant: -20),
-//
-//            self.rocketDescriptionLabel.topAnchor.constraint(equalTo: self.rocketNameLabel.bottomAnchor, constant: 20),
-//            self.rocketDescriptionLabel.leadingAnchor.constraint(equalTo: self.rocketNameLabel.leadingAnchor),
-//            self.rocketDescriptionLabel.trailingAnchor.constraint(equalTo: self.rocketNameLabel.trailingAnchor),
-//
-//
-//            self.rocketImageView.topAnchor.constraint(equalTo: self.rocketDescriptionLabel.bottomAnchor, constant: 20),
-//            self.rocketImageView.leadingAnchor.constraint(equalTo: self.rocketDescriptionLabel.leadingAnchor),
-//            self.rocketImageView.trailingAnchor.constraint(equalTo: self.rocketDescriptionLabel.trailingAnchor),
            self.rocketImageView.heightAnchor.constraint(equalToConstant: 200),
-//
-//            self.launchInformationTitle.topAnchor.constraint(equalTo: self.rocketImageView.bottomAnchor, constant: 20),
-//            self.launchInformationTitle.leadingAnchor.constraint(equalTo: self.rocketImageView.leadingAnchor),
-//            self.launchInformationTitle.trailingAnchor.constraint(equalTo: self.rocketImageView.trailingAnchor),
-//
-//
-//            self.companyUIView.topAnchor.constraint(equalTo: self.launchInformationTitle.bottomAnchor, constant: 10),
-//            self.companyUIView.leadingAnchor.constraint(equalTo: self.rocketImageView.leadingAnchor),
-//            self.companyUIView.trailingAnchor.constraint(equalTo: self.rocketImageView.trailingAnchor),
+
             self.companyUIView.heightAnchor.constraint(equalToConstant: 45),
-//
+
             self.chevronImageView.trailingAnchor.constraint(equalTo: self.companyUIView.trailingAnchor, constant: -20),
             self.chevronImageView.centerYAnchor.constraint(equalTo: self.companyUIView.centerYAnchor),
-//
+
             self.labelCompanyNameLabel.centerYAnchor.constraint(equalTo: self.chevronImageView.centerYAnchor),
             self.labelCompanyNameLabel.leadingAnchor.constraint(equalTo: self.companyUIView.leadingAnchor, constant: 15),
             self.labelCompanyNameLabel.trailingAnchor.constraint(equalTo: self.chevronImageView.leadingAnchor, constant: 15),
-//
+
             self.companyButton.topAnchor.constraint(equalTo: self.companyUIView.topAnchor),
             self.companyButton.leadingAnchor.constraint(equalTo: self.companyUIView.leadingAnchor),
             self.companyButton.trailingAnchor.constraint(equalTo: self.companyUIView.trailingAnchor),
             self.companyButton.bottomAnchor.constraint(equalTo: self.companyUIView.bottomAnchor),
-//
-//            self.launchInformationsView.topAnchor.constraint(equalTo: self.companyUIView.bottomAnchor, constant: 20),
-//            self.launchInformationsView.leadingAnchor.constraint(equalTo: self.companyUIView.leadingAnchor),
-//            self.launchInformationsView.trailingAnchor.constraint(equalTo: self.companyUIView.trailingAnchor),
-//            self.launchInformationsView.bottomAnchor.constraint(equalTo: self.rocketContentView.bottomAnchor, constant: -20),
-            
-//            self.companyInfoUIView.heightAnchor.constraint(equalToConstant: 100),
-            
+
             self.totalLaunchesLabel.leftAnchor.constraint(equalTo: self.companyInfoUIView.leftAnchor, constant: 12),
             self.totalLaunchesLabel.topAnchor.constraint(equalTo: self.companyInfoUIView.topAnchor, constant: 10),
             
@@ -377,8 +347,7 @@ extension RocketScreen: ViewCode {
             
             self.companyLinkLabel.centerYAnchor.constraint(equalTo: self.companyLinksUIView.centerYAnchor),
             self.companyLinkLabel.leadingAnchor.constraint(equalTo: self.companyLinksUIView.leadingAnchor, constant: 15),
-//            self.companyLinkLabel.trailingAnchor.constraint(equalTo: self.chevronImageView.leadingAnchor, constant: 15),
-//
+
             self.companyLinkButton.topAnchor.constraint(equalTo: self.companyLinksUIView.topAnchor),
             
             self.companyLinkButton.leadingAnchor.constraint(equalTo: self.companyLinksUIView.leadingAnchor),
@@ -386,7 +355,6 @@ extension RocketScreen: ViewCode {
             self.companyLinkButton.trailingAnchor.constraint(equalTo: self.companyLinksUIView.trailingAnchor),
             
             self.companyLinkButton.bottomAnchor.constraint(equalTo: self.companyLinksUIView.bottomAnchor),
-            
             
         ])
     }

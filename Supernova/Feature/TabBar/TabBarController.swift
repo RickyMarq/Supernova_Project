@@ -11,25 +11,35 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setUpTabBar()
+        setUpTabBar()
+        configTabBar()
     }
     
     func setUpTabBar() {
-        self.tabBar.isHidden = true
-        self.tabBar.tintColor = .primaryColour
-
-        let home = UINavigationController(rootViewController: HomeController())
-        let settings = UINavigationController(rootViewController: SettingsController())
         
-        self.setViewControllers([home, settings], animated: true)
+        let home: UINavigationController = {
+            let vc = HomeController()
+            let nv = UINavigationController(rootViewController: vc)
+            nv.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
+            nv.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
+            return nv
+        }()
         
-        guard let items = tabBar.items else {return}
+        let settings: UINavigationController = {
+            let vc = SettingsController()
+            let nv = UINavigationController(rootViewController: vc)
+            nv.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gearshape"), tag: 1)
+            nv.tabBarItem.selectedImage = UIImage(systemName: "gearshape.fill")
+            return nv
+        }()
         
-        items[0].image = UIImage(systemName: "house")
-        items[0].title = "Home"
-        
-        items[1].image = UIImage(systemName: "gear")
-        items[1].title = "Settings"
+        viewControllers = [home, settings]
     }
     
+    
+    func configTabBar() {
+        tabBar.tintColor = .primaryColour
+        tabBar.layer.borderWidth = 0.3
+        tabBar.layer.borderColor = UIColor.black.cgColor
+    }
 }

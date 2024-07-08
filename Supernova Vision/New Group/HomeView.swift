@@ -21,10 +21,6 @@ struct HomeView: View {
                         ProgressView()
                     }
                 }
-         //       .padding(.vertical, 100)
-         //       .padding(.horizontal, 1000)
-         //       .background(Color.blue)
-          //      .frame(minHeight: 100)
             }
         }
     }

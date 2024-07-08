@@ -18,7 +18,6 @@ class HomeScreen: UIView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
         collectionView.contentInsetAdjustmentBehavior = .never
-//        collectionView.alwaysBounceVertical = true
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(HomeCollectionCellImage.self, forCellWithReuseIdentifier: HomeCollectionCellImage.identifier)
         collectionView.register(ButtonCollectionCell.self, forCellWithReuseIdentifier: ButtonCollectionCell.identifier)
@@ -40,16 +39,6 @@ class HomeScreen: UIView {
         self.homeCollectionView.delegate = delegate
         self.homeCollectionView.dataSource = dataSource
     }
-    
-    lazy var LaunchingLottieAnimation: LottieAnimationView = {
-        let animation = LottieAnimationView(name: "lauchscreen.json")
-        animation.translatesAutoresizingMaskIntoConstraints = false
-        animation.backgroundColor = .black
-        animation.animationSpeed = 2.0
-        animation.loopMode = .playOnce
-        animation.contentMode = .scaleAspectFill
-        return animation
-    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,7 +56,6 @@ extension HomeScreen: ViewCode {
     func configureSubViews() {
         self.backgroundColor = .secondarySystemBackground
         self.addSubview(self.homeCollectionView)
-        self.addSubview(self.LaunchingLottieAnimation)        
     }
     
     func configureConstraints() {
@@ -77,24 +65,15 @@ extension HomeScreen: ViewCode {
             self.homeCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.homeCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.homeCollectionView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-            
-            self.LaunchingLottieAnimation.topAnchor.constraint(equalTo: self.topAnchor),
-            self.LaunchingLottieAnimation.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.LaunchingLottieAnimation.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.LaunchingLottieAnimation.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-//            self.lottieAnimation.heightAnchor.constraint(equalToConstant: 300),
-        
         ])
     }
     
     func configureAdditionalBehaviors() {
- //       self.lottieAnimation.frame = self.bounds
- //       self.lottieAnimation.center = self.center
+        
     }
     
     func configureAccessibility() {
         
     }
-    
     
 }

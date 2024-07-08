@@ -48,12 +48,6 @@ class TitleCollection: UICollectionReusableView {
         return button
     }()
     
-//    var showSeeAllButton: Bool = true {
-//        didSet {
-//            self.seeAllButton.isHidden = !showSeeAllButton
-//        }
-//    }
-    
     @objc func tappedSeeAllButton(sender: UIButton) {
         self.delegate?.seeAllAction(reusable: self)
     }

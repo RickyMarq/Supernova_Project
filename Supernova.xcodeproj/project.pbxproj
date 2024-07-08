@@ -40,10 +40,6 @@
 		1D39C9232A4C601B00059B1E /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D39C9222A4C601B00059B1E /* NewsItem.swift */; };
 		1D39C9272A4D06EC00059B1E /* LaunchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D39C9262A4D06EC00059B1E /* LaunchItem.swift */; };
 		1D39C9292A4E0C0F00059B1E /* LastLaunchesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D39C9282A4E0C0F00059B1E /* LastLaunchesScreen.swift */; };
-		1D4387E22982F51E00640AE6 /* HomeItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4387E12982F51E00640AE6 /* HomeItemsModel.swift */; };
-		1D4387EE29833ED500640AE6 /* DragonsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4387ED29833ED500640AE6 /* DragonsModel.swift */; };
-		1D4387F02983520E00640AE6 /* CrewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4387EF2983520E00640AE6 /* CrewModel.swift */; };
-		1D4387F42983895E00640AE6 /* SpaceStationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4387F32983895E00640AE6 /* SpaceStationsModel.swift */; };
 		1D4387F6298389B400640AE6 /* SpaceDevsInternetServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4387F5298389B400640AE6 /* SpaceDevsInternetServices.swift */; };
 		1D4CB5F029DF7BF100BBFEE9 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4CB5EF29DF7BF100BBFEE9 /* NotificationController.swift */; };
 		1D4CB5F229E0B8EE00BBFEE9 /* NotificationTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4CB5F129E0B8ED00BBFEE9 /* NotificationTableCell.swift */; };
@@ -55,12 +51,9 @@
 		1D59254F2988ACC600F2A0EE /* NewsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59254E2988ACC600F2A0EE /* NewsCollectionCell.swift */; };
 		1D59255129894CEF00F2A0EE /* HomeCollectionCellImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59255029894CEF00F2A0EE /* HomeCollectionCellImage.swift */; };
 		1D59255429898FD000F2A0EE /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59255329898FD000F2A0EE /* NewsModel.swift */; };
-		1D5E1DE929D2519000178A8D /* PagingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5E1DE829D2519000178A8D /* PagingInfo.swift */; };
 		1D5F0AED29AAC48F00AB229F /* AdsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5F0AEC29AAC48F00AB229F /* AdsCollectionCell.swift */; };
 		1D71319F29A41E5E0020AC1B /* PicturesOfTheDaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D71319E29A41E5E0020AC1B /* PicturesOfTheDaysCell.swift */; };
 		1D7131A129A45FBE0020AC1B /* PageControlFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7131A029A45FBE0020AC1B /* PageControlFooter.swift */; };
-		1D719A932A43745C000F8D53 /* SupernovaInternetServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D719A922A43745C000F8D53 /* SupernovaInternetServices.swift */; };
-		1D719A952A4374ED000F8D53 /* SupernovaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D719A942A4374ED000F8D53 /* SupernovaModel.swift */; };
 		1D719A972A4377A4000F8D53 /* RocketCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D719A962A4377A4000F8D53 /* RocketCollectionCell.swift */; };
 		1D7453A42A45D4E700534757 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1D7453A32A45D4E700534757 /* SDWebImageSwiftUI */; };
 		1D7BF5C529A3B5690097B6ED /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF5C429A3B5690097B6ED /* UIButton+Extension.swift */; };
@@ -143,7 +136,6 @@
 		1DE8FF92297F3E350054026B /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8FF91297F3E350054026B /* Alerts.swift */; };
 		1DE8FF95297F3EE50054026B /* UpcomingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8FF94297F3EE50054026B /* UpcomingModel.swift */; };
 		1DE8FF97297F40990054026B /* PictureOfTheDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8FF96297F40990054026B /* PictureOfTheDayModel.swift */; };
-		1DE8FF99297F42050054026B /* NasaInternetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8FF98297F42050054026B /* NasaInternetService.swift */; };
 		1DE8FF9E297F46050054026B /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1DE8FF9D297F46050054026B /* SDWebImage */; };
 		1DE8FFAD298167DF0054026B /* ImageViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8FFAC298167DF0054026B /* ImageViewerController.swift */; };
 		1DE8FFAF298167FB0054026B /* ImageViewerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8FFAE298167FB0054026B /* ImageViewerScreen.swift */; };
@@ -175,14 +167,14 @@
 		BE1742DA2C39C6320046A7F6 /* WidgetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1742D92C39C6320046A7F6 /* WidgetsService.swift */; };
 		BE1742DC2C39C66C0046A7F6 /* UIDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1742DB2C39C66C0046A7F6 /* UIDate+Extension.swift */; };
 		BE1742E22C39D5330046A7F6 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1742E12C39D5330046A7F6 /* Image+Extension.swift */; };
-		BE1D1A1A2B49F292009A231F /* PictureOfTheDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8FF96297F40990054026B /* PictureOfTheDayModel.swift */; };
 		BE44BB072B4DB32E00BDE5FA /* NasaObservatory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44BB062B4DB32E00BDE5FA /* NasaObservatory.swift */; };
 		BE44BB092B4DBE3E00BDE5FA /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44BB082B4DBE3E00BDE5FA /* GridLayout.swift */; };
 		BE6AAEA32AF9676E008A5D1A /* LaunchesCellViewModel.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6AAEA22AF9676E008A5D1A /* LaunchesCellViewModel.swift.swift */; };
-		BE723E062AFA939300AC0A03 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE723E052AFA939300AC0A03 /* Home.swift */; };
-		BE837BB42C39FA3500F27B3D /* HomeLaunchActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE837BB32C39FA3500F27B3D /* HomeLaunchActivity.swift */; };
-		BE837BB72C39FD3D00F27B3D /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE837BB62C39FD3D00F27B3D /* SwiftUIView.swift */; };
-		BE837BB82C39FDE900F27B3D /* HomeLaunchActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE837BB32C39FA3500F27B3D /* HomeLaunchActivity.swift */; };
+		BE837BBD2C3B2C0300F27B3D /* LaunchAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE837BBC2C3B2C0300F27B3D /* LaunchAnimationController.swift */; };
+		BE837BC02C3B2C2100F27B3D /* LaunchAnimationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE837BBF2C3B2C2100F27B3D /* LaunchAnimationScreen.swift */; };
+		BE837BC32C3B3D1900F27B3D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE837BC22C3B3D1900F27B3D /* Errors.swift */; };
+		BE837BC92C3B4D4500F27B3D /* HomeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE837BC82C3B4D4500F27B3D /* HomeExtension.swift */; };
+		BE837BCB2C3B61DF00F27B3D /* PictureOfTheDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE8FF96297F40990054026B /* PictureOfTheDayModel.swift */; };
 		BE946DDB2B5D863600399651 /* NasaObItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE946DDA2B5D863600399651 /* NasaObItem.swift */; };
 		BE946DEE2B618E0A00399651 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE946DED2B618E0A00399651 /* GridLayout.swift */; };
 		BE946DF02B61901A00399651 /* NasaObservatoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE946DEF2B61901A00399651 /* NasaObservatoryView.swift */; };
@@ -299,10 +291,6 @@
 		1D39C9222A4C601B00059B1E /* NewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
 		1D39C9262A4D06EC00059B1E /* LaunchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchItem.swift; sourceTree = "<group>"; };
 		1D39C9282A4E0C0F00059B1E /* LastLaunchesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastLaunchesScreen.swift; sourceTree = "<group>"; };
-		1D4387E12982F51E00640AE6 /* HomeItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemsModel.swift; sourceTree = "<group>"; };
-		1D4387ED29833ED500640AE6 /* DragonsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragonsModel.swift; sourceTree = "<group>"; };
-		1D4387EF2983520E00640AE6 /* CrewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewModel.swift; sourceTree = "<group>"; };
-		1D4387F32983895E00640AE6 /* SpaceStationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceStationsModel.swift; sourceTree = "<group>"; };
 		1D4387F5298389B400640AE6 /* SpaceDevsInternetServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceDevsInternetServices.swift; sourceTree = "<group>"; };
 		1D4CB5ED29DF771700BBFEE9 /* Supernova.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Supernova.entitlements; sourceTree = "<group>"; };
 		1D4CB5EF29DF7BF100BBFEE9 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
@@ -315,12 +303,9 @@
 		1D59254E2988ACC600F2A0EE /* NewsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionCell.swift; sourceTree = "<group>"; };
 		1D59255029894CEF00F2A0EE /* HomeCollectionCellImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionCellImage.swift; sourceTree = "<group>"; };
 		1D59255329898FD000F2A0EE /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
-		1D5E1DE829D2519000178A8D /* PagingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingInfo.swift; sourceTree = "<group>"; };
 		1D5F0AEC29AAC48F00AB229F /* AdsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsCollectionCell.swift; sourceTree = "<group>"; };
 		1D71319E29A41E5E0020AC1B /* PicturesOfTheDaysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesOfTheDaysCell.swift; sourceTree = "<group>"; };
 		1D7131A029A45FBE0020AC1B /* PageControlFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlFooter.swift; sourceTree = "<group>"; };
-		1D719A922A43745C000F8D53 /* SupernovaInternetServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupernovaInternetServices.swift; sourceTree = "<group>"; };
-		1D719A942A4374ED000F8D53 /* SupernovaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupernovaModel.swift; sourceTree = "<group>"; };
 		1D719A962A4377A4000F8D53 /* RocketCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketCollectionCell.swift; sourceTree = "<group>"; };
 		1D7BF5C429A3B5690097B6ED /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		1D7F1B3E2A96BCA60079BFCF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -426,7 +411,6 @@
 		1DE8FF91297F3E350054026B /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		1DE8FF94297F3EE50054026B /* UpcomingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingModel.swift; sourceTree = "<group>"; };
 		1DE8FF96297F40990054026B /* PictureOfTheDayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOfTheDayModel.swift; sourceTree = "<group>"; };
-		1DE8FF98297F42050054026B /* NasaInternetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaInternetService.swift; sourceTree = "<group>"; };
 		1DE8FFAC298167DF0054026B /* ImageViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerController.swift; sourceTree = "<group>"; };
 		1DE8FFAE298167FB0054026B /* ImageViewerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerScreen.swift; sourceTree = "<group>"; };
 		1DEB4CEE29C48E3F005D6E38 /* CompanyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyItem.swift; sourceTree = "<group>"; };
@@ -459,9 +443,10 @@
 		BE44BB082B4DBE3E00BDE5FA /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		BE44BB0B2B4DCDF700BDE5FA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BE6AAEA22AF9676E008A5D1A /* LaunchesCellViewModel.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesCellViewModel.swift.swift; sourceTree = "<group>"; };
-		BE723E052AFA939300AC0A03 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		BE837BB32C39FA3500F27B3D /* HomeLaunchActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLaunchActivity.swift; sourceTree = "<group>"; };
-		BE837BB62C39FD3D00F27B3D /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		BE837BBC2C3B2C0300F27B3D /* LaunchAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAnimationController.swift; sourceTree = "<group>"; };
+		BE837BBF2C3B2C2100F27B3D /* LaunchAnimationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAnimationScreen.swift; sourceTree = "<group>"; };
+		BE837BC22C3B3D1900F27B3D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		BE837BC82C3B4D4500F27B3D /* HomeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExtension.swift; sourceTree = "<group>"; };
 		BE946DDA2B5D863600399651 /* NasaObItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaObItem.swift; sourceTree = "<group>"; };
 		BE946DED2B618E0A00399651 /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		BE946DEF2B61901A00399651 /* NasaObservatoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaObservatoryView.swift; sourceTree = "<group>"; };
@@ -764,8 +749,8 @@
 				BE1742812C38DFE00046A7F6 /* App */,
 				1D39C91F2A4C5B7E00059B1E /* Extensions */,
 				1D39C9172A4BC52100059B1E /* Service */,
+				BE837BCA2C3B5E1800F27B3D /* Resources */,
 				BE17426C2C38D51C0046A7F6 /* Feature */,
-				1D39C9052A4BBFFF00059B1E /* Assets.xcassets */,
 				1DB6B3942A522ECD00A15132 /* SupernovaWatchOS-Watch-App-Info.plist */,
 				1D39C9072A4BBFFF00059B1E /* Preview Content */,
 			);
@@ -915,17 +900,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		1D59254C2988A49700F2A0EE /* SpaceExModels */ = {
-			isa = PBXGroup;
-			children = (
-				1DE8FF94297F3EE50054026B /* UpcomingModel.swift */,
-				1D4387ED29833ED500640AE6 /* DragonsModel.swift */,
-				1DD37EC02994093C00C918EC /* LastLauchesModel.swift */,
-				1DFF037B29C23812006E59CB /* RocketModel.swift */,
-			);
-			path = SpaceExModels;
-			sourceTree = "<group>";
-		};
 		1D59254D2988AC9E00F2A0EE /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -936,14 +910,6 @@
 				1DF09D9E29ABBA6200BCCE5E /* NewsTextCell.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		1D59255229898FBF00F2A0EE /* NewsModel */ = {
-			isa = PBXGroup;
-			children = (
-				1D59255329898FD000F2A0EE /* NewsModel.swift */,
-			);
-			path = NewsModel;
 			sourceTree = "<group>";
 		};
 		1D7F1B3A2A96BC5D0079BFCF /* Controller */ = {
@@ -973,8 +939,13 @@
 		1D7F1B3D2A96BC840079BFCF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1D2C00AE29ED76E800D113FD /* YoutubePlayerModel.swift */,
+				1DE8FF96297F40990054026B /* PictureOfTheDayModel.swift */,
+				1DFF037B29C23812006E59CB /* RocketModel.swift */,
+				1DE8FF94297F3EE50054026B /* UpcomingModel.swift */,
+				1DD37EC02994093C00C918EC /* LastLauchesModel.swift */,
+				1D59255329898FD000F2A0EE /* NewsModel.swift */,
 				1DD37EBE2993E63300C918EC /* HomeSectionButtonsModel.swift */,
-				BE837BB32C39FA3500F27B3D /* HomeLaunchActivity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -982,6 +953,10 @@
 		1D7F1B402A96BCF10079BFCF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1D34869A2A82A1D800B5C99D /* LaunchesServices.swift */,
+				1D4387F5298389B400640AE6 /* SpaceDevsInternetServices.swift */,
+				1DE8FF8E297F3DE00054026B /* SpaceExInternetServices.swift */,
+				1D2C00B029ED785700D113FD /* YoutubeInternetServices.swift */,
 				1D7F1B412A96BCFD0079BFCF /* HomeServices.swift */,
 			);
 			path = Services;
@@ -991,10 +966,10 @@
 			isa = PBXGroup;
 			children = (
 				BE1742D32C39C3E70046A7F6 /* App */,
-				BE1742DE2C39C7C10046A7F6 /* Feature */,
 				BE1742D82C39C61F0046A7F6 /* Service */,
 				1D29ACEB2A5849B000DD3B7E /* Extensions */,
 				BE1742DD2C39C7B20046A7F6 /* Resources */,
+				BE1742DE2C39C7C10046A7F6 /* Feature */,
 				1D896D7A2A32195300C5DA28 /* Info.plist */,
 			);
 			path = SupernovaWidgets;
@@ -1003,10 +978,11 @@
 		1D89F0BD2983F59700DF67F8 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				1D59254D2988AC9E00F2A0EE /* Cell */,
+				BE837BC62C3B4B4B00F27B3D /* Services */,
+				1D533AAA2A8E7C48009A4133 /* View */,
 				1D533AAB2A8E7C55009A4133 /* ViewModel */,
 				1D533AA92A8E7C3F009A4133 /* Controller */,
-				1D533AAA2A8E7C48009A4133 /* View */,
+				1D59254D2988AC9E00F2A0EE /* Cell */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -1429,8 +1405,6 @@
 				1DE8FF6C297EEA5A0054026B /* App */,
 				1DE8FF80297EFAA00054026B /* Extensions */,
 				1DE8FF90297F3E110054026B /* Resources */,
-				1DE8FF8D297F3DD30054026B /* Service */,
-				1DE8FF93297F3ECF0054026B /* Model */,
 				1DE8FF84297EFB360054026B /* Feature */,
 				1DE8FF66297EE9780054026B /* Info.plist */,
 			);
@@ -1483,14 +1457,13 @@
 			children = (
 				1DE8FF91297F3E350054026B /* Alerts.swift */,
 				1DE8FF77297EED2E0054026B /* ViewCodeManager.swift */,
-				1DE0C25B298F964D003E18AE /* Layout+Enum.swift */,
-				1DE0C25D298F96C7003E18AE /* AppLayouts.swift */,
 				1DE0C25F29900CCF003E18AE /* UIView+Extension.swift */,
 				1DD37EC62995FDD400C918EC /* UIViewController+Extension.swift */,
 				1D2DB1CE29A17B27007E02ED /* UIColor+Extension.swift */,
 				1D7BF5C429A3B5690097B6ED /* UIButton+Extension.swift */,
 				1D87BE7A29B7BF88000C081E /* String+Extension.swift */,
 				1D8C52772A380C9600660C3A /* UIImage+Extension.swift */,
+				BE837BC22C3B3D1900F27B3D /* Errors.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1516,6 +1489,7 @@
 				1D7F1B3B2A96BC620079BFCF /* ViewModel */,
 				1D7F1B3A2A96BC5D0079BFCF /* Controller */,
 				1DE8FF8A297F11710054026B /* Cell */,
+				BE837BC72C3B4C1600F27B3D /* Layout */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1523,6 +1497,7 @@
 		1DE8FF84297EFB360054026B /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				BE837BB92C3B2BD300F27B3D /* LaunchAnimation */,
 				1DE8FF85297EFB4F0054026B /* TabBar */,
 				1DE8FF82297EFAEB0054026B /* Home */,
 				1DE8FF6D297EEABE0054026B /* Settings */,
@@ -1566,22 +1541,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		1DE8FF8D297F3DD30054026B /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				1DE8FF8E297F3DE00054026B /* SpaceExInternetServices.swift */,
-				1DE8FF98297F42050054026B /* NasaInternetService.swift */,
-				1D4387F5298389B400640AE6 /* SpaceDevsInternetServices.swift */,
-				1D2C00B029ED785700D113FD /* YoutubeInternetServices.swift */,
-				1D719A922A43745C000F8D53 /* SupernovaInternetServices.swift */,
-				1D34869A2A82A1D800B5C99D /* LaunchesServices.swift */,
-				1D3486A32A83BF9F00B5C99D /* EventsServices.swift */,
-				1D3486B82A83F5B800B5C99D /* RocketServices.swift */,
-				1D533AAE2A8E82EE009A4133 /* NewsServices.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		1DE8FF90297F3E110054026B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1589,22 +1548,6 @@
 				1DE8FF63297EE9780054026B /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		1DE8FF93297F3ECF0054026B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				1D59255229898FBF00F2A0EE /* NewsModel */,
-				1D59254C2988A49700F2A0EE /* SpaceExModels */,
-				1DE8FF96297F40990054026B /* PictureOfTheDayModel.swift */,
-				1D4387E12982F51E00640AE6 /* HomeItemsModel.swift */,
-				1D4387EF2983520E00640AE6 /* CrewModel.swift */,
-				1D4387F32983895E00640AE6 /* SpaceStationsModel.swift */,
-				1D5E1DE829D2519000178A8D /* PagingInfo.swift */,
-				1D2C00AE29ED76E800D113FD /* YoutubePlayerModel.swift */,
-				1D719A942A4374ED000F8D53 /* SupernovaModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		1DE8FFAB298167BD0054026B /* ImageViewer */ = {
@@ -1630,6 +1573,7 @@
 		1DF09DA229AD33EB00BCCE5E /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				BE837BC42C3B4B2400F27B3D /* Services */,
 				1D3486AD2A83E63300B5C99D /* View */,
 				1D3486A62A83DAC800B5C99D /* ViewModel */,
 				1D3486AC2A83E61A00B5C99D /* Controller */,
@@ -1670,6 +1614,7 @@
 		1DFF037629C2323A006E59CB /* RocketItem */ = {
 			isa = PBXGroup;
 			children = (
+				BE837BC52C3B4B3E00F27B3D /* Service */,
 				1D3486B42A83F39A00B5C99D /* View */,
 				1D3486B52A83F3A400B5C99D /* ViewModel */,
 				1D3486B32A83F38D00B5C99D /* Controller */,
@@ -1689,6 +1634,7 @@
 		BE0679422AFAB09900D12CC3 /* PictureDay */ = {
 			isa = PBXGroup;
 			children = (
+				BE946DF72B64036500399651 /* ViewModel.swift */,
 				BE0679432AFAB0AC00D12CC3 /* PictureDay.swift */,
 				BE946DF92B644B3B00399651 /* PictureDetails.swift */,
 			);
@@ -1938,7 +1884,6 @@
 		BE1742DE2C39C7C10046A7F6 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				BE837BB52C39FD2A00F27B3D /* Live Activity */,
 				BE1742DF2C39C7C60046A7F6 /* Widgets */,
 			);
 			path = Feature;
@@ -2004,12 +1949,71 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
-		BE837BB52C39FD2A00F27B3D /* Live Activity */ = {
+		BE837BB92C3B2BD300F27B3D /* LaunchAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				BE837BB62C39FD3D00F27B3D /* SwiftUIView.swift */,
+				BE837BBE2C3B2C0D00F27B3D /* View */,
+				BE837BBB2C3B2BE000F27B3D /* Controller */,
 			);
-			path = "Live Activity";
+			path = LaunchAnimation;
+			sourceTree = "<group>";
+		};
+		BE837BBB2C3B2BE000F27B3D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BE837BBC2C3B2C0300F27B3D /* LaunchAnimationController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BE837BBE2C3B2C0D00F27B3D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE837BBF2C3B2C2100F27B3D /* LaunchAnimationScreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE837BC42C3B4B2400F27B3D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1D3486A32A83BF9F00B5C99D /* EventsServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BE837BC52C3B4B3E00F27B3D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1D3486B82A83F5B800B5C99D /* RocketServices.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		BE837BC62C3B4B4B00F27B3D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1D533AAE2A8E82EE009A4133 /* NewsServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BE837BC72C3B4C1600F27B3D /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				BE837BC82C3B4D4500F27B3D /* HomeExtension.swift */,
+				1DE0C25D298F96C7003E18AE /* AppLayouts.swift */,
+				1DE0C25B298F964D003E18AE /* Layout+Enum.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		BE837BCA2C3B5E1800F27B3D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1D39C9052A4BBFFF00059B1E /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		BE946DE72B618B3500399651 /* Home */ = {
@@ -2026,6 +2030,7 @@
 				BE946E012B688F2300399651 /* Network */,
 				BE946DF42B6401C900399651 /* Extension */,
 				BE06793F2AFAAE5200D12CC3 /* 3DModels */,
+				BE946DF22B63FD5D00399651 /* OpeningView.swift */,
 				BE946DFF2B65F3AC00399651 /* RotationComponent.swift */,
 			);
 			path = Utility;
@@ -2060,9 +2065,6 @@
 				BEF052B42B05B124007826DD /* Launches */,
 				BE0679422AFAB09900D12CC3 /* PictureDay */,
 				BEA4D6542AFA836400B596A8 /* ImmersiveView.swift */,
-				BE723E052AFA939300AC0A03 /* Home.swift */,
-				BE946DF22B63FD5D00399651 /* OpeningView.swift */,
-				BE946DF72B64036500399651 /* ViewModel.swift */,
 				BEA4D65B2AFA836700B596A8 /* Info.plist */,
 				BEA4D6582AFA836600B596A8 /* Preview Content */,
 			);
@@ -2359,10 +2361,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE837BB82C39FDE900F27B3D /* HomeLaunchActivity.swift in Sources */,
 				BE1742DC2C39C66C0046A7F6 /* UIDate+Extension.swift in Sources */,
 				1D896D752A32195000C5DA28 /* SupernovaWidgetsBundle.swift in Sources */,
-				BE837BB72C39FD3D00F27B3D /* SwiftUIView.swift in Sources */,
 				1D8C52742A37BFCF00660C3A /* PictureOfTheDayWidget.swift in Sources */,
 				BE1742E22C39D5330046A7F6 /* Image+Extension.swift in Sources */,
 				BE1742D72C39C5510046A7F6 /* WidgetModel.swift in Sources */,
@@ -2385,8 +2385,10 @@
 				1DE8FF97297F40990054026B /* PictureOfTheDayModel.swift in Sources */,
 				BE946E052B6931E300399651 /* ErrorEnum.swift in Sources */,
 				1D2C00AF29ED76E800D113FD /* YoutubePlayerModel.swift in Sources */,
+				BE837BBD2C3B2C0300F27B3D /* LaunchAnimationController.swift in Sources */,
 				1D3486A82A83DAD900B5C99D /* EventsViewModel.swift in Sources */,
 				1D7F1B422A96BCFD0079BFCF /* HomeServices.swift in Sources */,
+				BE837BC92C3B4D4500F27B3D /* HomeExtension.swift in Sources */,
 				1DF09DAC29AF77F900BCCE5E /* OnboardingViewModel.swift in Sources */,
 				1D3486AB2A83E11900B5C99D /* EventsCellViewModel.swift in Sources */,
 				1D7BF5C529A3B5690097B6ED /* UIButton+Extension.swift in Sources */,
@@ -2400,7 +2402,6 @@
 				1D7F1B3F2A96BCA60079BFCF /* HomeViewModel.swift in Sources */,
 				1DD37EBB2993D5E900C918EC /* ButtonCollectionCell.swift in Sources */,
 				1D4387F6298389B400640AE6 /* SpaceDevsInternetServices.swift in Sources */,
-				1D719A952A4374ED000F8D53 /* SupernovaModel.swift in Sources */,
 				1DE8FF8F297F3DE00054026B /* SpaceExInternetServices.swift in Sources */,
 				1DF09DAF29AFB1A000BCCE5E /* LauchesController.swift in Sources */,
 				1D8C52782A380C9600660C3A /* UIImage+Extension.swift in Sources */,
@@ -2409,13 +2410,10 @@
 				1D59255129894CEF00F2A0EE /* HomeCollectionCellImage.swift in Sources */,
 				BE946DEE2B618E0A00399651 /* GridLayout.swift in Sources */,
 				1D93B8452A783778007F95D9 /* HomeAdCell.swift in Sources */,
-				1D5E1DE929D2519000178A8D /* PagingInfo.swift in Sources */,
 				1D7131A129A45FBE0020AC1B /* PageControlFooter.swift in Sources */,
 				1DF09D9F29ABBA6200BCCE5E /* NewsTextCell.swift in Sources */,
 				1DE38AE6299A778E002B5D4C /* EventsItem.swift in Sources */,
 				1D91BC572999D70100075AE8 /* LaunchesItemScreen.swift in Sources */,
-				1D4387F02983520E00640AE6 /* CrewModel.swift in Sources */,
-				1D4387EE29833ED500640AE6 /* DragonsModel.swift in Sources */,
 				1DD37EC72995FDD400C918EC /* UIViewController+Extension.swift in Sources */,
 				1DFF037A29C232CD006E59CB /* RocketScreen.swift in Sources */,
 				1DFF037829C2327C006E59CB /* RocketItem.swift in Sources */,
@@ -2446,9 +2444,9 @@
 				1DF09DA429AD3A1800BCCE5E /* EventsController.swift in Sources */,
 				1DA2A884298A99F90053B441 /* OnboardingController.swift in Sources */,
 				1D91BC552999D69400075AE8 /* LaunchesItemController.swift in Sources */,
+				BE837BC02C3B2C2100F27B3D /* LaunchAnimationScreen.swift in Sources */,
 				1D30110E29B77C2C00592206 /* FutureLaunchesHeader.swift in Sources */,
 				1D719A972A4377A4000F8D53 /* RocketCollectionCell.swift in Sources */,
-				1D4387E22982F51E00640AE6 /* HomeItemsModel.swift in Sources */,
 				1DE8FF89297F0F1D0054026B /* HomeScreen.swift in Sources */,
 				1D89F0CE2984041500DF67F8 /* WhatsNewModel.swift in Sources */,
 				1DE8FF5D297EE9710054026B /* HomeController.swift in Sources */,
@@ -2456,12 +2454,12 @@
 				1DE0C25C298F964D003E18AE /* Layout+Enum.swift in Sources */,
 				1DEB4CEF29C48E3F005D6E38 /* CompanyItem.swift in Sources */,
 				1D89F0D3298426EB00DF67F8 /* AboutController.swift in Sources */,
+				BE837BC32C3B3D1900F27B3D /* Errors.swift in Sources */,
 				1DE8FF95297F3EE50054026B /* UpcomingModel.swift in Sources */,
 				BE6AAEA32AF9676E008A5D1A /* LaunchesCellViewModel.swift.swift in Sources */,
 				1D59255429898FD000F2A0EE /* NewsModel.swift in Sources */,
 				1DE0C262299040BA003E18AE /* TitleCollection.swift in Sources */,
 				1DE8FF72297EEB810054026B /* SettingsModel.swift in Sources */,
-				1D719A932A43745C000F8D53 /* SupernovaInternetServices.swift in Sources */,
 				BE946DF02B61901A00399651 /* NasaObservatoryView.swift in Sources */,
 				1DE8FF59297EE9710054026B /* AppDelegate.swift in Sources */,
 				1DF09DA729AE181300BCCE5E /* EventsCell.swift in Sources */,
@@ -2476,9 +2474,6 @@
 				1D59254B2988A04900F2A0EE /* ExploreCollectionCell.swift in Sources */,
 				1DD37EC12994093C00C918EC /* LastLauchesModel.swift in Sources */,
 				1DE8FFAD298167DF0054026B /* ImageViewerController.swift in Sources */,
-				BE837BB42C39FA3500F27B3D /* HomeLaunchActivity.swift in Sources */,
-				1DE8FF99297F42050054026B /* NasaInternetService.swift in Sources */,
-				1D4387F42983895E00640AE6 /* SpaceStationsModel.swift in Sources */,
 				1D2C1D1229B0BA8C007957AA /* TitleReusable.swift in Sources */,
 				1D3486962A82853500B5C99D /* OnboardingCellViewModel.swift in Sources */,
 				1D3486A42A83BF9F00B5C99D /* EventsServices.swift in Sources */,
@@ -2503,14 +2498,13 @@
 				BEE318C52B4C499100856A73 /* LaunchView.swift in Sources */,
 				BE946DF62B64020000399651 /* View+Extension.swift in Sources */,
 				BE0679442AFAB0AC00D12CC3 /* PictureDay.swift in Sources */,
-				BE1D1A1A2B49F292009A231F /* PictureOfTheDayModel.swift in Sources */,
 				BEDF236F2B505163004A2E39 /* NasaObservatoryService.swift in Sources */,
 				BEA4D6512AFA836400B596A8 /* SupernovaVisionApp.swift in Sources */,
 				BEF052B62B05B138007826DD /* UpcomingLaunches.swift in Sources */,
 				BE44BB092B4DBE3E00BDE5FA /* GridLayout.swift in Sources */,
 				BE946DFE2B647DCD00399651 /* RocketView.swift in Sources */,
+				BE837BCB2C3B61DF00F27B3D /* PictureOfTheDayModel.swift in Sources */,
 				BE946DF82B64036500399651 /* ViewModel.swift in Sources */,
-				BE723E062AFA939300AC0A03 /* Home.swift in Sources */,
 				BE44BB072B4DB32E00BDE5FA /* NasaObservatory.swift in Sources */,
 				BE946DDB2B5D863600399651 /* NasaObItem.swift in Sources */,
 				BEA4D6552AFA836400B596A8 /* ImmersiveView.swift in Sources */,

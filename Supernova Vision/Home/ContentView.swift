@@ -20,7 +20,7 @@ struct ContentView: View {
     @State var data = [
         itemsModel(name: "Rocket Launches", icon: "sparkles", view: AnyView(Launch()), children: [itemsModel(name: "Upcoming Launches", icon: "fireworks", view: AnyView(UpcomingLaunches())), itemsModel(name: "Past Launches", icon: "house", view: AnyView(UpcomingLaunches()))]),
         itemsModel(name: "Picture of the day", icon: "photo.on.rectangle", view: AnyView(PictureDay(pictureOfTheDay: PictureOfTheDay(date: "", explanation: "", title: "", url: "")))),
-        itemsModel(name: "Nasa Observatory", icon: "moon.haze", view: AnyView(NasaObservatory()))
+    //    itemsModel(name: "Nasa Observatory", icon: "moon.haze", view: AnyView(NasaObservatory()))
     ]
     
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
@@ -29,73 +29,7 @@ struct ContentView: View {
         
     var body: some View {
         @Bindable var model = model
-
         
-//        NavigationSplitView {
-//            List (data, children: \.children) { datum in
-//                    NavigationLink(destination: datum.view) {
-//                        Label(datum.name, systemImage: datum.icon)
-//                            .foregroundStyle(.primary)
-//
-//                }
-//            } .toolbar {
-//                ToolbarItem(placement: .topBarLeading) {
-//                    VStack(alignment: .leading) {
-//                        Text("Menu")
-//                            .font(.largeTitle)
-//                        
-//                        Text("Supernova")
-//                            .foregroundStyle(.tertiary)
-//                        
-//                        Button(action: {
-//                                
-//                                Task {
-//                                    await self.openImmersiveSpace(id: "ImmersiveRocketSpace")
-//                                }
-//                                
-//                            }) {
-//                                Image(systemName: "view.3d")
-//                                    .font(.title)
-//                                    .frame(width: 44, height: 44)
-//                                }
-//                            
-//                    }
-//                }
-//            }
-            
- //       } detail: {
-//            VStack {
-//                Spacer()
-//                Text(emptyText)
-//                    .monospaced()
-//                    .font(.largeTitle)
-//                    .multilineTextAlignment(.center)
-//                    .onAppear {
-//                        _ = self.typingTimer
-//                    }
-//                
-//                Model3D(named: "Earth") { model in
-//                    model
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-//                        .frame(width: 200, height: 200)
-//                } placeholder: {
-//                    ProgressView()
-//                }
-//                .padding()
-//                 
-//                Text("Where lies a compedium of our universe, explore by accessing the sidebar menu")
-//                    .monospaced()
-//                    .font(.headline)
-//                    .multilineTextAlignment(.center)
-//                
-//                Spacer()
-//                Text("Created by Henrique Marques")
-//                    .font(.footnote)
-//                    .foregroundStyle(.secondary)
-//                    .padding(.bottom)
-//            }
-//            .background(Image("SolarBackground"))
         NavigationStack {
             VStack {
                 Image("SunSliver")
@@ -127,8 +61,6 @@ struct ContentView: View {
             .typeText(text: $model.titleText, finalText: "Supernova", isFinished: $model.isTitleFinished, isAnimated: !model.isTitleFinished)
             .background() {
                 Image("EarthHalf")
-                //     .resizable()
-                //     .scaledToFill()
                     .opacity(model.isTitleFinished ? 1 : 0)
                 
             }
@@ -151,22 +83,11 @@ struct ContentView: View {
                         }
                         
                         
-                        NavigationLink(destination: NasaObservatory()) {
-                            Text("Nasa Observatory")
-                                .bold()
-                                .padding()
-                        }
-                        
-//                        NavigationLink(destination: UpcomingLaunches()) {
-//                            Text("Credits")
+//                        NavigationLink(destination: NasaObservatory()) {
+//                            Text("Nasa Observatory")
 //                                .bold()
 //                                .padding()
 //                        }
-                        
-//                        Button("Open") {
-//                            openWindow(id: "ImmersiveRocketSpace")
-//                        }
-                        
                     }
                 }
             }

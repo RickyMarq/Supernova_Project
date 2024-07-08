@@ -46,8 +46,6 @@ struct OpeningView: View {
         .typeText(text: $model.titleText, finalText: "Supernova", isFinished: $model.isTitleFinished, isAnimated: !isTitleFinished)
         .background() {
             Image("EarthHalf")
-           //     .resizable()
-           //     .scaledToFill()
                 .opacity(model.isTitleFinished ? 1 : 0)
 
         }

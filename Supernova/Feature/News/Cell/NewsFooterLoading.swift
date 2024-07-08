@@ -44,21 +44,11 @@ class NewsFooterLoading: UICollectionReusableView {
 extension NewsFooterLoading: ViewCode {
   
     func configureSubViews() {
-//        self.addSubview(self.loadingMoreLabel)
-//        self.addSubview(self.activity)
         self.addSubview(self.loadingAnimationView)
     }
     
     func configureConstraints() {
         NSLayoutConstraint.activate([
-            
-//
-//
-//            self.activity.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-//            self.activity.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//            self.activity.heightAnchor.constraint(equalToConstant: 25),
-//            self.activity.widthAnchor.constraint(equalToConstant: 50),
-//
 
             self.loadingAnimationView.topAnchor.constraint(equalTo: self.topAnchor, constant: 12),
             self.loadingAnimationView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -12),

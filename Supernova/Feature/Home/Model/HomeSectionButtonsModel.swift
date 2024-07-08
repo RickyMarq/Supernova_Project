@@ -8,7 +8,6 @@
 import Foundation
 
 struct HomeButtons {
-    let image: String
     let title: String
 }
 
@@ -18,15 +17,13 @@ class HomeSectionButtonsModel {
         
     func populateModel() -> [HomeButtons] {
         
-        model.append(contentsOf: [HomeButtons(image: "rocket", title: "Launches"),
-                                 HomeButtons(image: "", title: "Last News"),
-                                 HomeButtons(image: "", title: "Spacial Events"),
-                                 HomeButtons(image: "", title: "Nasa Observatory")])
+        model.append(contentsOf: [HomeButtons(title: "Launches"),
+                                 HomeButtons(title: "Last News"),
+                                 HomeButtons(title: "Spacial Events"),
+                                 HomeButtons(title: "Nasa Observatory")])
         
         return model
         
-        
-    }
-    
+    }    
 }
 

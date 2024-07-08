@@ -108,38 +108,12 @@ class LaunchesCell: UICollectionViewCell {
         return label
     }()
     
-//    lazy var launchStateUIView: UIView = {
-//        let view = UIView()
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        view.layer.masksToBounds = true
-//        view.layer.cornerRadius = 10
-//        view.backgroundColor = .tertiarySystemBackground
-//
-//        view.layer.cornerRadius = 12.0
-//        view.layer.shadowColor = UIColor.white.cgColor
-//        view.layer.shadowOffset = CGSize(width: 1, height: 1)
-//        view.layer.shadowRadius = 3.5
-//        view.layer.shadowOpacity = 3
-//        return view
-//    }()
-//
-//    lazy var launchStateImageView: UIImageView = {
-//        let image = UIImageView()
-//        image.translatesAutoresizingMaskIntoConstraints = false
-//        image.contentMode = .scaleAspectFit
-//        image.tintColor = .primaryColour
-//        return image
-//    }()
-    
     func configCell(with data: ResultedModel) {
         self.cellViewModel = LaunchesCellViewModel(data: data)
         
         self.launchNameLabel.text = cellViewModel?.launchName
         self.companyNameLabel.text = cellViewModel?.companyName
         self.launchImageView.sd_setImage(with: URL(string: cellViewModel?.launchImage ?? ""))
-        
-//        let formatDate = convertDateLaunchesFormatter(data.windowStart ?? "")
-//        let formatHour = convertHourLaunchesFormatter(data.windowStart ?? "", outPut: "HH:mm zzz")
         
         self.dateEventLabel.text = "Live in \(cellViewModel?.formatedDate.capitalizedSentence ?? "")"
         self.dateHourLabel.text = "\(cellViewModel?.formatedHour ?? "")"
@@ -149,15 +123,6 @@ class LaunchesCell: UICollectionViewCell {
         } else {
             self.launchLiveLabel.text = "Not Live"
         }
-        
-        
-        
-//        if data.status.abbrev == "Go" {
-//            self.launchStateImageView.image = UIImage(systemName: "clock")
-//        } else {
-//            self.launchStateImageView.image = UIImage(systemName: "checkmark")
-//        }
-        
         
     }
     
@@ -184,8 +149,6 @@ extension LaunchesCell: ViewCode {
         self.contentView.addSubview(self.clockImageView)
         self.contentView.addSubview(self.dateEventLabel)
         self.contentView.addSubview(self.dateHourLabel)
-//        self.contentView.addSubview(self.launchStateUIView)
-//        self.launchStateUIView.addSubview(self.launchStateImageView)
     }
     
     func configureConstraints() {
@@ -211,16 +174,6 @@ extension LaunchesCell: ViewCode {
 
             self.launchLiveLabel.centerXAnchor.constraint(equalTo: self.launchLiveView.centerXAnchor),
             self.launchLiveLabel.centerYAnchor.constraint(equalTo: self.launchLiveView.centerYAnchor),
-
-//            self.launchStateUIView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -20),
-//            self.launchStateUIView.widthAnchor.constraint(equalToConstant: 40),
-//            self.launchStateUIView.heightAnchor.constraint(equalToConstant: 40),
-//            self.launchStateUIView.topAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -50),
-//
-//            self.launchStateImageView.centerXAnchor.constraint(equalTo: self.launchStateUIView.centerXAnchor),
-//            self.launchStateImageView.centerYAnchor.constraint(equalTo: self.launchStateUIView.centerYAnchor),
-//            self.launchStateImageView.heightAnchor.constraint(equalToConstant: 20),
-//            self.launchStateImageView.widthAnchor.constraint(equalToConstant: 20),
             
             self.calendarImageView.topAnchor.constraint(equalTo: self.bottomAnchor, constant: -30),
             self.calendarImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12),
@@ -233,7 +186,6 @@ extension LaunchesCell: ViewCode {
             self.clockImageView.heightAnchor.constraint(equalToConstant: 15),
             self.clockImageView.topAnchor.constraint(equalTo: self.calendarImageView.topAnchor),
             
-//            self.dateHourLabel.topAnchor.constraint(equalTo: self.dateEventLabel.topAnchor),
             self.dateHourLabel.centerYAnchor.constraint(equalTo: self.clockImageView.centerYAnchor),
             self.dateHourLabel.rightAnchor.constraint(equalTo: self.clockImageView.leftAnchor, constant: -4),
         
