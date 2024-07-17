@@ -98,6 +98,36 @@
             endingLineNumber = "161"
             landmarkName = "getLastEvents(limit:startsAt:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5A2F1EC4-89F2-49E3-8D17-9A34BE79E2E9 - c89207b04a36f5fe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Supernova.HomeViewModel.getLastEvents(limit: Swift.Int, startsAt: Swift.Int) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/henrique/Developer/Supernova/Supernova/Feature/Home/ViewModel/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161">
+               </Location>
+               <Location
+                  uuid = "5A2F1EC4-89F2-49E3-8D17-9A34BE79E2E9 - 4f1ce350cd459db4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Supernova.ResultedEvents&gt;&gt;, Supernova.Errors&gt;) -&gt; () in Supernova.HomeViewModel.getLastEvents(limit: Swift.Int, startsAt: Swift.Int) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/henrique/Developer/Supernova/Supernova/Feature/Home/ViewModel/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -114,6 +144,36 @@
             endingLineNumber = "165"
             landmarkName = "getLastEvents(limit:startsAt:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "41DD85B0-9A14-4672-95A3-4C67F9938708 - 4f1ce350cd459d28"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Supernova.ResultedEvents&gt;&gt;, Supernova.Errors&gt;) -&gt; () in Supernova.HomeViewModel.getLastEvents(limit: Swift.Int, startsAt: Swift.Int) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/henrique/Developer/Supernova/Supernova/Feature/Home/ViewModel/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "165"
+                  endingLineNumber = "165">
+               </Location>
+               <Location
+                  uuid = "41DD85B0-9A14-4672-95A3-4C67F9938708 - 4f1ce350cd459d28"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Supernova.ResultedEvents&gt;&gt;, Supernova.Errors&gt;) -&gt; () in Supernova.HomeViewModel.getLastEvents(limit: Swift.Int, startsAt: Swift.Int) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/henrique/Developer/Supernova/Supernova/Feature/Home/ViewModel/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "165"
+                  endingLineNumber = "165">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -146,6 +206,36 @@
             endingLineNumber = "161"
             landmarkName = "getLastEvents(limit:startsAt:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7A2C1F58-B101-481C-99F7-7FB65A3A2936 - 139e992a753773b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Supernova.HomeServices.getLastEvents(limit: Swift.Int, startsAt: Swift.Int, completion: (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Supernova.ResultedEvents&gt;&gt;, Supernova.Errors&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/henrique/Developer/Supernova/Supernova/Feature/Home/Services/HomeServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161">
+               </Location>
+               <Location
+                  uuid = "7A2C1F58-B101-481C-99F7-7FB65A3A2936 - 340636a5cc6c9c34"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Supernova.HomeServices.getLastEvents(limit: Swift.Int, startsAt: Swift.Int, completion: (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Supernova.ResultedEvents&gt;&gt;, Supernova.Errors&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Supernova"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/henrique/Developer/Supernova/Supernova/Feature/Home/Services/HomeServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

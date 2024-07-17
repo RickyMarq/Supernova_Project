@@ -20,7 +20,6 @@ struct GridLayout: View {
     struct StackColumn: Identifiable {
         let id = UUID()
         var gridItem = [StackGridItem]()
-        //        var picturesOfTheDay = [PictureOfTheDay]()
     }
     
     var columns: [StackColumn] = [StackColumn(gridItem: [StackGridItem(height: 200, title: "", description: "", imgString: ""),

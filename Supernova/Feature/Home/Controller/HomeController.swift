@@ -32,18 +32,13 @@ class HomeController: UIViewController {
         self.homeScreen?.homeCollectionViewProtocols(delegate: self, dataSource: self)
         self.getCompositionalLayout()
      
-        // N ta funcionando.
-     //   viewModel.getLastLaunches(limit: 10)
-     //   viewModel.getFutureLaunches(limit: 15, startsAt: 0)
-                
-     //   viewModel.getLastEvents(limit: 10, startsAt: 0)
-     //   viewModel.getLastPicturesOfTheDays(limit: 7)
-     //     viewModel.getPictureOfTheDay()
-
-        //
-        
-    //   viewModel.getNews(limit: 15, startsAt: 0)
-    //    viewModel.getNextLaunch(limit: 1, startsAt: 0)
+        viewModel.getLastLaunches(limit: 10)
+        viewModel.getFutureLaunches(limit: 15, startsAt: 0)
+        viewModel.getLastEvents(limit: 10, startsAt: 0)
+        viewModel.getLastPicturesOfTheDays(limit: 7)
+        viewModel.getPictureOfTheDay()
+        viewModel.getNews(limit: 15, startsAt: 0)
+        viewModel.getNextLaunch(limit: 1, startsAt: 0)
         
     }
     
@@ -57,7 +52,6 @@ class HomeController: UIViewController {
     
     func deleteNotifications() {
         if viewModel.isOn == false {
-            print("User doest allow notification anymore")
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         }
     }
